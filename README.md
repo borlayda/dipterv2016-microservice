@@ -19,3 +19,7 @@ httpd : webkiszolgálás (kell alá valami szolgáltatás)
 KanBan board minta:
 
 https://github.com/eventuate-examples/es-kanban-board
+
+Archivematica minta:
+
+https://www.archivematica.org/en/
