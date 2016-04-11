@@ -1,12 +1,15 @@
 #!/bin/bash
 
-name=${1-invalidname}
-password=${2-invalidpassword}
+MYIP=$(ping -c 1 $(hostname) | awk '/PING/ {print $3}' | cut -d "(" -f2 | cut -d ")" -f1 )
+echo $MYIP
+consul agent -server -node auth -data-dir /tmp/consul &
+IP=$1
+sleep 10
+consul join $IP
 
-auth() {
-    name=${1}
-    passwd=${2}
-    mysql -uroot -p root auth ${DATABASE_IP}
-}
+service apache2 restart
 
-auth ${name} ${password}
+while true
+do 
+    sleep 3
+done

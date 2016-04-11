@@ -1,7 +1,11 @@
-FROM mysql
+FROM ubuntu
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
-COPY consul /usr/bin
+COPY consul /usr/bin/consul
+COPY database.sh /usr/sbin/database.sh
 
 RUN apt-get -y update
-RUN apt-get -y install vim
+RUN apt-get -y install mysql-server mysql-client vim
+RUN chmod +x /usr/sbin/database.sh
+
+EXPOSE 8301 8400 3306

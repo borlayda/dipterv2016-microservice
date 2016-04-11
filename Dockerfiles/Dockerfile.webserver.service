@@ -1,9 +1,11 @@
 FROM httpd
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
-COPY consul /usr/bin
+COPY consul /usr/bin/consul
+COPY webserver.sh /usr/sbin/webserver.sh
 
 RUN apt-get -y update
 RUN apt-get -y install vim python-pip php5
+RUN chmod +x /usr/sbin/webserver.sh
 
-EXPOSE 80 443
+EXPOSE 80 443 8301 8400

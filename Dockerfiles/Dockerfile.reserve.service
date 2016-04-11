@@ -1,9 +1,11 @@
 FROM centos
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
-COPY consul /usr/bin
+COPY consul /usr/bin/consul
+COPY reserve.sh /usr/sbin/reserve.sh
 
 RUN yum -y update
 RUN yum -y install vim java-1.8.0-openjdk-devel
+RUN chmod +x /usr/sbin/reserve.sh
 
-EXPOSE 8888
+EXPOSE 8888 8301 8400

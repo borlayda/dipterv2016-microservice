@@ -1,9 +1,11 @@
 FROM ubuntu
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
-COPY consul /usr/bin
+COPY consul /usr/bin/consul
+COPY auth.sh /usr/sbin/auth.sh
 
 RUN apt-get -y update
 RUN apt-get -y install vim bash mysql-client python-oauth python-mysqldb
+RUN chmod +x /usr/sbin/auth.sh
 
-EXPOSE 8081
+EXPOSE 8081 8301 8400
