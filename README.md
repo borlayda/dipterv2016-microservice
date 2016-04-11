@@ -1,12 +1,21 @@
 # dipterv2016-microservice
 
-* Micro-services
-  * [Mirco-service definició](https://github.com/borlayda/dipterv2016-microservice/wiki/Mirco-service-definició)
-  * [Minta alkalmazások](https://github.com/borlayda/dipterv2016-microservice/wiki/Micro-service-használati-módok)
-  * [Integráció](https://github.com/borlayda/dipterv2016-microservice/wiki/Előkészítési-metrikák)
-* Integrációs technológiák
-  * [Telepítés](https://github.com/borlayda/dipterv2016-microservice/wiki/Micro-service-építő-technológiák)
-  * [Kommunikáció](https://github.com/borlayda/dipterv2016-microservice/wiki/Kommunikációs-technológiák)
-* Minta alkalmazás
-  * Infrastruktúra terv
-  * Kommunikációs terv
+[Documentation](https://github.com/borlayda/dipterv2016-microservice/wiki)
+
+Alkalmazás leírás:
+
+
+Szolgáltatások:
+
+
+Megvalósítás:
+
+Alap Docker konténerek:
+mysql : adatbázis kezeléshez (akár magában is jó)
+haproxy : elosztáshoz (konfigurálást meg kell oldani)
+httpd : webkiszolgálás (kell alá valami szolgáltatás)
+
+
+KanBan board minta:
+
+https://github.com/eventuate-examples/es-kanban-board
