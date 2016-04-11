@@ -1,0 +1,7 @@
+FROM haproxy
+MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+
+RUN apt-get -y update
+RUN apt-get install vim consul
+
+EXPOSE 8080 

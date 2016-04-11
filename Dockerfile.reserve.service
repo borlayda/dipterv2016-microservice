@@ -1,0 +1,7 @@
+FROM centos
+MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+
+RUN yum -y update
+RUN yum -y install vim java-1.8.0-openjdk-devel consul
+
+EXPOSE 8888

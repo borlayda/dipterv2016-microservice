@@ -1,0 +1,7 @@
+FROM ubuntu
+MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+
+RUN apt-get -y update
+RUN apt-get -y install vim bash mysql-client python-oauth python-mysqldb consul
+
+EXPOSE 8081
