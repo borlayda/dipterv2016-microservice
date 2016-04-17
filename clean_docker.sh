@@ -2,6 +2,9 @@
 
 services="database webserver proxy reserve auth"
 
+docker stop $(docker ps -a | awk '/bookstore/ {print $1}')
+docker rm $(docker ps -a | awk '/bookstore/ {print $1}')
+
 for service in ${services}
 do
     echo "Delete ${service} image"
@@ -9,5 +12,4 @@ do
 done
 
 rm -rf services
-rm -rf consul
-
+docker network rm bookstore

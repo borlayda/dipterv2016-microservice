@@ -1,7 +1,6 @@
 FROM haproxy
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
-COPY consul /usr/bin/consul
 COPY proxy.sh /usr/sbin/proxy.sh
 
 RUN apt-get -y update
@@ -10,4 +9,4 @@ RUN chmod +x /usr/sbin/proxy.sh
 
 ENTRYPOINT proxy.sh
 
-EXPOSE 8080 8301 8400 
+EXPOSE 8080
