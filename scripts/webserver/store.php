@@ -8,35 +8,35 @@
 
 <table>
   <tbody>
-    <th>Name</th><th>Quantity</th>
+    <tr><th>Name</th><th>Quantity</th></tr>
+
     <?php
-    $mysql_hostname = 'database';
-    $mysql_username = 'root';
-    $mysql_password = '';
-    $mysql_dbname = 'bookstore';
+      $servername = "database";
+      $username = "root";
+      $password = "";
+      $dbname = "bookstore";
 
-    try
-    {
-        $dbh = new PDO("mysql:host=$mysql_hostname;dbname=$mysql_dbname", $mysql_username, $mysql_password);
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $result = $dbh->query("SELECT store_id, book_name, count FROM store");
+      // Create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
 
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<tr><td>" . $row["book_name"]. "</td><td>" . $row["count"]. "</td></tr>";
-            }
-        } else {
-            echo "No results";
-        }
+      $sql = "SELECT * FROM store";
+      $result = $conn->query($sql);
 
-
-    }
-    catch(Exception $e)
-    {
-        $message = 'We are unable to process your request. Please try again later"';
-    } 
+      if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+              echo "<tr><td>" . $row["book_name"]. "</td><td> " . $row["count"]. "</td></tr>";
+          }
+      } else {
+          echo "0 results";
+      }
+      $conn->close();
     ?>
+
   </tbody>
 </table>
 
