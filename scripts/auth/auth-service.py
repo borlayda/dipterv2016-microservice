@@ -12,6 +12,7 @@ def hello(username, password):
                      WHERE username='%s' AND password='%s'" %
                      (username, password))
         user_id = cur.fetchone()
+        print user_id
         if not user_id:
             abort(401)
     except mdb.Error, e:
@@ -20,6 +21,7 @@ def hello(username, password):
     finally:
         if con:
             con.close()
+    return "Successfully authenticated!"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8081)

@@ -8,6 +8,6 @@ RUN apt-get -y update
 RUN apt-get -y install vim bash python-oauth python-mysqldb python \
     python-flask
 RUN chmod +x /usr/sbin/auth.sh
-RUN chmod +x /usr/Sbin/auth-service.py
+RUN chmod +x /usr/sbin/auth-service.py
 
 EXPOSE 8081

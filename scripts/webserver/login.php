@@ -12,7 +12,7 @@ else
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_URL,
-        'http://auth:8081/auth/$username/$password'
+        "http://auth:8081/auth/{$username}/{$password}"
     );
     $content = curl_exec($ch);
     echo $content;

@@ -7,7 +7,7 @@ COPY login.php /var/www/html/login.php
 COPY store.php /var/www/html/store.php
 
 RUN apt-get -y update
-RUN apt-get -y install vim php5 php5-mysql
+RUN apt-get -y install vim php5 php5-mysql curl php5-curl
 RUN chmod +x /usr/sbin/webserver.sh
 
 EXPOSE 80 443
