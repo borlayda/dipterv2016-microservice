@@ -4,8 +4,9 @@ MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 COPY proxy.sh /usr/sbin/proxy.sh
 
 RUN apt-get -y update
-RUN apt-get -y install vim
+RUN apt-get -y install vim haproxy
 RUN chmod +x /usr/sbin/proxy.sh
+COPY haproxy.cfg /etc/haproxy/haproxy.cfg
 
 ENTRYPOINT proxy.sh
 
