@@ -122,6 +122,7 @@ Automatizálás:
 
 A mikro szolgáltatások architektúrájában a következő feladatokat lehet
 automatizálni:
+
 1. Teszt alkalmazás build-elése: Gyakran van szükség a szolgáltatást futtató
 ...fájlok és egyéb tartalmak fordítására (C, Java, bináris kép fájlok frodítása)
 ..., és ezeket a forrásokat könnyedén elkészíthetjük automatizáltan is, mielőtt
