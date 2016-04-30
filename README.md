@@ -17,10 +17,13 @@ feladatokat kell teljesítenie a rendszernek, majd az erőforrásokat vettem
 alapul.
 
 A könyvesbolthoz tartozóan a következő tevékenységeket határoztam meg:
+
 * Bejelentkezés: Felhasználó felületen történő authentikálása
 * Böngészés: Felhasználó láthatja mi van a raktáron
 * Vásárlás: Felhasználó valamit a saját nevére ír
+
 Ezekből a feladatokból a következő szolgáltatásokat lehet elkészíteni:
+
 * Felület kiszolgálása: Egy web kiszolgáló alkalmazása, amin keresztül
   elvégezhetők a különböző műveletek, mint a bejeletkezés, vagy vásárlás.
   Ez a felület magába foglalja a böngészést lehetővé tevő szolgáltatást is.
@@ -57,6 +60,7 @@ nélkül. Ezt a Docker-el úgy oldottam meg, hogy Centos és Ubuntu disztribúci
 környezeteket, és PHP, Python, Java, illetve Bash szkripteket használtam.
 
 A szolgáltatásokhoz tartozó Docker konténerek:
+
 * Adatbázis: Az alapja egy 'mysql' nevezetű konténer, ami tartalmaz egy
   lightweight Ubuntu-t és benne telepítve egy mysql szervert. Ezt a konténert
   egy inicializáló szkripttel egészítettem ki, ami elkészítette az alap
@@ -103,7 +107,9 @@ Ahogy korábban már említettem lehetőség van a Docker legújabb verzióiban 
 a többi konténer. A név beállításához a docker run parancs --hostname
 paraméterét használhatjuk, míg a hálózat definiálásához előbb létre kell hozni
 egy új Docker hálózatot
+
   docker network create bookstore
+
 amire a konténerek tudnak csatlakozni a --net kulcsszóval. Ennek segítségével
 elértem, hogy nagyon egyszerűen és egy eszköz felhasználásával képesek legyenek
 látni egymást a szolgáltatások, viszont egy nagy hátulütője van a megoldásnak,
