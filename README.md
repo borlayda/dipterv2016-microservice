@@ -123,29 +123,29 @@ Automatizálás:
 A mikro szolgáltatások architektúrájában a következő feladatokat lehet
 automatizálni:
 1. Teszt alkalmazás build-elése: Gyakran van szükség a szolgáltatást futtató
-   fájlok és egyéb tartalmak fordítására (C, Java, bináris kép fájlok frodítása)
-   , és ezeket a forrásokat könnyedén elkészíthetjük automatizáltan is, mielőtt
-   a környezetet összeépítenénk.
+...fájlok és egyéb tartalmak fordítására (C, Java, bináris kép fájlok frodítása)
+..., és ezeket a forrásokat könnyedén elkészíthetjük automatizáltan is, mielőtt
+...a környezetet összeépítenénk.
 2. Teszt architektúra telepítése: Az egyes szolgáltatásokat egy felügyelt
-   környezetbe helyezve valamilyen környezeti konfigurációval együtt
-   telepíthetjük (esetünkben Docker konténerekbe csomagolhatjuk), és az így
-   kialakuló architektúrát használhatjuk fel a céljaunkra. (Esetünkben
-   kialakítunk egy könyvesboltot)
+...környezetbe helyezve valamilyen környezeti konfigurációval együtt
+...telepíthetjük (esetünkben Docker konténerekbe csomagolhatjuk), és az így
+...kialakuló architektúrát használhatjuk fel a céljaunkra. (Esetünkben
+...kialakítunk egy könyvesboltot)
 3. Teszt architektúra konfigurálása: Van, hogy telepítés után nem elég magára
-   hagyni a rendszert, és használni a szolgáltatásokat, de szükséges különböző
-   beállításokat végrehajtani, hogy a megfelelő módon működjön az alkalmazás.
-   Ilyen feladat lehet a szolgáltatásokhoz tartozó registry frissítése, vagy
-   a futtató gépeken a rendelkezésre állás javítása, és egyéb biztonsági
-   mechanizmusok alkalmazása. (Esetemben a Zookeeper felkonfigurálása lesz
-   a feladat.)
+...hagyni a rendszert, és használni a szolgáltatásokat, de szükséges különböző
+...beállításokat végrehajtani, hogy a megfelelő módon működjön az alkalmazás.
+...Ilyen feladat lehet a szolgáltatásokhoz tartozó registry frissítése, vagy
+...a futtató gépeken a rendelkezésre állás javítása, és egyéb biztonsági
+...mechanizmusok alkalmazása. (Esetemben a Zookeeper felkonfigurálása lesz
+...a feladat.)
 4. Teszt architektúra tesztelése: Az éles futó architektúrán futtathatunk
-   teszteket, amikkel megbizonyosodhatunk, hogy a rendszer megfelelően működik,
-   és minden rendben van, átadható a megrendelőnek, vagy átengedhető a
-   felhasználóknak. Ilyen teszt lehet az alkalmazás elemeinek a unit tesztelése,
-   szolgáltatásonként funkció tesztek futtatása, a szolgáltatások kapcsolaihoz
-   integrációs és rendszer tesztek futtatása, illetve a skálázás és egyéb
-   teljesítményt befojásoló tényezőkhöz teljesítmény tesztek futtatása.
-   (Esetemben unit teszteket fogok futtatni)
+...teszteket, amikkel megbizonyosodhatunk, hogy a rendszer megfelelően működik,
+...és minden rendben van, átadható a megrendelőnek, vagy átengedhető a
+...felhasználóknak. Ilyen teszt lehet az alkalmazás elemeinek a unit tesztelése,
+...szolgáltatásonként funkció tesztek futtatása, a szolgáltatások kapcsolaihoz
+...integrációs és rendszer tesztek futtatása, illetve a skálázás és egyéb
+...teljesítményt befojásoló tényezőkhöz teljesítmény tesztek futtatása.
+...(Esetemben unit teszteket fogok futtatni)
 
 Jenkins Job-ok fejelesztése:
 ----------------------------
