@@ -107,9 +107,9 @@ Ahogy korábban már említettem lehetőség van a Docker legújabb verzióiban 
 a többi konténer. A név beállításához a docker run parancs --hostname
 paraméterét használhatjuk, míg a hálózat definiálásához előbb létre kell hozni
 egy új Docker hálózatot
-
+```docker
   docker network create bookstore
-
+```
 amire a konténerek tudnak csatlakozni a --net kulcsszóval. Ennek segítségével
 elértem, hogy nagyon egyszerűen és egy eszköz felhasználásával képesek legyenek
 látni egymást a szolgáltatások, viszont egy nagy hátulütője van a megoldásnak,
