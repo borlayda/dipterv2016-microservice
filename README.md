@@ -36,6 +36,8 @@ Ezekből a feladatokból a következő szolgáltatásokat lehet elkészíteni:
 * **Terhelés elosztó szolgáltatás**: Ez a szolgálatatás a skálázhatóságot segíti,
   és egy egységes interfész kialakításában segít.
 
+![Microservices](microservices.png)
+
 Megvalósítás:
 ------------
 
@@ -190,10 +192,6 @@ A Jenkins lehetővé teszi, hogy az egyes feladatok alfeladatokat hívjanak, és
 komplex hierarchiát hozzanak létre. Ha bonyolultabb vagy részletesebb felbontást
 szeretnék, csak fel kell vennem pár újabb feladatot, és meg kell hívnom egy
 feladatból a többit.
-
-
-
-
 
 Egyéb minta alkalmazások:
 ------------------------
