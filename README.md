@@ -18,34 +18,34 @@ alapul.
 
 A könyvesbolthoz tartozóan a következő tevékenységeket határoztam meg:
 
-* Bejelentkezés: Felhasználó felületen történő authentikálása
-* Böngészés: Felhasználó láthatja mi van a raktáron
-* Vásárlás: Felhasználó valamit a saját nevére ír
+* **Bejelentkezés**: Felhasználó felületen történő authentikálása
+* **Böngészés**: Felhasználó láthatja mi van a raktáron
+* **Vásárlás**: Felhasználó valamit a saját nevére ír
 
 Ezekből a feladatokból a következő szolgáltatásokat lehet elkészíteni:
 
-* Felület kiszolgálása: Egy web kiszolgáló alkalmazása, amin keresztül
+* **Felület kiszolgálása**: Egy web kiszolgáló alkalmazása, amin keresztül
   elvégezhetők a különböző műveletek, mint a bejeletkezés, vagy vásárlás.
   Ez a felület magába foglalja a böngészést lehetővé tevő szolgáltatást is.
-* Authentikációs szolgáltatás: A bejelentkezni szándékozó felhasználó adatait
+* **Authentikációs szolgáltatás**: A bejelentkezni szándékozó felhasználó adatait
   ellenőrzi, és hibás bejelentkezés esetén hibát dob.
-* Vásárlási szolgáltatás: A böngészés közben kiválasztott könyveket lefoglalja
+* **Vásárlási szolgáltatás**: A böngészés közben kiválasztott könyveket lefoglalja
   a raktári készletből.
-* Adatbázis szolgáltatás: Ez a szolgáltatás tartalmazza a raktár tartalmát, a
+* **Adatbázis szolgáltatás**: Ez a szolgáltatás tartalmazza a raktár tartalmát, a
   vásárlási naplót, és a bejelentkezési adatokat.
-* Terhelés elosztó szolgáltatás: Ez a szolgálatatás a skálázhatóságot segíti,
+* **Terhelés elosztó szolgáltatás**: Ez a szolgálatatás a skálázhatóságot segíti,
   és egy egységes interfész kialakításában segít.
 
 Megvalósítás:
 ------------
 
 A megvalósításhoz felhasznált technológiák a szolgálatatások felismerésében
-különböztek. Kipróbáltam a korábbi félévek során használt Consul-t, amivel
+különböztek. Kipróbáltam a korábbi félévek során használt *Consul*-t, amivel
 dinamikusan esemény vezérelten képesek kommunikálni a szolgálatatások.
-Másodszorra a Docker konténerekbe beépített módzsert használtam fel, amivel
+Másodszorra a *Docker* konténerekbe beépített módzsert használtam fel, amivel
 könnyen, már indítás közben felismerik egymást a szolgáltatások.
 Harmadszorra pedog egy gyakran használt service registry-t használtam, az
-Apache Zookeepert.
+*Apache Zookeepert*.
 
 Megvalósítás Docker konténerekkel:
 ----------------------------------
@@ -61,22 +61,22 @@ környezeteket, és PHP, Python, Java, illetve Bash szkripteket használtam.
 
 A szolgáltatásokhoz tartozó Docker konténerek:
 
-* Adatbázis: Az alapja egy 'mysql' nevezetű konténer, ami tartalmaz egy
+* **Adatbázis**: Az alapja egy *'mysql'* nevezetű konténer, ami tartalmaz egy
   lightweight Ubuntu-t és benne telepítve egy mysql szervert. Ezt a konténert
   egy inicializáló szkripttel egészítettem ki, ami elkészítette az alap
   adatbázist.
-* Terhelés elosztó: A terhelés elosztást HAProxy-val oldottam meg, amit egy
+* **Terhelés elosztó**: A terhelés elosztást *HAProxy*-val oldottam meg, amit egy
   Ubuntu konténerre alapoztam. Létezik egy olyan Docker konténer, ami
   kifejezetten HAProxy mikro szolgáltatásnak van nevezve, azonban ez a konténer
   nehezen használható, és a szolgáltatás újraindítása is el lett rontva benne,
   így egyszerűbbnek láttam egy saját megvalósítást használni.
-* Webkiszolgáló: A weboldal kiszolgálását egy 'httpd' nevű lightweight konténer
-  szolgálja ki amiben egy apache webkiszlgáló van. Ezt kiegészítettem PHP-val,
+* **Webkiszolgáló**: A weboldal kiszolgálását egy *'httpd'* nevű lightweight konténer
+  szolgálja ki amiben egy apache webkiszlgáló van. Ezt kiegészítettem *PHP*-val,
   és néhány szkripttel, ami kiszolgálja a kéréseket.
-* Authentikáció: Egyszerű Ubuntu konténer, ami fel van szerelve Python-nal, és
-  a MySQLdb Python könyvtárral. Ezen felül tartalmaz egy REST-es kiszolgálót,
+* **Authentikáció**: Egyszerű Ubuntu konténer, ami fel van szerelve *Python*-nal, és
+  a *MySQLdb* Python könyvtárral. Ezen felül tartalmaz egy REST-es kiszolgálót,
   amin keresztül elérhető a szolgáltatás.
-* Vásárlás: Centos konténer alapú környezet, amiben Java lett telepítve, és egy
+* **Vásárlás**: Centos konténer alapú környezet, amiben *Java* lett telepítve, és egy
   webes REST API-n keresztül érhetjük el a szolgáltatását.
 
 Kapcsolatok építése Consul-al:
@@ -104,13 +104,13 @@ Kapcsolatok építése Docker-el:
 
 Ahogy korábban már említettem lehetőség van a Docker legújabb verzióiban megadni
 ,hogy ez egyes konténerek milyen néven és milyen hálózaton keresztül érhető el
-a többi konténer. A név beállításához a docker run parancs --hostname
+a többi konténer. A név beállításához a docker run parancs `--hostname`
 paraméterét használhatjuk, míg a hálózat definiálásához előbb létre kell hozni
 egy új Docker hálózatot
 ```docker
   docker network create bookstore
 ```
-amire a konténerek tudnak csatlakozni a --net kulcsszóval. Ennek segítségével
+amire a konténerek tudnak csatlakozni a `--net` kulcsszóval. Ennek segítségével
 elértem, hogy nagyon egyszerűen és egy eszköz felhasználásával képesek legyenek
 látni egymást a szolgáltatások, viszont egy nagy hátulütője van a megoldásnak,
 mégpedig az, hogy egy gépen kell futnia az összes alkalmazásnak. Mivel ez egy
@@ -129,23 +129,23 @@ Automatizálás:
 A mikro szolgáltatások architektúrájában a következő feladatokat lehet
 automatizálni:
 
-1. Teszt alkalmazás build-elése: Gyakran van szükség a szolgáltatást futtató
+1. **Teszt alkalmazás build-elése**: Gyakran van szükség a szolgáltatást futtató
    fájlok és egyéb tartalmak fordítására (C, Java, bináris kép fájlok frodítása)
    , és ezeket a forrásokat könnyedén elkészíthetjük automatizáltan is, mielőtt
    a környezetet összeépítenénk.
-2. Teszt architektúra telepítése: Az egyes szolgáltatásokat egy felügyelt
+2. **Teszt architektúra telepítése**: Az egyes szolgáltatásokat egy felügyelt
    környezetbe helyezve valamilyen környezeti konfigurációval együtt
    telepíthetjük (esetünkben Docker konténerekbe csomagolhatjuk), és az így
    kialakuló architektúrát használhatjuk fel a céljaunkra. (Esetünkben
    kialakítunk egy könyvesboltot)
-3. Teszt architektúra konfigurálása: Van, hogy telepítés után nem elég magára
+3. **Teszt architektúra konfigurálása**: Van, hogy telepítés után nem elég magára
    hagyni a rendszert, és használni a szolgáltatásokat, de szükséges különböző
    beállításokat végrehajtani, hogy a megfelelő módon működjön az alkalmazás.
    Ilyen feladat lehet a szolgáltatásokhoz tartozó registry frissítése, vagy
    a futtató gépeken a rendelkezésre állás javítása, és egyéb biztonsági
    mechanizmusok alkalmazása. (Esetemben a Zookeeper felkonfigurálása lesz
    a feladat.)
-4. Teszt architektúra tesztelése: Az éles futó architektúrán futtathatunk
+4. **Teszt architektúra tesztelése**: Az éles futó architektúrán futtathatunk
    teszteket, amikkel megbizonyosodhatunk, hogy a rendszer megfelelően működik,
    és minden rendben van, átadható a megrendelőnek, vagy átengedhető a
    felhasználóknak. Ilyen teszt lehet az alkalmazás elemeinek a unit tesztelése,
@@ -156,6 +156,42 @@ automatizálni:
 
 Jenkins Job-ok fejelesztése:
 ----------------------------
+
+Az architektúra összeállításának automatizálását a Jenkins folytonos integrációt
+támogató eszközt használtam, aminek segítségével egyszerű feladatok
+létrehozásával, és bash parancsok futtatásával képes voltam fellőni egy teszt
+környezetet.
+
+A létrehozott feladatok (job-ok):
+
+![Jenkins job-ok](jenkins-jobs.png)
+
+* **bookstore-build**: Ennek a feladata a forrásfájlok és a Docker konténerek
+  felkészítése. Miután a job végzett, a teljes infrastruktúra elkészíthető
+  Docker konténerekből.
+
+![Microservice build](jenkins-build.png)
+
+* **bookstore-run**: Ennek a job-nak a feladata a Docker konténerek indítása,
+  a szolgáltatások iniciaálizálása.
+
+![Microservice run](jenkins-run.png)
+
+* **bookstore-clean**: Ennek a job-nak a feladata, hogy a környezet ki legyen
+  tisztítva, és ne maradjon a tesztek után semilyen Docker konténer, vagy
+  fordított fájl a munkaterületen (workspace).
+
+![Microservice clean](jenkins-clean.png)
+
+* **bookstore-test**: Unit tesztek futtatása a feladata, de ide tartoznának a
+  funkció és integrációs tesztek is, illetve a teljesítmény tesztek.
+
+A Jenkins lehetővé teszi, hogy az egyes feladatok alfeladatokat hívjanak, és egy
+komplex hierarchiát hozzanak létre. Ha bonyolultabb vagy részletesebb felbontást
+szeretnék, csak fel kell vennem pár újabb feladatot, és meg kell hívnom egy
+feladatból a többit.
+
+
 
 
 
