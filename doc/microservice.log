@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.9)  10 MAY 2016 09:04
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.9)  10 MAY 2016 12:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1514,7 +1514,7 @@ LaTeX Info: Redefining \nameref on input line 117.
 LaTeX Info: Redefining \cal on input line 586.
 LaTeX Info: Redefining \mit on input line 587.
 )
-<img/BME1782logo.pdf, id=135, 709.65125pt x 199.74625pt>
+<img/BME1782logo.pdf, id=151, 709.65125pt x 199.74625pt>
 File: img/BME1782logo.pdf Graphic file (type pdf)
 
 <use img/BME1782logo.pdf>
@@ -1578,7 +1578,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.30 ...n\IeC {\'\i }t\IeC {\'a}s}{24}{chapter*.5}
+l.27 ...z\IeC {\'\i }t\IeC {\'e}se}{21}{chapter.9}
                                                    [1
 
 ])
@@ -1598,18 +1598,14 @@ l.30 ...n\IeC {\'\i }t\IeC {\'a}s}{24}{chapter*.5}
 
 ]
 2. fejezet.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 215.
-
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 238.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 262.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 
 LaTeX Warning: File `http://microservices.io/i/DecomposingApplications.021.jpg'
- not found on input line 275.
+ not found on input line 299.
 
 
 ! LaTeX Error: Unknown graphics extension: .021.jpg.
@@ -1618,40 +1614,95 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.275 ...ces.io/i/DecomposingApplications.021.jpg}
+l.299 ...ces.io/i/DecomposingApplications.021.jpg}
                                                   
 ? 
 [7
 
 ] [8] [9]
 3. fejezet.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 401.
-
 [10
 
-] [11] [12] [13] [14] [15]
+]
 4. fejezet.
-[16
+[11
 
 ]
 5. fejezet.
-[17
+[12
 
 ]
 6. fejezet.
-[18
+[13
 
-]
+] [14] [15] [16] [17] [18]
 7. fejezet.
 [19
+
+]
+8. fejezet.
+<img/microservices.png, id=290, 978.65625pt x 417.56pt>
+File: img/microservices.png Graphic file (type png)
+
+<use img/microservices.png>
+Package pdftex.def Info: img/microservices.png used on input line 741.
+(pdftex.def)             Requested size: 587.19829pt x 250.53792pt.
+ [20
+
+ <./img/microservices.png>] [21]
+9. fejezet.
+[22
+
+]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 879.
+
+ (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [23]
+<img/jenkins-jobs.png, id=311, 1854.93pt x 470.75874pt>
+File: img/jenkins-jobs.png Graphic file (type png)
+
+<use img/jenkins-jobs.png>
+Package pdftex.def Info: img/jenkins-jobs.png used on input line 953.
+(pdftex.def)             Requested size: 1112.96661pt x 282.45743pt.
+
+<img/jenkins-build.png, id=312, 1349.04pt x 674.52pt>
+File: img/jenkins-build.png Graphic file (type png)
+
+<use img/jenkins-build.png>
+Package pdftex.def Info: img/jenkins-build.png used on input line 967.
+(pdftex.def)             Requested size: 809.43025pt x 404.71512pt.
+ [24 <./img/jenkins-jobs.png>]
+<img/jenkins-run.png, id=323, 1348.03625pt x 761.84625pt>
+File: img/jenkins-run.png Graphic file (type png)
+
+<use img/jenkins-run.png>
+Package pdftex.def Info: img/jenkins-run.png used on input line 980.
+(pdftex.def)             Requested size: 808.828pt x 457.11128pt.
+
+<img/jenkins-clean.png, id=324, 1348.03625pt x 885.3075pt>
+File: img/jenkins-clean.png Graphic file (type png)
+
+<use img/jenkins-clean.png>
+Package pdftex.def Info: img/jenkins-clean.png used on input line 994.
+(pdftex.def)             Requested size: 808.828pt x 531.1886pt.
+ [25 <./img/jenkins-build.png>] [26 <./img/jenkins-run.png> <./img/jenkins-clea
+n.png>]
+10. fejezet.
+[27
+
+] [28
 
 ] (./microservice.lot)
 \tf@lot=\write6
 \openout6 = `microservice.lot'.
 
- [20
+ [29
 
 ] (./microservice.lof)
 \tf@lof=\write7
@@ -1659,7 +1710,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 
 
 No file microservice.bbl.
-[21
+[30
 
 ]
 A. f\"uggel\'ek.
@@ -1668,14 +1719,15 @@ A. f\"uggel\'ek.
 
 
 AED: lastpage setting LastPage
-[22
+[31
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 759.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 759.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1113.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1113.
  (./microservice.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 759.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 759.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1113.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1113.
+
 
 
 Package rerunfilecheck Warning: File `microservice.out' has changed.
@@ -1683,67 +1735,32 @@ Package rerunfilecheck Warning: File `microservice.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `microservice.out':
-(rerunfilecheck)             Before: 52FCCDF21B3E8A4487ADE5C227AA52CE;4893
-(rerunfilecheck)             After:  BD78209CD020871698905F518B0EBD65;4021.
+(rerunfilecheck)             Before: 526E7EEBE1C0FCC8B276E6F88C9AA156;6005
+(rerunfilecheck)             After:  DF4BA85EB28502E81769EA527FCC77C6;6129.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 759.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1113.
  ) 
 Here is how much of TeX's memory you used:
- 31711 strings out of 493304
- 547935 string characters out of 6139872
- 621407 words of memory out of 5000000
- 34419 multiletter control sequences out of 15000+600000
- 77476 words of font info for 98 fonts, out of 8000000 for 9000
+ 31821 strings out of 493304
+ 549569 string characters out of 6139872
+ 621523 words of memory out of 5000000
+ 34489 multiletter control sequences out of 15000+600000
+ 69689 words of font info for 103 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,7n,92p,10395b,552s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{table.4.1} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.4.5} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.4.4} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.4.3} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.4.2} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.0.14} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.0.13} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.3.0.12} has been referenced but does not
- exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.1.5} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.1.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvip
-s/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/sha
-re/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/
-lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fon
-ts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pf
-b></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/typ
-e1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></u
-sr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/p
-ublic/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/shar
-e/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm
-/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/
-fonts/type1/public/lm/lmsy10.pfb>
-Output written on microservice.pdf (23 pages, 293085 bytes).
+ 63i,7n,92p,10395b,546s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/shar
+e/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmtt10.pfb>
+Output written on microservice.pdf (32 pages, 751183 bytes).
 PDF statistics:
- 365 PDF objects out of 1000 (max. 8388607)
- 323 compressed objects within 4 object streams
- 64 named destinations out of 1000 (max. 500000)
- 20754 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 442 PDF objects out of 1000 (max. 8388607)
+ 389 compressed objects within 4 object streams
+ 82 named destinations out of 1000 (max. 500000)
+ 19787 words of extra memory for PDF output out of 20736 (max. 10000000)
 

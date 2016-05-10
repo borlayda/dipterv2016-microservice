@@ -8,7 +8,7 @@ DEPARTMENT = Méréstechnika és Információs Rendszerek Tanszék
 RESEARCH_GROUP =
 THESIS_TYPE = Diplomaterv
 DOCUMENT_LANG = magyar
-SOURCE_FILES = abstract.md chapter1.md chapter2.md chapter3.md chapter4.md summary.md bibliography.md
+SOURCE_FILES = abstract.md intro.md chapter1.md chapter2.md chapter3.md chapter4.md chapter5.md chapter6.md summary.md bibliography.md
 APPENDIX_FILE = appendix.md
 
 # variables for the PDF/HTML compiler
