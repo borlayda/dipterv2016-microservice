@@ -53,7 +53,7 @@ HTML_ARGS = \
 pdf: latex build-latex
 
 
-latex: compile-guideline-tex compile-appendix-tex
+latex: compile-appendix-tex
 	pandoc \
 		$(LATEX_ARGS) \
 		--to=latex \

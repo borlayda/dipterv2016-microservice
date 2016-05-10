@@ -44,28 +44,6 @@
 \fi
 \usepackage{natbib}
 \bibliographystyle{plain}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\newenvironment{Shaded}{}{}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
-\usepackage{longtable,booktabs}
 \usepackage{graphicx}
 % We will generate all images so they have a width \maxwidth. This means
 % that they will get their normal width if they fit onto the page, but
@@ -104,7 +82,7 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \ifxetex
   \usepackage{polyglossia}
-  \setmainlanguage{magyar}
+  \setmainlanguage{}
 \else
   \usepackage[magyar]{babel}
 \fi
@@ -140,112 +118,6 @@
 
 \footnotesize
 
-\textbf{Általános információk, a diplomaterv szerkezete}
-
-A diplomaterv szerkezete a BME Villamosmérnöki és Informatikai Karán:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Diplomaterv feladatkiírás
-\item
-  Címoldal
-\item
-  Tartalomjegyzék
-\item
-  A diplomatervező nyilatkozata az önálló munkáról és az elektronikus
-  adatok kezeléséről
-\item
-  Tartalmi összefoglaló magyarul és angolul
-\item
-  Bevezetés: a feladat értelmezése, a tervezés célja, a feladat
-  indokoltsága, a diplomaterv felépítésének rövid összefoglalása
-\item
-  A feladatkiírás pontosítása és részletes elemzése
-\item
-  Előzmények (irodalomkutatás, hasonló alkotások), az ezekből levonható
-  következtetések
-\item
-  A tervezés részletes leírása, a döntési lehetőségek értékelése és a
-  választott megoldások indoklása
-\item
-  A megtervezett műszaki alkotás értékelése, kritikai elemzése,
-  továbbfejlesztési lehetőségek
-\item
-  Esetleges köszönetnyilvánítások
-\item
-  Részletes és pontos irodalomjegyzék
-\item
-  Függelék(ek)
-\end{enumerate}
-
-Felhasználható a következő oldaltól kezdődő \LaTeX-diplomaterv sablon
-dokumentum tartalma.
-
-A diplomaterv szabványos méretű A4-es lapokra kerüljön. Az oldalak
-tükörmargóval készüljenek (mindenhol 2,5 cm, baloldalon 1 cm-es
-kötéssel). Az alapértelmezett betűkészlet a 12 pontos Times New Roman,
-másfeles sorközzel.
-
-Minden oldalon -- az első négy szerkezeti elem kivételével --
-szerepelnie kell az oldalszámnak.
-
-A fejezeteket decimális beosztással kell ellátni. Az ábrákat a megfelelő
-helyre be kell illeszteni, fejezetenként decimális számmal és kifejező
-címmel kell ellátni. A fejezeteket decimális aláosztással számozzuk,
-maximálisan 3 aláosztás mélységben (pl. 2.3.4.1.). Az ábrákat,
-táblázatokat és képleteket célszerű fejezetenként külön számozni (pl.
-2.4. ábra, 4.2. táblázat. vagy képletnél (3.2)). A fejezetcímeket
-igazítsuk balra, a normál szövegnél viszont használjunk
-sorkiegyenlítést. Az ábrákat, táblázatokat és a hozzájuk tartozó címet
-igazítsuk középre. A cím a jelölt rész alatt helyezkedjen el.
-
-A képeket lehetőleg rajzoló programmal készítsék el, az egyenleteket
-egyenlet-szerkesztő segítségével írják le (A \LaTeX~ehhez kézenfekvő
-megoldásokat nyújt).
-
-Az irodalomjegyzék szövegközi hivatkozása történhet a
-Harvard-rendszerben (a szerző és az évszám megadásával) vagy
-sorszámozva. A teljes lista névsor szerinti sorrendben a szöveg végén
-szerepeljen (sorszámozott irodalmi hivatkozások esetén hivatkozási
-sorrendben). A szakirodalmi források címeit azonban mindig az eredeti
-nyelven kell megadni, esetleg zárójelben a fordítással. A listában
-szereplő valamennyi publikációra hivatkozni kell a szövegben (a
-\LaTeX-sablon a Bib\TeX~segítségével mindezt automatikusan kezeli).
-Minden publikáció a szerzők után a következő adatok szerepelnek:
-folyóirat cikkeknél a pontos cím, a folyóirat címe, évfolyam, szám,
-oldalszám tól-ig. A folyóirat címeket csak akkor rövidítsük, ha azok
-nagyon közismertek vagy nagyon hosszúak. Internet hivatkozások
-megadásakor fontos, hogy az elérési út előtt megadjuk az oldal
-tulajdonosát és tartalmát (mivel a link egy idő után akár elérhetetlenné
-is válhat), valamint az elérés időpontját.
-
-Fontos:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  A szakdolgozat készítő/diplomatervező nyilatkozata (a jelen sablonban
-  szereplő szövegtartalommal) kötelező előírás Karunkon ennek hiányában
-  a szakdolgozat/diplomaterv nem bírálható és nem védhető!
-\item
-  Mind a dolgozat, mind a melléklet maximálisan 15 MB méretű lehet!
-\end{itemize}
-
-Jó munkát, sikeres szakdolgozat készítést, ill. diplomatervezést
-kívánunk!
-
-\clearpage
-
-\textbf{Feladatkiírás}
-
-A feladatkiírást a tanszéki adminisztrációban lehet átvenni, és a
-leadott munkába eredeti, tanszéki pecséttel ellátott és a tanszékvezető
-által aláírt lapot kell belefűzni (ezen oldal \emph{helyett}, ez az
-oldal csak útmutatás). Az elektronikusan feltöltött dolgozatba már nem
-kell beleszerkeszteni ezt a feladatkiírást.
-
 
 \normalsize
 
@@ -279,7 +151,7 @@ kell beleszerkeszteni ezt a feladatkiírást.
 \onehalfspacing
 
 \hypersetup{linkcolor=black}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 \tableofcontents
 
 \vfill
@@ -361,7 +233,7 @@ A mikro szolgáltatások tervezése során a következő szempontok szerint
 szokták megtervezni a rendszert:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+\tightlist
 \item
   Milyen szolgáltatásokat tud nyújtani a rendszer
 \item
@@ -455,17 +327,6 @@ Ennek az lesz az eredménye, hogy bizonyos szolgáltatások bizonyos más
 szolgáltatásokhoz fognak kötődni, és annak megfelelően fognak egymással
 kommunikálni, hogy milyen feladatot kell végrehajtaniuk.
 
-\subsection{Hivatkozások:}\label{hivatkozuxe1sok}
-
-{[}1{]} Chris Richardson:
-\href{http://microservices.io/articles/scalecube.html}{The Scale Cude}
-
-{[}2{]} Microsoft: {[}Pipes and Filters Pattern{]}
-(https://msdn.microsoft.com/en-us/library/dn568100.aspx)
-
-{[}3{]} Microsoft:
-\href{https://msdn.microsoft.com/en-us/library/ff649664.aspx}{Publish/Subscribe}
-
 \subsection{Előnyök-hátrányok:}\label{elux151nyuxf6k-huxe1truxe1nyok}
 
 A mirco-service architektúrák a monolitikus architektúra ellentetjei,
@@ -519,46 +380,6 @@ szolgáltatásokat átlalakítottak, hogy a mikro szolgáltatás architektúra
 szerint működjön.
 
 Mintapéldák: http://eventuate.io/exampleapps.html
-
-\subsection{Hivatkozások:}\label{hivatkozuxe1sok-1}
-
-{[}1{]} Peter Van Garderen:
-\href{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.384.7168\&rep=rep1\&type=pdf\#page=145}{\emph{Archivematica:
-Using Micro-Services and open-source software to deliver a conprehensive
-digital curation solution}}
-
-{[}2{]} Manfred Sneps-Sneppe, Dmitry Namiot:
-\href{http://injoit.ru/index.php/j1/article/view/161/119}{\emph{Micro-service
-Architecture for Emerging Telecom Applications}}
-
-{[}3{]} Chris Richardson (Kong):
-\href{http://microservices.io/patterns/microservices.html}{\emph{Pattern:
-Microservices Architecture}}
-
-{[}4{]} Jose Ignacio Fernández-Villamor, Carlos Á. Iglesias, Mercedes
-Garijo:
-\href{http://oa.upm.es/8128/1/INVE_MEM_2010_81293.pdf}{\emph{Microservices:
-Lightwieght services descriptors for REST architectural style}}
-
-{[}5{]} Dimirty Namiot, Manfréd Sneps-Sneppe:
-\href{http://cyberleninka.ru/article/n/on-micro-services-architecture}{\emph{On
-Mirco-services Architecture}}
-
-{[}6{]} Augusto Ciuffolettia:
-\href{http://ac.els-cdn.com/S187705091503077X/1-s2.0-S187705091503077X-main.pdf?_tid=83f9a800-e3fa-11e5-9747-00000aacb35e\&acdnat=1457310260_fa7b3e651c221cf0307fbb2d6c7f59a6}{\emph{Automated
-deployment of a microservice-based monitoring infrastructure}}
-
-{[}7{]} Reagan Moore:
-\href{http://ijdc.net/index.php/ijdc/article/view/63/42}{\emph{Towards a
-Theory of Digital Preservation}}
-
-{[}8{]} Sebastián Peyrott:
-\href{https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/}{An
-Introduction to Microservices, Part 1}
-
-{[}9{]} James Lewis, Martin Fowler:
-\href{http://martinfowler.com/articles/microservices.html}{Microservices
-a definition of this new architectural term}
 
 \chapter{Technológiai
 áttekintés}\label{technoluxf3giai-uxe1ttekintuxe9s}
@@ -623,7 +444,7 @@ működhessen a rendszer, azonban ez nem mindig triviális, így szükség van
 egy olyan alkalmazásra, amivel felderíthetjük az aktív szolgáltatásokat.
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+\tightlist
 \item
   \textbf{Consul}: A Hashicorp szolgáltatás felderítő alkalmazása, amely
   egy kliens-szerver architektúrának megfelelően megtalálja a
@@ -701,7 +522,7 @@ nincsen a piacon, viszont gyakran készítenek maguknak saját logikát a
 nagyobb gyártók.
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+\tightlist
 \item
   \textbf{Elastic Load Balancer}: Az Amazon AWS-ben az ELB avagy
   rugalmas terhelés elosztó az, ami ezt a célt szolgálja. Ennek a
@@ -874,521 +695,49 @@ megmutatni számunkra.
   skálázni.
 \end{itemize}
 
-\subsection{Hivatkozások:}\label{hivatkozuxe1sok-2}
-
-{[}1{]} Sebastián Peyrott:
-\href{https://auth0.com/blog/2015/10/02/an-introduction-to-microservices-part-3-the-service-registry/}{An
-Introduction to Microservices, Part 3: The Service Registry}
-
-{[}2{]} Mrina Natarajan:
-\href{http://devops.com/2015/05/07/3-golden-rules-microservices-deployments/}{3
-golden rules of microservices deployments}
-
-{[}3{]} ElasticBox:
-\href{https://elasticbox.com/how-it-works}{ElasticBox}
-
-{[}4{]} ElasticBox: \href{https://elasticbox.com/kubernetes}{Kubernetes}
-
-{[}5{]} Jenkins:
-\href{https://wiki.jenkins-ci.org/display/JENKINS/ElasticBox+CI}{ElasticBox
-CI}
-
-{[}6{]} Chris Richardson:
-\href{https://www.nginx.com/blog/deploying-microservices/}{Choosing a
-Microservices Deployment Strategy}
-
-{[}7{]} Zohar Arad:
-\href{http://zohararad.github.io/presentations/micro-services-monitoring/}{Effectively
-Monitor Your Micro-Service Architectures}
-
-{[}8{]} Nemeth Gergely:
-\href{https://www.loggly.com/blog/monitoring-microservices-three-ways-to-overcome-the-biggest-challenges/}{Monitoring
-Microservices}
-
-{[}9{]} Cronitor:
-\href{https://cronitor.io/help/micro-service-monitoring}{Monitoring
-Microservices}
-
-{[}10{]} Ruxit:
-\href{https://ruxit.com/microservices/\#microservices_start}{Microservice
-monitoring}
-
-{[}11{]} Chris Richardson:
-\href{http://microservices.io/patterns/service-registry.html}{Service
-registry pattern}
-
-{[}12{]} David Liu:
-\href{https://github.com/Netflix/eureka/wiki/Eureka-at-a-glance}{Euraka
-at glance}
-
-{[}13{]} Hashicorp: \href{https://www.consul.io/}{Consul}
-
-{[}14{]} Apache: \href{http://zookeeper.apache.org/}{Apache Zookeeper}
-
-{[}15{]} Jenkins: \href{https://jenkins.io/index.html}{Jenkins}
-
-{[}16{]} Netflix: \href{https://github.com/Netflix/eureka/wiki}{Eureka}
-
-{[}17{]} Chef Software Inc.: \href{https://www.chef.io/chef/}{Chef}
-
-{[}18{]} Ansible: \href{https://www.ansible.com/}{Ansible}
-
-{[}19{]} SlatStack inc.: \href{http://saltstack.com/}{SaltStack}
-
-{[}20{]} Amazon:
-\href{https://aws.amazon.com/elasticloadbalancing/}{Elastic Load
-Balancing}
-
-{[}21{]} HAProxy: \href{http://www.haproxy.org/}{The Reliable, High
-Performance TCP/HTTP Load Balancer}
-
-{[}22{]} Fideloper LLC:
-\href{https://serversforhackers.com/load-balancing-with-haproxy}{Load
-Balancing with HAProxy}
-
-{[}23{]} Nginx: \href{https://www.nginx.com/}{Nginx}
-
-{[}24{]} Docker: \href{https://www.docker.com/}{Docker}
-
-{[}25{]} Libvirt: \href{https://libvirt.org/}{libvirt: The
-virtualization API}
-
-{[}26{]} KVM: \href{http://www.linux-kvm.org/page/Main_Page}{Kernel
-Virtual Machine}
-
-{[}27{]} Zabbix: \href{http://www.zabbix.com/product.php}{What is
-Zabbix}
-
-{[}28{]} Elasticsearch:
-\href{https://www.elastic.co/products/kibana}{Kibana}
-
-{[}29{]} Elasticsearch:
-\href{https://www.elastic.co/products/logstash}{LogStash}
-
-{[}30{]} Cronitor.io: \href{https://cronitor.io/}{Cronitor}
-
-{[}31{]} dynatrace:
-\href{https://ruxit.com/why-ruxit/overview/\#whyruxitoverview_start}{Ruxit
-overview}
-
-\chapter{A Markdown-sablon
-használata}\label{a-markdown-sablon-hasznuxe1lata}
-
-Ebben a fejezetben röviden, implicit módon bemutatjuk a sablon
-használatának módját, ami azt jelenti, hogy sablon használata ennek a
-dokumentumnak a forráskódját tanulmányozva válik teljesen világossá.
-Amennyiben a szoftver-keretrendszer telepítve van, a sablon alkalmazása
-és a dolgozat szerkesztése Markdownban a sablon segítségével
-tapasztalataink szerint jóval hatékonyabb, mint egy WYSWYG (\emph{What
-You See is What You Get}) típusú szövegszerkesztő esetén (pl. Microsoft
-Word, OpenOffice).
-
-A \LaTeX~tördelőrendszer használatához képest a Markdown nyelv több
-megszorítást is tartalmaz, így az elkészített dokumentum általában
-kevésbé testreszabható. Cserébe viszont a Markdownban készült
-dokumentumok exportálhatók HTML vagy e-könyv (EPUB) formátumba is.
-
-\section{Ábrák és táblázatok}\label{uxe1bruxe1k-uxe9s-tuxe1bluxe1zatok}
-
-A képeket a veszteségmentes PNG, valamint a veszteséges JPEG formátumban
-érdemes elmenteni.
-
-Az egyes képek mérete általában nem, de sok kép esetén a dokumentum
-összmérete így már szignifikáns is lehet. A dokumentumban felhasznált
-képfájlokat a dokumentum forrása mellett érdemes tartani, archiválni,
-mivel ezek hiányában a dokumentum nem fordul újra. Ha lehet, a
-vektorgrafikus képeket vektorgrafikus formátumban is érdemes elmenteni
-az újrafelhasználhatóság (az átszerkeszthetőség) érdekében.
-
-A képek beillesztésére a \hyperref[markdown-eszkozok]{Markdown eszközök}
-fejezetben mutattunk be \hyperref[markdown-logo]{példát}. Az előző
-mondatban egyúttal az automatikusan feloldódó ábrahivatkozásra is
-láthatunk példát.
-
-A táblázatok használatára az alábbi táblázat mutat példát.
-
-\begin{longtable}[c]{@{}lll@{}}
-\toprule\addlinespace
-\begin{minipage}[b]{0.09\columnwidth}\raggedright
-Órajel
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
-Frekvencia
-\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\raggedright
-Cél pin
-\end{minipage}
-\\\addlinespace
-\midrule\endhead
-\begin{minipage}[t]{0.09\columnwidth}\raggedright
-CLKA
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-100 MHz
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
-FPGA CLK0
-\end{minipage}
-\\\addlinespace
-\begin{minipage}[t]{0.09\columnwidth}\raggedright
-CLKB
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-48 MHz
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
-FPGA CLK1
-\end{minipage}
-\\\addlinespace
-\begin{minipage}[t]{0.09\columnwidth}\raggedright
-CLKC
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-20 MHz
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
-Processzor
-\end{minipage}
-\\\addlinespace
-\begin{minipage}[t]{0.09\columnwidth}\raggedright
-CLKD
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-25 MHz
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
-Ethernet chip
-\end{minipage}
-\\\addlinespace
-\begin{minipage}[t]{0.09\columnwidth}\raggedright
-CLKE
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-72 MHz
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
-FPGA CLK2
-\end{minipage}
-\\\addlinespace
-\begin{minipage}[t]{0.09\columnwidth}\raggedright
-XBUF
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-20 MHz
-\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
-FPGA CLK3
-\end{minipage}
-\\\addlinespace
-\bottomrule
-\addlinespace
-\caption{Az órajel-generátor chip órajel-kimenetei.}
-\end{longtable}
-
-\section{Felsorolások és listák}\label{felsoroluxe1sok-uxe9s-listuxe1k}
-
-Számozatlan felsorolásra mutat példát a jelenlegi bekezdés:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \emph{első bajusz:} ide lehetne írni az első elem kifejését,
-\item
-  \emph{második bajusz:} ide lehetne írni a második elem kifejését,
-\item
-  \emph{ez meg egy szakáll:} ide lehetne írni a harmadik elem kifejését.
-\end{itemize}
-
-Számozott felsorolást is készíthetünk az alábbi módon:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \emph{első bajusz:} ide lehetne írni az első elem kifejését, és ez a
-  kifejtés így néz ki, ha több sorosra sikeredik,
-\item
-  \emph{második bajusz:} ide lehetne írni a második elem kifejését,
-\item
-  \emph{ez meg egy szakáll:} ide lehetne írni a harmadik elem kifejését.
-\end{enumerate}
-
-A felsorolásokban sorok végén vessző, az utolsó sor végén pedig pont a
-szokásos írásjel. Ez alól kivételt képezhet, ha az egyes elemek több
-teljes mondatot tartalmaznak.
-
-Listákban a dolgozat szövegétől elkülönítendő kódrészleteket,
-programsorokat, pszeudo-kódokat jeleníthetünk meg.
-
-\begin{verbatim}
-* *első bajusz:* ide lehetne írni az első elem kifejését, és ez a kifejtés így néz ki, ha több sorosra sikeredik,
-* *második bajusz:* ide lehetne írni a második elem kifejését,
-* *ez meg egy szakáll:* ide lehetne írni a harmadik elem kifejését.
-\end{verbatim}
-
-A listákban definiálható a használt programozási nyelv (pl.
-\texttt{java}, \texttt{latex}, \texttt{bash} stb.).
-
-\section{Képletek}\label{kuxe9pletek}
-
-Ha egy formula nem túlságosan hosszú, és nem akarjuk hivatkozni a
-szövegből, mint például a $e^{i\pi}+1=0$ képlet, \emph{szövegközi
-képletként} szokás leírni. Csak, hogy másik példát is lássunk, az
-$U_i=-d\Phi/dt$ Faraday-törvény a $\mathrm{rot} E=-\frac{dB}{dt}$
-differenciális alakban adott Maxwell-egyenlet felületre vett
-integráljából vezethető le. Látható, hogy a \LaTeX-fordító a sorközöket
-betartja, így a szöveg szedése esztétikus marad szövegközi képletek
-használata esetén is.
-
-Képletek esetén az általános konvenció, hogy a kisbetűk skalárt, a kis
-félkövér betűk ($\mathbf{v}$) oszlopvektort -- és ennek megfelelően
-$\mathbf{v}^T$ sorvektort -- a kapitális félkövér betűk ($\mathbf{V}$)
-mátrixot jelölnek. Ha ettől el szeretnénk térni, akkor az alkalmazni
-kívánt jelölésmódot célszerű külön alfejezetben definiálni. Ennek
-megfelelően, amennyiben $\mathbf{y}$ jelöli a mérések vektorát,
-$\mathbf{\vartheta}$ a paraméterek vektorát és
-$\hat{\mathbf{y}}=\mathbf{X}\vartheta$ a paraméterekben lineáris
-modellt, akkor a *Least-Squares\} értelemben optimális paraméterbecslő
-$\hat{\mathbf{\vartheta}}_{LS}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$
-lesz.
-
-Emellett kiemelt, sorszámozott képleteket is megadhatunk, ennél az
-\texttt{equation} és a \texttt{eqnarray} környezetek helyett a
-korszerűbb \texttt{align} környezet alkalmazását javasoljuk (több okból,
-különféle problémák elkerülése végett, amelyekre most nem térünk ki).
-Tehát
-
-\begin{align}
-\dot{\mathbf{x}}&=\mathbf{A}\mathbf{x}+\mathbf{B}\mathbf{u},\\
-\mathbf{y}&=\mathbf{C}\mathbf{x},
-\end{align}
-
-ahol $\mathbf{x}$ az állapotvektor, $\mathbf{y}$ a mérések vektora és
-$\mathbf{A}$, $\mathbf{B}$ és $\mathbf{C}$ a rendszert leíró
-paramétermátrixok. Figyeljük meg, hogy a két egyenletben az
-egyenlőségjelek egymáshoz igazítva jelennek meg, mivel a mindkettőt az
-\& karakter előzi meg a kódban. Lehetőség van számozatlan kiemelt képlet
-használatára is, például
-
-\begin{align}
-\dot{\mathbf{x}}&=\mathbf{A}\mathbf{x}+\mathbf{B}\mathbf{u},\nonumber\\
-\mathbf{y}&=\mathbf{C}\mathbf{x}\nonumber.
-\end{align}
-
-Mátrixok felírására az $\mathbf{A}\mathbf{x}=\mathbf{b}$ inhomogén
-lineáris egyenlet részletes kifejtésével mutatunk példát:
-
-\begin{align}
-\begin{bmatrix}
-a_{11} & a_{12} & \dots & a_{1n}\\
-a_{21} & a_{22} & \dots & a_{2n}\\
-\vdots & \vdots & \ddots & \vdots\\
-a_{m1} & a_{m2} & \dots & a_{mn}
-\end{bmatrix}
-\begin{pmatrix}x_1\\x_2\\\vdots\\x_n\end{pmatrix}=
-\begin{pmatrix}b_1\\b_2\\\vdots\\b_m\end{pmatrix}.
-\end{align}
-
-A \texttt{\textbackslash{}frac} utasítás hatékonyságát egy általános
-másodfokú tag átviteli függvényén keresztül mutatjuk be, azaz
-
-\begin{align}
-W(s)=\frac{A}{1+2T\xi s+s^2T^2}.
-\end{align}
-
-A matematikai mód minden szimbólumának és képességének a bemutatására
-természetesen itt nincs lehetőség, de gyors referenciaként hatékonyan
-használhatók a következő linkek:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \url{http://www.artofproblemsolving.com/LaTeX/AoPS_L_GuideSym.php},
-\item
-  \url{http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf},
-\item
-  \url{ftp://ftp.ams.org/pub/tex/doc/amsmath/short-math-guide.pdf}.
-\end{itemize}
-
-Ez pedig itt egy magyarázat, hogy miért érdemes \texttt{align}
-környezetet használni:
-\url{http://texblog.net/latex-archive/maths/eqnarray-align-environment/}.
-
-\section{Irodalmi hivatkozások}\label{irodalmi-hivatkozuxe1sok}
-
-Az irodalmi hivatkozások alkalmazására javasolt a BiB\TeX~használata,
-ezért ez a sablon is ezt támogatja. Ebben az esetben egy külön szöveges
-adatbázisban definiáljuk a forrásmunkákat, és egy külön stílusfájl
-határozza meg az irodalomjegyzék kinézetét. Ez, összhangban azzal, hogy
-külön formátumkonvenció határozza meg a folyóirat-, a könyv-, a
-konferenciacikk stb. hivatkozások kinézetét az irodalomjegyzékben (a
-sablon használata esetén ezzel nem is kell foglalkoznia a hallgatónak,
-de az eredményt célszerű ellenőrizni). A felhasznált hivatkozások
-adatbázisa egy \texttt{.bib} kiterjesztésű szöveges fájl, amelynek
-szerkezetét az alábbi kódrészlet demonstrálja. A forrásmunkák
-bevitelekor a sor végi vesszők külön figyelmet igényelnek, mert hiányuk
-a BiB\TeX-fordító hibaüzenetét eredményezi. A forrásmunkákat típus
-szerinti kulcsszó vezeti be (\texttt{@book} könyv,
-\texttt{@inproceedings} konferenciakiadványban megjelent cikk,
-\texttt{@article} folyóiratban megjelent cikk, \texttt{@techreport}
-valamelyik egyetem gondozásában megjelent műszaki tanulmány,
-\texttt{@manual} műszaki dokumentáció esetén stb.). Nemcsak a megjelenés
-stílusa, de a kötelezően megadandó mezők is típusról-típusra változnak.
-Egy jól használható referencia a
-\url{http://en.wikipedia.org/wiki/BibTeX} oldalon található.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{@BOOK}\NormalTok{\{}\OtherTok{Wettl04}\NormalTok{,}
-  \DataTypeTok{author} \NormalTok{= "}\StringTok{Ferenc Wettl and Gyula Mayer and Péter Szabó}\NormalTok{",}
-  \DataTypeTok{title} \NormalTok{= "}\CharTok{\textbackslash{}LaTeX}\StringTok{~kézikönyv}\NormalTok{",}
-  \DataTypeTok{publisher} \NormalTok{= "}\StringTok{Panem Könyvkiadó}\NormalTok{",}
-  \DataTypeTok{year} \NormalTok{= 2004}
-\NormalTok{\}}
-\KeywordTok{@ARTICLE}\NormalTok{\{}\OtherTok{Candy86}\NormalTok{,}
-  \DataTypeTok{author} \NormalTok{= "}\StringTok{James C. Candy}\NormalTok{",}
-  \DataTypeTok{title} \NormalTok{= "}\StringTok{Decimation for Sigma Delta Modulation}\NormalTok{",}
-  \DataTypeTok{journal} \NormalTok{=  "}\StringTok{\{IEEE\} Trans.\textbackslash{} on Communications}\NormalTok{",}
-  \DataTypeTok{volume} \NormalTok{= 34,}
-  \DataTypeTok{number} \NormalTok{= 1,}
-  \DataTypeTok{pages} \NormalTok{= "}\StringTok{72--76}\NormalTok{",}
-  \DataTypeTok{month} \NormalTok{= }\StringTok{jan}\NormalTok{,}
-  \DataTypeTok{year} \NormalTok{= 1986,}
-\NormalTok{\}}
-\KeywordTok{@INPROCEEDINGS}\NormalTok{\{}\OtherTok{Lee87}\NormalTok{,}
-  \DataTypeTok{author} \NormalTok{= "}\StringTok{Wai L. Lee and Charles G. Sodini}\NormalTok{",}
-  \DataTypeTok{title} \NormalTok{= "}\StringTok{A Topology for Higher Order Interpolative Coders}\NormalTok{",}
-  \DataTypeTok{booktitle} \NormalTok{= "}\StringTok{Proc.\textbackslash{} of the IEEE International Symposium on Circuits and Systems}\NormalTok{",}
-  \DataTypeTok{year} \NormalTok{= 1987,}
-  \DataTypeTok{vol} \NormalTok{= 2,}
-  \DataTypeTok{month} \NormalTok{= }\StringTok{may} \NormalTok{# "}\StringTok{~4--7}\NormalTok{",}
-  \DataTypeTok{address} \NormalTok{= "}\StringTok{Philadelphia, PA, USA}\NormalTok{",}
-  \DataTypeTok{pages} \NormalTok{= "}\StringTok{459--462}\NormalTok{"}
-\NormalTok{\}}
-\KeywordTok{@PHDTHESIS}\NormalTok{\{}\OtherTok{KissPhD}\NormalTok{,}
-  \DataTypeTok{author} \NormalTok{= "}\StringTok{Peter Kiss}\NormalTok{",}
-  \DataTypeTok{title} \NormalTok{= "}\StringTok{Adaptive Digital Compensation of Analog Circuit Imperfections for Cascaded Delta-Sigma Analog-to-Digital Converters}\NormalTok{",}
-  \DataTypeTok{school} \NormalTok{= "}\StringTok{Technical University of Timi}\CharTok{\textbackslash{}c}\StringTok{\{s\}oara, Romania}\NormalTok{",}
-  \DataTypeTok{month} \NormalTok{= }\StringTok{apr}\NormalTok{,}
-  \DataTypeTok{year} \NormalTok{= 2000}
-\NormalTok{\}}
-\KeywordTok{@MANUAL}\NormalTok{\{}\OtherTok{Schreier00}\NormalTok{,}
-  \DataTypeTok{author} \NormalTok{= "}\StringTok{Richard Schreier}\NormalTok{",}
-  \DataTypeTok{title} \NormalTok{= "}\StringTok{The Delta-Sigma Toolbox v5.2}\NormalTok{",}
-  \DataTypeTok{organization} \NormalTok{= "}\StringTok{Oregon State University}\NormalTok{",}
-  \DataTypeTok{year} \NormalTok{= 2000,}
-  \DataTypeTok{month} \NormalTok{= }\StringTok{jan}\NormalTok{,}
-  \DataTypeTok{note} \NormalTok{= "}\CharTok{\textbackslash{}newline}\StringTok{ URL: http://www.mathworks.com/matlabcentral/fileexchange/}\NormalTok{"}
-\NormalTok{\}}
-\KeywordTok{@MISC}\NormalTok{\{}\OtherTok{DipPortal}\NormalTok{,}
-    \DataTypeTok{author} \NormalTok{= "}\StringTok{Budapesti \{M\}űszaki és \{G\}azdaságtudományi \{E\}gyetem, \{V\}illamosmérnöki és \{I\}nformatikai \{K\}ar}\NormalTok{",}
-  \DataTypeTok{title} \NormalTok{= "}\StringTok{\{D\}iplomaterv portál (2011 február 26.)}\NormalTok{",}
-  \DataTypeTok{howpublished} \NormalTok{= "}\CharTok{\textbackslash{}url}\StringTok{\{http://diplomaterv.vik.bme.hu/\}}\NormalTok{",}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-A stílusfájl egy \texttt{.sty} kiterjesztésű fájl, de ezzel lényegében
-nem kell foglalkozni, mert vannak beépített stílusok, amelyek jól
-használhatók. Ez a sablon a BiB\TeX-et használja, a hozzá tartozó
-adatbázisfájl a \texttt{mybib.bib} fájl. Megfigyelhető, hogy az
-irodalomjegyzéket a dokumentum végére (a
-\texttt{\textbackslash{}end\{document\}} utasítás elé) beillesztett
-\texttt{\textbackslash{}bibliography\{mybib\}} utasítással hozhatjuk
-létre, a stílusát pedig ugyanitt a
-\texttt{\textbackslash{}bibliographystyle\{plain\}} utasítással adhatjuk
-meg. Ebben az esetben a \texttt{plain} előre definiált stílust
-használjuk (a sablonban is ezt állítottuk be). A \texttt{plain} stíluson
-kívül természetesen számtalan más előre definiált stílus is létezik.
-Mivel a \texttt{.bib} adatbázisban ezeket megadtuk, a BiB\TeX-fordító is
-meg tudja különböztetni a szerzőt a címtől és a kiadótól, és ez alapján
-automatikusan generálódik az irodalomjegyzék a stílusfájl által
-meghatározott stílusban.
-
-Az egyes forrásmunkákra a szövegből továbbra is a \texttt{@{[}...{]}}
-paranccsal tudunk hivatkozni, így a fenti kódrészlet esetén a
-hivatkozások rendre \texttt{{[}@Wettl04{]}}, \texttt{{[}@Candy86{]}},
-\texttt{{[}@Lee87{]}}, \texttt{{[}@KissPhD{]}},
-\texttt{{[}@Schreirer00{]}} és \texttt{{[}@DipPortal{]}}. Az
-irodalomjegyzékben alapértelmezésben csak azok a forrásmunkák jelennek
-meg, amelyekre található hivatkozás a szövegben, és ez így alapvetően
-helyes is, hiszen olyan forrásmunkákat nem illik az irodalomjegyzékbe
-írni, amelyekre nincs hivatkozás.
-
-Mivel a fordítási folyamat során több lépésben oldódnak fel a
-szimbólumok, ezért gyakran többször (TeXLive és TeXnicCenter esetén
-2-3-szor) is le kell fordítani a dokumentumot. Ilyenkor ez első 1-2
-fordítás esetleg szimbólum-feloldásra vonatkozó figyelmeztető üzenettel
-zárul. Ha hibaüzenettel zárul bármelyik fordítás, akkor nincs értelme
-megismételni, hanem a hibát kell megkeresni. A \texttt{.bib} fájl
-megváltoztatáskor sokszor nincs hatása a változtatásnak azonnal, mivel
-nem mindig fut újra a BibTeX fordító. Ezért célszerű a változtatás után
-azt manuálisan is lefuttatni (TeXnicCenter esetén
-\texttt{Build/BibTeX}).
-
-Hogy a szövegbe ágyazott hivatkozások kinézetét demonstráljuk, itt most
-sorban meghivatkozzuk a \citep{Wettl04}, \citep{Candy86}, \citep{Lee87},
-\citep{KissPhD} és az \citep{Schreier00} forrásmunkát, valamint az
-\citep{DipPortal} weboldalt.
-
-Megjegyzendő, hogy az ékezetes magyar betűket is tartalmazó
-\texttt{.bib} fájl az \texttt{inputenc} csomaggal betöltött
-\texttt{latin2} betűkészlet miatt fordítható. Ugyanez a \texttt{.bib}
-fájl hibaüzenettel fordul egy olyan dokumentumban, ami nem tartalmazza a
-\texttt{\textbackslash{}usepackage{[}latin2{]}\{inputenc\}} sort.
-Speciális igény esetén az irodalmi adatbázis általánosabb érvényűvé
-tehető, ha az ékezetes betűket speciális latex karakterekkel
-helyettesítjük a \texttt{.bib} fájlban, pl. á helyett
-\texttt{\textbackslash{}'\{a\}}-t vagy ő helyett
-\texttt{\textbackslash{}H\{o\}}-t írunk.
-
-\section{A dolgozat szerkezete és a
-forrásfájlok}\label{a-dolgozat-szerkezete-uxe9s-a-forruxe1sfuxe1jlok}
-
-A diplomatervsablon (a kari irányelvek szerint) az alábbi fő
-fejezetekből áll:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  \emph{tájékoztató} a szakdolgozat/diplomaterv szerkezetéről, ami a
-  végső dolgozatból törlendő, valamint a \emph{feladatkiírás}
-  (\texttt{guideline.md}), a dolgozat nyomtatott verzójában ennek a
-  helyére kerül a tanszék által kiadott, a tanszékvezető által aláírt
-  feladatkiírás, a dolgozat elektronikus verziójába pedig a
-  feladatkiírás egyáltalán ne kerüljön bele, azt külön tölti fel a
-  tanszék a diplomaterv-honlapra,
-\item
-  \emph{címoldal} (generált),
-\item
-  \emph{tartalomjegyzék} (generált),
-\item
-  a diplomatervező \emph{nyilatkozat}a az önálló munkáról (generált),
-\item
-  1-2 oldalas tartalmi \emph{összefoglaló} magyarul és angolul, illetve
-  elkészíthető még további nyelveken is (\texttt{abstract.md}),
-\item
-  \emph{fejezetek}: \emph{bevezetés} (feladat értelmezése, a tervezés
-  célja, a feladat indokoltsága, a diplomaterv felépítésének rövid
-  összefoglalása, \texttt{chapter1.md}), a feladatkiírás pontosítása és
-  részletes elemzése, előzmények (irodalomkutatás, hasonló alkotások),
-  az ezekből levonható következtetések, a tervezés részletes leírása, a
-  döntési lehetőségek értékelése és a választott megoldások indoklása, a
-  megtervezett műszaki alkotás értékelése, kritikai elemzése,
-  továbbfejlesztési lehetőségek (\texttt{chapter\{2..n\}.md}),
-\item
-  összefoglalás (\texttt{summary.md}),
-\item
-  esetleges \emph{köszönetnyilvánítás}ok (\texttt{acknowledgement.md}),
-\item
-  részletes és pontos \emph{irodalomjegyzék} (generált),
-\item
-  \emph{függelékek} (\texttt{appendices.md}).
-\end{itemize}
+\chapter{Előnyök}\label{elux151nyuxf6k}
+
+\section{Skálázhatóság}\label{skuxe1luxe1zhatuxf3suxe1g}
+
+\chapter{Hátrányok}\label{huxe1truxe1nyok}
+
+\section{Bonyolult fejlesztés}\label{bonyolult-fejlesztuxe9s}
+
+\chapter{Összehasonlítva a monolitikus
+architektúrával}\label{uxf6sszehasonluxedtva-a-monolitikus-architektuxfaruxe1val}
+
+A mirco-service architektúrák a monolitikus architektúra ellentetjei,
+melyben az erőforrások központilag vannak jezelve, és minden funkció egy
+nagy interfészen keresztül érhető el. A monolitikus architektúra
+egyszerűen kiépíthető, könnyű tervezni és fejleszteni, azonban nehezen
+lehet kicserélni, nem elég robosztus, és nehezen skálázható, mivel az
+erőforrásokat közösen kezelik a funkciók.
+
+Ezzel ellenzétben a micro-service architektúrát ugyan nehezen lehet
+megtervezni, hiszen egy elosztott rendszert kell megtervezni, ahol az
+adatátviteltől kezdve az erőforrás megosztáson keresztül semmi sem
+egyértelmű, viszont a későbbi tovább fejlesztés sokkal egyszerűbb, mivel
+külön csapatokat lehet rendelni az egyes szolgáltatásokhoz, és könnyen
+integrálhatók kicserélhetők az alkotó elemek. Mivel sok kis egységből
+áll, könnyebben lehet úgy skálázni a rendszert, hogy ne pazaroljuk el az
+erőforrásainkat, és ugyanakkor a kis szolgáltatások erőforrásokban is el
+vannak különítve, így nem okoz gondot, hogy fel vagy le skálázzunk egy
+szolgáltatást. Ennek az a hátránya, hogy le kell kezelni a skálázáskor a
+közös erőforrásokat.(Például ha veszünk egy autentikációs szolgáltatást,
+akkor ha azt fel skálázzuk, meg kell tartanunk a felhasználók listáját,
+így duplikálni kell az adatbázist, és fenntartani a konzisztenciát)
+Ugyan csak előnye a mirco-service architektúrának, hogy különböző
+technológiákat lehet keverni vele, mivel az egyes szolgáltatások
+különböző technológiákkal különböző platformon is futhatnak.
 
 \chapter{Összefoglaló}\label{uxf6sszefoglaluxf3}
 
 A diplomaterv összefoglaló fejezete.
 
-\chapter*{Köszönetnyilvánítás}\label{kuxf6szuxf6netnyilvuxe1nuxedtuxe1s}
-\addcontentsline{toc}{chapter}{Köszönetnyilvánítás}
-
-A köszönetnyilvánítás nem kötelező, akár törölhető is. Ha a szerző
-szükségét érzi, itt lehet köszönetet nyilvánítani azoknak, akik
-hozzájárultak munkájukkal ahhoz, hogy a hallgató a szakdolgozatban vagy
-diplomamunkában leírt feladatokat sikeresen elvégezze. A konzulensnek
-való köszönetnyilvánítás sem kötelező, a konzulensnek hivatalosan is
-dolga, hogy a hallgatót konzultálja.
-
 \listoftables
 \listoffigures
 
+\renewcommand\bibname{Irodalomjegyzék}
 \bibliography{bibliography}
 
 
