@@ -82,7 +82,7 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \ifxetex
   \usepackage{polyglossia}
-  \setmainlanguage{}
+  \setmainlanguage{magyar}
 \else
   \usepackage[magyar]{babel}
 \fi
@@ -131,7 +131,6 @@
 \vspace{0.3cm}
 \textbf{Budapesti Műszaki és Gazdaságtudományi Egyetem}\\
 \textmd{Méréstechnika és Információs Rendszerek Tanszék}\\
-\textmd{}\\[5cm]
 
 \vspace{0.4cm}
 {\huge \bfseries Mikroszolgáltatásokra épülő architektúra fejlesztésének és tesztelésének támogatása}\\[0.8cm]
@@ -151,7 +150,7 @@
 \onehalfspacing
 
 \hypersetup{linkcolor=black}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \tableofcontents
 
 \vfill
@@ -201,42 +200,9 @@ Technology and Economics. The usage of this skeleton is optional. The
 skeleton was implemented in Markdown and can be compiled with Pandoc,
 using the \TeX~Live and or the MiK\TeX~\LaTeX~compiler.
 
-\chapter{Bevezetés}\label{bevezetuxe9s}
-
-Fontos, hogy az alkalmazásaink megbízhatóan, karbantarthatóan, és nagy
-rendelkezésre állással legyenek elérhetőek. Napjaink egyik feltörökvő
-architektúra építési elve a mikro szolgáltatások archtektúrája. Ezt az
-architektúra típust az elosztott működése, a szolgáltatásonkénti könnyen
-fejleszthetősége, és a jó skálázhatósága teszi népszerűvé. Sok cég
-választja ezt az új elvet, mivel az egyes komonensek fejlesztése
-egyszerűbb és gyorsabb a végeredmény pedig könnyebben karbantartható, és
-egyszerűen cloud-osítható.
-
-Jelen labor keretében megismerkedem a mikro szolgáltatások
-felépítésével, működésével, és egy automatizált megoldást adok a
-használatukra. Bemutatom, hogy hogyan lehet azt a technológiát
-automatizáltan tesztelni, és a fejlesztési folyamatot egyszerűen és
-felügyelve vezetni.
-
-Az első fejelezben beleástam magam a technológiai áttekintésbe, ahol az
-architektúra lényegét próbáltam megérteni. A második fejezetben
-megnéztem, hogy milyen előnyei illetve hátrányai lehetnek ennek a
-módszernek a használata során, illetve megnéztem egy példát, amin
-keresztül be tudom mutatni ezeket a szempontokat. A harmadik fejezetben
-a kapcsolódó technológiákról készítettem egy összefoglalást, ami
-tartalmazza a jelenleg használt technológiákat, amikkel mikro
-szolgáltatásokra épülő architektúrát lehet építeni, illetve olyan
-technológiákat, amikkel kiegészjtve teljesen felügyelhető a
-szolgáltatások működése. A negyedik fejezetben a különböző kommunikációs
-lehetőségekkel foglalkoztam, majd az ötödik fejezetben megterveztem a
-példa alkalmazást, illetve az architektúrát, amit meg fogok alkotni a
-diplomaterv során. A hatodik fejezetben a konkrét megvalósítás lépéseit,
-és nehézségeit fogolalom össze, ami alapján végigvezethető a diplomaterv
-minta alakalmazásának az elkészítése.
-
 \chapter{Mikro szolgáltatások}\label{mikro-szolguxe1ltatuxe1sok}
 
-\section{\#\#\# Definíció}\label{definuxedciuxf3}
+\section{Definíció}\label{definuxedciuxf3}
 
 Nem találtam konkrét definicót, de a mikro szolgáltatás egy olyan
 architektúrális modellezési mód, amikor a tervezett
@@ -244,7 +210,7 @@ rendszert/alkalmazást kisebb funkciókra bontjuk, és önálló
 szolgáltatásokként, önálló erőforrásokkal, valamilyen jól definiált
 interfészen keresztül tesszük elérhetővé.
 
-\section{\#\#\# A technológiáról}\label{a-technoluxf3giuxe1ruxf3l}
+\section{A technológiáról}\label{a-technoluxf3giuxe1ruxf3l}
 
 A mikro szolgáltatás architektúra kiépítéséhez sokféle szétválasztási
 módot használnak, amik közül van olyan amit a tervezési folyamat közben
@@ -257,7 +223,7 @@ A mikro szolgáltatások tervezése során a következő szempontok szerint
 szokták megtervezni a rendszert:
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Milyen szolgáltatásokat tud nyújtani a rendszer
 \item
@@ -296,7 +262,7 @@ lehet felosztani.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{http://microservices.io/i/DecomposingApplications.021.jpg}
+\includegraphics{img/ScaleCude.jpg}
 \caption{Scaling Cube}
 \end{figure}
 
@@ -323,7 +289,7 @@ melleti kiszálgálás motivál. Ez a mircro-service-eknél kell, hogy
 teljesüljön, mivel adott esetben a load balancer alatt tudnunk kell
 definiálni több példányt is egy szolgáltatásból.
 
-\section{\#\# Architektúrális mintákhoz való
+\section{Architektúrális mintákhoz való
 viszonya}\label{architektuxfaruxe1lis-mintuxe1khoz-valuxf3-viszonya}
 
 Mint korábban láthattuk vannak bizonyos telepítési módszerek, amik
@@ -352,7 +318,7 @@ Ennek az lesz az eredménye, hogy bizonyos szolgáltatások bizonyos más
 szolgáltatásokhoz fognak kötődni, és annak megfelelően fognak egymással
 kommunikálni, hogy milyen feladatot kell végrehajtaniuk.
 
-\subsection{Példák:}\label{puxe9lduxe1k}
+\section{Példák}\label{puxe9lduxe1k}
 
 Amazon - minden Amazon-nal kommunikáló eszköz illetve az egyes funkciók
 implementációja is szolgáltatásokra van szedve, és ezeket hívják az
@@ -468,7 +434,7 @@ működhessen a rendszer, azonban ez nem mindig triviális, így szükség van
 egy olyan alkalmazásra, amivel felderíthetjük az aktív szolgáltatásokat.
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Consul}: A Hashicorp szolgáltatás felderítő alkalmazása, amely
   egy kliens-szerver architektúrának megfelelően megtalálja a
@@ -547,7 +513,7 @@ nincsen a piacon, viszont gyakran készítenek maguknak saját logikát a
 nagyobb gyártók.
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Elastic Load Balancer}: Az Amazon AWS-ben az ELB avagy
   rugalmas terhelés elosztó az, ami ezt a célt szolgálja. Ennek a
@@ -734,291 +700,6 @@ megváltoztatni, ha a saját szolgáltatásunkat változtatjuk. Ez segíti a
 több csapattal való munkát, és lehetővé teszi hogy teljesen függetlenül
 létezzenek a szolgáltatások.
 
-\chapter{Minta alkalmazás terve}\label{minta-alkalmazuxe1s-terve}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{img/microservices.png}
-\caption{Microservices}
-\end{figure}
-
-\section{Alkalmazás leírás:}\label{alkalmazuxe1s-leuxedruxe1s}
-
-Az alkalmazás, amin ketesztül a mikró szolgáltatások működését
-bemutatom, egy könyvesbolt webárúháza lesz, ami rendelkezik egy webes
-felülettel. A felhasználó be tud jelentkezni a felületre, és tud
-könyveket vásárolni magának.
-
-\section{Szolgáltatások:}\label{szolguxe1ltatuxe1sok}
-
-A szolgáltatások meghatározásánál elsőnek azt vettem alapul, hogy milyen
-feladatokat kell teljesítenie a rendszernek, majd az erőforrásokat
-vettem alapul.
-
-A könyvesbolthoz tartozóan a következő tevékenységeket határoztam meg:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Bejelentkezés}: Felhasználó felületen történő authentikálása
-\item
-  \textbf{Böngészés}: Felhasználó láthatja mi van a raktáron
-\item
-  \textbf{Vásárlás}: Felhasználó valamit a saját nevére ír
-\end{itemize}
-
-Ezekből a feladatokból a következő szolgáltatásokat lehet elkészíteni:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Felület kiszolgálása}: Egy web kiszolgáló alkalmazása, amin
-  keresztül elvégezhetők a különböző műveletek, mint a bejeletkezés,
-  vagy vásárlás. Ez a felület magába foglalja a böngészést lehetővé tevő
-  szolgáltatást is.
-\item
-  \textbf{Authentikációs szolgáltatás}: A bejelentkezni szándékozó
-  felhasználó adatait ellenőrzi, és hibás bejelentkezés esetén hibát
-  dob.
-\item
-  \textbf{Vásárlási szolgáltatás}: A böngészés közben kiválasztott
-  könyveket lefoglalja a raktári készletből.
-\item
-  \textbf{Adatbázis szolgáltatás}: Ez a szolgáltatás tartalmazza a
-  raktár tartalmát, a vásárlási naplót, és a bejelentkezési adatokat.
-\item
-  \textbf{Terhelés elosztó szolgáltatás}: Ez a szolgálatatás a
-  skálázhatóságot segíti, és egy egységes interfész kialakításában
-  segít.
-\end{itemize}
-
-\chapter{Minta alkalmazás
-elkészítése}\label{minta-alkalmazuxe1s-elkuxe9szuxedtuxe9se}
-
-A megvalósításhoz felhasznált technológiák a szolgálatatások
-felismerésében különböztek. Kipróbáltam a korábbi félévek során használt
-\emph{Consul}-t, amivel dinamikusan esemény vezérelten képesek
-kommunikálni a szolgálatatások. Másodszorra a \emph{Docker} konténerekbe
-beépített módzsert használtam fel, amivel könnyen, már indítás közben
-felismerik egymást a szolgáltatások. Harmadszorra pedog egy gyakran
-használt service registry-t használtam, az \emph{Apache Zookeepert}.
-
-\section{Megvalósítás Docker
-konténerekkel:}\label{megvaluxf3suxedtuxe1s-docker-kontuxe9nerekkel}
-
-Az egyszerűség kedvéért, és a koncepció kipróbálásához Docker
-konténereket használtam, mivel ezek könnyedén elindíthatók,
-kkonfigurálhatók, és helyi gépen is lehetővé teszik egy komplex
-architektúra kipróbálását.
-
-A mikro szolgáltatások egyik legnagyobb előnye, hogy különböző
-platformokat és programozási nyelveket használhatunk az architektúrában
-különösebb probléma nélkül. Ezt a Docker-el úgy oldottam meg, hogy
-Centos és Ubuntu disztribúciójú környezeteket, és PHP, Python, Java,
-illetve Bash szkripteket használtam.
-
-A szolgáltatásokhoz tartozó Docker konténerek:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Adatbázis}: Az alapja egy \emph{`mysql'} nevezetű konténer,
-  ami tartalmaz egy lightweight Ubuntu-t és benne telepítve egy mysql
-  szervert. Ezt a konténert egy inicializáló szkripttel egészítettem ki,
-  ami elkészítette az alap adatbázist.
-\item
-  \textbf{Terhelés elosztó}: A terhelés elosztást \emph{HAProxy}-val
-  oldottam meg, amit egy Ubuntu konténerre alapoztam. Létezik egy olyan
-  Docker konténer, ami kifejezetten HAProxy mikro szolgáltatásnak van
-  nevezve, azonban ez a konténer nehezen használható, és a szolgáltatás
-  újraindítása is el lett rontva benne, így egyszerűbbnek láttam egy
-  saját megvalósítást használni.
-\item
-  \textbf{Webkiszolgáló}: A weboldal kiszolgálását egy \emph{`httpd'}
-  nevű lightweight konténer szolgálja ki amiben egy apache webkiszlgáló
-  van. Ezt kiegészítettem \emph{PHP}-val, és néhány szkripttel, ami
-  kiszolgálja a kéréseket.
-\item
-  \textbf{Authentikáció}: Egyszerű Ubuntu konténer, ami fel van szerelve
-  \emph{Python}-nal, és a \emph{MySQLdb} Python könyvtárral. Ezen felül
-  tartalmaz egy REST-es kiszolgálót, amin keresztül elérhető a
-  szolgáltatás.
-\item
-  \textbf{Vásárlás}: Centos konténer alapú környezet, amiben \emph{Java}
-  lett telepítve, és egy webes REST API-n keresztül érhetjük el a
-  szolgáltatását.
-\end{itemize}
-
-\section{Kapcsolatok építése
-Consul-al:}\label{kapcsolatok-uxe9puxedtuxe9se-consul-al}
-
-A Consul alkalmazást korábbi félév folyamán használtam már, teljesítmény
-mérések futtatására, így megpróbáltam átültetni a logikát a jelenlegi
-mikro szolgáltatásokat biztosító architektúrába. A gondot az okozta,
-hogy a Consul alkalmazásnak szükséges egy fix pont, és ehhez találnom
-kellett egy olyan elemet, ami mindenképpen elsőnek indul el. Ez az elem
-lett a proxy szerver, ami összefogja az elemeket. A korábbi félévben
-használt kód megfelelő volt számomra, mivel nagyon hasonló minta
-alkalmazást használtam a teljesítmény mérésekhez is.
-
-Ez a megoldás nem elég elosztott a mikro szolgáltatások tekintetében,
-azonban egy elág hatékony, és könnyen implementálható megoldás. A mikro
-szolgáltatásokra épülő architektúréban jellemzően van egy Service
-Registry elem, ami lehetővé teszi a szolgáltatások nyílvántartását, és
-ez biztosíthatja a kapcsolatot is. A Consul ebben a kialakításban
-pontosan így is működött, viszont található olyan eszköz amit
-kifejezetten a szolgáltatásokhoz találtak ki. Ez lenne például az Apache
-Zookeeper.
-
-\section{Kapcsolatok építése
-Docker-el:}\label{kapcsolatok-uxe9puxedtuxe9se-docker-el}
-
-Ahogy korábban már említettem lehetőség van a Docker legújabb verzióiban
-megadni ,hogy ez egyes konténerek milyen néven és milyen hálózaton
-keresztül érhető el a többi konténer. A név beállításához a docker run
-parancs \texttt{-\/-hostname} paraméterét használhatjuk, míg a hálózat
-definiálásához előbb létre kell hozni egy új Docker hálózatot
-
-\begin{verbatim}
-  docker network create bookstore
-\end{verbatim}
-
-amire a konténerek tudnak csatlakozni a \texttt{-\/-net} kulcsszóval.
-Ennek segítségével elértem, hogy nagyon egyszerűen és egy eszköz
-felhasználásával képesek legyenek látni egymást a szolgáltatások,
-viszont egy nagy hátulütője van a megoldásnak, mégpedig az, hogy egy
-gépen kell futnia az összes alkalmazásnak. Mivel ez egy mikro
-szolgáltatásokra épülő architektúránál közel sem ideális, így ez csupán
-fejlesztési, és reprezentatív jelleggel használható. (Mivel a labor
-célja, hogy bemutassam az architektúra működését, ezért ez megfelel
-számomra)
-
-\section{Kapcsolatok építése
-Zookeeper-el:}\label{kapcsolatok-uxe9puxedtuxe9se-zookeeper-el}
-
-TODO: Kipróbálni a Zookepert
-
-\section{Automatizálás:}\label{automatizuxe1luxe1s}
-
-A mikro szolgáltatások architektúrájában a következő feladatokat lehet
-automatizálni:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{Teszt alkalmazás build-elése}: Gyakran van szükség a
-  szolgáltatást futtató fájlok és egyéb tartalmak fordítására (C, Java,
-  bináris kép fájlok frodítása) , és ezeket a forrásokat könnyedén
-  elkészíthetjük automatizáltan is, mielőtt a környezetet
-  összeépítenénk.
-\item
-  \textbf{Teszt architektúra telepítése}: Az egyes szolgáltatásokat egy
-  felügyelt környezetbe helyezve valamilyen környezeti konfigurációval
-  együtt telepíthetjük (esetünkben Docker konténerekbe csomagolhatjuk),
-  és az így kialakuló architektúrát használhatjuk fel a céljaunkra.
-  (Esetünkben kialakítunk egy könyvesboltot)
-\item
-  \textbf{Teszt architektúra konfigurálása}: Van, hogy telepítés után
-  nem elég magára hagyni a rendszert, és használni a szolgáltatásokat,
-  de szükséges különböző beállításokat végrehajtani, hogy a megfelelő
-  módon működjön az alkalmazás. Ilyen feladat lehet a szolgáltatásokhoz
-  tartozó registry frissítése, vagy a futtató gépeken a rendelkezésre
-  állás javítása, és egyéb biztonsági mechanizmusok alkalmazása.
-  (Esetemben a Zookeeper felkonfigurálása lesz a feladat.)
-\item
-  \textbf{Teszt architektúra tesztelése}: Az éles futó architektúrán
-  futtathatunk teszteket, amikkel megbizonyosodhatunk, hogy a rendszer
-  megfelelően működik, és minden rendben van, átadható a megrendelőnek,
-  vagy átengedhető a felhasználóknak. Ilyen teszt lehet az alkalmazás
-  elemeinek a unit tesztelése, szolgáltatásonként funkció tesztek
-  futtatása, a szolgáltatások kapcsolaihoz integrációs és rendszer
-  tesztek futtatása, illetve a skálázás és egyéb teljesítményt
-  befojásoló tényezőkhöz teljesítmény tesztek futtatása. (Esetemben unit
-  teszteket fogok futtatni)
-\end{enumerate}
-
-\section{Jenkins Job-ok
-fejelesztése:}\label{jenkins-job-ok-fejelesztuxe9se}
-
-Az architektúra összeállításának automatizálását a Jenkins folytonos
-integrációt támogató eszközt használtam, aminek segítségével egyszerű
-feladatok létrehozásával, és bash parancsok futtatásával képes voltam
-fellőni egy teszt környezetet.
-
-A létrehozott feladatok (job-ok):
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{img/jenkins-jobs.png}
-\caption{Jenkins job-ok}
-\end{figure}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{bookstore-build}: Ennek a feladata a forrásfájlok és a Docker
-  konténerek felkészítése. Miután a job végzett, a teljes infrastruktúra
-  elkészíthető Docker konténerekből.
-\end{itemize}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{img/jenkins-build.png}
-\caption{Microservice build}
-\end{figure}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{bookstore-run}: Ennek a job-nak a feladata a Docker konténerek
-  indítása, a szolgáltatások iniciaálizálása.
-\end{itemize}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{img/jenkins-run.png}
-\caption{Microservice run}
-\end{figure}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{bookstore-clean}: Ennek a job-nak a feladata, hogy a környezet
-  ki legyen tisztítva, és ne maradjon a tesztek után semilyen Docker
-  konténer, vagy fordított fájl a munkaterületen (workspace).
-\end{itemize}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{img/jenkins-clean.png}
-\caption{Microservice clean}
-\end{figure}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{bookstore-test}: Unit tesztek futtatása a feladata, de ide
-  tartoznának a funkció és integrációs tesztek is, illetve a
-  teljesítmény tesztek.
-\end{itemize}
-
-A Jenkins lehetővé teszi, hogy az egyes feladatok alfeladatokat
-hívjanak, és egy komplex hierarchiát hozzanak létre. Ha bonyolultabb
-vagy részletesebb felbontást szeretnék, csak fel kell vennem pár újabb
-feladatot, és meg kell hívnom egy feladatból a többit.
-
-\section{Egyéb minta
-alkalmazások:}\label{egyuxe9b-minta-alkalmazuxe1sok}
-
-KanBan board minta:
-
-https://github.com/eventuate-examples/es-kanban-board
-
-Archivematica minta:
-
-https://www.archivematica.org/en/
-
 \chapter{Összefoglaló}\label{uxf6sszefoglaluxf3}
 
 A diplomaterv összefoglaló fejezete.
@@ -1026,84 +707,160 @@ A diplomaterv összefoglaló fejezete.
 \chapter*{Irodalomjegyzék}\label{irodalomjegyzuxe9k}
 \addcontentsline{toc}{chapter}{Irodalomjegyzék}
 
-{[}7{]} Zohar Arad:
+{[}1{]} Archivematica:
+\href{https://wiki.archivematica.org/Archivematica_1.1_Micro-services}{Archivematica
+1.1 Micro-services}
+
+{[}2{]} Peter Van Garderen:
+\href{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.384.7168\&rep=rep1\&type=pdf\#page=145}{\emph{Archivematica:
+Using Micro-Services and open-source software to deliver a conprehensive
+digital curation solution}}
+
+{[}3{]} Chris Richardson:
+\href{http://microservices.io/articles/scalecube.html}{The Scale Cude}
+
+{[}4{]} Microsoft: {[}Pipes and Filters Pattern{]}
+(https://msdn.microsoft.com/en-us/library/dn568100.aspx)
+
+{[}5{]} Microsoft:
+\href{https://msdn.microsoft.com/en-us/library/ff649664.aspx}{Publish/Subscribe}
+
+{[}6{]} Sebastián Peyrott:
+\href{https://auth0.com/blog/2015/10/02/an-introduction-to-microservices-part-3-the-service-registry/}{An
+Introduction to Microservices, Part 3: The Service Registry}
+
+{[}7{]} Mrina Natarajan:
+\href{http://devops.com/2015/05/07/3-golden-rules-microservices-deployments/}{3
+golden rules of microservices deployments}
+
+{[}8{]} ElasticBox:
+\href{https://elasticbox.com/how-it-works}{ElasticBox}
+
+{[}9{]} ElasticBox: \href{https://elasticbox.com/kubernetes}{Kubernetes}
+
+{[}10{]} Jenkins:
+\href{https://wiki.jenkins-ci.org/display/JENKINS/ElasticBox+CI}{ElasticBox
+CI}
+
+{[}11{]} Chris Richardson:
+\href{https://www.nginx.com/blog/deploying-microservices/}{Choosing a
+Microservices Deployment Strategy}
+
+{[}12{]} Zohar Arad:
 \href{http://zohararad.github.io/presentations/micro-services-monitoring/}{Effectively
 Monitor Your Micro-Service Architectures}
 
-{[}8{]} Nemeth Gergely:
+{[}13{]} Nemeth Gergely:
 \href{https://www.loggly.com/blog/monitoring-microservices-three-ways-to-overcome-the-biggest-challenges/}{Monitoring
 Microservices}
 
-{[}9{]} Cronitor:
+{[}14{]} Cronitor:
 \href{https://cronitor.io/help/micro-service-monitoring}{Monitoring
 Microservices}
 
-{[}10{]} Ruxit:
+{[}15{]} Ruxit:
 \href{https://ruxit.com/microservices/\#microservices_start}{Microservice
 monitoring}
 
-{[}11{]} Chris Richardson:
+{[}16{]} Chris Richardson:
 \href{http://microservices.io/patterns/service-registry.html}{Service
 registry pattern}
 
-{[}12{]} David Liu:
+{[}17{]} David Liu:
 \href{https://github.com/Netflix/eureka/wiki/Eureka-at-a-glance}{Euraka
 at glance}
 
-{[}13{]} Hashicorp: \href{https://www.consul.io/}{Consul}
+{[}18{]} Hashicorp: \href{https://www.consul.io/}{Consul}
 
-{[}14{]} Apache: \href{http://zookeeper.apache.org/}{Apache Zookeeper}
+{[}19{]} Apache: \href{http://zookeeper.apache.org/}{Apache Zookeeper}
 
-{[}15{]} Jenkins: \href{https://jenkins.io/index.html}{Jenkins}
+{[}20{]} Jenkins: \href{https://jenkins.io/index.html}{Jenkins}
 
-{[}16{]} Netflix: \href{https://github.com/Netflix/eureka/wiki}{Eureka}
+{[}21{]} Netflix: \href{https://github.com/Netflix/eureka/wiki}{Eureka}
 
-{[}17{]} Chef Software Inc.: \href{https://www.chef.io/chef/}{Chef}
+{[}22{]} Chef Software Inc.: \href{https://www.chef.io/chef/}{Chef}
 
-{[}18{]} Ansible: \href{https://www.ansible.com/}{Ansible}
+{[}23{]} Ansible: \href{https://www.ansible.com/}{Ansible}
 
-{[}19{]} SlatStack inc.: \href{http://saltstack.com/}{SaltStack}
+{[}24{]} SlatStack inc.: \href{http://saltstack.com/}{SaltStack}
 
-{[}20{]} Amazon:
+{[}25{]} Amazon:
 \href{https://aws.amazon.com/elasticloadbalancing/}{Elastic Load
 Balancing}
 
-{[}21{]} HAProxy: \href{http://www.haproxy.org/}{The Reliable, High
+{[}26{]} HAProxy: \href{http://www.haproxy.org/}{The Reliable, High
 Performance TCP/HTTP Load Balancer}
 
-{[}22{]} Fideloper LLC:
+{[}27{]} Fideloper LLC:
 \href{https://serversforhackers.com/load-balancing-with-haproxy}{Load
 Balancing with HAProxy}
 
-{[}23{]} Nginx: \href{https://www.nginx.com/}{Nginx}
+{[}28{]} Nginx: \href{https://www.nginx.com/}{Nginx}
 
-{[}24{]} Docker: \href{https://www.docker.com/}{Docker}
+{[}29{]} Docker: \href{https://www.docker.com/}{Docker}
 
-{[}25{]} Libvirt: \href{https://libvirt.org/}{libvirt: The
+{[}30{]} Libvirt: \href{https://libvirt.org/}{libvirt: The
 virtualization API}
 
-{[}26{]} KVM: \href{http://www.linux-kvm.org/page/Main_Page}{Kernel
+{[}31{]} KVM: \href{http://www.linux-kvm.org/page/Main_Page}{Kernel
 Virtual Machine}
 
-{[}27{]} Zabbix: \href{http://www.zabbix.com/product.php}{What is
+{[}32{]} Zabbix: \href{http://www.zabbix.com/product.php}{What is
 Zabbix}
 
-{[}28{]} Elasticsearch:
+{[}33{]} Elasticsearch:
 \href{https://www.elastic.co/products/kibana}{Kibana}
 
-{[}29{]} Elasticsearch:
+{[}34{]} Elasticsearch:
 \href{https://www.elastic.co/products/logstash}{LogStash}
 
-{[}30{]} Cronitor.io: \href{https://cronitor.io/}{Cronitor}
+{[}35{]} Cronitor.io: \href{https://cronitor.io/}{Cronitor}
 
-{[}31{]} dynatrace:
+{[}36{]} dynatrace:
 \href{https://ruxit.com/why-ruxit/overview/\#whyruxitoverview_start}{Ruxit
 overview}
+
+{[}37{]} Peter Van Garderen:
+\href{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.384.7168\&rep=rep1\&type=pdf\#page=145}{\emph{Archivematica:
+Using Micro-Services and open-source software to deliver a conprehensive
+digital curation solution}}
+
+{[}38{]} Manfred Sneps-Sneppe, Dmitry Namiot:
+\href{http://injoit.ru/index.php/j1/article/view/161/119}{\emph{Micro-service
+Architecture for Emerging Telecom Applications}}
+
+{[}39{]} Chris Richardson (Kong):
+\href{http://microservices.io/patterns/microservices.html}{\emph{Pattern:
+Microservices Architecture}}
+
+{[}40{]} Jose Ignacio Fernández-Villamor, Carlos Á. Iglesias, Mercedes
+Garijo:
+\href{http://oa.upm.es/8128/1/INVE_MEM_2010_81293.pdf}{\emph{Microservices:
+Lightwieght services descriptors for REST architectural style}}
+
+{[}41{]} Dimirty Namiot, Manfréd Sneps-Sneppe:
+\href{http://cyberleninka.ru/article/n/on-micro-services-architecture}{\emph{On
+Mirco-services Architecture}}
+
+{[}42{]} Augusto Ciuffolettia:
+\href{http://ac.els-cdn.com/S187705091503077X/1-s2.0-S187705091503077X-main.pdf?_tid=83f9a800-e3fa-11e5-9747-00000aacb35e\&acdnat=1457310260_fa7b3e651c221cf0307fbb2d6c7f59a6}{\emph{Automated
+deployment of a microservice-based monitoring infrastructure}}
+
+{[}43{]} Reagan Moore:
+\href{http://ijdc.net/index.php/ijdc/article/view/63/42}{\emph{Towards a
+Theory of Digital Preservation}}
+
+{[}44{]} Sebastián Peyrott:
+\href{https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/}{An
+Introduction to Microservices, Part 1}
+
+{[}45{]} James Lewis, Martin Fowler:
+\href{http://martinfowler.com/articles/microservices.html}{Microservices
+a definition of this new architectural term}
 
 \listoftables
 \listoffigures
 
-\bibliography{bibliography}
 
 
 \appendix

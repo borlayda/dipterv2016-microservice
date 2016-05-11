@@ -1,12 +1,12 @@
 Mikro szolgáltatások
 ====================
 
-### Definíció
+Definíció
 -------------
 
 Nem találtam konkrét definicót, de a mikro szolgáltatás egy olyan architektúrális modellezési mód, amikor a tervezett rendszert/alkalmazást kisebb funkciókra bontjuk, és önálló szolgáltatásokként, önálló erőforrásokkal, valamilyen jól definiált interfészen keresztül tesszük elérhetővé.
 
-### A technológiáról
+A technológiáról
 --------------------
 
 A mikro szolgáltatás architektúra kiépítéséhez sokféle szétválasztási módot használnak, amik közül van olyan amit a tervezési folyamat közben felmerülő főneveket, vagy igéket használják fel, de abban megegyeznek, hogy a funkcionlaitást bontják fel. Ezzekkel az [integrációval foglalkozó részben](Integrációs-minták) olvashatunk bővebben.
@@ -27,7 +27,7 @@ A mikro szolgáltatások tervezése során a következő szempontok szerint szok
 
 Ezekkel a lépéssekkel meg lehet alapozni, hogy az álltalunk készítendő rendszer hogyan is lesz kialakítva, és milyen paraméterek mentén lesz felvágva. A választást segíti a témában elterjedt fogalom, a scaling cude[\[1\]](http://microservices.io/articles/scalecube.html), ami azt mutatja, hogy az architektúrális terveket milyen szempontok mentén lehet felosztani.
 
-![Scaling Cube](http://microservices.io/i/DecomposingApplications.021.jpg)
+![Scaling Cube](img/ScaleCude.jpg)
 
 Ahogy a képen is látható a meghatározó felbontási fogalmak, az adat menti felbontás, a tetszőleges fogalom menti felbontás, illetve a klónozás.
 
@@ -37,7 +37,7 @@ A tetszőleges fogalom menti felbontás annyit tesz hogy elosztott rendszert hoz
 
 A harmadik módszer arra tér ki, hogy hogyan lehet egy architektúrát felosztani, hogy skálázható legyen. Itt a klónozhatóság, avagy az egymás melleti kiszálgálás motivál. Ez a mircro-service-eknél kell, hogy teljesüljön, mivel adott esetben a load balancer alatt tudnunk kell definiálni több példányt is egy szolgáltatásból.
 
-## Architektúrális mintákhoz való viszonya
+Architektúrális mintákhoz való viszonya
 ------------------------------------------
 
 Mint korábban láthattuk vannak bizonyos telepítési módszerek, amik mentén szokás a mikro szolgáltatásokat felépíteni. Van aki az architektúrális tervezési minták közé sorolja a mikro szolgáltatás architektúrát, azonban nem lehet élesen elkülöníteni, mivel valamilyen csatolási módszerre szükség van, ami nem specifikus a mikro szolgáltatás-ek esetén, viszont más architektúrális mintákra jellemző.
@@ -46,7 +46,8 @@ Ilyen a Pipes and fileter architektúrális minta [\[2\]](https://msdn.microsoft
 
 Egy másik elosztott rendszerekhez kitallált minta a subscriber/publisher[\[3\]](https://msdn.microsoft.com/en-us/library/ff649664.aspx), amely arra alapszik, hogy egy szolgáltatásnak szüksége van valamilyan adatra vagy funkcióra, és ezért feliratkozik egy másik szolgáltatásra. Ennek az lesz az eredménye, hogy bizonyos szolgáltatások bizonyos más szolgáltatásokhoz fognak kötődni, és annak megfelelően fognak egymással kommunikálni, hogy milyen feladatot kell végrehajtaniuk.
 
-### Példák:
+Példák
+------
 
 Amazon - minden Amazon-nal kommunikáló eszköz illetve az egyes funkciók implementációja is szolgáltatásokra van szedve, és ezeket hívják az egyes funkciók (vm indítás, törlés, mozgatás, stb.)
 
