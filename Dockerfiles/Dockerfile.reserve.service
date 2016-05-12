@@ -4,7 +4,7 @@ MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 COPY reserve.sh /usr/sbin/reserve.sh
 
 RUN yum -y update
-RUN yum -y install vim java-1.8.0-openjdk-devel
+RUN yum -y install vim java-1.8.0-openjdk-devel tomcat7
 RUN chmod +x /usr/sbin/reserve.sh
 
 EXPOSE 8888

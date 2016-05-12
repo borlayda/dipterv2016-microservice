@@ -15,7 +15,7 @@ CREATE TABLE reservation
 	username varchar(255) NOT NULL,
 	book_name varchar(255) NOT NULL,
 	count int NOT NULL,
-	res_date date,
+	res_date varchar(255),
 	PRIMARY KEY (reservation_id)
 );
 # Fill Tables
