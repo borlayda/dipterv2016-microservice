@@ -1,3 +1,53 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{event-driven-pattern}
+David Chou.
+\newblock Using events in highly distributed architectures.
+\newblock {\em The Architecture Jounal}, October 2008.
+
+\bibitem{micro-arch}
+Manfréd Sneps-Sneppe Dimirty~Namiot.
+\newblock On mirco-services architecture.
+\newblock
+  \url{http://cyberleninka.ru/article/n/on-micro-services-architecture}.
+
+\bibitem{archivematica}
+Peter~Van Garderen.
+\newblock Archivematica: Using micro-services and open-source software to
+  deliver a conprehensive digital curation solution.
+\newblock In {\em iPres 2010}, pages 145--150, Vienna, Austria, ~19--24 2010.
+
+\bibitem{microservices-light}
+Mercedes~Garijo Jose Ignacio Fernández-Villamor, Carlos Á.~Iglesias.
+\newblock {M}icroservices: {L}ightwieght services descriptors for {REST}
+  architectural style.
+\newblock \url{http://oa.upm.es/8128/1/INVE_MEM_2010_81293.pdf}.
+
+\bibitem{microservices}
+Chris~Richardson (Kong).
+\newblock {P}attern: {M}icroservices {A}rchitecture.
+\newblock \url{http://microservices.io/patterns/microservices.html}.
+
+\bibitem{pipes-pattern}
+Microsoft.
+\newblock {P}ipes and {F}ilters {P}attern.
+\newblock \url{https://msdn.microsoft.com/en-us/library/dn568100.aspx}.
+
+\bibitem{pub-subscribed}
+Microsoft.
+\newblock {P}ublish/{S}ubscribe.
+\newblock \url{https://msdn.microsoft.com/en-us/library/ff649664.aspx}.
+
+\bibitem{scale-cube}
+Chris Richardson.
+\newblock The {S}cale {C}ube.
+\newblock \url{http://microservices.io/articles/scalecube.html}.
+
+\bibitem{micro-disadv}
+Benjamin Wootton.
+\newblock Microservices - not a free lunch!
+\newblock
+  \url{http://highscalability.com/blog/2014/4/8/microservices-not-a-free-lunch.html},
+  apr 2014.
 
 \end{thebibliography}

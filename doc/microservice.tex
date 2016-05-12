@@ -82,7 +82,7 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \ifxetex
   \usepackage{polyglossia}
-  \setmainlanguage{}
+  \setmainlanguage{magyar}
 \else
   \usepackage[magyar]{babel}
 \fi
@@ -131,6 +131,7 @@
 \vspace{0.3cm}
 \textbf{Budapesti Műszaki és Gazdaságtudományi Egyetem}\\
 \textmd{Méréstechnika és Információs Rendszerek Tanszék}\\
+\textmd{}\\[5cm]
 
 \vspace{0.4cm}
 {\huge \bfseries Mikroszolgáltatásokra épülő architektúra fejlesztésének és tesztelésének támogatása}\\[0.8cm]
@@ -150,7 +151,7 @@
 \onehalfspacing
 
 \hypersetup{linkcolor=black}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \tableofcontents
 
 \vfill
@@ -207,65 +208,82 @@ az architektúrához használatos technológiákba.
 \chapter*{Abstract}\label{abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
-\chapter{Mikro szolgáltatások}\label{mikro-szolguxe1ltatuxe1sok}
+\chapter{Mikro szolgáltatások\citep{microservices} \citep{micro-arch}
+\citep{microservices-light}}\label{mikro-szolguxe1ltatuxe1sokmicroservices-micro-arch-microservices-light}
 
-\section{Definíció}\label{definuxedciuxf3}
-
-Nem találtam konkrét definicót, de a mikro szolgáltatás egy olyan
-architektúrális modellezési mód, amikor a tervezett
-rendszert/alkalmazást kisebb funkciókra bontjuk, és önálló
+A mikro szolgáltatás egy olyan architektúrális modellezési mód, amikor a
+tervezett rendszert/alkalmazást kisebb funkciókra bontjuk, és önálló
 szolgáltatásokként, önálló erőforrásokkal, valamilyen jól definiált
 interfészen keresztül tesszük elérhetővé.
 
-\section{A technológiáról}\label{a-technoluxf3giuxe1ruxf3l}
+Ezt az architektúrális mintát az teszi erőssé, hogy nem függenek
+egymástol a különálló komponensek, és csak egy kommunikációs interfészt
+ismerve is karbantartható a rendszer. Egy szoftver fejlesztési
+projektben előnyös lehet, hogy az egyes csapatok fókuszálhatnak a saját
+szolgáltatásukra, és nincs szükség a folyamatos kompatibilitás
+tesztelésére.
 
-A mikro szolgáltatás architektúra kiépítéséhez sokféle szétválasztási
-módot használnak, amik közül van olyan amit a tervezési folyamat közben
-felmerülő főneveket, vagy igéket használják fel, de abban megegyeznek,
-hogy a funkcionlaitást bontják fel. Ezzekkel az
-\href{Integrációs-minták}{integrációval foglalkozó részben} olvashatunk
-bővebben.
+Egy mikro szolgáltatást használó architektúra kiépítéséhez sokféle
+funkcionális elkülönítési módot használnak, amivel a szolgáltatásokat
+kialakíthatjuk. Egy ilyen elválasztásí módszer a rendszer
+specifikációjában lévő főnevek vagy igék kiválasztása, és az így kapot
+halmaz felbontása. Egy felbontás akkor ideális, ha nem tudjuk tovább
+bontani az adott funkciót.
 
-A mikro szolgáltatások tervezése során a következő szempontok szerint
-szokták megtervezni a rendszert:
+\section{Szolgáltatás elválasztás
+tervezése}\label{szolguxe1ltatuxe1s-elvuxe1lasztuxe1s-tervezuxe9se}
+
+A tervezési folyamatnál a következő szempontokat szokták figyelembe
+venni:
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
-  Milyen szolgáltatásokat tud nyújtani a rendszer
-\item
-  Lehetséges műveletek felsorolása (igék amik a rendszerrel
-  kapcsolatosak)
-\item
-  Lehetséges erőforrások vagy entitások felsorolása (főnevek alapján
-  szétválasztás)
-\item
-  Lehetséges use-case-ek szétválasztása (felhasználási módszerek
-  elválasztása)
+  Szolgáltatások felsorolása valamilyen szempont szerint
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Lehetséges műveletek felsorolása (igék amik a rendszerrel
+    kapcsolatosak)
+  \item
+    Lehetséges erőforrások vagy entitások felsorolása (főnevek alapján
+    szétválasztás)
+  \item
+    Lehetséges use-case-ek szétválasztása (felhasználási módszerek
+    elválasztása)
+  \end{itemize}
 \item
   A felbontott rendszert hogyan kapcsoljuk össze
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Pipeline-ként egy hosszú folyamatot összeépítve és az információt
+    áramoltatva
+  \item
+    Elosztottan, igény szerint meghívva az egyes szolgáltatásokat
+  \item
+    Egyes funkciókat összekapcsolva nagyobb szolgáltatások kialakítása
+    (kötegelés)
+  \end{itemize}
 \item
-  Pipeline-ként egy hosszú folyamatot összeépítve és az információt
-  áramoltatva
-\item
-  Elosztottan, igény szerint meghívva az egyes szolgáltatásokat
-\item
-  Egyes funkciókat összekapcsolva nagyobb szolgáltatások kialakítása
-  (kötegelés)
-\item
-  A kommunikáció a felhasználóval
-\item
-  Egy központi szolgáltatáson keresztül, ami a többivel kommunikál
-\item
-  Add-hoc minden szolgáltatás külön hívható
+  Külső elérés megszervezése
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Egy központi szolgáltatáson keresztül, ami a többivel kommunikál
+  \item
+    Add-hoc minden szolgáltatás külön hívható
+  \end{itemize}
 \end{itemize}
 
 Ezekkel a lépéssekkel meg lehet alapozni, hogy az álltalunk készítendő
 rendszer hogyan is lesz kialakítva, és milyen paraméterek mentén lesz
 felvágva. A választást segíti a témában elterjedt fogalom, a scaling
-cude\href{http://microservices.io/articles/scalecube.html}{{[}1{]}}, ami
-azt mutatja, hogy az architektúrális terveket milyen szempontok mentén
-lehet felosztani.
+cube\citep{scale-cube}, ami azt mutatja, hogy az architektúrális
+terveket milyen szempontok mentén lehet felosztani.
 
 \begin{figure}[htbp]
 \centering
@@ -277,24 +295,50 @@ Ahogy a képen is látható a meghatározó felbontási fogalmak, az adat
 menti felbontás, a tetszőleges fogalom menti felbontás, illetve a
 klónozás.
 
+\subsection{Adat menti felbontás}\label{adat-menti-felbontuxe1s}
+
 Az adat menti felbontás annyit tesz, hogy a szolgáltatásokat annak
-megfelelően bontjuk fel, hogy az egyes szolgáltatások csak adatbázissal,
-vagy csak web kiszolgálással foglalkozzanak, vagy csak a felhasználói
-adatok esetleg a tanulók jegyeit felügyelik. Ez a mérce a mikro
-szolgáltatás architektúrák esetén nem annyira fontos, mivel a
-szolgáltatásoknak erőforrásaikat tekintve is el kell különülniük, így
-nem éri meg erőforrások vagy adat mentén vágni.
+megfelelően bontjuk fel, hogy milyen erőforrással dolgoznak, vagy
+konkrétan egy adattal kapcsolatos összes funkciót egy helyen készítünk
+el.
+
+Példa: Erőforrás szerinti felbontás ha külön található szolgáltatás,
+amivel az adatbázis műveleteket hajtjuk égre, és külön van olyan is, ami
+csak a HTTP kéréseket szolgálja ki. Az egy adatra épülő módszernél pedig
+alapul vehetünk egy olyan példát, ahol mondjuk egy szolgáltatás az
+összes adminisztrátori funkciót látja el, míg más szolgáltatások a
+más-más kategóriába eső felhasználók műveleteit hajtják végre.
+
+Mivel a mikro szolgáltatások elve a hardvert is megosztja nem csak a
+szoftvert, ezért az erőforrás szerinti szétválasztás kissé
+értelmetlennek tűnhet, azonban a különböző platformok különbüző
+erőforrásait megéri külön szolgáltatásként kezelni.
+
+\subsection{Fogalmi felbontás}\label{fogalmi-felbontuxe1s}
 
 A tetszőleges fogalom menti felbontás annyit tesz hogy elosztott
 rendszert hozunk létre tetszőleges funkcionalitás szerint. Erre épít a
 mikro szolgáltatás architektúra is, mivel a lényege pont az egyes
 funkciók atomi felbontása.
 
+Példa: Adott egy könyvtár nyilvántartó rendszere, és ezt akarjuk
+fogalmanként szétvágni. Külön-külön lehet szolgáltatást csinálni a
+keresésnek, indexelésnek, foglalásnak, kivett könyvek nyilvántartásának,
+böngészésre, könyvek adatainak tárolására, és kiolvasására, és ehhez
+hasonló funkciókra. Ezekkel a szétválasztásokkal a könyvtár működését
+kis részekre bontottuk, és ezek egy-egy kis szolgáltatásként könnyen
+elérhetők.
+
+\subsection{Klónozás}\label{kluxf3nozuxe1s}
+
 A harmadik módszer arra tér ki, hogy hogyan lehet egy architektúrát
 felosztani, hogy skálázható legyen. Itt a klónozhatóság, avagy az egymás
-melleti kiszálgálás motivál. Ez a mircro-service-eknél kell, hogy
-teljesüljön, mivel adott esetben a load balancer alatt tudnunk kell
-definiálni több példányt is egy szolgáltatásból.
+melleti kiszolgálás motivál. Ez a mikro szolgáltatásoknál kell, hogy
+teljesüljön, mivel adott esetben egy terhelés elosztó alatt tudnunk kell
+definiálni több példányt is egy szolgáltatásból. Azért szükséges a
+skálázhatóság a mikro szolgáltatások esetén, mivel kevés hardver mellett
+is hatékonyan kialakítható az architektúra, de könnyen lehet szűk
+keresztmetszetet létrehozni, amit skálázással könnyen megkerülhetünk.
 
 \section{Architektúrális mintákhoz való
 viszonya}\label{architektuxfaruxe1lis-mintuxe1khoz-valuxf3-viszonya}
@@ -302,30 +346,56 @@ viszonya}\label{architektuxfaruxe1lis-mintuxe1khoz-valuxf3-viszonya}
 Mint korábban láthattuk vannak bizonyos telepítési módszerek, amik
 mentén szokás a mikro szolgáltatásokat felépíteni. Van aki az
 architektúrális tervezési minták közé sorolja a mikro szolgáltatás
-architektúrát, azonban nem lehet élesen elkülöníteni, mivel valamilyen
-csatolási módszerre szükség van, ami nem specifikus a mikro
-szolgáltatás-ek esetén, viszont más architektúrális mintákra jellemző.
+architektúrát, de nem könnyű meghatározni, hogy hogyan is alkot önnáló
+mintát. Nagyon sok lehetőség van a mikro szolgáltatásokban, és leginkább
+más architektúrákkal együtt használva lehet hatékonyan és jól használni.
 
-Ilyen a Pipes and fileter architektúrális minta
-\href{https://msdn.microsoft.com/en-us/library/dn568100.aspx}{{[}2{]}},
-aminek a lényege, hogy a funkciókra bontott architektúrát az elérni
-kívánt végeredmény érdekében különböző módokon összekötünk. Ebben a
-módszerben az adat folyamatosan áramlik az egyes alkotó elemek között,
-és lépésről lépésre alakul ki a végeredmény. Elég olcsón kivitelezhető
-architektúrális minta, mivel csupán sorba kell kötni hozzá az egyes
-szolgáltatásokat, azonban nehezen lehet optimalizálni, és könnyen lehet,
-hogy olyan részek lesznek a feldolgozás közben, amik hátráltatják a
-teljes folyamatot.
+Nézzünk meg két felhasználható architektúrális mintát:
+
+\subsection{Pipes and Filters}\label{pipes-and-filters}
+
+A Pipes and fileter architektúrális minta\citep{pipes-pattern} lényege,
+hogy a funkciókra bontott architektúrát az elérni kívánt végeredmény
+érdekében különböző módokon összekötjük. Ebben a módszerben az adat
+folyamatosan áramlik az egyes alkotó elemek között, és lépésről lépésre
+alakul ki a végeredmény. Elég olcsón kivitelezhető architektúrális
+minta, mivel csupán sorba kell kötni hozzá az egyes szolgáltatásokat,
+azonban nehezen lehet optimalizálni, és könnyen lehet, hogy olyan részek
+lesznek a feldolgozás közben, amik hátráltatják a teljes folyamatot.
+
+\subsection{Publish/Subscribe}\label{publishsubscribe}
 
 Egy másik elosztott rendszerekhez kitallált minta a
-subscriber/publisher\href{https://msdn.microsoft.com/en-us/library/ff649664.aspx}{{[}3{]}},
-amely arra alapszik, hogy egy szolgáltatásnak szüksége van valamilyan
-adatra vagy funkcióra, és ezért feliratkozik egy másik szolgáltatásra.
-Ennek az lesz az eredménye, hogy bizonyos szolgáltatások bizonyos más
-szolgáltatásokhoz fognak kötődni, és annak megfelelően fognak egymással
-kommunikálni, hogy milyen feladatot kell végrehajtaniuk.
+subscriber/publisher\citep{pub-subscribed}, amely arra alapszik, hogy
+egy szolgáltatásnak szüksége van valamilyan adatra vagy funkcióra, és
+ezért feliratkozik egy másik szolgáltatásra. Ennek az lesz az eredménye,
+hogy bizonyos szolgáltatások bizonyos más szolgáltatásokhoz fognak
+kötődni, és annak megfelelően fognak egymással kommunikálni, hogy milyen
+feladatot kell végrehajtaniuk.
 
-\section{Példák}\label{puxe9lduxe1k}
+\subsection{Esemény alapú
+architektúra}\label{esemuxe9ny-alapuxfa-architektuxfara}
+
+Az esemény alapú architektúrákat\citep{event-driven-pattern} könnyen
+kalakíthatjuk, ha egy mikro szolgáltatásokból álló rendszerben olyan
+alkalmazásokat és kompoenenseket fejlesztünk ahol eseményeken keresztül
+kommunikálnak az egyes elemek. Ezzel a nézettel olyan mikro
+szolgáltatásokból kialakuló struktúrát lehet összeépíteni, ahol a kis
+egységek szükség szerint kommunikálnak, és a kommunikáció egy jól
+definiált interfészen kerseztül történik.
+
+\section{Eltérések a szolgáltatás orientált
+architektúrától}\label{eltuxe9ruxe9sek-a-szolguxe1ltatuxe1s-orientuxe1lt-architektuxfaruxe1tuxf3l}
+
+A szolgáltatás orientált architektúra nagyon hasonló a mikro
+szolgáltatásokhoz, azonban utóbbi esetén a lényeg az, hogy minnél kisebb
+alkotó elemekre bontsuk szét a rendszert és akár alkalmazásokat is, míg
+előbbi több alkalmazát köt össze hálózati kapcsolaton keresztül, és
+ezeket szolgáltatja ki. Bizonyos értelemben a mikro szolgáltatás
+architektúra a szolgáltatás orientált architektúra finomítása.
+
+\section{Példák mikro szolgáltatásokat használó
+alkalmazásokra}\label{puxe9lduxe1k-mikro-szolguxe1ltatuxe1sokat-hasznuxe1luxf3-alkalmazuxe1sokra}
 
 Amazon - minden Amazon-nal kommunikáló eszköz illetve az egyes funkciók
 implementációja is szolgáltatásokra van szedve, és ezeket hívják az
@@ -339,27 +409,131 @@ NetFlix - A nagy terhelést elkerülendő bizonyos streaming
 szolgáltatásokat átlalakítottak, hogy a mikro szolgáltatás architektúra
 szerint működjön.
 
-Mintapéldák: http://eventuate.io/exampleapps.html
+Archivematica\citep{archivematica} - Egy Fájlkezelő rendszer, amiben
+mikro szolgáltatásoknak megfelelően alakították ki a plugin-ként
+használható funkciókat.
 
-\chapter{Előnyök}\label{elux151nyuxf6k}
+\chapter{Mikro szolgáltatások előnyei és
+hátrányai}\label{mikro-szolguxe1ltatuxe1sok-elux151nyei-uxe9s-huxe1truxe1nyai}
 
-\section{Skálázhatóság}\label{skuxe1luxe1zhatuxf3suxe1g}
+Ahogy minden architektúrális mintának, a mikro szolgáltatásoknak is
+vannak előnyei, amik indokoltá teszik a minta használatát, és vannak
+hátrányai, amiket mérlegelnünk kell a tervezés folyamán.
 
-\chapter{Hátrányok}\label{huxe1truxe1nyok}
+\section{Előnyök
+\citep{microservices}}\label{elux151nyuxf6k-microservices}
 
-\section{Bonyolult fejlesztés}\label{bonyolult-fejlesztuxe9s}
+\subsection{Könnyű fejleszteni}\label{kuxf6nnyux171-fejleszteni}
 
-\chapter{Összehasonlítva a monolitikus
+Mivel kis részekre van szedve az alkalmazásunk, a fejlesztést akát több
+csapatnak is ki lehet osztani, hogy az alkalmazás részeit alkossák meg,
+hiszen önállóan is életképesek a szolgáltatások. Az egyes szolgáltatások
+nem rendelkeznek túl sok logikával, így ez kis feladatokat csinál, és
+könnyebben kezelhető.
+
+\subsection{Egyszerűen
+megérthető}\label{egyszerux171en-meguxe9rthetux151}
+
+Egy szolgáltatás nagyon kis egysége a teljes alkalmazásnak, így könnyen
+megérthető. Kevés technológia, és kevés kód áll rendelkezésre egy
+szolgáltatásnál, így gyorsan beletanulhat egy új fejlesztő a munkába.
+
+\subsection{Könnyen kicserélhető, módosítható,
+telepíthető}\label{kuxf6nnyen-kicseruxe9lhetux151-muxf3dosuxedthatuxf3-telepuxedthetux151}
+
+A szolgáltatások önnálóak, így az azonos interfésszel rendelkező
+szolgáltatásra bármikor kicserélhető, illetve módosítható ha megmaradnak
+a korábbi funkciók. A mikor szolgáltatás telepítése is egyszerű, mivel
+csak kevés környezeti feltétele van, hogy egy ilyen kis máretű progam
+működni tudjon.
+
+\subsection{Jól skálázható}\label{juxf3l-skuxe1luxe1zhatuxf3}
+
+Mivel sok kis részletből áll az alkalmazásunk, nem szükséges minden
+funkciónkhoz növelni az erőforrások allokációját, hanem kis
+komponensekhez is lehet rendelni több erőforrást.
+
+\subsection{Jó erőforrás
+kihasználtság}\label{juxf3-erux151forruxe1s-kihasznuxe1ltsuxe1g}
+
+Egy szolgáltatás pontosan annyi erőforrást emészt fel amennyit
+szükséges, így nem vész kárba semmi.
+
+\subsection{Támogatja a kevert
+technológiákat}\label{tuxe1mogatja-a-kevert-technoluxf3giuxe1kat}
+
+Az egyik legnagyobb ereje ennek az architektúrának, hogy képes egy
+alkalmazáson belül kevert technológiákat is használni. Mivel egy jól
+definiált interfészen keresztül kommunikálnak a szolgáltatások, ezért
+mindegy milyen technológia van mögötte, amíg ki tudja szolgálni a
+feladatát. Ennek megfelelően El tudunk helyezni egy Linux-os
+környezetben használt LDAP-ot, és egy Windows-os környezetben használt
+Active Directory-t, és minden gond nélkül használni is tudjuk az
+interfész segítségével.
+
+\section{Hátrányok
+\citep{micro-disadv}}\label{huxe1truxe1nyok-micro-disadv}
+
+\subsection{Komplex rendszer alakul
+ki}\label{komplex-rendszer-alakul-ki}
+
+Mivel minden funkcióra saját szolgáltatást csinálunk, nagyon sok lesz az
+elkülönülő elem, és a teljes rendszer egyben tartása nagyon nehéz
+feladattá válik. Mivel fontos a szolgáltatások együttműködése, a sok
+interfésznek ismernie kell egymást, és fenn kell tartani a
+konzisztenciát minden szolgáltatásnak.
+
+\subsection{Nehezen kezelhető az elosztott
+rendszer}\label{nehezen-kezelhetux151-az-elosztott-rendszer}
+
+A mikro szolgáltatások architektúra egy elosztott rendszert ír le, és
+mint minden elosztott rendszer ez is bonyolultabb lesz tőle. Elosztott
+rendszereknél figyelni kell az adatok konzisztenciáját, a kommunikáció
+plusz feladatot ad minden szolgáltatás fejlesztőjének, és folyamatosan
+együtt kell működni a többi szolgáltatás fejlesztőjével.
+
+\subsection{Plusz munkát jelént az aszinkron üzenet
+fogadás}\label{plusz-munkuxe1t-jeluxe9nt-az-aszinkron-uxfczenet-fogaduxe1s}
+
+Mivel egy szolgáltatás egyszerre több kérést is ki kell hogy szolgáljon
+egyszerűbb ha aszinkron módon működik. Ezt azonban mindig le kell
+implementálni, és az aszinkron üzenetek bonyolítják az adatok kezelését.
+
+\subsection{Kód duplikátumok
+kialakulása}\label{kuxf3d-duplikuxe1tumok-kialakuluxe1sa}
+
+Amikor nagyon hasonló (kis részletben eltérő) szolgáltatásokat
+csinálunk, megesik, hogy ugyan azt a kódot többször fel kell
+használnunk, és ezzel kód, és adat duplikátumok keletkeznek, amiket le
+kell kezelnünk.
+
+\subsection{Interfészek
+fixálódnak}\label{interfuxe9szek-fixuxe1luxf3dnak}
+
+A fejlesztés folyamán a szolgáltatásokhoz rendelt interfészek
+fixálódnak, és ha módosítani akarunk rajta, akkor több szolgáltatásban
+is meg kell változtatni az interfészt.
+
+\subsection{Nehezen tesztelhető
+egészben}\label{nehezen-tesztelhetux151-eguxe9szben}
+
+Mivel sok kis részletből rakódik össze a nagy egész alkalmazás, a
+tesztelési fázisban kell olyan teszteket is végezni, ami a rendszer
+egészét, és a kész alkalmazást teszteli. Egy ilyen teszt elksézítése
+bonyolult lehet, és plusz feladatot ad a sok szolgáltatás külön-külön
+fordítása, és telepítése is.
+
+\section{Összehasonlítva a monolitikus
 architektúrával}\label{uxf6sszehasonluxedtva-a-monolitikus-architektuxfaruxe1val}
 
 A mirco-service architektúrák a monolitikus architektúra ellentetjei,
-melyben az erőforrások központilag vannak jezelve, és minden funkció egy
+melyben az erőforrások központilag vannak kezelve, és minden funkció egy
 nagy interfészen keresztül érhető el. A monolitikus architektúra
 egyszerűen kiépíthető, könnyű tervezni és fejleszteni, azonban nehezen
 lehet kicserélni, nem elég robosztus, és nehezen skálázható, mivel az
 erőforrásokat közösen kezelik a funkciók.
 
-Ezzel ellenzétben a micro-service architektúrát ugyan nehezen lehet
+Ezzel ellenzétben a mikro szolgáltatás architektúrát ugyan nehezen lehet
 megtervezni, hiszen egy elosztott rendszert kell megtervezni, ahol az
 adatátviteltől kezdve az erőforrás megosztáson keresztül semmi sem
 egyértelmű, viszont a későbbi tovább fejlesztés sokkal egyszerűbb, mivel
@@ -441,7 +615,7 @@ működhessen a rendszer, azonban ez nem mindig triviális, így szükség van
 egy olyan alkalmazásra, amivel felderíthetjük az aktív szolgáltatásokat.
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Consul}: A Hashicorp szolgáltatás felderítő alkalmazása, amely
   egy kliens-szerver architektúrának megfelelően megtalálja a
@@ -520,7 +694,7 @@ nincsen a piacon, viszont gyakran készítenek maguknak saját logikát a
 nagyobb gyártók.
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Elastic Load Balancer}: Az Amazon AWS-ben az ELB avagy
   rugalmas terhelés elosztó az, ami ezt a célt szolgálja. Ennek a
@@ -731,7 +905,7 @@ vettem alapul.
 A könyvesbolthoz tartozóan a következő tevékenységeket határoztam meg:
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Bejelentkezés}: Felhasználó felületen történő authentikálása
 \item
@@ -743,7 +917,7 @@ A könyvesbolthoz tartozóan a következő tevékenységeket határoztam meg:
 Ezekből a feladatokból a következő szolgáltatásokat lehet elkészíteni:
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Felület kiszolgálása}: Egy web kiszolgáló alkalmazása, amin
   keresztül elvégezhetők a különböző műveletek, mint a bejeletkezés,
@@ -793,7 +967,7 @@ illetve Bash szkripteket használtam.
 A szolgáltatásokhoz tartozó Docker konténerek:
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Adatbázis}: Az alapja egy \emph{`mysql'} nevezetű konténer,
   ami tartalmaz egy lightweight Ubuntu-t és benne telepítve egy mysql
@@ -849,22 +1023,17 @@ Docker-el:}\label{kapcsolatok-uxe9puxedtuxe9se-docker-el}
 Ahogy korábban már említettem lehetőség van a Docker legújabb verzióiban
 megadni ,hogy ez egyes konténerek milyen néven és milyen hálózaton
 keresztül érhető el a többi konténer. A név beállításához a docker run
-parancs \texttt{-\/-hostname} paraméterét használhatjuk, míg a hálózat
+parancs \texttt{-{}-hostname} paraméterét használhatjuk, míg a hálózat
 definiálásához előbb létre kell hozni egy új Docker hálózatot
-
-\begin{verbatim}
-  docker network create bookstore
-\end{verbatim}
-
-amire a konténerek tudnak csatlakozni a \texttt{-\/-net} kulcsszóval.
-Ennek segítségével elértem, hogy nagyon egyszerűen és egy eszköz
-felhasználásával képesek legyenek látni egymást a szolgáltatások,
-viszont egy nagy hátulütője van a megoldásnak, mégpedig az, hogy egy
-gépen kell futnia az összes alkalmazásnak. Mivel ez egy mikro
-szolgáltatásokra épülő architektúránál közel sem ideális, így ez csupán
-fejlesztési, és reprezentatív jelleggel használható. (Mivel a labor
-célja, hogy bemutassam az architektúra működését, ezért ez megfelel
-számomra)
+\texttt{\{docker\}   docker network create bookstore} amire a konténerek
+tudnak csatlakozni a \texttt{-{}-net} kulcsszóval. Ennek segítségével
+elértem, hogy nagyon egyszerűen és egy eszköz felhasználásával képesek
+legyenek látni egymást a szolgáltatások, viszont egy nagy hátulütője van
+a megoldásnak, mégpedig az, hogy egy gépen kell futnia az összes
+alkalmazásnak. Mivel ez egy mikro szolgáltatásokra épülő architektúránál
+közel sem ideális, így ez csupán fejlesztési, és reprezentatív jelleggel
+használható. (Mivel a labor célja, hogy bemutassam az architektúra
+működését, ezért ez megfelel számomra)
 
 \section{Kapcsolatok építése
 Zookeeper-el:}\label{kapcsolatok-uxe9puxedtuxe9se-zookeeper-el}
@@ -878,7 +1047,7 @@ automatizálni:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Teszt alkalmazás build-elése}: Gyakran van szükség a
   szolgáltatást futtató fájlok és egyéb tartalmak fordítására (C, Java,
@@ -928,7 +1097,7 @@ A létrehozott feladatok (job-ok):
 \end{figure}
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{bookstore-build}: Ennek a feladata a forrásfájlok és a Docker
   konténerek felkészítése. Miután a job végzett, a teljes infrastruktúra
@@ -942,7 +1111,7 @@ A létrehozott feladatok (job-ok):
 \end{figure}
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{bookstore-run}: Ennek a job-nak a feladata a Docker konténerek
   indítása, a szolgáltatások iniciaálizálása.
@@ -955,7 +1124,7 @@ A létrehozott feladatok (job-ok):
 \end{figure}
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{bookstore-clean}: Ennek a job-nak a feladata, hogy a környezet
   ki legyen tisztítva, és ne maradjon a tesztek után semilyen Docker
@@ -969,7 +1138,7 @@ A létrehozott feladatok (job-ok):
 \end{figure}
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{bookstore-test}: Unit tesztek futtatása a feladata, de ide
   tartoznának a funkció és integrációs tesztek is, illetve a
@@ -996,163 +1165,10 @@ https://www.archivematica.org/en/
 
 A diplomaterv összefoglaló fejezete.
 
-\chapter*{Irodalomjegyzék}\label{irodalomjegyzuxe9k}
-\addcontentsline{toc}{chapter}{Irodalomjegyzék}
-
-{[}1{]} Archivematica:
-\href{https://wiki.archivematica.org/Archivematica_1.1_Micro-services}{Archivematica
-1.1 Micro-services}
-
-{[}2{]} Peter Van Garderen:
-\href{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.384.7168\&rep=rep1\&type=pdf\#page=145}{\emph{Archivematica:
-Using Micro-Services and open-source software to deliver a conprehensive
-digital curation solution}}
-
-{[}3{]} Chris Richardson:
-\href{http://microservices.io/articles/scalecube.html}{The Scale Cude}
-
-{[}4{]} Microsoft: {[}Pipes and Filters Pattern{]}
-(https://msdn.microsoft.com/en-us/library/dn568100.aspx)
-
-{[}5{]} Microsoft:
-\href{https://msdn.microsoft.com/en-us/library/ff649664.aspx}{Publish/Subscribe}
-
-{[}6{]} Sebastián Peyrott:
-\href{https://auth0.com/blog/2015/10/02/an-introduction-to-microservices-part-3-the-service-registry/}{An
-Introduction to Microservices, Part 3: The Service Registry}
-
-{[}7{]} Mrina Natarajan:
-\href{http://devops.com/2015/05/07/3-golden-rules-microservices-deployments/}{3
-golden rules of microservices deployments}
-
-{[}8{]} ElasticBox:
-\href{https://elasticbox.com/how-it-works}{ElasticBox}
-
-{[}9{]} ElasticBox: \href{https://elasticbox.com/kubernetes}{Kubernetes}
-
-{[}10{]} Jenkins:
-\href{https://wiki.jenkins-ci.org/display/JENKINS/ElasticBox+CI}{ElasticBox
-CI}
-
-{[}11{]} Chris Richardson:
-\href{https://www.nginx.com/blog/deploying-microservices/}{Choosing a
-Microservices Deployment Strategy}
-
-{[}12{]} Zohar Arad:
-\href{http://zohararad.github.io/presentations/micro-services-monitoring/}{Effectively
-Monitor Your Micro-Service Architectures}
-
-{[}13{]} Nemeth Gergely:
-\href{https://www.loggly.com/blog/monitoring-microservices-three-ways-to-overcome-the-biggest-challenges/}{Monitoring
-Microservices}
-
-{[}14{]} Cronitor:
-\href{https://cronitor.io/help/micro-service-monitoring}{Monitoring
-Microservices}
-
-{[}15{]} Ruxit:
-\href{https://ruxit.com/microservices/\#microservices_start}{Microservice
-monitoring}
-
-{[}16{]} Chris Richardson:
-\href{http://microservices.io/patterns/service-registry.html}{Service
-registry pattern}
-
-{[}17{]} David Liu:
-\href{https://github.com/Netflix/eureka/wiki/Eureka-at-a-glance}{Euraka
-at glance}
-
-{[}18{]} Hashicorp: \href{https://www.consul.io/}{Consul}
-
-{[}19{]} Apache: \href{http://zookeeper.apache.org/}{Apache Zookeeper}
-
-{[}20{]} Jenkins: \href{https://jenkins.io/index.html}{Jenkins}
-
-{[}21{]} Netflix: \href{https://github.com/Netflix/eureka/wiki}{Eureka}
-
-{[}22{]} Chef Software Inc.: \href{https://www.chef.io/chef/}{Chef}
-
-{[}23{]} Ansible: \href{https://www.ansible.com/}{Ansible}
-
-{[}24{]} SlatStack inc.: \href{http://saltstack.com/}{SaltStack}
-
-{[}25{]} Amazon:
-\href{https://aws.amazon.com/elasticloadbalancing/}{Elastic Load
-Balancing}
-
-{[}26{]} HAProxy: \href{http://www.haproxy.org/}{The Reliable, High
-Performance TCP/HTTP Load Balancer}
-
-{[}27{]} Fideloper LLC:
-\href{https://serversforhackers.com/load-balancing-with-haproxy}{Load
-Balancing with HAProxy}
-
-{[}28{]} Nginx: \href{https://www.nginx.com/}{Nginx}
-
-{[}29{]} Docker: \href{https://www.docker.com/}{Docker}
-
-{[}30{]} Libvirt: \href{https://libvirt.org/}{libvirt: The
-virtualization API}
-
-{[}31{]} KVM: \href{http://www.linux-kvm.org/page/Main_Page}{Kernel
-Virtual Machine}
-
-{[}32{]} Zabbix: \href{http://www.zabbix.com/product.php}{What is
-Zabbix}
-
-{[}33{]} Elasticsearch:
-\href{https://www.elastic.co/products/kibana}{Kibana}
-
-{[}34{]} Elasticsearch:
-\href{https://www.elastic.co/products/logstash}{LogStash}
-
-{[}35{]} Cronitor.io: \href{https://cronitor.io/}{Cronitor}
-
-{[}36{]} dynatrace:
-\href{https://ruxit.com/why-ruxit/overview/\#whyruxitoverview_start}{Ruxit
-overview}
-
-{[}37{]} Peter Van Garderen:
-\href{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.384.7168\&rep=rep1\&type=pdf\#page=145}{\emph{Archivematica:
-Using Micro-Services and open-source software to deliver a conprehensive
-digital curation solution}}
-
-{[}38{]} Manfred Sneps-Sneppe, Dmitry Namiot:
-\href{http://injoit.ru/index.php/j1/article/view/161/119}{\emph{Micro-service
-Architecture for Emerging Telecom Applications}}
-
-{[}39{]} Chris Richardson (Kong):
-\href{http://microservices.io/patterns/microservices.html}{\emph{Pattern:
-Microservices Architecture}}
-
-{[}40{]} Jose Ignacio Fernández-Villamor, Carlos Á. Iglesias, Mercedes
-Garijo:
-\href{http://oa.upm.es/8128/1/INVE_MEM_2010_81293.pdf}{\emph{Microservices:
-Lightwieght services descriptors for REST architectural style}}
-
-{[}41{]} Dimirty Namiot, Manfréd Sneps-Sneppe:
-\href{http://cyberleninka.ru/article/n/on-micro-services-architecture}{\emph{On
-Mirco-services Architecture}}
-
-{[}42{]} Augusto Ciuffolettia:
-\href{http://ac.els-cdn.com/S187705091503077X/1-s2.0-S187705091503077X-main.pdf?_tid=83f9a800-e3fa-11e5-9747-00000aacb35e\&acdnat=1457310260_fa7b3e651c221cf0307fbb2d6c7f59a6}{\emph{Automated
-deployment of a microservice-based monitoring infrastructure}}
-
-{[}43{]} Reagan Moore:
-\href{http://ijdc.net/index.php/ijdc/article/view/63/42}{\emph{Towards a
-Theory of Digital Preservation}}
-
-{[}44{]} Sebastián Peyrott:
-\href{https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/}{An
-Introduction to Microservices, Part 1}
-
-{[}45{]} James Lewis, Martin Fowler:
-\href{http://martinfowler.com/articles/microservices.html}{Microservices
-a definition of this new architectural term}
-
 \listoftables
 \listoffigures
 
+\bibliography{bibliography}
 
 
 \appendix

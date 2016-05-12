@@ -7,7 +7,7 @@ UNIVERSITY = Budapesti Műszaki és Gazdaságtudományi Egyetem
 DEPARTMENT = Méréstechnika és Információs Rendszerek Tanszék
 THESIS_TYPE = Diplomaterv
 DOCUMENT_LANG = magyar
-SOURCE_FILES = abstract.md chapter1.md chapter2.md chapter3.md chapter4.md chapter5.md chapter6.md summary.md bibliography.md
+SOURCE_FILES = abstract.md chapter1.md chapter2.md chapter3.md chapter4.md chapter5.md chapter6.md summary.md
 APPENDIX_FILE = appendix.md
 
 # variables for the PDF/HTML compiler
@@ -80,7 +80,7 @@ epub: compile-guideline-html compile-appendix-html
 
 build-latex:
 	pdflatex $(FILENAME).tex
-	bibtex $(FILENAME).aux || true
+	bibtex $(FILENAME).aux
 	pdflatex $(FILENAME).tex
 	pdflatex $(FILENAME).tex
 

@@ -1,53 +1,75 @@
-Mikro szolgáltatások
+Mikro szolgáltatások[@microservices] [@micro-arch] [@microservices-light]
 ====================
 
-Definíció
--------------
+A mikro szolgáltatás egy olyan architektúrális modellezési mód, amikor a tervezett rendszert/alkalmazást kisebb funkciókra bontjuk, és önálló szolgáltatásokként, önálló erőforrásokkal, valamilyen jól definiált interfészen keresztül tesszük elérhetővé.
 
-Nem találtam konkrét definicót, de a mikro szolgáltatás egy olyan architektúrális modellezési mód, amikor a tervezett rendszert/alkalmazást kisebb funkciókra bontjuk, és önálló szolgáltatásokként, önálló erőforrásokkal, valamilyen jól definiált interfészen keresztül tesszük elérhetővé.
+Ezt az architektúrális mintát az teszi erőssé, hogy nem függenek egymástol a különálló komponensek, és csak egy kommunikációs interfészt ismerve is karbantartható a rendszer. Egy szoftver fejlesztési projektben előnyös lehet, hogy az egyes csapatok fókuszálhatnak a saját szolgáltatásukra, és nincs szükség a folyamatos kompatibilitás tesztelésére.
 
-A technológiáról
---------------------
+Egy mikro szolgáltatást használó architektúra kiépítéséhez sokféle funkcionális elkülönítési módot használnak, amivel a szolgáltatásokat kialakíthatjuk. Egy ilyen elválasztásí módszer a rendszer specifikációjában lévő főnevek vagy igék kiválasztása, és az így kapot halmaz felbontása. Egy felbontás akkor ideális, ha nem tudjuk tovább bontani az adott funkciót.
 
-A mikro szolgáltatás architektúra kiépítéséhez sokféle szétválasztási módot használnak, amik közül van olyan amit a tervezési folyamat közben felmerülő főneveket, vagy igéket használják fel, de abban megegyeznek, hogy a funkcionlaitást bontják fel. Ezzekkel az [integrációval foglalkozó részben](Integrációs-minták) olvashatunk bővebben.
+##Szolgáltatás elválasztás tervezése
 
-A mikro szolgáltatások tervezése során a következő szempontok szerint szokták megtervezni a rendszert:
+A tervezési folyamatnál a következő szempontokat szokták figyelembe venni:
 
-* Milyen szolgáltatásokat tud nyújtani a rendszer
-  * Lehetséges műveletek felsorolása (igék amik a rendszerrel kapcsolatosak)
-  * Lehetséges erőforrások vagy entitások felsorolása (főnevek alapján szétválasztás)
-  * Lehetséges use-case-ek szétválasztása (felhasználási módszerek elválasztása)
+* Szolgáltatások felsorolása valamilyen szempont szerint
+    - Lehetséges műveletek felsorolása (igék amik a rendszerrel kapcsolatosak)
+    - Lehetséges erőforrások vagy entitások felsorolása (főnevek alapján szétválasztás)
+    - Lehetséges use-case-ek szétválasztása (felhasználási módszerek elválasztása)
 * A felbontott rendszert hogyan kapcsoljuk össze
-  * Pipeline-ként egy hosszú folyamatot összeépítve és az információt áramoltatva
-  * Elosztottan, igény szerint meghívva az egyes szolgáltatásokat
-  * Egyes funkciókat összekapcsolva nagyobb szolgáltatások kialakítása (kötegelés)
-* A kommunikáció a felhasználóval
-  * Egy központi szolgáltatáson keresztül, ami a többivel kommunikál
-  * Add-hoc minden szolgáltatás külön hívható
+    - Pipeline-ként egy hosszú folyamatot összeépítve és az információt áramoltatva
+    - Elosztottan, igény szerint meghívva az egyes szolgáltatásokat
+    - Egyes funkciókat összekapcsolva nagyobb szolgáltatások kialakítása (kötegelés)
+* Külső elérés megszervezése
+    - Egy központi szolgáltatáson keresztül, ami a többivel kommunikál
+    - Add-hoc minden szolgáltatás külön hívható
 
-Ezekkel a lépéssekkel meg lehet alapozni, hogy az álltalunk készítendő rendszer hogyan is lesz kialakítva, és milyen paraméterek mentén lesz felvágva. A választást segíti a témában elterjedt fogalom, a scaling cude[\[1\]](http://microservices.io/articles/scalecube.html), ami azt mutatja, hogy az architektúrális terveket milyen szempontok mentén lehet felosztani.
+Ezekkel a lépéssekkel meg lehet alapozni, hogy az álltalunk készítendő rendszer hogyan is lesz kialakítva, és milyen paraméterek mentén lesz felvágva. A választást segíti a témában elterjedt fogalom, a scaling cube[@scale-cube], ami azt mutatja, hogy az architektúrális terveket milyen szempontok mentén lehet felosztani.
 
 ![Scaling Cube](img/ScaleCude.jpg)
 
 Ahogy a képen is látható a meghatározó felbontási fogalmak, az adat menti felbontás, a tetszőleges fogalom menti felbontás, illetve a klónozás.
 
-Az adat menti felbontás annyit tesz, hogy a szolgáltatásokat annak megfelelően bontjuk fel, hogy az egyes szolgáltatások csak adatbázissal, vagy csak web kiszolgálással foglalkozzanak, vagy csak a felhasználói adatok esetleg a tanulók jegyeit felügyelik. Ez a mérce a mikro szolgáltatás architektúrák esetén nem annyira fontos, mivel a szolgáltatásoknak erőforrásaikat tekintve is el kell különülniük, így nem éri meg erőforrások vagy adat mentén vágni.
+###Adat menti felbontás
+
+Az adat menti felbontás annyit tesz, hogy a szolgáltatásokat annak megfelelően bontjuk fel, hogy milyen erőforrással dolgoznak, vagy konkrétan egy adattal kapcsolatos összes funkciót egy helyen készítünk el.
+
+Példa: Erőforrás szerinti felbontás ha külön található szolgáltatás, amivel az adatbázis műveleteket hajtjuk égre, és külön van olyan is, ami csak a HTTP kéréseket szolgálja ki. Az egy adatra épülő módszernél pedig alapul vehetünk egy olyan példát, ahol mondjuk egy szolgáltatás az összes adminisztrátori funkciót látja el, míg más szolgáltatások a más-más kategóriába eső felhasználók műveleteit hajtják végre.
+
+Mivel a mikro szolgáltatások elve a hardvert is megosztja nem csak a szoftvert, ezért az erőforrás szerinti szétválasztás kissé értelmetlennek tűnhet, azonban a különböző platformok különbüző erőforrásait megéri külön szolgáltatásként kezelni.
+
+###Fogalmi felbontás
 
 A tetszőleges fogalom menti felbontás annyit tesz hogy elosztott rendszert hozunk létre tetszőleges funkcionalitás szerint. Erre épít a mikro szolgáltatás architektúra is, mivel a lényege pont az egyes funkciók atomi felbontása.
 
-A harmadik módszer arra tér ki, hogy hogyan lehet egy architektúrát felosztani, hogy skálázható legyen. Itt a klónozhatóság, avagy az egymás melleti kiszálgálás motivál. Ez a mircro-service-eknél kell, hogy teljesüljön, mivel adott esetben a load balancer alatt tudnunk kell definiálni több példányt is egy szolgáltatásból.
+Példa: Adott egy könyvtár nyilvántartó rendszere, és ezt akarjuk fogalmanként szétvágni. Külön-külön lehet szolgáltatást csinálni a keresésnek, indexelésnek, foglalásnak, kivett könyvek nyilvántartásának, böngészésre, könyvek adatainak tárolására, és kiolvasására, és ehhez hasonló funkciókra. Ezekkel a szétválasztásokkal a könyvtár működését kis részekre bontottuk, és ezek egy-egy kis szolgáltatásként könnyen elérhetők.
 
-Architektúrális mintákhoz való viszonya
-------------------------------------------
+###Klónozás
 
-Mint korábban láthattuk vannak bizonyos telepítési módszerek, amik mentén szokás a mikro szolgáltatásokat felépíteni. Van aki az architektúrális tervezési minták közé sorolja a mikro szolgáltatás architektúrát, azonban nem lehet élesen elkülöníteni, mivel valamilyen csatolási módszerre szükség van, ami nem specifikus a mikro szolgáltatás-ek esetén, viszont más architektúrális mintákra jellemző.
+A harmadik módszer arra tér ki, hogy hogyan lehet egy architektúrát felosztani, hogy skálázható legyen. Itt a klónozhatóság, avagy az egymás melleti kiszolgálás motivál. Ez a mikro szolgáltatásoknál kell, hogy teljesüljön, mivel adott esetben egy terhelés elosztó alatt tudnunk kell definiálni több példányt is egy szolgáltatásból. Azért szükséges a skálázhatóság a mikro szolgáltatások esetén, mivel kevés hardver mellett is hatékonyan kialakítható az architektúra, de könnyen lehet szűk keresztmetszetet létrehozni, amit skálázással könnyen megkerülhetünk.
 
-Ilyen a Pipes and fileter architektúrális minta [\[2\]](https://msdn.microsoft.com/en-us/library/dn568100.aspx), aminek a lényege, hogy a funkciókra bontott architektúrát az elérni kívánt végeredmény érdekében különböző módokon összekötünk. Ebben a módszerben az adat folyamatosan áramlik az egyes alkotó elemek között, és lépésről lépésre alakul ki a végeredmény. Elég olcsón kivitelezhető architektúrális minta, mivel csupán sorba kell kötni hozzá az egyes szolgáltatásokat, azonban nehezen lehet optimalizálni, és könnyen lehet, hogy olyan részek lesznek a feldolgozás közben, amik hátráltatják a teljes folyamatot.
+##Architektúrális mintákhoz való viszonya
 
-Egy másik elosztott rendszerekhez kitallált minta a subscriber/publisher[\[3\]](https://msdn.microsoft.com/en-us/library/ff649664.aspx), amely arra alapszik, hogy egy szolgáltatásnak szüksége van valamilyan adatra vagy funkcióra, és ezért feliratkozik egy másik szolgáltatásra. Ennek az lesz az eredménye, hogy bizonyos szolgáltatások bizonyos más szolgáltatásokhoz fognak kötődni, és annak megfelelően fognak egymással kommunikálni, hogy milyen feladatot kell végrehajtaniuk.
+Mint korábban láthattuk vannak bizonyos telepítési módszerek, amik mentén szokás a mikro szolgáltatásokat felépíteni. Van aki az architektúrális tervezési minták közé sorolja a mikro szolgáltatás architektúrát, de nem könnyű meghatározni, hogy hogyan is alkot önnáló mintát. Nagyon sok lehetőség van a mikro szolgáltatásokban, és leginkább más architektúrákkal együtt használva lehet hatékonyan és jól használni.
 
-Példák
-------
+Nézzünk meg két felhasználható architektúrális mintát:
+
+###Pipes and Filters
+
+A Pipes and fileter architektúrális minta[@pipes-pattern] lényege, hogy a funkciókra bontott architektúrát az elérni kívánt végeredmény érdekében különböző módokon összekötjük. Ebben a módszerben az adat folyamatosan áramlik az egyes alkotó elemek között, és lépésről lépésre alakul ki a végeredmény. Elég olcsón kivitelezhető architektúrális minta, mivel csupán sorba kell kötni hozzá az egyes szolgáltatásokat, azonban nehezen lehet optimalizálni, és könnyen lehet, hogy olyan részek lesznek a feldolgozás közben, amik hátráltatják a teljes folyamatot.
+
+###Publish/Subscribe
+
+Egy másik elosztott rendszerekhez kitallált minta a subscriber/publisher[@pub-subscribed], amely arra alapszik, hogy egy szolgáltatásnak szüksége van valamilyan adatra vagy funkcióra, és ezért feliratkozik egy másik szolgáltatásra. Ennek az lesz az eredménye, hogy bizonyos szolgáltatások bizonyos más szolgáltatásokhoz fognak kötődni, és annak megfelelően fognak egymással kommunikálni, hogy milyen feladatot kell végrehajtaniuk.
+
+###Esemény alapú architektúra
+
+Az esemény alapú architektúrákat[@event-driven-pattern] könnyen kalakíthatjuk, ha egy mikro szolgáltatásokból álló rendszerben olyan alkalmazásokat és kompoenenseket fejlesztünk ahol eseményeken keresztül kommunikálnak az egyes elemek. Ezzel a nézettel olyan mikro szolgáltatásokból kialakuló struktúrát lehet összeépíteni, ahol a kis egységek szükség szerint kommunikálnak, és a kommunikáció egy jól definiált interfészen kerseztül történik.
+
+##Eltérések a szolgáltatás orientált architektúrától
+
+A szolgáltatás orientált architektúra nagyon hasonló a mikro szolgáltatásokhoz, azonban utóbbi esetén a lényeg az, hogy minnél kisebb alkotó elemekre bontsuk szét a rendszert és akár alkalmazásokat is, míg előbbi több alkalmazát köt össze hálózati kapcsolaton keresztül, és ezeket szolgáltatja ki. Bizonyos értelemben a mikro szolgáltatás architektúra a szolgáltatás orientált architektúra finomítása.
+
+##Példák mikro szolgáltatásokat használó alkalmazásokra
 
 Amazon - minden Amazon-nal kommunikáló eszköz illetve az egyes funkciók implementációja is szolgáltatásokra van szedve, és ezeket hívják az egyes funkciók (vm indítás, törlés, mozgatás, stb.)
 
@@ -55,4 +77,4 @@ eBay - Különböző műveletek szerint van felbonva a a funkcionalitás, és en
 
 NetFlix - A nagy terhelést elkerülendő bizonyos streaming szolgáltatásokat átlalakítottak, hogy a mikro szolgáltatás architektúra szerint működjön.
 
-Mintapéldák: http://eventuate.io/exampleapps.html
+Archivematica[@archivematica] - Egy Fájlkezelő rendszer, amiben mikro szolgáltatásoknak megfelelően alakították ki a plugin-ként használható funkciókat.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.9)  11 MAY 2016 21:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.9)  12 MAY 2016 23:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1514,7 +1514,7 @@ LaTeX Info: Redefining \nameref on input line 117.
 LaTeX Info: Redefining \cal on input line 586.
 LaTeX Info: Redefining \mit on input line 587.
 )
-<img/BME1782logo.pdf, id=151, 709.65125pt x 199.74625pt>
+<img/BME1782logo.pdf, id=216, 709.65125pt x 199.74625pt>
 File: img/BME1782logo.pdf Graphic file (type pdf)
 
 <use img/BME1782logo.pdf>
@@ -1526,36 +1526,36 @@ Package microtype Info: Character `029' is missing
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/14.4'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 140.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 141.
 
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 140.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 141.
 
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 140
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 141
 .
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 140
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 141
 .
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 140.
+(Font)              <10.95> on input line 141.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 140.
+(Font)              <8> on input line 141.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 140.
-LaTeX Font Info:    Try loading font information for U+msa on input line 140.
+(Font)              <6> on input line 141.
+LaTeX Font Info:    Try loading font information for U+msa on input line 141.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1563,7 +1563,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 140.
+LaTeX Font Info:    Try loading font information for U+msb on input line 141.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1578,7 +1578,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.29 ...t\IeC {\'e}se Docker-el:}{23}{section.8.3}
+l.32 ...l\IeC {\'o}gi\IeC {\'a}k}{14}{section.3.2}
                                                    [1
 
 ])
@@ -1594,56 +1594,189 @@ l.29 ...t\IeC {\'e}se Docker-el:}{23}{section.8.3}
 
 ]
 1. fejezet.
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 235.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 212.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 212.
+
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 242.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-<img/ScaleCude.jpg, id=225, 722.7pt x 542.025pt>
+) [6
+
+]
+<img/ScaleCude.jpg, id=322, 722.7pt x 542.025pt>
 File: img/ScaleCude.jpg Graphic file (type jpg)
  <use img/ScaleCude.jpg>
-Package pdftex.def Info: img/ScaleCude.jpg used on input line 272.
+Package pdftex.def Info: img/ScaleCude.jpg used on input line 290.
 (pdftex.def)             Requested size: 433.62334pt x 325.2175pt.
 
-[6
-
-] [7 <./img/ScaleCude.jpg>] [8] [9]
+[7 <./img/ScaleCude.jpg>] [8] [9]
 2. fejezet.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 424.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 424.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 424.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 424.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 424.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 424.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 424.
+
 [10
 
 ]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 475.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 475.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 475.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 475.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 475.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 475.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 475.
+
+[11] [12]
 3. fejezet.
-[11
-
-]
-4. fejezet.
-[12
-
-]
-5. fejezet.
 [13
 
 ] [14] [15] [16] [17] [18]
-6. fejezet.
+4. fejezet.
 [19
 
 ]
-7. fejezet.
-<img/microservices.png, id=289, 978.65625pt x 417.56pt>
+5. fejezet.
+<img/microservices.png, id=390, 978.65625pt x 417.56pt>
 File: img/microservices.png Graphic file (type png)
 
 <use img/microservices.png>
-Package pdftex.def Info: img/microservices.png used on input line 714.
+Package pdftex.def Info: img/microservices.png used on input line 888.
 (pdftex.def)             Requested size: 587.19829pt x 250.53792pt.
  [20
 
  <./img/microservices.png>] [21]
-8. fejezet.
+6. fejezet.
 [22
 
 ]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 852.
-
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1026
+.
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1652,57 +1785,52 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [23]
-<img/jenkins-jobs.png, id=311, 1854.93pt x 470.75874pt>
+<img/jenkins-jobs.png, id=412, 1854.93pt x 470.75874pt>
 File: img/jenkins-jobs.png Graphic file (type png)
 
 <use img/jenkins-jobs.png>
-Package pdftex.def Info: img/jenkins-jobs.png used on input line 926.
+Package pdftex.def Info: img/jenkins-jobs.png used on input line 1095.
 (pdftex.def)             Requested size: 1112.96661pt x 282.45743pt.
 
-<img/jenkins-build.png, id=312, 1349.04pt x 674.52pt>
+<img/jenkins-build.png, id=413, 1349.04pt x 674.52pt>
 File: img/jenkins-build.png Graphic file (type png)
 
 <use img/jenkins-build.png>
-Package pdftex.def Info: img/jenkins-build.png used on input line 940.
+Package pdftex.def Info: img/jenkins-build.png used on input line 1109.
 (pdftex.def)             Requested size: 809.43025pt x 404.71512pt.
- [24 <./img/jenkins-jobs.png>]
-<img/jenkins-run.png, id=323, 1348.03625pt x 761.84625pt>
+
+<img/jenkins-run.png, id=414, 1348.03625pt x 761.84625pt>
 File: img/jenkins-run.png Graphic file (type png)
 
 <use img/jenkins-run.png>
-Package pdftex.def Info: img/jenkins-run.png used on input line 953.
+Package pdftex.def Info: img/jenkins-run.png used on input line 1122.
 (pdftex.def)             Requested size: 808.828pt x 457.11128pt.
-
-<img/jenkins-clean.png, id=324, 1348.03625pt x 885.3075pt>
+ [24 <./img/jenkins-jobs.png>] [25 <./img/jenkins-build.png> <./img/jenkins-run
+.png>]
+<img/jenkins-clean.png, id=431, 1348.03625pt x 885.3075pt>
 File: img/jenkins-clean.png Graphic file (type png)
 
 <use img/jenkins-clean.png>
-Package pdftex.def Info: img/jenkins-clean.png used on input line 967.
+Package pdftex.def Info: img/jenkins-clean.png used on input line 1136.
 (pdftex.def)             Requested size: 808.828pt x 531.1886pt.
- [25 <./img/jenkins-build.png>] [26 <./img/jenkins-run.png> <./img/jenkins-clea
-n.png>]
-9. fejezet.
+ [26 <./img/jenkins-clean.png>]
+7. fejezet.
 [27
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 1014--1016
-[]\T1/lmr/m/n/10.95 (+20) [4] Mic-ro-soft: [Pi-pes and Fil-ters Pat-tern] (http
-s://msdn.microsoft.com/en-
- []
-
-[28
-
-] [29] (./microservice.lot)
+] (./microservice.lot)
 \tf@lot=\write6
 \openout6 = `microservice.lot'.
 
- [30
+ [28
 
 ] (./microservice.lof)
 \tf@lof=\write7
 \openout7 = `microservice.lof'.
 
- [31
+ (./microservice.bbl
+[29
+
+]) [30
 
 ]
 A. f\"uggel\'ek.
@@ -1711,37 +1839,37 @@ A. f\"uggel\'ek.
 
 
 AED: lastpage setting LastPage
-[32
+[31
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1162.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1162.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1178.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1178.
  (./microservice.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1162.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1162.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1178.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1178.
 
 Package rerunfilecheck Info: File `microservice.out' has not changed.
-(rerunfilecheck)             Checksum: ECC57E515495164CA62C66B836FF6EE2;5936.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1162.
+(rerunfilecheck)             Checksum: DA0C101B57C3500671302D2672202618;10418.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1178.
  ) 
 Here is how much of TeX's memory you used:
- 31822 strings out of 493304
- 549579 string characters out of 6139872
- 621511 words of memory out of 5000000
- 34489 multiletter control sequences out of 15000+600000
- 67004 words of font info for 104 fonts, out of 8000000 for 9000
+ 31911 strings out of 493304
+ 551805 string characters out of 6139872
+ 623894 words of memory out of 5000000
+ 34554 multiletter control sequences out of 15000+600000
+ 66697 words of font info for 102 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,7n,92p,10395b,545s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,7n,92p,10395b,551s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/shar
 e/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/l
 m/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri
 10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on microservice.pdf (33 pages, 769236 bytes).
+Output written on microservice.pdf (32 pages, 775093 bytes).
 PDF statistics:
- 468 PDF objects out of 1000 (max. 8388607)
- 413 compressed objects within 5 object streams
- 82 named destinations out of 1000 (max. 500000)
- 19280 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 532 PDF objects out of 1000 (max. 8388607)
+ 478 compressed objects within 5 object streams
+ 107 named destinations out of 1000 (max. 500000)
+ 19408 words of extra memory for PDF output out of 20736 (max. 10000000)
 

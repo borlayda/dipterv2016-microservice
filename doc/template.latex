@@ -199,6 +199,7 @@ $endfor$
 \vspace{0.3cm}
 \textbf{$university$}\\
 \textmd{$department$}\\
+\textmd{$research-group$}\\[5cm]
 
 \vspace{0.4cm}
 {\huge \bfseries $title$}\\[0.8cm]
@@ -268,8 +269,13 @@ $else$
 \renewcommand\refname{$biblio-title$}
 $endif$
 $endif$
+\bibliography{$biblio-files$}
 
 $endif$
+$endif$
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+
 $endif$
 
 $for(include-after)$
