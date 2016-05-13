@@ -21,10 +21,6 @@ A szolgáltatások önnálóak, így az azonos interfésszel rendelkező szolgá
 
 Mivel sok kis részletből áll az alkalmazásunk, nem szükséges minden funkciónkhoz növelni az erőforrások allokációját, hanem kis komponensekhez is lehet rendelni több erőforrást.
 
-###Jó erőforrás kihasználtság
-
-Egy szolgáltatás pontosan annyi erőforrást emészt fel amennyit szükséges, így nem vész kárba semmi.
-
 ###Támogatja a kevert technológiákat
 
 Az egyik legnagyobb ereje ennek az architektúrának, hogy képes egy alkalmazáson belül kevert technológiákat is használni. Mivel egy jól definiált interfészen keresztül kommunikálnak a szolgáltatások, ezért mindegy milyen technológia van mögötte, amíg ki tudja szolgálni a feladatát. Ennek megfelelően El tudunk helyezni egy Linux-os környezetben használt LDAP-ot, és egy Windows-os környezetben használt Active Directory-t, és minden gond nélkül használni is tudjuk az interfész segítségével.
