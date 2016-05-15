@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{event-driven-pattern}
 David Chou.
@@ -42,6 +42,38 @@ Microsoft.
 Chris Richardson.
 \newblock The {S}cale {C}ube.
 \newblock \url{http://microservices.io/articles/scalecube.html}.
+
+\bibitem{micro-communication}
+Chris Richardson.
+\newblock Building microservices: Inter-process communication in a
+  microservices architecture.
+\newblock
+  \url{https://www.nginx.com/blog/building-microservices-inter-process-communication/},
+  July 2015.
+
+\bibitem{rest-soap}
+Puja~Padiya Snehal~Mumbaikar.
+\newblock Web services based on soap and rest principles.
+\newblock {\em International Journal of Scientific and Research Publications},
+  3, May 2013.
+
+\bibitem{socket}
+tutorialspoint.
+\newblock What is a socket?
+\newblock \url{http://www.tutorialspoint.com/unix_sockets/what_is_socket.htm}.
+
+\bibitem{soap}
+w3schools.
+\newblock Xml soap.
+\newblock \url{http://www.w3schools.com/xml/xml_soap.asp}.
+
+\bibitem{rest-async}
+Daniel Westheide.
+\newblock Why restful communication between microservices can be perfectly
+  fine.
+\newblock
+  \url{https://www.innoq.com/en/blog/why-restful-communication-between-microservices-can-be-perfectly-fine/},
+  march 2016.
 
 \bibitem{micro-disadv}
 Benjamin Wootton.

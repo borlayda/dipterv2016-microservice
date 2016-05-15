@@ -82,7 +82,7 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \ifxetex
   \usepackage{polyglossia}
-  \setmainlanguage{magyar}
+  \setmainlanguage{}
 \else
   \usepackage[magyar]{babel}
 \fi
@@ -151,7 +151,7 @@
 \onehalfspacing
 
 \hypersetup{linkcolor=black}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 \tableofcontents
 
 \vfill
@@ -208,8 +208,9 @@ az architektúrához használatos technológiákba.
 \chapter*{Abstract}\label{abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
-\chapter{Mikro szolgáltatások\citep{microservices} \citep{micro-arch}
-\citep{microservices-light}}\label{mikro-szolguxe1ltatuxe1sokmicroservices-micro-arch-microservices-light}
+\chapter{\texorpdfstring{Mikro szolgáltatások\citep{microservices}
+\citep{micro-arch}
+\citep{microservices-light}}{Mikro szolgáltatások{[}@microservices{]} {[}@micro-arch{]} {[}@microservices-light{]}}}\label{mikro-szolguxe1ltatuxe1sokmicroservices-micro-arch-microservices-light}
 
 A mikro szolgáltatás egy olyan architektúrális modellezési mód, amikor a
 tervezett rendszert/alkalmazást kisebb funkciókra bontjuk, és önálló
@@ -237,12 +238,12 @@ A tervezési folyamatnál a következő szempontokat szokták figyelembe
 venni:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+\tightlist
 \item
   Szolgáltatások felsorolása valamilyen szempont szerint
 
   \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
+  \tightlist
   \item
     Lehetséges műveletek felsorolása (igék amik a rendszerrel
     kapcsolatosak)
@@ -257,7 +258,7 @@ venni:
   A felbontott rendszert hogyan kapcsoljuk össze
 
   \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
+  \tightlist
   \item
     Pipeline-ként egy hosszú folyamatot összeépítve és az információt
     áramoltatva
@@ -271,7 +272,7 @@ venni:
   Külső elérés megszervezése
 
   \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
+  \tightlist
   \item
     Egy központi szolgáltatáson keresztül, ami a többivel kommunikál
   \item
@@ -420,8 +421,8 @@ Ahogy minden architektúrális mintának, a mikro szolgáltatásoknak is
 vannak előnyei, amik indokoltá teszik a minta használatát, és vannak
 hátrányai, amiket mérlegelnünk kell a tervezés folyamán.
 
-\section{Előnyök
-\citep{microservices}}\label{elux151nyuxf6k-microservices}
+\section{\texorpdfstring{Előnyök
+\citep{microservices}}{Előnyök {[}@microservices{]}}}\label{elux151nyuxf6k-microservices}
 
 \subsection{Könnyű fejleszteni}\label{kuxf6nnyux171-fejleszteni}
 
@@ -453,12 +454,6 @@ Mivel sok kis részletből áll az alkalmazásunk, nem szükséges minden
 funkciónkhoz növelni az erőforrások allokációját, hanem kis
 komponensekhez is lehet rendelni több erőforrást.
 
-\subsection{Jó erőforrás
-kihasználtság}\label{juxf3-erux151forruxe1s-kihasznuxe1ltsuxe1g}
-
-Egy szolgáltatás pontosan annyi erőforrást emészt fel amennyit
-szükséges, így nem vész kárba semmi.
-
 \subsection{Támogatja a kevert
 technológiákat}\label{tuxe1mogatja-a-kevert-technoluxf3giuxe1kat}
 
@@ -471,8 +466,8 @@ környezetben használt LDAP-ot, és egy Windows-os környezetben használt
 Active Directory-t, és minden gond nélkül használni is tudjuk az
 interfész segítségével.
 
-\section{Hátrányok
-\citep{micro-disadv}}\label{huxe1truxe1nyok-micro-disadv}
+\section{\texorpdfstring{Hátrányok
+\citep{micro-disadv}}{Hátrányok {[}@micro-disadv{]}}}\label{huxe1truxe1nyok-micro-disadv}
 
 \subsection{Komplex rendszer alakul
 ki}\label{komplex-rendszer-alakul-ki}
@@ -615,7 +610,7 @@ működhessen a rendszer, azonban ez nem mindig triviális, így szükség van
 egy olyan alkalmazásra, amivel felderíthetjük az aktív szolgáltatásokat.
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+\tightlist
 \item
   \textbf{Consul}: A Hashicorp szolgáltatás felderítő alkalmazása, amely
   egy kliens-szerver architektúrának megfelelően megtalálja a
@@ -694,7 +689,7 @@ nincsen a piacon, viszont gyakran készítenek maguknak saját logikát a
 nagyobb gyártók.
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+\tightlist
 \item
   \textbf{Elastic Load Balancer}: Az Amazon AWS-ben az ELB avagy
   rugalmas terhelés elosztó az, ami ezt a célt szolgálja. Ennek a
@@ -872,14 +867,81 @@ megmutatni számunkra.
 módszerek}\label{kommunikuxe1ciuxf3s-muxf3dszerek}
 
 A szolgáltatások közötti kommunikáció nincs lekötve de jellemző a
-REST-es API, vagy a webservice-re jellemző XML alapú kommunikáció.
-Minden szolgáltatához tartozik egy önálló interfész, amin keresztül a
-többi szolgáltatás kommunikálhat vele, és minden funkcióját el lehet
-érni. Ennek az interfésznek olyannak kell lennie, hogy az implementáció
-szabadon változtatható legyen, és ne kelljen más szolgáltatásokat
-megváltoztatni, ha a saját szolgáltatásunkat változtatjuk. Ez segíti a
-több csapattal való munkát, és lehetővé teszi hogy teljesen függetlenül
-létezzenek a szolgáltatások.
+REST-es API, vagy a webservice-re jellemző XML alapú
+kommunikáció\citep{rest-soap}.
+
+\section{Technológiák}\label{technoluxf3giuxe1k}
+
+A kommunikáció megtervezéséhez egy jó leírást olvashatunk az Nginx egyik
+cikkében\citep{micro-communication}. Ez a cikk leírja, fontos előre
+eltervezni, hogy a szolgáltatások egyszerre több másik szolgáltatással
+is kommuniikálnak vagy nem, illetve szinkron vagy aszinkron módon
+akarunk-e kommunikálni. A cikk kifejti, hogy az egyes technológiák
+hogyan használhatók jól, és hogyan lehet várakoztatási sorral javítani a
+kiszolgáláson.
+
+\subsection{\texorpdfstring{REST
+(HTTP/JSON)\citep{microservices-light}:}{REST (HTTP/JSON){[}@microservices-light{]}:}}\label{rest-httpjsonmicroservices-light}
+
+A RESTful kommunikáció egy HTTP feletti kommunikációs fajta, aminek az
+alapja az erőforrások megjelölése egyedi azonosítókkal, és hálózaton
+keresztül műveletek végzése a HTTP funkciókat felhasználva. Ez a módszer
+napjainkban nagyon népszerű, mivel egyszerű kivitelezni, gyakorlatilag
+minden programozási nyelv támogatja, és nagyon egyszerűen építhetünk
+vele interfészeket. Az üzenetek törzsét a JSON tartalom adja, ami egy
+kulcs érték párokból álló adatstruktúra, és sok nyelv témogatj az
+objektumokkal való kommunikációt JSON adatokon keresztül. Mikro
+szolgáltatások esetén az aszinkron változat használata az
+előnyösebb\citep{rest-async}, mivel ekkor több kérést is ki tudunk
+szolgálni egyszerre, és a szolgáltatásoknak nem kell várniuk a szinkron
+üzenetek kiszolgálására.
+
+\subsection{\texorpdfstring{SOAP
+(HTTP/XML)\citep{soap}:}{SOAP (HTTP/XML){[}@soap{]}:}}\label{soap-httpxmlsoap}
+
+A szolgáltatás alapú architektúrákban nagyon népszerű, mivel tetszőleges
+interfészt definiálhatunk, és le lehet vele képezni objektumokat is.
+Kötött üzenetei vannak, amiket egy XML formátumu üzenet ír le. Ebben az
+esetben nem erőforrásokat jelölnek az URL-ek, hanem végpontokat, amik
+mögött implementálva van a funkcionalitás. Ennek a kommunikációs
+módszernek az az előnye, hogy jól bejáratot, széleskörben használt
+technológiáról van szó, amit jól lehet használni objektum orientált
+nyelvek közötti adatátvitelre. Hátránya, hogy nagyobb a sávszélesség
+igénye, és lassabb a REST-es megoldásnál. Létezik szinkron és aszinkron
+megvalósítása is és mivel ez a kommunikációs fajta is HTTP felett
+történik, a REST-hez hasonló okokból az aszinkron változat a célszerűbb.
+
+\subsection{\texorpdfstring{Socket
+(TCP)\citep{socket}:}{Socket (TCP){[}@socket{]}:}}\label{socket-tcpsocket}
+
+A Socket kapcsolat egy TCP feletti kapcsolat, ami egy folytonos
+kommunikációs csatornát jelent az egyes szolgáltatások között. Ez azért
+lehet előnyös, mert a folytonos kapcsolat fix útvonalat és fix
+kiszolgálást jelent, amivel gyors és egyszerű kommunkácót lehet
+végrehajtani. A három technológia közül ez a leggyorsabb és a legkisebb
+sávszélességet igénylő, azonban nincs definiálva az üzenetek formátuma
+(protokollt kell hozzá készíteni), és az aszinkron elv nem
+összeegyeztethető vele, így üzenetsorokat kell létrehozni a párhuzamos
+kiszolgáláshoz. Indokolt esetben sok előnye lehet egy mikro
+szolgáltatásokra épülő struktúrában is, azonban általános esetben nem
+igazán használható kommunikációs eszköz.
+
+\section{Interfészek}\label{interfuxe9szek}
+
+A korábban említett Nginx-es cikk\citep{micro-communication} kitért arra
+is, hogy az interfészek megalkotása milyen gondokkal járhat, és mi az
+előnye, hogyan lehet úgy megtervezni őket, hogy ne legyen sok gondunk
+velük.
+
+Az interfészeket úgy kell megtervezni, hogy könnyen alkalmazhatók
+legyenek, képesek legyünk minden funkciót teljes mértékben használni, és
+később bővíthető legyen (visszafelé kompatibilis). Erre egy megoldás a
+RESTful technológiáknál a verziózott URL-ek használata, amivel implicit
+módon megmondhatjuk, hogy melyik verziójú interfészre van szükségünk
+éppen. Ha rosszul tervezzük meg az interfészek struktúráját, és nem
+készítjük fel a szolgáltatásokat egy lehetséges interfész változtatásra,
+akkor könnyen lehet, hogy nagy mennyiségű plusz munkát adunk a
+fejlesztőknek, akiknek minden hívást karban kell tartaniuk.
 
 \chapter{Minta alkalmazás terve}\label{minta-alkalmazuxe1s-terve}
 
@@ -905,7 +967,7 @@ vettem alapul.
 A könyvesbolthoz tartozóan a következő tevékenységeket határoztam meg:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+\tightlist
 \item
   \textbf{Bejelentkezés}: Felhasználó felületen történő authentikálása
 \item
@@ -917,7 +979,7 @@ A könyvesbolthoz tartozóan a következő tevékenységeket határoztam meg:
 Ezekből a feladatokból a következő szolgáltatásokat lehet elkészíteni:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+\tightlist
 \item
   \textbf{Felület kiszolgálása}: Egy web kiszolgáló alkalmazása, amin
   keresztül elvégezhetők a különböző műveletek, mint a bejeletkezés,
@@ -967,7 +1029,7 @@ illetve Bash szkripteket használtam.
 A szolgáltatásokhoz tartozó Docker konténerek:
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+\tightlist
 \item
   \textbf{Adatbázis}: Az alapja egy \emph{`mysql'} nevezetű konténer,
   ami tartalmaz egy lightweight Ubuntu-t és benne telepítve egy mysql
@@ -1023,17 +1085,22 @@ Docker-el:}\label{kapcsolatok-uxe9puxedtuxe9se-docker-el}
 Ahogy korábban már említettem lehetőség van a Docker legújabb verzióiban
 megadni ,hogy ez egyes konténerek milyen néven és milyen hálózaton
 keresztül érhető el a többi konténer. A név beállításához a docker run
-parancs \texttt{-{}-hostname} paraméterét használhatjuk, míg a hálózat
+parancs \texttt{-\/-hostname} paraméterét használhatjuk, míg a hálózat
 definiálásához előbb létre kell hozni egy új Docker hálózatot
-\texttt{\{docker\}   docker network create bookstore} amire a konténerek
-tudnak csatlakozni a \texttt{-{}-net} kulcsszóval. Ennek segítségével
-elértem, hogy nagyon egyszerűen és egy eszköz felhasználásával képesek
-legyenek látni egymást a szolgáltatások, viszont egy nagy hátulütője van
-a megoldásnak, mégpedig az, hogy egy gépen kell futnia az összes
-alkalmazásnak. Mivel ez egy mikro szolgáltatásokra épülő architektúránál
-közel sem ideális, így ez csupán fejlesztési, és reprezentatív jelleggel
-használható. (Mivel a labor célja, hogy bemutassam az architektúra
-működését, ezért ez megfelel számomra)
+
+\begin{verbatim}
+  docker network create bookstore
+\end{verbatim}
+
+amire a konténerek tudnak csatlakozni a \texttt{-\/-net} kulcsszóval.
+Ennek segítségével elértem, hogy nagyon egyszerűen és egy eszköz
+felhasználásával képesek legyenek látni egymást a szolgáltatások,
+viszont egy nagy hátulütője van a megoldásnak, mégpedig az, hogy egy
+gépen kell futnia az összes alkalmazásnak. Mivel ez egy mikro
+szolgáltatásokra épülő architektúránál közel sem ideális, így ez csupán
+fejlesztési, és reprezentatív jelleggel használható. (Mivel a labor
+célja, hogy bemutassam az architektúra működését, ezért ez megfelel
+számomra)
 
 \section{Kapcsolatok építése
 Zookeeper-el:}\label{kapcsolatok-uxe9puxedtuxe9se-zookeeper-el}
@@ -1047,7 +1114,7 @@ automatizálni:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\itemsep1pt\parskip0pt\parsep0pt
+\tightlist
 \item
   \textbf{Teszt alkalmazás build-elése}: Gyakran van szükség a
   szolgáltatást futtató fájlok és egyéb tartalmak fordítására (C, Java,
@@ -1097,7 +1164,7 @@ A létrehozott feladatok (job-ok):
 \end{figure}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+\tightlist
 \item
   \textbf{bookstore-build}: Ennek a feladata a forrásfájlok és a Docker
   konténerek felkészítése. Miután a job végzett, a teljes infrastruktúra
@@ -1111,7 +1178,7 @@ A létrehozott feladatok (job-ok):
 \end{figure}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+\tightlist
 \item
   \textbf{bookstore-run}: Ennek a job-nak a feladata a Docker konténerek
   indítása, a szolgáltatások iniciaálizálása.
@@ -1124,7 +1191,7 @@ A létrehozott feladatok (job-ok):
 \end{figure}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+\tightlist
 \item
   \textbf{bookstore-clean}: Ennek a job-nak a feladata, hogy a környezet
   ki legyen tisztítva, és ne maradjon a tesztek után semilyen Docker
@@ -1138,7 +1205,7 @@ A létrehozott feladatok (job-ok):
 \end{figure}
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+\tightlist
 \item
   \textbf{bookstore-test}: Unit tesztek futtatása a feladata, de ide
   tartoznának a funkció és integrációs tesztek is, illetve a
@@ -1174,5 +1241,390 @@ A diplomaterv összefoglaló fejezete.
 \appendix
 
 \chapter{Függelék}\label{fuxfcggeluxe9k}
+
+\section{Dockerfile-ok}\label{dockerfile-ok}
+
+\subsection{Authentikáció}\label{authentikuxe1ciuxf3}
+
+Dockerfile.auth.service
+
+\begin{verbatim}
+FROM ubuntu
+MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+
+COPY auth.sh /usr/sbin/auth.sh
+COPY auth-service.py /usr/sbin/auth-service.py
+
+RUN apt-get -y update
+RUN apt-get -y install vim bash python-oauth python-mysqldb python \
+    python-flask
+RUN chmod +x /usr/sbin/auth.sh
+RUN chmod +x /usr/sbin/auth-service.py
+
+EXPOSE 8081
+\end{verbatim}
+
+\subsection{Proxy}\label{proxy}
+
+Dockerfile.proxy.service
+
+\begin{verbatim}
+FROM haproxy
+MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+
+COPY proxy.sh /usr/sbin/proxy.sh
+
+RUN apt-get -y update
+RUN apt-get -y install vim haproxy
+RUN chmod +x /usr/sbin/proxy.sh
+COPY haproxy.cfg /etc/haproxy/haproxy.cfg
+
+ENTRYPOINT proxy.sh
+
+EXPOSE 8080
+\end{verbatim}
+
+\subsection{Adatbázis}\label{adatbuxe1zis}
+
+Dockerfile.database.service
+
+\begin{verbatim}
+FROM ubuntu
+MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+
+COPY database.sh /usr/sbin/database.sh
+COPY auth_init.sql /tmp/auth_init.sql
+COPY bookstore_init.sql /tmp/bookstore_init.sql
+
+RUN apt-get -y update
+RUN apt-get -y install mysql-server mysql-client vim
+RUN chmod +x /usr/sbin/database.sh
+RUN sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' /etc/mysql/my.cnf
+
+EXPOSE 3306
+\end{verbatim}
+
+\subsection{Vásárlás}\label{vuxe1suxe1rluxe1s}
+
+Dockerfile.reserve.service
+
+\begin{verbatim}
+FROM centos
+MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+
+COPY reserve.sh /usr/sbin/reserve.sh
+
+RUN yum -y update
+RUN yum -y install vim java-1.8.0-openjdk-devel tomcat7
+RUN chmod +x /usr/sbin/reserve.sh
+
+EXPOSE 8888
+\end{verbatim}
+
+\subsection{Webkiszolgáló
+(böngészés)}\label{webkiszolguxe1luxf3-buxf6nguxe9szuxe9s}
+
+Dockerfile.webserver.service
+
+\begin{verbatim}
+FROM httpd
+MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+
+COPY webserver.sh /usr/sbin/webserver.sh
+COPY index.html /var/www/html/index.html
+COPY login.php /var/www/html/login.php
+COPY store.php /var/www/html/store.php
+
+RUN apt-get -y update
+RUN apt-get -y install vim php5 php5-mysql curl php5-curl
+RUN chmod +x /usr/sbin/webserver.sh
+
+EXPOSE 80 443
+\end{verbatim}
+
+\section{Szkriptek}\label{szkriptek}
+
+\subsection{Futtatáshoz}\label{futtatuxe1shoz}
+
+\subsubsection{Build}\label{build}
+
+build\_docker.sh
+
+\begin{verbatim}
+#!/bin/bash
+
+services="database webserver proxy reserve auth"
+
+for service in ${services}
+do
+    echo "Create ${service} for bookstore ..."
+    mkdir -p services/${service}
+    cp Dockerfiles/Dockerfile.${service}.service services/${service}/Dockerfile
+    cp -R scripts/${service}/* services/${service}/
+    docker build -t bookstore_${service} services/${service} \
+      &> services/${service}/build.log
+done
+
+echo "Microservices has been created!"
+\end{verbatim}
+
+\subsubsection{Futtatás}\label{futtatuxe1s}
+
+run\_containers.sh
+
+\begin{verbatim}
+#!/bin/bash
+
+services="database webserver reserve auth proxy"
+
+docker network create bookstore
+
+for service in ${services}
+do
+    echo "Start ${service} service ..."
+    docker run -d --name "${service}" -h "${service}" \
+      --net=bookstore bookstore_${service} ${service}.sh "${DOCKER_IP_HAPROXY}"
+done
+\end{verbatim}
+
+\subsubsection{Tisztogatás}\label{tisztogatuxe1s}
+
+clean\_docker.sh
+
+\begin{verbatim}
+#!/bin/bash
+
+services="database webserver proxy reserve auth"
+
+docker stop $(docker ps -a | awk '/bookstore/ {print $1}')
+docker rm $(docker ps -a | awk '/bookstore/ {print $1}')
+
+for service in ${services}
+do
+    echo "Delete ${service} image"
+    docker rmi bookstore_${service}
+done
+
+rm -rf services
+docker network rm bookstore
+\end{verbatim}
+
+\subsection{Szolgáltatásokhoz}\label{szolguxe1ltatuxe1sokhoz}
+
+\subsubsection{Adatbázis
+inicializálás}\label{adatbuxe1zis-inicializuxe1luxe1s}
+
+Authentikáció:
+
+\begin{verbatim}
+# Add permission to databases
+GRANT ALL PRIVILEGES ON authenticate.* TO 'root'@'%';
+GRANT ALL PRIVILEGES ON authenticate.* TO 'root'@'localhost';
+# Create Tables
+CREATE TABLE user_auth
+(
+    user_id int NOT NULL AUTO_INCREMENT,
+    username varchar(255) NOT NULL,
+    password varchar(255) NOT NULL,
+    credential varchar(255),
+    PRIMARY KEY (user_id)
+);
+# Fill Tables
+INSERT INTO user_auth (username, password) VALUES ("test", "testpassword");
+\end{verbatim}
+
+Bookstore raktár:
+
+\begin{verbatim}
+# Add permission to databases
+GRANT ALL PRIVILEGES ON bookstore.* TO 'root'@'%';
+GRANT ALL PRIVILEGES ON bookstore.* TO 'root'@'localhost';
+# Create Tables
+CREATE TABLE store
+(
+    store_id int NOT NULL AUTO_INCREMENT,
+    book_name varchar(255) NOT NULL,
+    count int NOT NULL,
+    PRIMARY KEY (store_id)
+);
+CREATE TABLE reservation
+(
+    reservation_id int NOT NULL AUTO_INCREMENT,
+    username varchar(255) NOT NULL,
+    book_name varchar(255) NOT NULL,
+    count int NOT NULL,
+    res_date varchar(255),
+    PRIMARY KEY (reservation_id)
+);
+# Fill Tables
+INSERT INTO store (book_name, count)
+VALUES ("Harry Potter and the Goblet of fire", 10);
+INSERT INTO store (book_name, count)
+VALUES ("Harry Potter and the Philosopher's Stone", 10);
+INSERT INTO store (book_name, count)
+VALUES ("Harry Potter and the Chamber of Secret", 10);
+INSERT INTO store (book_name, count)
+VALUES ("Lord of the Rings: Fellowship of the ring", 3);
+INSERT INTO store (book_name, count)
+VALUES ("Lord of the Rings: The Two Towers", 3);
+INSERT INTO store (book_name, count)
+VALUES ("Lord of the Rings: The Return of the King", 0);
+\end{verbatim}
+
+\subsubsection{Bejelentkezéshez}\label{bejelentkezuxe9shez}
+
+login.php:
+
+\begin{verbatim}
+<?php
+
+if(!isset( $_POST['username'], $_POST['password']))
+{
+    echo 'Please enter a valid username and password';
+}
+else
+{
+    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_URL,
+        "http://auth:8081/auth/{$username}/{$password}"
+    );
+    $content = curl_exec($ch);
+    echo $content;
+}
+?>
+\end{verbatim}
+
+auth-service.py:
+
+\begin{verbatim}
+#!/usr/bin/env python
+from flask import Flask, abort
+import MySQLdb as mdb
+app = Flask(__name__)
+
+@app.route("/auth/<username>/<password>")
+def hello(username, password):
+    try:
+        con = mdb.connect('database', 'root', '', 'authenticate');
+        cur = con.cursor()
+        cur.execute("SELECT user_id FROM user_auth \
+                     WHERE username='%s' AND password='%s'" %
+                     (username, password))
+        user_id = cur.fetchone()
+        print user_id
+        if not user_id:
+            abort(401)
+    except mdb.Error, e:
+        print "Error %d: %s" % (e.args[0],e.args[1])
+        abort(401)
+    finally:
+        if con:
+            con.close()
+    return "Successfully authenticated!"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8081)
+\end{verbatim}
+
+\subsubsection{Böngészés}\label{buxf6nguxe9szuxe9s}
+
+index.html:
+
+\begin{verbatim}
+<html>
+<head>
+<title>Bookstore Microservice</title>
+</head>
+<body>
+
+<h2>Login:</h2>
+<form action="login.php" method="post">
+  <fieldset>
+    <p>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" value=""/>
+    </p>
+    <p>
+      <label for="password">Password</label>
+      <input type="text" id="password" name="password" value=""/>
+    </p>
+    <p>
+      <input type="submit" value="Login" />
+    </p>
+  </fieldset>
+</form>
+
+</body>
+</html>
+\end{verbatim}
+
+store.php:
+
+\begin{verbatim}
+<html>
+<head>
+<title>Bookstore Microservice</title>
+</head>
+<body>
+
+<h2>Books:</h2>
+
+<table>
+  <tbody>
+    <tr><th>Name</th><th>Quantity</th></tr>
+
+    <?php
+      $servername = "database";
+      $username = "root";
+      $password = "";
+      $dbname = "bookstore";
+
+      // Create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+
+      $sql = "SELECT * FROM store";
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+              echo "<tr><td>" . $row["book_name"]. \
+              "</td><td> " . $row["count"]. "</td></tr>";
+          }
+      } else {
+          echo "0 results";
+      }
+      $conn->close();
+    ?>
+
+  </tbody>
+</table>
+
+</body>
+</html>
+\end{verbatim}
+
+Proxy config:
+
+\begin{verbatim}
+...
+frontend web
+    bind *:80
+    mode http
+    default_backend nodes
+
+backend nodes
+    mode http
+    balance roundrobin
+    server webserver webserver:80 cookie check
+\end{verbatim}
 
 \end{document}

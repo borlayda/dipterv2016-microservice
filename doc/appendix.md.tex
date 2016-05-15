@@ -1,3 +1,388 @@
 \appendix
 
 \chapter{Függelék}\label{fuxfcggeluxe9k}
+
+\section{Dockerfile-ok}\label{dockerfile-ok}
+
+\subsection{Authentikáció}\label{authentikuxe1ciuxf3}
+
+Dockerfile.auth.service
+
+\begin{verbatim}
+FROM ubuntu
+MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+
+COPY auth.sh /usr/sbin/auth.sh
+COPY auth-service.py /usr/sbin/auth-service.py
+
+RUN apt-get -y update
+RUN apt-get -y install vim bash python-oauth python-mysqldb python \
+    python-flask
+RUN chmod +x /usr/sbin/auth.sh
+RUN chmod +x /usr/sbin/auth-service.py
+
+EXPOSE 8081
+\end{verbatim}
+
+\subsection{Proxy}\label{proxy}
+
+Dockerfile.proxy.service
+
+\begin{verbatim}
+FROM haproxy
+MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+
+COPY proxy.sh /usr/sbin/proxy.sh
+
+RUN apt-get -y update
+RUN apt-get -y install vim haproxy
+RUN chmod +x /usr/sbin/proxy.sh
+COPY haproxy.cfg /etc/haproxy/haproxy.cfg
+
+ENTRYPOINT proxy.sh
+
+EXPOSE 8080
+\end{verbatim}
+
+\subsection{Adatbázis}\label{adatbuxe1zis}
+
+Dockerfile.database.service
+
+\begin{verbatim}
+FROM ubuntu
+MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+
+COPY database.sh /usr/sbin/database.sh
+COPY auth_init.sql /tmp/auth_init.sql
+COPY bookstore_init.sql /tmp/bookstore_init.sql
+
+RUN apt-get -y update
+RUN apt-get -y install mysql-server mysql-client vim
+RUN chmod +x /usr/sbin/database.sh
+RUN sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' /etc/mysql/my.cnf
+
+EXPOSE 3306
+\end{verbatim}
+
+\subsection{Vásárlás}\label{vuxe1suxe1rluxe1s}
+
+Dockerfile.reserve.service
+
+\begin{verbatim}
+FROM centos
+MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+
+COPY reserve.sh /usr/sbin/reserve.sh
+
+RUN yum -y update
+RUN yum -y install vim java-1.8.0-openjdk-devel tomcat7
+RUN chmod +x /usr/sbin/reserve.sh
+
+EXPOSE 8888
+\end{verbatim}
+
+\subsection{Webkiszolgáló
+(böngészés)}\label{webkiszolguxe1luxf3-buxf6nguxe9szuxe9s}
+
+Dockerfile.webserver.service
+
+\begin{verbatim}
+FROM httpd
+MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+
+COPY webserver.sh /usr/sbin/webserver.sh
+COPY index.html /var/www/html/index.html
+COPY login.php /var/www/html/login.php
+COPY store.php /var/www/html/store.php
+
+RUN apt-get -y update
+RUN apt-get -y install vim php5 php5-mysql curl php5-curl
+RUN chmod +x /usr/sbin/webserver.sh
+
+EXPOSE 80 443
+\end{verbatim}
+
+\section{Szkriptek}\label{szkriptek}
+
+\subsection{Futtatáshoz}\label{futtatuxe1shoz}
+
+\subsubsection{Build}\label{build}
+
+build\_docker.sh
+
+\begin{verbatim}
+#!/bin/bash
+
+services="database webserver proxy reserve auth"
+
+for service in ${services}
+do
+    echo "Create ${service} for bookstore ..."
+    mkdir -p services/${service}
+    cp Dockerfiles/Dockerfile.${service}.service services/${service}/Dockerfile
+    cp -R scripts/${service}/* services/${service}/
+    docker build -t bookstore_${service} services/${service} \
+      &> services/${service}/build.log
+done
+
+echo "Microservices has been created!"
+\end{verbatim}
+
+\subsubsection{Futtatás}\label{futtatuxe1s}
+
+run\_containers.sh
+
+\begin{verbatim}
+#!/bin/bash
+
+services="database webserver reserve auth proxy"
+
+docker network create bookstore
+
+for service in ${services}
+do
+    echo "Start ${service} service ..."
+    docker run -d --name "${service}" -h "${service}" \
+      --net=bookstore bookstore_${service} ${service}.sh "${DOCKER_IP_HAPROXY}"
+done
+\end{verbatim}
+
+\subsubsection{Tisztogatás}\label{tisztogatuxe1s}
+
+clean\_docker.sh
+
+\begin{verbatim}
+#!/bin/bash
+
+services="database webserver proxy reserve auth"
+
+docker stop $(docker ps -a | awk '/bookstore/ {print $1}')
+docker rm $(docker ps -a | awk '/bookstore/ {print $1}')
+
+for service in ${services}
+do
+    echo "Delete ${service} image"
+    docker rmi bookstore_${service}
+done
+
+rm -rf services
+docker network rm bookstore
+\end{verbatim}
+
+\subsection{Szolgáltatásokhoz}\label{szolguxe1ltatuxe1sokhoz}
+
+\subsubsection{Adatbázis
+inicializálás}\label{adatbuxe1zis-inicializuxe1luxe1s}
+
+Authentikáció:
+
+\begin{verbatim}
+# Add permission to databases
+GRANT ALL PRIVILEGES ON authenticate.* TO 'root'@'%';
+GRANT ALL PRIVILEGES ON authenticate.* TO 'root'@'localhost';
+# Create Tables
+CREATE TABLE user_auth
+(
+    user_id int NOT NULL AUTO_INCREMENT,
+    username varchar(255) NOT NULL,
+    password varchar(255) NOT NULL,
+    credential varchar(255),
+    PRIMARY KEY (user_id)
+);
+# Fill Tables
+INSERT INTO user_auth (username, password) VALUES ("test", "testpassword");
+\end{verbatim}
+
+Bookstore raktár:
+
+\begin{verbatim}
+# Add permission to databases
+GRANT ALL PRIVILEGES ON bookstore.* TO 'root'@'%';
+GRANT ALL PRIVILEGES ON bookstore.* TO 'root'@'localhost';
+# Create Tables
+CREATE TABLE store
+(
+    store_id int NOT NULL AUTO_INCREMENT,
+    book_name varchar(255) NOT NULL,
+    count int NOT NULL,
+    PRIMARY KEY (store_id)
+);
+CREATE TABLE reservation
+(
+    reservation_id int NOT NULL AUTO_INCREMENT,
+    username varchar(255) NOT NULL,
+    book_name varchar(255) NOT NULL,
+    count int NOT NULL,
+    res_date varchar(255),
+    PRIMARY KEY (reservation_id)
+);
+# Fill Tables
+INSERT INTO store (book_name, count)
+VALUES ("Harry Potter and the Goblet of fire", 10);
+INSERT INTO store (book_name, count)
+VALUES ("Harry Potter and the Philosopher's Stone", 10);
+INSERT INTO store (book_name, count)
+VALUES ("Harry Potter and the Chamber of Secret", 10);
+INSERT INTO store (book_name, count)
+VALUES ("Lord of the Rings: Fellowship of the ring", 3);
+INSERT INTO store (book_name, count)
+VALUES ("Lord of the Rings: The Two Towers", 3);
+INSERT INTO store (book_name, count)
+VALUES ("Lord of the Rings: The Return of the King", 0);
+\end{verbatim}
+
+\subsubsection{Bejelentkezéshez}\label{bejelentkezuxe9shez}
+
+login.php:
+
+\begin{verbatim}
+<?php
+
+if(!isset( $_POST['username'], $_POST['password']))
+{
+    echo 'Please enter a valid username and password';
+}
+else
+{
+    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_URL,
+        "http://auth:8081/auth/{$username}/{$password}"
+    );
+    $content = curl_exec($ch);
+    echo $content;
+}
+?>
+\end{verbatim}
+
+auth-service.py:
+
+\begin{verbatim}
+#!/usr/bin/env python
+from flask import Flask, abort
+import MySQLdb as mdb
+app = Flask(__name__)
+
+@app.route("/auth/<username>/<password>")
+def hello(username, password):
+    try:
+        con = mdb.connect('database', 'root', '', 'authenticate');
+        cur = con.cursor()
+        cur.execute("SELECT user_id FROM user_auth \
+                     WHERE username='%s' AND password='%s'" %
+                     (username, password))
+        user_id = cur.fetchone()
+        print user_id
+        if not user_id:
+            abort(401)
+    except mdb.Error, e:
+        print "Error %d: %s" % (e.args[0],e.args[1])
+        abort(401)
+    finally:
+        if con:
+            con.close()
+    return "Successfully authenticated!"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8081)
+\end{verbatim}
+
+\subsubsection{Böngészés}\label{buxf6nguxe9szuxe9s}
+
+index.html:
+
+\begin{verbatim}
+<html>
+<head>
+<title>Bookstore Microservice</title>
+</head>
+<body>
+
+<h2>Login:</h2>
+<form action="login.php" method="post">
+  <fieldset>
+    <p>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" value=""/>
+    </p>
+    <p>
+      <label for="password">Password</label>
+      <input type="text" id="password" name="password" value=""/>
+    </p>
+    <p>
+      <input type="submit" value="Login" />
+    </p>
+  </fieldset>
+</form>
+
+</body>
+</html>
+\end{verbatim}
+
+store.php:
+
+\begin{verbatim}
+<html>
+<head>
+<title>Bookstore Microservice</title>
+</head>
+<body>
+
+<h2>Books:</h2>
+
+<table>
+  <tbody>
+    <tr><th>Name</th><th>Quantity</th></tr>
+
+    <?php
+      $servername = "database";
+      $username = "root";
+      $password = "";
+      $dbname = "bookstore";
+
+      // Create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+
+      $sql = "SELECT * FROM store";
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+              echo "<tr><td>" . $row["book_name"]. \
+              "</td><td> " . $row["count"]. "</td></tr>";
+          }
+      } else {
+          echo "0 results";
+      }
+      $conn->close();
+    ?>
+
+  </tbody>
+</table>
+
+</body>
+</html>
+\end{verbatim}
+
+Proxy config:
+
+\begin{verbatim}
+...
+frontend web
+    bind *:80
+    mode http
+    default_backend nodes
+
+backend nodes
+    mode http
+    balance roundrobin
+    server webserver webserver:80 cookie check
+\end{verbatim}
