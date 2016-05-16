@@ -1,9 +1,40 @@
 \begin{thebibliography}{10}
 
+\bibitem{elastic-load-balance}
+Amazon.
+\newblock Elastic load balancing.
+\newblock \url{https://aws.amazon.com/elasticloadbalancing/}.
+
+\bibitem{ansible}
+Ansible.
+\newblock Ansible.
+\newblock \url{https://www.ansible.com/}.
+
+\bibitem{zookeeper}
+Apache.
+\newblock Apache zookeeper.
+\newblock \url{http://zookeeper.apache.org/}.
+
+\bibitem{micro-service-monitoring}
+Zohar Arad.
+\newblock Effectively monitor your micro-service architectures.
+\newblock
+  \url{http://zohararad.github.io/presentations/micro-services-monitoring/}.
+
 \bibitem{event-driven-pattern}
 David Chou.
 \newblock Using events in highly distributed architectures.
 \newblock {\em The Architecture Jounal}, October 2008.
+
+\bibitem{cron-monitoring}
+Cronitor.
+\newblock Monitoring microservices.
+\newblock \url{https://cronitor.io/help/micro-service-monitoring}.
+
+\bibitem{cronitor}
+Cronitor.io.
+\newblock Cronitor.
+\newblock \url{https://cronitor.io/}.
 
 \bibitem{micro-arch}
 Manfréd Sneps-Sneppe Dimirty~Namiot.
@@ -11,11 +42,72 @@ Manfréd Sneps-Sneppe Dimirty~Namiot.
 \newblock
   \url{http://cyberleninka.ru/article/n/on-micro-services-architecture}.
 
+\bibitem{docker}
+Docker.
+\newblock Docker.
+\newblock \url{https://www.docker.com/}.
+
+\bibitem{elasticbox}
+ElasticBox.
+\newblock Elasticbox.
+\newblock \url{https://elasticbox.com/how-it-works}.
+
+\bibitem{kubernetes}
+ElasticBox.
+\newblock Kubernetes.
+\newblock \url{https://elasticbox.com/kubernetes}.
+
+\bibitem{kibana}
+Elasticsearch.
+\newblock Kibana.
+\newblock \url{https://www.elastic.co/products/kibana}.
+
+\bibitem{logstash}
+Elasticsearch.
+\newblock Logstash.
+\newblock \url{https://www.elastic.co/products/logstash}.
+
 \bibitem{archivematica}
 Peter~Van Garderen.
 \newblock Archivematica: Using micro-services and open-source software to
   deliver a conprehensive digital curation solution.
 \newblock In {\em iPres 2010}, pages 145--150, Vienna, Austria, ~19--24 2010.
+
+\bibitem{microservice-monitoring}
+Nemeth Gergely.
+\newblock Monitoring microservices.
+\newblock
+  \url{https://www.loggly.com/blog/monitoring-microservices-three-ways-to-overcome-the-biggest-challenges/}.
+
+\bibitem{haproxy}
+HAProxy.
+\newblock The reliable, high performance tcp/http load balancer.
+\newblock \url{http://www.haproxy.org/}.
+
+\bibitem{consul}
+Hashicorp.
+\newblock Consul.
+\newblock \url{https://www.consul.io/}.
+
+\bibitem{chef}
+Chef~Software Inc.
+\newblock Chef.
+\newblock \url{https://www.chef.io/chef/}.
+
+\bibitem{saltstack}
+SaltStack inc.
+\newblock Saltstack.
+\newblock \url{http://saltstack.com/}.
+
+\bibitem{jenkins-elasticbox}
+Jenkins.
+\newblock Elasticbox ci.
+\newblock \url{https://wiki.jenkins-ci.org/display/JENKINS/ElasticBox+CI}.
+
+\bibitem{jenkins}
+Jenkins.
+\newblock Jenkins.
+\newblock https://jenkins.io/index.html.
 
 \bibitem{microservices-light}
 Mercedes~Garijo Jose Ignacio Fernández-Villamor, Carlos Á.~Iglesias.
@@ -28,6 +120,26 @@ Chris~Richardson (Kong).
 \newblock {P}attern: {M}icroservices {A}rchitecture.
 \newblock \url{http://microservices.io/patterns/microservices.html}.
 
+\bibitem{kvm}
+KVM.
+\newblock Kernel virtual machine.
+\newblock \url{http://www.linux-kvm.org/page/Main_Page}.
+
+\bibitem{libvirt}
+Libvirt.
+\newblock libvirt: The virtualization api.
+\newblock \url{https://libvirt.org/}.
+
+\bibitem{eureka-glance}
+David Liu.
+\newblock Euraka at glance.
+\newblock \url{https://github.com/Netflix/eureka/wiki/Eureka-at-a-glance}.
+
+\bibitem{LB-haproxy}
+Fideloper LLC.
+\newblock Load balancing with haproxy.
+\newblock \url{https://serversforhackers.com/load-balancing-with-haproxy}.
+
 \bibitem{pipes-pattern}
 Microsoft.
 \newblock {P}ipes and {F}ilters {P}attern.
@@ -38,10 +150,31 @@ Microsoft.
 \newblock {P}ublish/{S}ubscribe.
 \newblock \url{https://msdn.microsoft.com/en-us/library/ff649664.aspx}.
 
+\bibitem{micro-golden}
+Mrina Natarajan.
+\newblock 3 golden rules of microservices deployments.
+\newblock
+  \url{http://devops.com/2015/05/07/3-golden-rules-microservices-deployments/}.
+
+\bibitem{nginx}
+Nginx.
+\newblock Nginx.
+\newblock \url{https://www.nginx.com/}.
+
+\bibitem{puppet}
+Puppet.
+\newblock Puppet 4.4 reference manual.
+\newblock \url{https://docs.puppet.com/puppet/latest/reference/}, 2016.
+
 \bibitem{scale-cube}
 Chris Richardson.
 \newblock The {S}cale {C}ube.
 \newblock \url{http://microservices.io/articles/scalecube.html}.
+
+\bibitem{service-registry-pattern}
+Chris Richardson.
+\newblock Service registry pattern.
+\newblock \url{http://microservices.io/patterns/service-registry.html}.
 
 \bibitem{micro-communication}
 Chris Richardson.
@@ -50,6 +183,16 @@ Chris Richardson.
 \newblock
   \url{https://www.nginx.com/blog/building-microservices-inter-process-communication/},
   July 2015.
+
+\bibitem{ruxit-monitoring}
+Ruxit.
+\newblock Microservice monitoring.
+\newblock \url{https://ruxit.com/microservices/#microservices_start}.
+
+\bibitem{sensu}
+Sensu.
+\newblock What is sensu?
+\newblock \url{https://sensuapp.org/docs/latest/overview}.
 
 \bibitem{rest-soap}
 Puja~Padiya Snehal~Mumbaikar.
@@ -81,5 +224,10 @@ Benjamin Wootton.
 \newblock
   \url{http://highscalability.com/blog/2014/4/8/microservices-not-a-free-lunch.html},
   apr 2014.
+
+\bibitem{zabbix}
+Zabbix.
+\newblock What is zabbix.
+\newblock \url{http://www.zabbix.com/product.php}.
 
 \end{thebibliography}
