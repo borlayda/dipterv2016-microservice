@@ -8,6 +8,7 @@ Az integrációhoz olyan technológiákat lehet használni, melyek lehetővé te
 * Legyen jól definiált a szolgáltatások kapcsolata
 
 A következő feladatokra kellenek technológiák:
+
 * Hogyan lehet feltelepíteni egy önálló szolgáltatást? (telepítés)
 * Hogyan lehet összekötni ezeket a szolgáltatásokat? (automatikus környezet felderítés)
 * Hogyan lehet fenntartani, változtatni a szolgáltatások környezetét? (integrációs keretrendszer)

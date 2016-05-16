@@ -21,6 +21,12 @@ Zohar Arad.
 \newblock
   \url{http://zohararad.github.io/presentations/micro-services-monitoring/}.
 
+\bibitem{archivematica-wiki}
+Archivematica.
+\newblock Archivematica 1.1 micro-services.
+\newblock
+  \url{https://wiki.archivematica.org/Archivematica_1.1_Micro-services}.
+
 \bibitem{event-driven-pattern}
 David Chou.
 \newblock Using events in highly distributed architectures.
@@ -160,6 +166,18 @@ Mrina Natarajan.
 Nginx.
 \newblock Nginx.
 \newblock \url{https://www.nginx.com/}.
+
+\bibitem{micro-introPt1}
+Sebastián Peyrott.
+\newblock An introduction to microservices, part 1.
+\newblock
+  \url{https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/}.
+
+\bibitem{micro-introPt3}
+Sebastián Peyrott.
+\newblock An introduction to microservices, part 3: The service registry.
+\newblock
+  \url{https://auth0.com/blog/2015/10/02/an-introduction-to-microservices-part-3-the-service-registry/}.
 
 \bibitem{puppet}
 Puppet.

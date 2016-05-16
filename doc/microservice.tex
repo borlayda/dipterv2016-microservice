@@ -210,6 +210,50 @@ az architektúrához használatos technológiákba.
 
 \chapter{Bevezetés}\label{bevezetuxe9s}
 
+Fontos, hogy az alkalmazásaink megbízhatóan, karbantarthatóan, és nagy
+rendelkezésre állással legyenek elérhetőek. Napjaink egyik feltörökvő
+architektúra építési elve a mikro szolgáltatások archtektúrája. Ezt az
+architektúra típust az elosztott működése, a szolgáltatásonkénti könnyen
+fejleszthetősége, és a jó skálázhatósága teszi népszerűvé. Sok cég
+választja ezt az új elvet, mivel az egyes komonensek fejlesztése
+egyszerűbb és gyorsabb a végeredmény pedig könnyebben karbantartható, és
+egyszerűen cloud-osítható.
+
+Jelen labor keretében megismerkedem a mikro szolgáltatások
+felépítésével, működésével, és egy automatizált megoldást adok a
+használatukra. Bemutatom, hogy hogyan lehet azt a technológiát
+automatizáltan tesztelni, és a fejlesztési folyamatot egyszerűen és
+felügyelve vezetni.
+
+Az második fejezetben beleástam magam a technológiai áttekintésbe, ahol
+az architektúra lényegét próbáltam megérteni, és összeszedtem, hogy
+milyen tervezési kérdések merülnek fel egy mikroszolgáltatásokra épülő
+alkalmazás elkészítésénél.
+
+A harmadik fejezetben megnéztem, hogy milyen előnyei illetve hátrányai
+lehetnek ennek a módszernek, illetve megnéztem egy példát
+(Archivematica), amin keresztül be tudom mutatni ezeket a szempontokat.
+
+A negyedik fejezetben a kapcsolódó technológiákról készítettem egy
+összefoglalást, ami tartalmazza a jelenleg használt technológiákat,
+amikkel mikroszolgáltatásokra épülő architektúrát lehet építeni, illetve
+olyan technológiákat, amikkel kiegészítve teljesen felügyelhető a
+szolgáltatások működése.
+
+Az ötödik fejezetben a különböző kommunikációs lehetőségekkel
+foglalkoztam, amikkel össze lehet kötni a szolgáltatásokat.
+
+A hatodik fejezetben megterveztem a példa alkalmazást, illetve az
+architektúrát, amit meg fogok alkotni a diplomaterv során, valamint az
+automatizálás alapjait.
+
+A hetedik fejezetben a konkrét megvalósítás lépéseit, és nehézségeit
+fogolaltam össze, ami alapján végigvezethető a diplomaterv minta
+alakalmazásának az elkészítése.
+
+A nyolcadik fejezet tartalmazza az összefoglalást, ami egy értékelést ad
+az elvégzett munkáról.
+
 \chapter{\texorpdfstring{Mikro szolgáltatások\citep{microservices}
 \citep{micro-arch}
 \citep{microservices-light}}{Mikro szolgáltatások{[}@microservices{]} {[}@micro-arch{]} {[}@microservices-light{]}}}\label{mikro-szolguxe1ltatuxe1sokmicroservices-micro-arch-microservices-light}
@@ -547,8 +591,20 @@ Ugyan csak előnye a mirco-service architektúrának, hogy különböző
 technológiákat lehet keverni vele, mivel az egyes szolgáltatások
 különböző technológiákkal különböző platformon is futhatnak.
 
-\chapter{Technológiai
-áttekintés}\label{technoluxf3giai-uxe1ttekintuxe9s}
+\section{\texorpdfstring{Archivematica
+\citep{archivematica}}{Archivematica {[}@archivematica{]}}}\label{archivematica-archivematica}
+
+Az Archivematica egy nyilt forráskódú elektronikus tartalom kezelő, ami
+tud kezelni különböző fájlokat, multimédiás adatokat, illetve akármilyen
+szöveges tartalmat. Ez az alakmazás alapvetően monolitikus
+architektúrára épül, azonban elkézdték átalakítani a struktúráját
+mikroszolgáltatásokat használó architektúrára. Azt úgy csináltták, hogy
+a különböző plusz funkciókat az eredeti alkalmazás plugin szerűen
+mikroszolgáltatásokból nyeri ki, és ennek megfelelően a tovább
+fejlesztés is megalapozott\citep{archivematica-wiki}.
+
+\chapter{\texorpdfstring{Technológiai
+áttekintés\citep{micro-introPt1}}{Technológiai áttekintés{[}@micro-introPt1{]}}}\label{technoluxf3giai-uxe1ttekintuxe9smicro-intropt1}
 
 Az integrációhoz olyan technológiákat lehet használni, melyek lehetővé
 teszik az egyes szolgáltatások elkülönült működését. Ahhoz, hogy jó
@@ -567,16 +623,31 @@ mikroszolgáltatások helyes működéséhez kell. Ezek pedig a következők:
   Legyen jól definiált a szolgáltatások kapcsolata
 \end{itemize}
 
-A következő feladatokra kellenek technológiák: * Hogyan lehet
-feltelepíteni egy önálló szolgáltatást? (telepítés) * Hogyan lehet
-összekötni ezeket a szolgáltatásokat? (automatikus környezet felderítés)
-* Hogyan lehet fenntartani, változtatni a szolgáltatások környezetét?
-(integrációs keretrendszer) * Hogyan lehet skálázni a szolgáltatást?
-(skálázás) * Hogyan lehet egységesen használni a skálázott
-szolgáltatásokat? (load balance, konzisztencia fenntartás) * Hogyan
-lehet virtualizáltan ezt kivitelezni? (virtualizálás) * A meglévő
-szolgáltatásokat hogyan tartsuk nyilván? (service registy) * Hogyan
-figyeljük meg az alkalmazást működés közben (monitorozás, loggolás)
+A következő feladatokra kellenek technológiák:
+
+\begin{itemize}
+\tightlist
+\item
+  Hogyan lehet feltelepíteni egy önálló szolgáltatást? (telepítés)
+\item
+  Hogyan lehet összekötni ezeket a szolgáltatásokat? (automatikus
+  környezet felderítés)
+\item
+  Hogyan lehet fenntartani, változtatni a szolgáltatások környezetét?
+  (integrációs keretrendszer)
+\item
+  Hogyan lehet skálázni a szolgáltatást? (skálázás)
+\item
+  Hogyan lehet egységesen használni a skálázott szolgáltatásokat? (load
+  balance, konzisztencia fenntartás)
+\item
+  Hogyan lehet virtualizáltan ezt kivitelezni? (virtualizálás)
+\item
+  A meglévő szolgáltatásokat hogyan tartsuk nyilván? (service registy)
+\item
+  Hogyan figyeljük meg az alkalmazást működés közben (monitorozás,
+  loggolás)
+\end{itemize}
 
 \section{Telepítési
 technológiák}\label{telepuxedtuxe9si-technoluxf3giuxe1k}
@@ -803,7 +874,8 @@ monitorozás is egyszerűbb lehet.
 \end{itemize}
 
 \section{\texorpdfstring{Service registy-k
-\citep{service-registry-pattern}}{Service registy-k {[}@service-registry-pattern{]}}}\label{service-registy-k-service-registry-pattern}
+\citep{service-registry-pattern}
+\citep{micro-introPt3}}{Service registy-k {[}@service-registry-pattern{]} {[}@micro-introPt3{]}}}\label{service-registy-k-service-registry-pattern-micro-intropt3}
 
 Számon kell tartani, hogy milyen szolgáltatások elérhetők, milyen címen
 és hány példányban az architektúránkban, és ehhez valamilyen

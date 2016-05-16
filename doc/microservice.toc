@@ -27,14 +27,15 @@
 \select@language {magyar} \contentsline {subsection}{\numberline {3.2.5}Interf\IeC {\'e}szek fix\IeC {\'a}l\IeC {\'o}dnak}{12}{subsection.3.2.5}
 \select@language {magyar} \contentsline {subsection}{\numberline {3.2.6}Nehezen tesztelhet\IeC {\H o} eg\IeC {\'e}szben}{12}{subsection.3.2.6}
 \select@language {magyar} \contentsline {section}{\numberline {3.3}\IeC {\"O}sszehasonl\IeC {\'\i }tva a monolitikus architekt\IeC {\'u}r\IeC {\'a}val}{13}{section.3.3}
-\select@language {magyar} \contentsline {chapter}{\numberline {4}Technol\IeC {\'o}giai \IeC {\'a}ttekint\IeC {\'e}s}{14}{chapter.4}
+\select@language {magyar} \contentsline {section}{\numberline {3.4}Archivematica \citep {archivematica}}{13}{section.3.4}
+\select@language {magyar} \contentsline {chapter}{\numberline {4}Technol\IeC {\'o}giai \IeC {\'a}ttekint\IeC {\'e}s\citep {micro-introPt1}}{14}{chapter.4}
 \select@language {magyar} \contentsline {section}{\numberline {4.1}Telep\IeC {\'\i }t\IeC {\'e}si technol\IeC {\'o}gi\IeC {\'a}k}{14}{section.4.1}
 \select@language {magyar} \contentsline {section}{\numberline {4.2}K\IeC {\"o}rnyezet felder\IeC {\'\i }t\IeC {\'e}si technol\IeC {\'o}gi\IeC {\'a}k}{15}{section.4.2}
-\select@language {magyar} \contentsline {section}{\numberline {4.3}Integr\IeC {\'a}ci\IeC {\'o}s keretrendszerek}{15}{section.4.3}
+\select@language {magyar} \contentsline {section}{\numberline {4.3}Integr\IeC {\'a}ci\IeC {\'o}s keretrendszerek}{16}{section.4.3}
 \select@language {magyar} \contentsline {section}{\numberline {4.4}Sk\IeC {\'a}l\IeC {\'a}z\IeC {\'a}si technol\IeC {\'o}gi\IeC {\'a}k}{16}{section.4.4}
 \select@language {magyar} \contentsline {section}{\numberline {4.5}Terhel\IeC {\'e}s eloszt\IeC {\'a}s}{17}{section.4.5}
 \select@language {magyar} \contentsline {section}{\numberline {4.6}Virtualiz\IeC {\'a}ci\IeC {\'o}s technol\IeC {\'o}gi\IeC {\'a}l}{17}{section.4.6}
-\select@language {magyar} \contentsline {section}{\numberline {4.7}Service registy-k \citep {service-registry-pattern}}{18}{section.4.7}
+\select@language {magyar} \contentsline {section}{\numberline {4.7}Service registy-k \citep {service-registry-pattern} \citep {micro-introPt3}}{18}{section.4.7}
 \select@language {magyar} \contentsline {section}{\numberline {4.8}Monitoroz\IeC {\'a}s, loggol\IeC {\'a}s \citep {micro-service-monitoring} \citep {microservice-monitoring}}{19}{section.4.8}
 \select@language {magyar} \contentsline {chapter}{\numberline {5}Kommunik\IeC {\'a}ci\IeC {\'o}s m\IeC {\'o}dszerek}{20}{chapter.5}
 \select@language {magyar} \contentsline {section}{\numberline {5.1}Technol\IeC {\'o}gi\IeC {\'a}k}{20}{section.5.1}

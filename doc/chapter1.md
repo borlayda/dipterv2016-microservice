@@ -1,8 +1,3 @@
-Bevezetés
-=========
-
-
-
 Mikro szolgáltatások[@microservices] [@micro-arch] [@microservices-light]
 ====================
 

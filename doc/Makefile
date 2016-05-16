@@ -7,7 +7,7 @@ UNIVERSITY = Budapesti Műszaki és Gazdaságtudományi Egyetem
 DEPARTMENT = Méréstechnika és Információs Rendszerek Tanszék
 THESIS_TYPE = Diplomaterv
 DOCUMENT_LANG = magyar
-SOURCE_FILES = abstract.md chapter1.md chapter2.md chapter3.md chapter4.md chapter5.md chapter6.md summary.md
+SOURCE_FILES = abstract.md intro.md chapter1.md chapter2.md chapter3.md chapter4.md chapter5.md chapter6.md summary.md
 APPENDIX_FILE = appendix.md
 
 # variables for the PDF/HTML compiler
