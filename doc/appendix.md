@@ -373,8 +373,8 @@ store.php:
 
 Proxy config:
 
-```{ini}
-...
+```{config}
+
 frontend web
     bind *:80
     mode http

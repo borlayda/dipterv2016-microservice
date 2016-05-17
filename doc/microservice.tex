@@ -82,7 +82,7 @@
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \ifxetex
   \usepackage{polyglossia}
-  \setmainlanguage{}
+  \setmainlanguage{magyar}
 \else
   \usepackage[magyar]{babel}
 \fi
@@ -151,7 +151,7 @@
 \onehalfspacing
 
 \hypersetup{linkcolor=black}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \tableofcontents
 
 \vfill
@@ -254,9 +254,8 @@ alakalmazásának az elkészítése.
 A nyolcadik fejezet tartalmazza az összefoglalást, ami egy értékelést ad
 az elvégzett munkáról.
 
-\chapter{\texorpdfstring{Mikro szolgáltatások\citep{microservices}
-\citep{micro-arch}
-\citep{microservices-light}}{Mikro szolgáltatások{[}@microservices{]} {[}@micro-arch{]} {[}@microservices-light{]}}}\label{mikro-szolguxe1ltatuxe1sokmicroservices-micro-arch-microservices-light}
+\chapter{Mikro szolgáltatások\citep{microservices} \citep{micro-arch}
+\citep{microservices-light}}\label{mikro-szolguxe1ltatuxe1sokmicroservices-micro-arch-microservices-light}
 
 A mikro szolgáltatás egy olyan architektúrális modellezési mód, amikor a
 tervezett rendszert/alkalmazást kisebb funkciókra bontjuk, és önálló
@@ -284,12 +283,12 @@ A tervezési folyamatnál a következő szempontokat szokták figyelembe
 venni:
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Szolgáltatások felsorolása valamilyen szempont szerint
 
   \begin{itemize}
-  \tightlist
+  \itemsep1pt\parskip0pt\parsep0pt
   \item
     Lehetséges műveletek felsorolása (igék amik a rendszerrel
     kapcsolatosak)
@@ -304,7 +303,7 @@ venni:
   A felbontott rendszert hogyan kapcsoljuk össze
 
   \begin{itemize}
-  \tightlist
+  \itemsep1pt\parskip0pt\parsep0pt
   \item
     Pipeline-ként egy hosszú folyamatot összeépítve és az információt
     áramoltatva
@@ -318,7 +317,7 @@ venni:
   Külső elérés megszervezése
 
   \begin{itemize}
-  \tightlist
+  \itemsep1pt\parskip0pt\parsep0pt
   \item
     Egy központi szolgáltatáson keresztül, ami a többivel kommunikál
   \item
@@ -467,8 +466,8 @@ Ahogy minden architektúrális mintának, a mikro szolgáltatásoknak is
 vannak előnyei, amik indokoltá teszik a minta használatát, és vannak
 hátrányai, amiket mérlegelnünk kell a tervezés folyamán.
 
-\section{\texorpdfstring{Előnyök
-\citep{microservices}}{Előnyök {[}@microservices{]}}}\label{elux151nyuxf6k-microservices}
+\section{Előnyök
+\citep{microservices}}\label{elux151nyuxf6k-microservices}
 
 \subsection{Könnyű fejleszteni}\label{kuxf6nnyux171-fejleszteni}
 
@@ -512,8 +511,8 @@ környezetben használt LDAP-ot, és egy Windows-os környezetben használt
 Active Directory-t, és minden gond nélkül használni is tudjuk az
 interfész segítségével.
 
-\section{\texorpdfstring{Hátrányok
-\citep{micro-disadv}}{Hátrányok {[}@micro-disadv{]}}}\label{huxe1truxe1nyok-micro-disadv}
+\section{Hátrányok
+\citep{micro-disadv}}\label{huxe1truxe1nyok-micro-disadv}
 
 \subsection{Komplex rendszer alakul
 ki}\label{komplex-rendszer-alakul-ki}
@@ -591,8 +590,8 @@ Ugyan csak előnye a mirco-service architektúrának, hogy különböző
 technológiákat lehet keverni vele, mivel az egyes szolgáltatások
 különböző technológiákkal különböző platformon is futhatnak.
 
-\section{\texorpdfstring{Archivematica
-\citep{archivematica}}{Archivematica {[}@archivematica{]}}}\label{archivematica-archivematica}
+\section{Archivematica
+\citep{archivematica}}\label{archivematica-archivematica}
 
 Az Archivematica egy nyilt forráskódú elektronikus tartalom kezelő, ami
 tud kezelni különböző fájlokat, multimédiás adatokat, illetve akármilyen
@@ -603,8 +602,8 @@ a különböző plusz funkciókat az eredeti alkalmazás plugin szerűen
 mikroszolgáltatásokból nyeri ki, és ennek megfelelően a tovább
 fejlesztés is megalapozott\citep{archivematica-wiki}.
 
-\chapter{\texorpdfstring{Technológiai
-áttekintés\citep{micro-introPt1}}{Technológiai áttekintés{[}@micro-introPt1{]}}}\label{technoluxf3giai-uxe1ttekintuxe9smicro-intropt1}
+\chapter{Technológiai
+áttekintés\citep{micro-introPt1}}\label{technoluxf3giai-uxe1ttekintuxe9smicro-intropt1}
 
 Az integrációhoz olyan technológiákat lehet használni, melyek lehetővé
 teszik az egyes szolgáltatások elkülönült működését. Ahhoz, hogy jó
@@ -614,7 +613,7 @@ tartani pár általános érvényű szabályt is\citep{micro-golden}, ami a
 mikroszolgáltatások helyes működéséhez kell. Ezek pedig a következők:
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Modulárisan szétválasztani a szolgáltatásokat
 \item
@@ -626,7 +625,7 @@ mikroszolgáltatások helyes működéséhez kell. Ezek pedig a következők:
 A következő feladatokra kellenek technológiák:
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   Hogyan lehet feltelepíteni egy önálló szolgáltatást? (telepítés)
 \item
@@ -703,7 +702,7 @@ működhessen a rendszer, azonban ez nem mindig triviális, így szükség van
 egy olyan alkalmazásra, amivel felderíthetjük az aktív szolgáltatásokat.
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Consul}\citep{consul}: A Hashicorp szolgáltatás felderítő
   alkalmazása, amely egy kliens-szerver architektúrának megfelelően
@@ -782,7 +781,7 @@ nincsen a piacon, viszont gyakran készítenek maguknak saját logikát a
 nagyobb gyártók.
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Elastic Load Balancer}\citep{elastic-load-balance}: Az Amazon
   AWS-ben az ELB avagy rugalmas terhelés elosztó az, ami ezt a célt
@@ -873,9 +872,8 @@ monitorozás is egyszerűbb lehet.
   sokan mások.
 \end{itemize}
 
-\section{\texorpdfstring{Service registy-k
-\citep{service-registry-pattern}
-\citep{micro-introPt3}}{Service registy-k {[}@service-registry-pattern{]} {[}@micro-introPt3{]}}}\label{service-registy-k-service-registry-pattern-micro-intropt3}
+\section{Service registy-k \citep{service-registry-pattern}
+\citep{micro-introPt3}}\label{service-registy-k-service-registry-pattern-micro-intropt3}
 
 Számon kell tartani, hogy milyen szolgáltatások elérhetők, milyen címen
 és hány példányban az architektúránkban, és ehhez valamilyen
@@ -908,9 +906,8 @@ szolgáltatás nyilvántartási eszközt kell használnunk.
   conzulhoz hasonlóan működik, és a feladata is ugyan az.
 \end{itemize}
 
-\section{\texorpdfstring{Monitorozás, loggolás
-\citep{micro-service-monitoring}
-\citep{microservice-monitoring}}{Monitorozás, loggolás {[}@micro-service-monitoring{]} {[}@microservice-monitoring{]}}}\label{monitorozuxe1s-loggoluxe1s-micro-service-monitoring-microservice-monitoring}
+\section{Monitorozás, loggolás \citep{micro-service-monitoring}
+\citep{microservice-monitoring}}\label{monitorozuxe1s-loggoluxe1s-micro-service-monitoring-microservice-monitoring}
 
 Ha már megépítettük a microservice architektúrát, akkor meg kell
 bizonyosodnunk róla, hogy minden megfelelően működik, és minden rendben
@@ -980,8 +977,8 @@ akarunk-e kommunikálni. A cikk kifejti, hogy az egyes technológiák
 hogyan használhatók jól, és hogyan lehet várakoztatási sorral javítani a
 kiszolgáláson.
 
-\subsection{\texorpdfstring{REST
-(HTTP/JSON)\citep{microservices-light}:}{REST (HTTP/JSON){[}@microservices-light{]}:}}\label{rest-httpjsonmicroservices-light}
+\subsection{REST
+(HTTP/JSON)\citep{microservices-light}:}\label{rest-httpjsonmicroservices-light}
 
 A RESTful kommunikáció egy HTTP feletti kommunikációs fajta, aminek az
 alapja az erőforrások megjelölése egyedi azonosítókkal, és hálózaton
@@ -996,8 +993,7 @@ előnyösebb\citep{rest-async}, mivel ekkor több kérést is ki tudunk
 szolgálni egyszerre, és a szolgáltatásoknak nem kell várniuk a szinkron
 üzenetek kiszolgálására.
 
-\subsection{\texorpdfstring{SOAP
-(HTTP/XML)\citep{soap}:}{SOAP (HTTP/XML){[}@soap{]}:}}\label{soap-httpxmlsoap}
+\subsection{SOAP (HTTP/XML)\citep{soap}:}\label{soap-httpxmlsoap}
 
 A szolgáltatás alapú architektúrákban nagyon népszerű, mivel tetszőleges
 interfészt definiálhatunk, és le lehet vele képezni objektumokat is.
@@ -1011,8 +1007,7 @@ igénye, és lassabb a REST-es megoldásnál. Létezik szinkron és aszinkron
 megvalósítása is és mivel ez a kommunikációs fajta is HTTP felett
 történik, a REST-hez hasonló okokból az aszinkron változat a célszerűbb.
 
-\subsection{\texorpdfstring{Socket
-(TCP)\citep{socket}:}{Socket (TCP){[}@socket{]}:}}\label{socket-tcpsocket}
+\subsection{Socket (TCP)\citep{socket}:}\label{socket-tcpsocket}
 
 A Socket kapcsolat egy TCP feletti kapcsolat, ami egy folytonos
 kommunikációs csatornát jelent az egyes szolgáltatások között. Ez azért
@@ -1067,7 +1062,7 @@ vettem alapul.
 A könyvesbolthoz tartozóan a következő tevékenységeket határoztam meg:
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Bejelentkezés}: Felhasználó felületen történő authentikálása
 \item
@@ -1079,7 +1074,7 @@ A könyvesbolthoz tartozóan a következő tevékenységeket határoztam meg:
 Ezekből a feladatokból a következő szolgáltatásokat lehet elkészíteni:
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Felület kiszolgálása}: Egy web kiszolgáló alkalmazása, amin
   keresztül elvégezhetők a különböző műveletek, mint a bejeletkezés,
@@ -1129,7 +1124,7 @@ illetve Bash szkripteket használtam.
 A szolgáltatásokhoz tartozó Docker konténerek:
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Adatbázis}: Az alapja egy \emph{`mysql'} nevezetű konténer,
   ami tartalmaz egy lightweight Ubuntu-t és benne telepítve egy mysql
@@ -1185,22 +1180,17 @@ Docker-el:}\label{kapcsolatok-uxe9puxedtuxe9se-docker-el}
 Ahogy korábban már említettem lehetőség van a Docker legújabb verzióiban
 megadni ,hogy ez egyes konténerek milyen néven és milyen hálózaton
 keresztül érhető el a többi konténer. A név beállításához a docker run
-parancs \texttt{-\/-hostname} paraméterét használhatjuk, míg a hálózat
+parancs \texttt{-{}-hostname} paraméterét használhatjuk, míg a hálózat
 definiálásához előbb létre kell hozni egy új Docker hálózatot
-
-\begin{verbatim}
-  docker network create bookstore
-\end{verbatim}
-
-amire a konténerek tudnak csatlakozni a \texttt{-\/-net} kulcsszóval.
-Ennek segítségével elértem, hogy nagyon egyszerűen és egy eszköz
-felhasználásával képesek legyenek látni egymást a szolgáltatások,
-viszont egy nagy hátulütője van a megoldásnak, mégpedig az, hogy egy
-gépen kell futnia az összes alkalmazásnak. Mivel ez egy mikro
-szolgáltatásokra épülő architektúránál közel sem ideális, így ez csupán
-fejlesztési, és reprezentatív jelleggel használható. (Mivel a labor
-célja, hogy bemutassam az architektúra működését, ezért ez megfelel
-számomra)
+\texttt{\{docker\}   docker network create bookstore} amire a konténerek
+tudnak csatlakozni a \texttt{-{}-net} kulcsszóval. Ennek segítségével
+elértem, hogy nagyon egyszerűen és egy eszköz felhasználásával képesek
+legyenek látni egymást a szolgáltatások, viszont egy nagy hátulütője van
+a megoldásnak, mégpedig az, hogy egy gépen kell futnia az összes
+alkalmazásnak. Mivel ez egy mikro szolgáltatásokra épülő architektúránál
+közel sem ideális, így ez csupán fejlesztési, és reprezentatív jelleggel
+használható. (Mivel a labor célja, hogy bemutassam az architektúra
+működését, ezért ez megfelel számomra)
 
 \section{Kapcsolatok építése
 Zookeeper-el:}\label{kapcsolatok-uxe9puxedtuxe9se-zookeeper-el}
@@ -1214,7 +1204,7 @@ automatizálni:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{Teszt alkalmazás build-elése}: Gyakran van szükség a
   szolgáltatást futtató fájlok és egyéb tartalmak fordítására (C, Java,
@@ -1264,7 +1254,7 @@ A létrehozott feladatok (job-ok):
 \end{figure}
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{bookstore-build}: Ennek a feladata a forrásfájlok és a Docker
   konténerek felkészítése. Miután a job végzett, a teljes infrastruktúra
@@ -1278,7 +1268,7 @@ A létrehozott feladatok (job-ok):
 \end{figure}
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{bookstore-run}: Ennek a job-nak a feladata a Docker konténerek
   indítása, a szolgáltatások iniciaálizálása.
@@ -1291,7 +1281,7 @@ A létrehozott feladatok (job-ok):
 \end{figure}
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{bookstore-clean}: Ennek a job-nak a feladata, hogy a környezet
   ki legyen tisztítva, és ne maradjon a tesztek után semilyen Docker
@@ -1305,7 +1295,7 @@ A létrehozott feladatok (job-ok):
 \end{figure}
 
 \begin{itemize}
-\tightlist
+\itemsep1pt\parskip0pt\parsep0pt
 \item
   \textbf{bookstore-test}: Unit tesztek futtatása a feladata, de ide
   tartoznának a funkció és integrációs tesztek is, illetve a
@@ -1348,99 +1338,80 @@ A diplomaterv összefoglaló fejezete.
 
 Dockerfile.auth.service
 
-\begin{verbatim}
-FROM ubuntu
-MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+```\{Dockerfile\} FROM ubuntu MAINTAINER Borlay Dániel
+\href{mailto:borlay.daniel@gmail.com}{borlay.daniel@gmail.com}
 
-COPY auth.sh /usr/sbin/auth.sh
-COPY auth-service.py /usr/sbin/auth-service.py
+COPY auth.sh /usr/sbin/auth.sh COPY auth-service.py
+/usr/sbin/auth-service.py
 
-RUN apt-get -y update
-RUN apt-get -y install vim bash python-oauth python-mysqldb python \
-    python-flask
-RUN chmod +x /usr/sbin/auth.sh
-RUN chmod +x /usr/sbin/auth-service.py
+RUN apt-get -y update RUN apt-get -y install vim bash python-oauth
+python-mysqldb python\\ python-flask RUN chmod +x /usr/sbin/auth.sh RUN
+chmod +x /usr/sbin/auth-service.py
 
-EXPOSE 8081
-\end{verbatim}
+EXPOSE 8081 ```
 
 \subsection{Proxy}\label{proxy}
 
 Dockerfile.proxy.service
 
-\begin{verbatim}
-FROM haproxy
-MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+```\{Dockerfile\} FROM haproxy MAINTAINER Borlay Dániel
+\href{mailto:borlay.daniel@gmail.com}{borlay.daniel@gmail.com}
 
 COPY proxy.sh /usr/sbin/proxy.sh
 
-RUN apt-get -y update
-RUN apt-get -y install vim haproxy
-RUN chmod +x /usr/sbin/proxy.sh
-COPY haproxy.cfg /etc/haproxy/haproxy.cfg
+RUN apt-get -y update RUN apt-get -y install vim haproxy RUN chmod +x
+/usr/sbin/proxy.sh COPY haproxy.cfg /etc/haproxy/haproxy.cfg
 
 ENTRYPOINT proxy.sh
 
-EXPOSE 8080
-\end{verbatim}
+EXPOSE 8080 ```
 
 \subsection{Adatbázis}\label{adatbuxe1zis}
 
 Dockerfile.database.service
 
-\begin{verbatim}
-FROM ubuntu
-MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+```\{Dockerfile\} FROM ubuntu MAINTAINER Borlay Dániel
+\href{mailto:borlay.daniel@gmail.com}{borlay.daniel@gmail.com}
 
-COPY database.sh /usr/sbin/database.sh
-COPY auth_init.sql /tmp/auth_init.sql
-COPY bookstore_init.sql /tmp/bookstore_init.sql
+COPY database.sh /usr/sbin/database.sh COPY auth\_init.sql
+/tmp/auth\_init.sql COPY bookstore\_init.sql /tmp/bookstore\_init.sql
 
-RUN apt-get -y update
-RUN apt-get -y install mysql-server mysql-client vim
-RUN chmod +x /usr/sbin/database.sh
-RUN sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' /etc/mysql/my.cnf
+RUN apt-get -y update RUN apt-get -y install mysql-server mysql-client
+vim RUN chmod +x /usr/sbin/database.sh RUN sed -i
+`s/bind-address.\emph{=.}/bind-address = 0.0.0.0/g' /etc/mysql/my.cnf
 
-EXPOSE 3306
-\end{verbatim}
+EXPOSE 3306 ```
 
 \subsection{Vásárlás}\label{vuxe1suxe1rluxe1s}
 
 Dockerfile.reserve.service
 
-\begin{verbatim}
-FROM centos
-MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+```\{Dockerfile\} FROM centos MAINTAINER Borlay Dániel
+\href{mailto:borlay.daniel@gmail.com}{borlay.daniel@gmail.com}
 
 COPY reserve.sh /usr/sbin/reserve.sh
 
-RUN yum -y update
-RUN yum -y install vim java-1.8.0-openjdk-devel tomcat7
-RUN chmod +x /usr/sbin/reserve.sh
+RUN yum -y update RUN yum -y install vim java-1.8.0-openjdk-devel
+tomcat7 RUN chmod +x /usr/sbin/reserve.sh
 
-EXPOSE 8888
-\end{verbatim}
+EXPOSE 8888 ```
 
 \subsection{Webkiszolgáló
 (böngészés)}\label{webkiszolguxe1luxf3-buxf6nguxe9szuxe9s}
 
 Dockerfile.webserver.service
 
-\begin{verbatim}
-FROM httpd
-MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+```\{Dockerfile\} FROM httpd MAINTAINER Borlay Dániel
+\href{mailto:borlay.daniel@gmail.com}{borlay.daniel@gmail.com}
 
-COPY webserver.sh /usr/sbin/webserver.sh
-COPY index.html /var/www/html/index.html
-COPY login.php /var/www/html/login.php
-COPY store.php /var/www/html/store.php
+COPY webserver.sh /usr/sbin/webserver.sh COPY index.html
+/var/www/html/index.html COPY login.php /var/www/html/login.php COPY
+store.php /var/www/html/store.php
 
-RUN apt-get -y update
-RUN apt-get -y install vim php5 php5-mysql curl php5-curl
-RUN chmod +x /usr/sbin/webserver.sh
+RUN apt-get -y update RUN apt-get -y install vim php5 php5-mysql curl
+php5-curl RUN chmod +x /usr/sbin/webserver.sh
 
-EXPOSE 80 443
-\end{verbatim}
+EXPOSE 80 443 ```
 
 \section{Szkriptek}\label{szkriptek}
 
@@ -1450,64 +1421,51 @@ EXPOSE 80 443
 
 build\_docker.sh
 
-\begin{verbatim}
-#!/bin/bash
+```\{bash\} \#!/bin/bash
 
-services="database webserver proxy reserve auth"
+services=``database webserver proxy reserve auth''
 
-for service in ${services}
-do
-    echo "Create ${service} for bookstore ..."
-    mkdir -p services/${service}
-    cp Dockerfiles/Dockerfile.${service}.service services/${service}/Dockerfile
-    cp -R scripts/${service}/* services/${service}/
-    docker build -t bookstore_${service} services/${service} \
-      &> services/${service}/build.log
-done
+for service in ${services} do     echo "Create $\{service\} for
+bookstore \ldots{}" mkdir -p
+services/${service}     cp Dockerfiles/Dockerfile.$\{service\}.service
+services/${service}/Dockerfile     cp -R scripts/$\{service\}/*
+services/${service}/     docker build -t bookstore_$\{service\}
+services/${service} \
+      &> services/$\{service\}/build.log done
 
-echo "Microservices has been created!"
-\end{verbatim}
+echo ``Microservices has been created!'' ```
 
 \subsubsection{Futtatás}\label{futtatuxe1s}
 
 run\_containers.sh
 
-\begin{verbatim}
-#!/bin/bash
+```\{bash\} \#!/bin/bash
 
-services="database webserver reserve auth proxy"
+services=``database webserver reserve auth proxy''
 
 docker network create bookstore
 
-for service in ${services}
-do
-    echo "Start ${service} service ..."
-    docker run -d --name "${service}" -h "${service}" \
-      --net=bookstore bookstore_${service} ${service}.sh "${DOCKER_IP_HAPROXY}"
-done
-\end{verbatim}
+for service in ${services} do     echo "Start $\{service\} service
+\ldots{}" docker run -d --name ``${service}" -h "$\{service\}''\\
+--net=bookstore bookstore\_${service} $\{service\}.sh
+``\$\{DOCKER\_IP\_HAPROXY\}'' done ```
 
 \subsubsection{Tisztogatás}\label{tisztogatuxe1s}
 
 clean\_docker.sh
 
-\begin{verbatim}
-#!/bin/bash
+```\{bash\} \#!/bin/bash
 
-services="database webserver proxy reserve auth"
+services=``database webserver proxy reserve auth''
 
-docker stop $(docker ps -a | awk '/bookstore/ {print $1}')
-docker rm $(docker ps -a | awk '/bookstore/ {print $1}')
+docker stop \$(docker ps -a \textbar{} awk `/bookstore/ \{print
+$1}') docker rm $(docker ps -a \textbar{} awk'/bookstore/ \{print
+\$1\}')
 
-for service in ${services}
-do
-    echo "Delete ${service} image"
-    docker rmi bookstore_${service}
-done
+for service in ${services} do     echo "Delete $\{service\} image"
+docker rmi bookstore\_\$\{service\} done
 
-rm -rf services
-docker network rm bookstore
-\end{verbatim}
+rm -rf services docker network rm bookstore ```
 
 \subsection{Szolgáltatásokhoz}\label{szolguxe1ltatuxe1sokhoz}
 
@@ -1516,215 +1474,101 @@ inicializálás}\label{adatbuxe1zis-inicializuxe1luxe1s}
 
 Authentikáció:
 
-\begin{verbatim}
-# Add permission to databases
-GRANT ALL PRIVILEGES ON authenticate.* TO 'root'@'%';
-GRANT ALL PRIVILEGES ON authenticate.* TO 'root'@'localhost';
-# Create Tables
-CREATE TABLE user_auth
-(
-    user_id int NOT NULL AUTO_INCREMENT,
-    username varchar(255) NOT NULL,
-    password varchar(255) NOT NULL,
-    credential varchar(255),
-    PRIMARY KEY (user_id)
-);
-# Fill Tables
-INSERT INTO user_auth (username, password) VALUES ("test", "testpassword");
-\end{verbatim}
+\texttt{\{SQL\} \# Add permission to databases GRANT ALL PRIVILEGES ON authenticate.* TO 'root'@'\%'; GRANT ALL PRIVILEGES ON authenticate.* TO 'root'@'localhost'; \# Create Tables CREATE TABLE user\_auth (     user\_id int NOT NULL AUTO\_INCREMENT,     username varchar(255) NOT NULL,     password varchar(255) NOT NULL,     credential varchar(255),     PRIMARY KEY (user\_id) ); \# Fill Tables INSERT INTO user\_auth (username, password) VALUES ("test", "testpassword");}
 
 Bookstore raktár:
 
-\begin{verbatim}
-# Add permission to databases
-GRANT ALL PRIVILEGES ON bookstore.* TO 'root'@'%';
-GRANT ALL PRIVILEGES ON bookstore.* TO 'root'@'localhost';
-# Create Tables
-CREATE TABLE store
-(
-    store_id int NOT NULL AUTO_INCREMENT,
-    book_name varchar(255) NOT NULL,
-    count int NOT NULL,
-    PRIMARY KEY (store_id)
-);
-CREATE TABLE reservation
-(
-    reservation_id int NOT NULL AUTO_INCREMENT,
-    username varchar(255) NOT NULL,
-    book_name varchar(255) NOT NULL,
-    count int NOT NULL,
-    res_date varchar(255),
-    PRIMARY KEY (reservation_id)
-);
-# Fill Tables
-INSERT INTO store (book_name, count)
-VALUES ("Harry Potter and the Goblet of fire", 10);
-INSERT INTO store (book_name, count)
-VALUES ("Harry Potter and the Philosopher's Stone", 10);
-INSERT INTO store (book_name, count)
-VALUES ("Harry Potter and the Chamber of Secret", 10);
-INSERT INTO store (book_name, count)
-VALUES ("Lord of the Rings: Fellowship of the ring", 3);
-INSERT INTO store (book_name, count)
-VALUES ("Lord of the Rings: The Two Towers", 3);
-INSERT INTO store (book_name, count)
-VALUES ("Lord of the Rings: The Return of the King", 0);
-\end{verbatim}
+\texttt{\{SQL\} \# Add permission to databases GRANT ALL PRIVILEGES ON bookstore.* TO 'root'@'\%'; GRANT ALL PRIVILEGES ON bookstore.* TO 'root'@'localhost'; \# Create Tables CREATE TABLE store (     store\_id int NOT NULL AUTO\_INCREMENT,     book\_name varchar(255) NOT NULL,     count int NOT NULL,     PRIMARY KEY (store\_id) ); CREATE TABLE reservation (     reservation\_id int NOT NULL AUTO\_INCREMENT,     username varchar(255) NOT NULL,     book\_name varchar(255) NOT NULL,     count int NOT NULL,     res\_date varchar(255),     PRIMARY KEY (reservation\_id) ); \# Fill Tables INSERT INTO store (book\_name, count) VALUES ("Harry Potter and the Goblet of fire", 10); INSERT INTO store (book\_name, count) VALUES ("Harry Potter and the Philosopher's Stone", 10); INSERT INTO store (book\_name, count) VALUES ("Harry Potter and the Chamber of Secret", 10); INSERT INTO store (book\_name, count) VALUES ("Lord of the Rings: Fellowship of the ring", 3); INSERT INTO store (book\_name, count) VALUES ("Lord of the Rings: The Two Towers", 3); INSERT INTO store (book\_name, count) VALUES ("Lord of the Rings: The Return of the King", 0);}
 
 \subsubsection{Bejelentkezéshez}\label{bejelentkezuxe9shez}
 
 login.php:
 
-\begin{verbatim}
-<?php
-
-if(!isset( $_POST['username'], $_POST['password']))
-{
-    echo 'Please enter a valid username and password';
-}
-else
-{
-    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-    $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_URL,
-        "http://auth:8081/auth/{$username}/{$password}"
-    );
-    $content = curl_exec($ch);
-    echo $content;
-}
-?>
-\end{verbatim}
+```\{PHP\} ```
 
 auth-service.py:
 
-\begin{verbatim}
-#!/usr/bin/env python
-from flask import Flask, abort
-import MySQLdb as mdb
-app = Flask(__name__)
+```\{python\} \#!/usr/bin/env python from flask import Flask, abort
+import MySQLdb as mdb app = Flask(\textbf{name})
 
-@app.route("/auth/<username>/<password>")
-def hello(username, password):
-    try:
-        con = mdb.connect('database', 'root', '', 'authenticate');
-        cur = con.cursor()
-        cur.execute("SELECT user_id FROM user_auth \
-                     WHERE username='%s' AND password='%s'" %
-                     (username, password))
-        user_id = cur.fetchone()
-        print user_id
-        if not user_id:
-            abort(401)
-    except mdb.Error, e:
-        print "Error %d: %s" % (e.args[0],e.args[1])
-        abort(401)
-    finally:
-        if con:
-            con.close()
-    return "Successfully authenticated!"
+@app.route(``/auth//'') def hello(username, password): try: con =
+mdb.connect(`database', `root', `', 'authenticate'); cur = con.cursor()
+cur.execute(``SELECT user\_id FROM user\_auth\\ WHERE username=`\%s' AND
+password=`\%s'\,'' \% (username, password)) user\_id = cur.fetchone()
+print user\_id if not user\_id: abort(401) except mdb.Error, e: print
+``Error \%d: \%s'' \% (e.args{[}0{]},e.args{[}1{]}) abort(401) finally:
+if con: con.close() return ``Successfully authenticated!''
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8081)
-\end{verbatim}
+if \textbf{name} == ``\textbf{main}'': app.run(host=``0.0.0.0'',
+port=8081) ```
 
 \subsubsection{Böngészés}\label{buxf6nguxe9szuxe9s}
 
 index.html:
 
-\begin{verbatim}
-<html>
-<head>
-<title>Bookstore Microservice</title>
-</head>
-<body>
+```\{HTML\}
 
-<h2>Login:</h2>
-<form action="login.php" method="post">
-  <fieldset>
-    <p>
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" value=""/>
-    </p>
-    <p>
-      <label for="password">Password</label>
-      <input type="text" id="password" name="password" value=""/>
-    </p>
-    <p>
-      <input type="submit" value="Login" />
-    </p>
-  </fieldset>
-</form>
+Bookstore Microservice
 
-</body>
-</html>
-\end{verbatim}
+Login:
+
+Username
+
+Password
+
+```
 
 store.php:
 
+```\{PHP\}
+
+Bookstore Microservice
+
+Books:
+
+Name
+
+Quantity
+
 \begin{verbatim}
-<html>
-<head>
-<title>Bookstore Microservice</title>
-</head>
-<body>
+<?php
+  $servername = "database";
+  $username = "root";
+  $password = "";
+  $dbname = "bookstore";
 
-<h2>Books:</h2>
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
 
-<table>
-  <tbody>
-    <tr><th>Name</th><th>Quantity</th></tr>
+  $sql = "SELECT * FROM store";
+  $result = $conn->query($sql);
 
-    <?php
-      $servername = "database";
-      $username = "root";
-      $password = "";
-      $dbname = "bookstore";
-
-      // Create connection
-      $conn = new mysqli($servername, $username, $password, $dbname);
-      // Check connection
-      if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+          echo "<tr><td>" . $row["book_name"]. \
+          "</td><td> " . $row["count"]. "</td></tr>";
       }
-
-      $sql = "SELECT * FROM store";
-      $result = $conn->query($sql);
-
-      if ($result->num_rows > 0) {
-          // output data of each row
-          while($row = $result->fetch_assoc()) {
-              echo "<tr><td>" . $row["book_name"]. \
-              "</td><td> " . $row["count"]. "</td></tr>";
-          }
-      } else {
-          echo "0 results";
-      }
-      $conn->close();
-    ?>
-
-  </tbody>
-</table>
-
-</body>
-</html>
+  } else {
+      echo "0 results";
+  }
+  $conn->close();
+?>
 \end{verbatim}
+
+```
 
 Proxy config:
 
-\begin{verbatim}
-...
-frontend web
-    bind *:80
-    mode http
-    default_backend nodes
+```\{config\}
 
-backend nodes
-    mode http
-    balance roundrobin
-    server webserver webserver:80 cookie check
-\end{verbatim}
+frontend web bind *:80 mode http default\_backend nodes
+
+backend nodes mode http balance roundrobin server webserver webserver:80
+cookie check ```
 
 \end{document}

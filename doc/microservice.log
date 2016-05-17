@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.9)  16 MAY 2016 16:51
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.9)  17 MAY 2016 22:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1514,7 +1514,7 @@ LaTeX Info: Redefining \nameref on input line 117.
 LaTeX Info: Redefining \cal on input line 586.
 LaTeX Info: Redefining \mit on input line 587.
 )
-<img/BME1782logo.pdf, id=276, 709.65125pt x 199.74625pt>
+<img/BME1782logo.pdf, id=300, 709.65125pt x 199.74625pt>
 File: img/BME1782logo.pdf Graphic file (type pdf)
 
 <use img/BME1782logo.pdf>
@@ -1578,72 +1578,469 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.31 ...e}s\citep {micro-introPt1}}{14}{chapter.4}
+l.31 ...e}s\citep {micro-introPt1}}{15}{chapter.4}
                                                    [1
 
-])
+] [2])
 \tf@toc=\write5
 \openout5 = `microservice.toc'.
 
- [2] [3
-
-] [4
-
+ [3] [4
 
 ] [5
 
+
 ]
-1. fejezet.
 [6
 
 ]
+1. fejezet.
+[7
+
+]
 2. fejezet.
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 289.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 258.
+
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 288.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [7
+) [8
 
 ]
-<img/ScaleCude.jpg, id=419, 722.7pt x 542.025pt>
+<img/ScaleCude.jpg, id=453, 722.7pt x 542.025pt>
 File: img/ScaleCude.jpg Graphic file (type jpg)
  <use img/ScaleCude.jpg>
-Package pdftex.def Info: img/ScaleCude.jpg used on input line 337.
+Package pdftex.def Info: img/ScaleCude.jpg used on input line 336.
 (pdftex.def)             Requested size: 433.62334pt x 325.2175pt.
 
-[8 <./img/ScaleCude.jpg>] [9] [10]
+[9 <./img/ScaleCude.jpg>] [10] [11]
 3. fejezet.
-[11
 
-] [12] [13]
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 470.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 470.
+
+[12
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 515.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 515.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 515.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 515.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 515.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 515.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 515.
+
+[13]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 594.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 594.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 594.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 594.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 594.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 594.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 594.
+
+[14]
 4. fejezet.
-[14
 
-] [15] [16] [17] [18]
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 606.
 
-Package natbib Warning: Citation `ruxit' on page 19 undefined on input line 955
-.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 606.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 606.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 606.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 606.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 606.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 606.
+
+[15
+
+] [16] [17] [18]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 876.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 876.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 876.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 876.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 876.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 876.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 876.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 876.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 876.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 876.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 876.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 876.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 876.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 876.
 
 [19]
-5. fejezet.
-[20
 
-] [21]
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 910.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 910.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 910.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 910.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 910.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 910.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 910.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 910.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 910.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 910.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 910.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 910.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 910.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 910.
+
+
+Package natbib Warning: Citation `ruxit' on page 20 undefined on input line 952
+.
+
+[20]
+5. fejezet.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 981.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 981.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 981.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 981.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 981.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 981.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 981.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 996.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 996.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 996.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 996.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 996.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 996.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 996.
+
+[21
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\NAT@ctype' on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\let' on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 1010.
+
+[22]
 6. fejezet.
-<img/microservices.png, id=560, 978.65625pt x 417.56pt>
+<img/microservices.png, id=595, 978.65625pt x 417.56pt>
 File: img/microservices.png Graphic file (type png)
 
 <use img/microservices.png>
-Package pdftex.def Info: img/microservices.png used on input line 1050.
+Package pdftex.def Info: img/microservices.png used on input line 1045.
 (pdftex.def)             Requested size: 587.19829pt x 250.53792pt.
- [22
+ [23
 
- <./img/microservices.png>] [23]
+ <./img/microservices.png>] [24]
 7. fejezet.
-[24
+[25
 
 ]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1188
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1183
 .
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1652,51 +2049,51 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [25]
-<img/jenkins-jobs.png, id=583, 1854.93pt x 470.75874pt>
+ [26]
+<img/jenkins-jobs.png, id=618, 1854.93pt x 470.75874pt>
 File: img/jenkins-jobs.png Graphic file (type png)
 
 <use img/jenkins-jobs.png>
-Package pdftex.def Info: img/jenkins-jobs.png used on input line 1262.
+Package pdftex.def Info: img/jenkins-jobs.png used on input line 1252.
 (pdftex.def)             Requested size: 1112.96661pt x 282.45743pt.
 
-<img/jenkins-build.png, id=584, 1349.04pt x 674.52pt>
+<img/jenkins-build.png, id=619, 1349.04pt x 674.52pt>
 File: img/jenkins-build.png Graphic file (type png)
 
 <use img/jenkins-build.png>
-Package pdftex.def Info: img/jenkins-build.png used on input line 1276.
+Package pdftex.def Info: img/jenkins-build.png used on input line 1266.
 (pdftex.def)             Requested size: 809.43025pt x 404.71512pt.
- [26 <./img/jenkins-jobs.png>]
-<img/jenkins-run.png, id=594, 1348.03625pt x 761.84625pt>
+
+<img/jenkins-run.png, id=620, 1348.03625pt x 761.84625pt>
 File: img/jenkins-run.png Graphic file (type png)
 
 <use img/jenkins-run.png>
-Package pdftex.def Info: img/jenkins-run.png used on input line 1289.
+Package pdftex.def Info: img/jenkins-run.png used on input line 1279.
 (pdftex.def)             Requested size: 808.828pt x 457.11128pt.
-
-<img/jenkins-clean.png, id=595, 1348.03625pt x 885.3075pt>
+ [27 <./img/jenkins-jobs.png>] [28 <./img/jenkins-build.png> <./img/jenkins-run
+.png>]
+<img/jenkins-clean.png, id=635, 1348.03625pt x 885.3075pt>
 File: img/jenkins-clean.png Graphic file (type png)
 
 <use img/jenkins-clean.png>
-Package pdftex.def Info: img/jenkins-clean.png used on input line 1303.
+Package pdftex.def Info: img/jenkins-clean.png used on input line 1293.
 (pdftex.def)             Requested size: 808.828pt x 531.1886pt.
- [27 <./img/jenkins-build.png>] [28 <./img/jenkins-run.png> <./img/jenkins-clea
-n.png>]
+ [29 <./img/jenkins-clean.png>]
 8. fejezet.
-[29
+[30
 
 ] (./microservice.lot)
 \tf@lot=\write6
 \openout6 = `microservice.lot'.
 
- [30
+ [31
 
 ] (./microservice.lof)
 \tf@lof=\write7
 \openout7 = `microservice.lof'.
 
  (./microservice.bbl
-[31
+[32
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 36--39
@@ -1710,7 +2107,7 @@ Underfull \hbox (badness 2050) in paragraph at lines 83--87
 ][]$https : / / www . loggly . com / blog /
  []
 
-[32
+[33
 
 ]
 Underfull \hbox (badness 4229) in paragraph at lines 140--143
@@ -1730,7 +2127,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 177--181
 com / blog / 2015 / 10 / 02 /
  []
 
-[33]
+[34]
 Underfull \hbox (badness 10000) in paragraph at lines 198--204
 []\T1/lmr/m/n/10.95 (+20) Chris Ri-chard-son.  Buil-ding mic-ros-er-vi-ces: Int
 er-process com-mu-ni-ca-
@@ -1760,86 +2157,213 @@ Underfull \hbox (badness 10000) in paragraph at lines 232--238
 -[]can-[]be-[]perfectly-[]^^\ne/$[][], march
  []
 
-) [34]
+) [35]
 A. f\"uggel\'ek.
-[35
+[36
 
 ]
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 140
-5.
- (/usr/share/texmf/tex/latex/lm/ts1lmtt.fd
-File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic settings for font family
-(microtype)             `lmtt' (encoding: TS1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-Package microtype Info: Character `texttrademark ' is missing
-(microtype)             in font `TS1/lmtt/m/n/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
+! Missing { inserted.
+<to be read again> 
+                   $
+l.1432 ...ervice}/     docker build -t bookstore_$
+                                                  \{service\}
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.1432 ...ervice}/     docker build -t bookstore_$
+                                                  \{service\}
+? 
+! Misplaced alignment tab character &.
+l.1434       &
+              > services/$\{service\}/build.log done
+? 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 1405--1405
-[]\T1/lmtt/m/n/10.95 RUN sed -i \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 s/bind-
-address.*=.*/bind-address = 0.0.0.0/g\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 /
-etc/mysql/my.cnf[] 
+Underfull \hbox (badness 10000) in paragraph at lines 1428--1435
+[]\T1/lmr/m/n/10.95 (+20) for ser-vi-ce in $[]\OML/lmm/m/it/10.95 doecho\OT1/lm
+r/m/n/10.95 (+20) "\OML/lmm/m/it/10.95 Create$\T1/lmr/m/n/10.95 (+20) {service}
+ for bookstore ..."
  []
 
-[36]
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1469--1469
-[]    \T1/lmtt/m/n/10.95 cp Dockerfiles/Dockerfile.${service}.service services/
-${service}/Dockerfile[] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1428--1435
+\T1/lmr/m/n/10.95 (+20) mk-dir -p services/$[]\OML/lmm/m/it/10.95 cpDockerfiles
+=Dockerfile:$\T1/lmr/m/n/10.95 (+20) {service}.service
  []
 
 [37]
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1488--1488
-[]      \T1/lmtt/m/n/10.95 --net=bookstore bookstore_${service} ${service}.sh "
-${DOCKER_IP_HAPROXY}"[] 
+! Extra }, or forgotten $.
+l.1462 $1}
+          ') docker rm $(docker ps -a \textbar{} awk'/bookstore/ \{print
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1477--1478
+[]\T1/lmtt/m/n/10.95 {SQL} # Add permission to databases GRANT ALL PRIVILEGES O
+N
  []
 
-[38]
-Overfull \hbox (2.63904pt too wide) in paragraph at lines 1534--1534
-[]\T1/lmtt/m/n/10.95 INSERT INTO user_auth (username, password) VALUES ("test",
- "testpassword");[] 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1477--1478
+\T1/lmtt/m/n/10.95 authenticate.* TO 'root'@'%'; GRANT ALL PRIVILEGES ON authen
+ticate.*
  []
 
-[39] [40] [41] [42]
+
+Underfull \hbox (badness 10000) in paragraph at lines 1477--1478
+\T1/lmtt/m/n/10.95 TO 'root'@'localhost'; # Create Tables CREATE TABLE user_-au
+th ( user_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1477--1478
+\T1/lmtt/m/n/10.95 id int NOT NULL AUTO_-INCREMENT, username varchar(255) NOT N
+ULL, password
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1477--1478
+\T1/lmtt/m/n/10.95 varchar(255) NOT NULL, credential varchar(255), PRIMARY KEY 
+(user_-id) );
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1477--1478
+\T1/lmtt/m/n/10.95 # Fill Tables INSERT INTO user_-auth (username, password) VA
+LUES ("test",
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+[]\T1/lmtt/m/n/10.95 {SQL} # Add permission to databases GRANT ALL PRIVILEGES O
+N bookstore.*
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+\T1/lmtt/m/n/10.95 TO 'root'@'%'; GRANT ALL PRIVILEGES ON bookstore.* TO 'root'
+@'localhost';
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+\T1/lmtt/m/n/10.95 # Create Tables CREATE TABLE store ( store_-id int NOT NULL 
+AUTO_-INCREMENT,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+\T1/lmtt/m/n/10.95 book_-name varchar(255) NOT NULL, count int NOT NULL, PRIMAR
+Y KEY (store_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+\T1/lmtt/m/n/10.95 id) ); CREATE TABLE reservation ( reservation_-id int NOT NU
+LL AUTO_-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+\T1/lmtt/m/n/10.95 INCREMENT, username varchar(255) NOT NULL, book_-name varcha
+r(255)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+\T1/lmtt/m/n/10.95 NOT NULL, count int NOT NULL, res_-date varchar(255), PRIMAR
+Y KEY
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+\T1/lmtt/m/n/10.95 (reservation_-id) ); # Fill Tables INSERT INTO store (book_-
+name, count)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+\T1/lmtt/m/n/10.95 VALUES ("Harry Potter and the Goblet of fire", 10); INSERT I
+NTO store
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+\T1/lmtt/m/n/10.95 (book_-name, count) VALUES ("Harry Potter and the Philosophe
+r's Stone",
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+\T1/lmtt/m/n/10.95 10); INSERT INTO store (book_-name, count) VALUES ("Harry Po
+tter and the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+\T1/lmtt/m/n/10.95 Chamber of Secret", 10); INSERT INTO store (book_-name, coun
+t) VALUES
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+\T1/lmtt/m/n/10.95 ("Lord of the Rings: Fellowship of the ring", 3); INSERT INT
+O store
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+\T1/lmtt/m/n/10.95 (book_-name, count) VALUES ("Lord of the Rings: The Two Towe
+rs", 3); INSERT
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1482
+\T1/lmtt/m/n/10.95 INTO store (book_-name, count) VALUES ("Lord of the Rings: T
+he Return of
+ []
+
+[38] [39]
 \tf@thm=\write8
 \openout8 = `microservice.thm'.
 
  
 AED: lastpage setting LastPage
-[43]
+[40]
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1730.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1730.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1574.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1574.
 (./microservice.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1730.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1730.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1574.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1574.
 
 Package rerunfilecheck Info: File `microservice.out' has not changed.
-(rerunfilecheck)             Checksum: 0FC1FF0C796AC24D2991B2FE9175980F;13196.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1730.
+(rerunfilecheck)             Checksum: E82040C789874E45C28CE9251DB3BD49;13808.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1574.
  ) 
 Here is how much of TeX's memory you used:
- 32168 strings out of 493304
- 556271 string characters out of 6139872
- 629200 words of memory out of 5000000
- 34737 multiletter control sequences out of 15000+600000
- 67002 words of font info for 103 fonts, out of 8000000 for 9000
+ 32144 strings out of 493304
+ 555894 string characters out of 6139872
+ 628693 words of memory out of 5000000
+ 34716 multiletter control sequences out of 15000+600000
+ 66910 words of font info for 104 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,7n,92p,10395b,606s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
-vips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/shar
-e/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/l
-m/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/tex
-mf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri
-10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on microservice.pdf (44 pages, 816906 bytes).
+ 63i,7n,92p,10395b,629s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/s
+hare/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
+-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/f
+onts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></
+usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/sh
+are/texmf/fonts/type1/public/lm/lmtt10.pfb>
+Output written on microservice.pdf (41 pages, 831386 bytes).
 PDF statistics:
- 821 PDF objects out of 1000 (max. 8388607)
- 752 compressed objects within 8 object streams
- 177 named destinations out of 1000 (max. 500000)
- 20040 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 851 PDF objects out of 1000 (max. 8388607)
+ 782 compressed objects within 8 object streams
+ 174 named destinations out of 1000 (max. 500000)
+ 19576 words of extra memory for PDF output out of 20736 (max. 10000000)
 
