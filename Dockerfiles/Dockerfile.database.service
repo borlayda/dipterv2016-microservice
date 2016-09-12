@@ -1,13 +1,15 @@
 FROM ubuntu
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
+USER root
+
 COPY database.sh /usr/sbin/database.sh
 COPY auth_init.sql /tmp/auth_init.sql
 COPY bookstore_init.sql /tmp/bookstore_init.sql
 
 RUN apt-get -y update
-RUN debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'
-RUN debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'
+RUN /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'"
+RUN /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'"
 RUN apt-get -y install mysql-server mysql-client vim
 RUN chmod +x /usr/sbin/database.sh
 RUN sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' /etc/mysql/my.cnf
