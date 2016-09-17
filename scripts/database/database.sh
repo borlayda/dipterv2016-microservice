@@ -2,6 +2,8 @@
 
 service mysql start
 
+mysql -u root -proot -e "CREATE USER 'store'@'%' IDENTIFIED BY 'store';"
+mysql -u root -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'store'@'%';"
 mysql -u root -proot -e "CREATE DATABASE authenticate;"
 mysql -u root -proot -e "CREATE DATABASE bookstore;"
 mysql -u root -proot authenticate < /tmp/auth_init.sql

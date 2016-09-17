@@ -1,6 +1,6 @@
 # Add permission to databases
-GRANT ALL PRIVILEGES ON bookstore.* TO 'root'@'%';
-GRANT ALL PRIVILEGES ON bookstore.* TO 'root'@'localhost';
+GRANT ALL PRIVILEGES ON bookstore.* TO 'store'@'%';
+GRANT ALL PRIVILEGES ON bookstore.* TO 'store'@'localhost';
 # Create Tables
 CREATE TABLE store
 (

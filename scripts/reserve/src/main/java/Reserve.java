@@ -23,7 +23,7 @@ class Reserve {
     Reserve() {
         try {
             conn =
-                DriverManager.getConnection("jdbc:mysql://database/bookstore?user=root");
+                DriverManager.getConnection("jdbc:mysql://database/bookstore", "store", "store");
         } catch (SQLException ex) {
             System.out.println("SQLException: " + ex.getMessage());
         }

@@ -1,6 +1,6 @@
 # Add permission to databases
-GRANT ALL PRIVILEGES ON authenticate.* TO 'root'@'%';
-GRANT ALL PRIVILEGES ON authenticate.* TO 'root'@'localhost';
+GRANT ALL PRIVILEGES ON authenticate.* TO 'store'@'%';
+GRANT ALL PRIVILEGES ON authenticate.* TO 'store'@'localhost';
 # Create Tables
 CREATE TABLE user_auth
 (

@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/auth/<username>/<password>")
 def authenticate(username, password):
     try:
-        con = mdb.connect('database', 'root', 'root', 'authenticate');
+        con = mdb.connect('database', 'store', 'store', 'authenticate');
         cur = con.cursor()
         cur.execute("SELECT user_id FROM user_auth \
                      WHERE username='%s' AND password='%s'" %

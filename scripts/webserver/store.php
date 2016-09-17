@@ -12,8 +12,8 @@
 
     <?php
       $servername = "database";
-      $username = "root";
-      $password = "root";
+      $username = "store";
+      $password = "store";
       $dbname = "bookstore";
 
       // Create connection
