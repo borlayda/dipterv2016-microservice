@@ -11,5 +11,11 @@ do
     docker rmi bookstore_${service}
 done
 
-rm -rf services
+if [ -d services ]; then
+    rm -rf services
+fi
 docker network rm bookstore
+
+if [ -e consul ]; then
+    rm -rf consul*
+fi

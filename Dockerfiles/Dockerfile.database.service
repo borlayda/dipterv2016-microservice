@@ -12,6 +12,6 @@ RUN /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_pas
 RUN /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'"
 RUN apt-get -y install mysql-server mysql-client vim
 RUN chmod +x /usr/sbin/database.sh
-RUN sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' /etc/mysql/my.cnf
+RUN sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
 
 EXPOSE 3306
