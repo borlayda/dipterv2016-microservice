@@ -4,9 +4,9 @@ import MySQLdb as mdb
 app = Flask(__name__)
 
 @app.route("/auth/<username>/<password>")
-def hello(username, password):
+def authenticate(username, password):
     try:
-        con = mdb.connect('database', 'root', '', 'authenticate');
+        con = mdb.connect('database', 'root', 'root', 'authenticate');
         cur = con.cursor()
         cur.execute("SELECT user_id FROM user_auth \
                      WHERE username='%s' AND password='%s'" %

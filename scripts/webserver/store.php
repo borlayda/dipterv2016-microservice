@@ -13,7 +13,7 @@
     <?php
       $servername = "database";
       $username = "root";
-      $password = "";
+      $password = "root";
       $dbname = "bookstore";
 
       // Create connection
