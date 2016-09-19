@@ -14,7 +14,17 @@ else
     curl_setopt($ch, CURLOPT_URL,
         "http://auth:8081/auth/{$username}/{$password}"
     );
-    $content = curl_exec($ch);
-    echo $content;
+    $output = curl_exec($ch);
+    $info = curl_getinfo($ch);
+    if ($output === false || $info['http_code'] != 200) {
+        $output = "No cURL data returned for $url [". $info['http_code']. "]";
+        if (curl_error($ch))
+            $output .= "\n". curl_error($ch);
+    }
+    else { 
+        header("Location: /store.php");
+        die();
+    }
+    curl_close($ch);
 }
 ?>
