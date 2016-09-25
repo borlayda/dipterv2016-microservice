@@ -40,5 +40,12 @@
   </tbody>
 </table>
 
+<form action="reserve.php">
+    <span>Name of Book: </span><input type="text" name="nameOfBook" /><br/>
+    <span>Number of Books: </span><input type="text" name="numberOfBooks"/><br/>
+    <input type="submit" name="send">Send</input>
+</form>
+
+
 </body>
 </html>
