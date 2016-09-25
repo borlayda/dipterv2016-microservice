@@ -17,9 +17,8 @@ else
     $output = curl_exec($ch);
     $info = curl_getinfo($ch);
     if ($output === false || $info['http_code'] != 200) {
-        $output = "No cURL data returned for $url [". $info['http_code']. "]";
-        if (curl_error($ch))
-            $output .= "\n". curl_error($ch);
+        header("Location: /login.php");
+        die(); 
     }
     else { 
         header("Location: /store.php");

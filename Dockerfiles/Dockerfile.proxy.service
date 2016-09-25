@@ -2,10 +2,14 @@ FROM haproxy
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
 COPY proxy.sh /usr/sbin/proxy.sh
+COPY consul /usr/bin/consul
+RUN mkdir -p /etc/consul.d
+COPY proxy.json /etc/consul.d/proxy.json
 
 RUN apt-get -y update
 RUN apt-get -y install vim haproxy
 RUN chmod +x /usr/sbin/proxy.sh
+RUN chmod +x /usr/bin/consul
 COPY haproxy.cfg /etc/haproxy/haproxy.cfg
 
 ENTRYPOINT proxy.sh

@@ -14,6 +14,8 @@ do
     cp Dockerfiles/Dockerfile.${service}.service services/${service}/Dockerfile
     echo " - Move script files to data directory"
     cp -R scripts/${service}/* services/${service}/
+    echo " - Move config files to data directory"
+    cp -R conf/${service}/* services/${service}/
     echo " - Move consul to data directory"
     cp consul services/${service}/
     echo " - Building Docker image"

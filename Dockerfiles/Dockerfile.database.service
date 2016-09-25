@@ -6,12 +6,16 @@ USER root
 COPY database.sh /usr/sbin/database.sh
 COPY auth_init.sql /tmp/auth_init.sql
 COPY bookstore_init.sql /tmp/bookstore_init.sql
+COPY consul /usr/bin/consul
+RUN mkdir -p /etc/consul.d
+COPY database.json /etc/consul.d/database.json
 
 RUN apt-get -y update
 RUN /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'"
 RUN /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'"
 RUN apt-get -y install mysql-server mysql-client vim
 RUN chmod +x /usr/sbin/database.sh
+RUN chmod +x /usr/bin/consul
 RUN sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
 
 EXPOSE 3306

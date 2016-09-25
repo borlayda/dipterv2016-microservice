@@ -40,10 +40,10 @@
   </tbody>
 </table>
 
-<form action="reserve.php">
+<form action="reserve.php" method="post">
     <span>Name of Book: </span><input type="text" name="nameOfBook" /><br/>
     <span>Number of Books: </span><input type="text" name="numberOfBooks"/><br/>
-    <input type="submit" name="send">Send</input>
+    <input type="submit" name="send" value="Send"/>
 </form>
 
 
