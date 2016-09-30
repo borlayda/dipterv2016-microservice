@@ -1,9 +1,11 @@
 <html>
 <head>
 <title>Bookstore Microservice</title>
+<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
 
+<div id="storeBox">
 <h2>Books:</h2>
 
 <table>
@@ -39,13 +41,14 @@
 
   </tbody>
 </table>
-
+</div>
+<div id="orderBox">
 <form action="reserve.php" method="post">
     <span>Name of Book: </span><input type="text" name="nameOfBook" /><br/>
     <span>Number of Books: </span><input type="text" name="numberOfBooks"/><br/>
     <input type="submit" name="send" value="Send"/>
 </form>
-
+</div>
 
 </body>
 </html>

@@ -7,7 +7,7 @@ RUN mkdir -p /etc/consul.d
 COPY proxy.json /etc/consul.d/proxy.json
 
 RUN apt-get -y update
-RUN apt-get -y install vim haproxy
+RUN apt-get -y --force-yes install vim haproxy
 RUN chmod +x /usr/sbin/proxy.sh
 RUN chmod +x /usr/bin/consul
 COPY haproxy.cfg /etc/haproxy/haproxy.cfg
