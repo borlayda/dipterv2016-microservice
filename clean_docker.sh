@@ -1,6 +1,6 @@
 #!/bin/bash
 
-services="database webserver proxy reserve auth"
+services="database webserver proxy order auth"
 
 docker stop $(docker ps -a | awk '/bookstore/ {print $1}')
 docker rm $(docker ps -a | awk '/bookstore/ {print $1}')

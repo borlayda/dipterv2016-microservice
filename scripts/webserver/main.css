@@ -7,7 +7,6 @@ html, body {
 
 #loginBox {
    width: 40%;
-   position: absolute;
    margin: auto;
    border: 1px solid black;
    border-radius: 20px;
@@ -15,7 +14,6 @@ html, body {
 
 #storeBox {
    width: 50%;
-   position: absolute;
    margin: auto;
    border: 1px solid black;
    border-radius: 20px;
@@ -23,9 +21,9 @@ html, body {
 
 #orderBox {
    width: 30%;
-   position: absolute;
    margin: auto;
    border: 1px solid black;
    border-radius: 20px;
+   float: left;
 }
 

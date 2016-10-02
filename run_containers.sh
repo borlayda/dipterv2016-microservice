@@ -1,6 +1,6 @@
 #!/bin/bash
 
-services="database webserver reserve auth proxy"
+services="database webserver order auth proxy"
 
 docker network create bookstore
 

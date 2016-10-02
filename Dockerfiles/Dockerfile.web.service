@@ -1,0 +1,19 @@
+FROM httpd
+MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
+
+COPY webserver.sh /usr/sbin/webserver.sh
+COPY index.html /var/www/html/index.html
+COPY login.php /var/www/html/login.php
+COPY store.php /var/www/html/store.php
+COPY order.php /var/www/html/order.php
+COPY main.css /var/www/html/main.css
+COPY consul /usr/bin/consul
+RUN mkdir -p /etc/consul.d
+COPY web.json /etc/consul.d/web.json
+
+RUN apt-get -y update
+RUN apt-get -y install vim php5 php5-mysql curl php5-curl
+RUN chmod +x /usr/sbin/webserver.sh
+RUN chmod +x /usr/bin/consul
+
+EXPOSE 80 443
