@@ -17,10 +17,10 @@ echo " - Move config files to data directory"
 cp -R ${PROXY_CONF_DIR}/* ${PROXY_SERVICE_HOME}/
 echo " - Move consul to data directory"
 cp consul ${PROXY_SERVICE_HOME}/
+cp consul-template ${PROXY_SERVICE_HOME}/
 echo " - Building Docker image"
 docker build -t ${PROXY_IMAGE_NAME} ${PROXY_SERVICE_HOME} &> ${PROXY_SERVICE_HOME}/build.log
 echo " - Save image"
 docker save --output ${PROXY_SERVICE_HOME}/${PROXY_IMAGE_NAME}.img ${PROXY_IMAGE_NAME}
 
 echo "Proxy service has been created!"
-

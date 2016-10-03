@@ -7,15 +7,18 @@ COPY database.sh /usr/sbin/database.sh
 COPY auth_init.sql /tmp/auth_init.sql
 COPY bookstore_init.sql /tmp/bookstore_init.sql
 COPY consul /usr/bin/consul
+COPY consul-template /usr/bin/consul-template
 RUN mkdir -p /etc/consul.d
 COPY database.json /etc/consul.d/database.json
 
-RUN apt-get -y update
-RUN /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'"
-RUN /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'"
-RUN apt-get -y install mysql-server mysql-client vim
-RUN chmod +x /usr/sbin/database.sh
-RUN chmod +x /usr/bin/consul
-RUN sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
+RUN apt-get -y update && \
+    /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'" && \
+    /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'" && \
+    apt-get -y install mysql-server mysql-client vim && \
+    chmod +x /usr/sbin/database.sh && \
+    chmod +x /usr/bin/consul && \
+    sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
+
+ENTRYPOINT /bin/bash /usr/sbin/database.sh
 
 EXPOSE 3306

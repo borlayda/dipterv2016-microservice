@@ -17,10 +17,10 @@ echo " - Move config files to data directory"
 cp -R ${AUTH_CONF_DIR}/* ${AUTH_SERVICE_HOME}/
 echo " - Move consul to data directory"
 cp consul ${AUTH_SERVICE_HOME}/
+cp consul-template ${AUTH_SERVICE_HOME}/
 echo " - Building Docker image"
 docker build -t ${AUTH_IMAGE_NAME} ${AUTH_SERVICE_HOME} &> ${AUTH_SERVICE_HOME}/build.log
 echo " - Save image"
 docker save --output ${AUTH_SERVICE_HOME}/${AUTH_IMAGE_NAME}.img ${AUTH_IMAGE_NAME}
 
 echo "Authentication service has been created!"
-

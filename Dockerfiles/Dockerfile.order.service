@@ -1,16 +1,22 @@
 FROM centos
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
-COPY order.sh /usr/sbin/order.sh
+ENV CATALINA_BASE /usr/share/tomcat
+ENV CATALINA_HOME /usr/share/java/tomcat
+ENV NAME tomcat
+
 COPY consul /usr/bin/consul
+COPY consul-template /usr/bin/consul-template
 RUN mkdir -p /etc/consul.d
 COPY order.json /etc/consul.d/order.json
-RUN mkdir -p /order
-COPY . /order/java
+RUN mkdir -p /usr/share/tomcat/webapps/order/
+COPY target/ReserveRESTJerseyExample-0.0.1-SNAPSHOT.war /usr/share/tomcat/webapps/order/
 
-RUN yum -y update
-RUN yum -y install vim java-1.8.0-openjdk-devel tomcat maven
-RUN chmod +x /usr/sbin/order.sh
-RUN chmod +x /usr/bin/consul
+RUN yum -y update && \
+    yum -y install vim java-1.8.0-openjdk-devel tomcat maven && \
+    chmod +x /usr/bin/consul && \
+    chmod +x /usr/bin/consul-template
+
+ENTRYPOINT /usr/sbin/tomcat start
 
 EXPOSE 8888
