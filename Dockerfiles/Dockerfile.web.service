@@ -1,6 +1,9 @@
 FROM httpd
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
+RUN apt-get -y update && \
+    apt-get -y install vim php5 php5-mysql curl php5-curl
+
 COPY webserver.sh /usr/sbin/webserver.sh
 COPY index.html /var/www/html/index.html
 COPY login.php /var/www/html/login.php
@@ -12,9 +15,7 @@ COPY consul-template /usr/bin/consul-template
 RUN mkdir -p /etc/consul.d
 COPY web.json /etc/consul.d/web.json
 
-RUN apt-get -y update && \
-    apt-get -y install vim php5 php5-mysql curl php5-curl && \
-    chmod +x /usr/sbin/webserver.sh && \
+RUN chmod +x /usr/sbin/webserver.sh && \
     chmod +x /usr/bin/consul && \
     chmod +x /usr/bin/consul-template
 

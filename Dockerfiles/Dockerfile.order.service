@@ -9,14 +9,16 @@ COPY consul /usr/bin/consul
 COPY consul-template /usr/bin/consul-template
 RUN mkdir -p /etc/consul.d
 COPY order.json /etc/consul.d/order.json
-RUN mkdir -p /usr/share/tomcat/webapps/order/
-COPY target/ReserveRESTJerseyExample-0.0.1-SNAPSHOT.war /usr/share/tomcat/webapps/order/
 
 RUN yum -y update && \
     yum -y install vim java-1.8.0-openjdk-devel tomcat maven && \
+    sed -i 's/8080/8888/g' /etc/tomcat/server.xml && \
+    sed -i 's/<Connector /<Connector address="0.0.0.0" /g' /etc/tomcat/server.xml && \
     chmod +x /usr/bin/consul && \
     chmod +x /usr/bin/consul-template
 
-ENTRYPOINT /usr/sbin/tomcat start
+COPY target/ReserveRESTJerseyExample-0.0.2-SNAPSHOT.war /usr/share/tomcat/webapps/order.war
+
+ENTRYPOINT /usr/sbin/tomcat start && while true; do sleep 20; done
 
 EXPOSE 8888

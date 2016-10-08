@@ -6,6 +6,16 @@ PROXY_SCRIPT_DIR=scripts/proxy
 PROXY_CONF_DIR=conf/proxy
 PROXY_IMAGE_NAME=bookstore_proxy
 
+if [[ ! -e consul ]]; then
+    echo "Get Consul script from Internet"
+    wget https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_linux_386.zip && unzip consul_0.7.0_linux_386.zip
+fi
+
+if [[ ! -e consul-template ]]; then
+    echo "Get consul-template script from Internet"
+    wget https://releases.hashicorp.com/consul-template/0.16.0/consul-template_0.16.0_darwin_amd64.zip && unzip consul-template_0.16.0_darwin_amd64.zip
+fi
+
 echo "Create proxy service for bookstore ..."
 echo " - Create directory for Docker data"
 mkdir -p ${PROXY_SERVICE_HOME}

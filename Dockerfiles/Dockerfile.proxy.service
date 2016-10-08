@@ -3,7 +3,7 @@ MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
 COPY proxy.sh /usr/sbin/proxy.sh
 COPY consul /usr/bin/consul
-COPY consul-template /usr/bin/consul-tamplate
+COPY consul-template /usr/bin/consul-template
 RUN mkdir -p /etc/consul.d
 COPY proxy.json /etc/consul.d/proxy.json
 
