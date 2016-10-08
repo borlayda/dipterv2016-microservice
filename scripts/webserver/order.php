@@ -35,9 +35,9 @@ else
     } else {
         $info = curl_getinfo($ch);
         echo "<br/>Order proceeded, redirect to store page ...<br/>";
-        #header("Location: /store.php");
+        header("Location: /store.php");
         curl_close($ch);
-        #die();
+        die();
     }
 
 }
