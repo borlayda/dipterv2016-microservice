@@ -1,6 +1,9 @@
 FROM haproxy
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
+ENV CONSUL_DIR /usr/share/consul
+
+COPY init /usr/sbin/init
 COPY proxy.sh /usr/sbin/proxy.sh
 COPY consul /usr/bin/consul
 COPY consul-template /usr/bin/consul-template
@@ -10,11 +13,12 @@ COPY proxy.json /etc/consul.d/proxy.json
 RUN apt-get -y update && \
     apt-get -y --force-yes install vim haproxy && \
     chmod +x /usr/sbin/proxy.sh && \
+    chmod +x /usr/sbin/init && \
     chmod +x /usr/bin/consul && \
     chmod +x /usr/bin/consul-template
 
 COPY haproxy.cfg /etc/haproxy/haproxy.cfg
 
-ENTRYPOINT /bin/bash /usr/sbin/proxy.sh
+ENTRYPOINT /bin/bash /usr/sbin/init
 
-EXPOSE 8080
+EXPOSE 8080 8301 8302 8500

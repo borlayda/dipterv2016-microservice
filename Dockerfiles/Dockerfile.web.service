@@ -1,9 +1,12 @@
 FROM httpd
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
+ENV CONSUL_DIR /usr/share/consul
+
 RUN apt-get -y update && \
     apt-get -y install vim php5 php5-mysql curl php5-curl
 
+COPY init /usr/sbin/init
 COPY webserver.sh /usr/sbin/webserver.sh
 COPY index.html /var/www/html/index.html
 COPY login.php /var/www/html/login.php
@@ -15,10 +18,11 @@ COPY consul-template /usr/bin/consul-template
 RUN mkdir -p /etc/consul.d
 COPY web.json /etc/consul.d/web.json
 
-RUN chmod +x /usr/sbin/webserver.sh && \
+RUN chmod +x /usr/sbin/init && \
+    chmod +x /usr/sbin/webserver.sh && \
     chmod +x /usr/bin/consul && \
     chmod +x /usr/bin/consul-template
 
-ENTRYPOINT /bin/bash /usr/sbin/webserver.sh
+ENTRYPOINT /bin/bash /usr/sbin/init
 
-EXPOSE 80 443
+EXPOSE 80 443 8301 8302 8500

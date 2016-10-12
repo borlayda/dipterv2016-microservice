@@ -1,0 +1,4 @@
+#!/bin/bash
+
+consul agent -server -bootstrap --datacenter bookstore -data-dir ${CONSUL_DIR} > /var/log/bookstore-consul.log &
+proxy.sh

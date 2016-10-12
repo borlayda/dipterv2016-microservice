@@ -1,6 +1,9 @@
 FROM ubuntu
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
+ENV CONSUL_DIR /usr/share/consul
+
+COPY init /usr/sbin/init
 COPY auth-service.py /usr/sbin/auth-service.py
 COPY consul /usr/bin/consul
 COPY consul-template /usr/bin/consul-template
@@ -11,9 +14,10 @@ RUN apt-get -y update && \
     apt-get -y install vim bash python-oauth python-mysqldb python \
     python-flask && \
     chmod +x /usr/sbin/auth-service.py && \
+    chmod +x /usr/sbin/init && \
     chmod +x /usr/bin/consul && \
     chmod +x /usr/bin/consul-template
 
-ENTRYPOINT /usr/bin/python /usr/sbin/auth-service.py
+ENTRYPOINT /bin/bash /usr/sbin/init
 
-EXPOSE 8081
+EXPOSE 8081 8301 8302 8500

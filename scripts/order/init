@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/usr/bin/consul agent -server -bootstrap --datacenter bookstore -data-dir ${CONSUL_DIR} > /var/log/bookstore-consul.log &
+/usr/sbin/tomcat start
+while true; do sleep 20; done

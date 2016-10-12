@@ -1,1 +1,1 @@
-{"service": {"name": "web", "tags": ["rails"], "port": 80}}
+{"service": {"name": "order", "tags": ["java"], "port": 80}}
