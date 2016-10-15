@@ -25,4 +25,4 @@ RUN chmod +x /usr/sbin/init && \
 
 ENTRYPOINT /bin/bash /usr/sbin/init
 
-EXPOSE 80 443 8301 8302 8500
+EXPOSE 80 443 8301 8302 8500 8400

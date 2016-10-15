@@ -21,4 +21,4 @@ COPY haproxy.cfg /etc/haproxy/haproxy.cfg
 
 ENTRYPOINT /bin/bash /usr/sbin/init
 
-EXPOSE 8080 8301 8302 8500
+EXPOSE 8080 8301 8302 8500 8400

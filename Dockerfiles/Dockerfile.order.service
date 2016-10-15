@@ -24,4 +24,4 @@ COPY target/ReserveRESTJerseyExample-0.0.2-SNAPSHOT.war /usr/share/tomcat/webapp
 
 ENTRYPOINT /bin/bash /usr/local/sbin/init
 
-EXPOSE 8888 8301 8302 8500
+EXPOSE 8888 8301 8302 8500 8400

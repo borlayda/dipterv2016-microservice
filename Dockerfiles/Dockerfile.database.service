@@ -25,4 +25,4 @@ RUN apt-get -y update && \
 
 ENTRYPOINT /bin/bash /usr/sbin/init
 
-EXPOSE 3306 8301 8302 8500
+EXPOSE 3306 8301 8302 8500 8400
