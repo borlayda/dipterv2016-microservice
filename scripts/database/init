@@ -1,4 +1,31 @@
 #!/bin/bash
 
-consul agent -server -bootstrap --datacenter bookstore -data-dir ${CONSUL_DIR} > /var/log/bookstore-consul.log &
+IP_ADDR=$(hostname -I)
+MASK=${IP_ADDR%.*}
+
+while true; do
+    FOUND=false
+    for ADDR in $(seq 1 255); do
+        echo "${MASK}.${ADDR}  ${IP_ADDR}"
+        [[ "${MASK}.${ADDR}" == "${IP_ADDR}" ]] && continue
+        ping -c 1  "${MASK}.${ADDR}"
+        [ $? -eq 0 ] || continue
+        echo "Try consul with ${MASK}.${ADDR}"
+        consul agent -server \
+                     -join "${MASK}.${ADDR}" \
+                     -datacenter "bookstore" \
+                     -data-dir "${CONSUL_DIR}" > /var/log/bookstore-consul.log &
+        sleep 10
+        cat /var/log/bookstore-consul.log
+        if ps ax | grep -v grep | grep "consul" > /dev/null; then
+            echo "Consul could run!!!"
+            FOUND=true
+            break
+        fi
+    done
+    echo "${FOUND}"
+    if [[ "${FOUND}" == "true" ]]; then
+        break
+    fi
+done
 database.sh

@@ -3,21 +3,23 @@ MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
 ENV CONSUL_DIR /usr/share/consul
 
-COPY init /usr/sbin/init
+# Install Service
 COPY proxy.sh /usr/sbin/proxy.sh
-COPY consul /usr/bin/consul
-COPY consul-template /usr/bin/consul-template
-RUN mkdir -p /etc/consul.d
-COPY proxy.json /etc/consul.d/proxy.json
-
 RUN apt-get -y update && \
-    apt-get -y --force-yes install vim haproxy && \
-    chmod +x /usr/sbin/proxy.sh && \
-    chmod +x /usr/sbin/init && \
+    apt-get -y --force-yes install haproxy iputils-ping && \
+    chmod +x /usr/sbin/proxy.sh
+COPY haproxy.cfg /etc/haproxy/haproxy.cfg
+
+# Install consul
+COPY consul consul-template /usr/bin/
+RUN mkdir -p /etc/consul.d && \
     chmod +x /usr/bin/consul && \
     chmod +x /usr/bin/consul-template
+COPY proxy.json /etc/consul.d/proxy.json
 
-COPY haproxy.cfg /etc/haproxy/haproxy.cfg
+# Install entry point
+COPY init /usr/sbin/init
+RUN chmod +x /usr/sbin/init
 
 ENTRYPOINT /bin/bash /usr/sbin/init
 
