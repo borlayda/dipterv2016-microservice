@@ -6,6 +6,7 @@ DATABASE_SCRIPT_DIR=scripts/database
 DATABASE_CONF_DIR=conf/database
 DATABASE_IMAGE_NAME=bookstore_database
 
+pushd ..
 if [[ ! -e consul ]]; then
     echo "Get Consul script from Internet"
     wget https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_linux_386.zip && unzip consul_0.7.0_linux_386.zip
@@ -34,3 +35,4 @@ echo " - Save image"
 docker save --output ${DATABASE_SERVICE_HOME}/${DATABASE_IMAGE_NAME}.img ${DATABASE_IMAGE_NAME}
 
 echo "Database service has been created!"
+popd

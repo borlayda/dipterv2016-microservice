@@ -23,10 +23,10 @@ RUN mkdir -p /etc/consul.d && \
 COPY database.json /etc/consul.d/database.json
 
 # Install entry point
-COPY init /usr/sbin/init
-RUN chmod +x /usr/sbin/init && \
+COPY init /usr/sbin/init-db
+RUN chmod +x /usr/sbin/init-db && \
     sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
 
-ENTRYPOINT /bin/bash /usr/sbin/init
+ENTRYPOINT /bin/bash /usr/sbin/init-db
 
 EXPOSE 3306 8301 8302 8500 8400

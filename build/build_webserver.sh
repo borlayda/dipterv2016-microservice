@@ -6,6 +6,7 @@ WEBSERVER_SCRIPT_DIR=scripts/webserver
 WEBSERVER_CONF_DIR=conf/webserver
 WEBSERVER_IMAGE_NAME=bookstore_webserver
 
+pushd ..
 if [[ ! -e consul ]]; then
     echo "Get Consul script from Internet"
     wget https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_linux_386.zip && unzip consul_0.7.0_linux_386.zip
@@ -34,3 +35,4 @@ echo " - Save image"
 docker save --output ${WEBSERVER_SERVICE_HOME}/${WEBSERVER_IMAGE_NAME}.img ${WEBSERVER_IMAGE_NAME}
 
 echo "Webserver service has been created!"
+popd

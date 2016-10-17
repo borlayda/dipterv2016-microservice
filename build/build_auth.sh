@@ -6,6 +6,7 @@ AUTH_SCRIPT_DIR=scripts/auth
 AUTH_CONF_DIR=conf/auth
 AUTH_IMAGE_NAME=bookstore_auth
 
+pushd ..
 if [[ ! -e consul ]]; then
     echo "Get Consul script from Internet"
     wget https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_linux_386.zip && unzip consul_0.7.0_linux_386.zip
@@ -34,3 +35,4 @@ echo " - Save image"
 docker save --output ${AUTH_SERVICE_HOME}/${AUTH_IMAGE_NAME}.img ${AUTH_IMAGE_NAME}
 
 echo "Authentication service has been created!"
+popd

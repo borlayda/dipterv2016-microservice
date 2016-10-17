@@ -24,9 +24,9 @@ RUN chmod +x /usr/bin/consul && \
 COPY auth.json /etc/consul.d/auth.json
 
 # Install entry point
-COPY init /usr/sbin/init
-RUN chmod +x /usr/sbin/init
+COPY init /usr/sbin/init-auth
+RUN chmod +x /usr/sbin/init-auth
 
-ENTRYPOINT /bin/bash /usr/sbin/init
+ENTRYPOINT /bin/bash /usr/sbin/init-auth
 
 EXPOSE 8081 8301 8302 8500 8400

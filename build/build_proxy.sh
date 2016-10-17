@@ -6,6 +6,7 @@ PROXY_SCRIPT_DIR=scripts/proxy
 PROXY_CONF_DIR=conf/proxy
 PROXY_IMAGE_NAME=bookstore_proxy
 
+pushd ..
 if [[ ! -e consul ]]; then
     echo "Get Consul script from Internet"
     wget https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_linux_386.zip && unzip consul_0.7.0_linux_386.zip
@@ -34,3 +35,4 @@ echo " - Save image"
 docker save --output ${PROXY_SERVICE_HOME}/${PROXY_IMAGE_NAME}.img ${PROXY_IMAGE_NAME}
 
 echo "Proxy service has been created!"
+popd

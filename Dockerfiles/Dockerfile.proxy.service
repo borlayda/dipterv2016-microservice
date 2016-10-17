@@ -18,9 +18,9 @@ RUN mkdir -p /etc/consul.d && \
 COPY proxy.json /etc/consul.d/proxy.json
 
 # Install entry point
-COPY init /usr/sbin/init
-RUN chmod +x /usr/sbin/init
+COPY init /usr/sbin/init-proxy
+RUN chmod +x /usr/sbin/init-proxy
 
-ENTRYPOINT /bin/bash /usr/sbin/init
+ENTRYPOINT /bin/bash /usr/sbin/init-proxy
 
 EXPOSE 8080 8301 8302 8500 8400

@@ -22,9 +22,9 @@ RUN mkdir -p /etc/consul.d && \
 COPY web.json /etc/consul.d/web.json
 
 # Install entry point
-COPY init /usr/sbin/init
-RUN chmod +x /usr/sbin/init
+COPY init /usr/sbin/init-web
+RUN chmod +x /usr/sbin/init-web
 
-ENTRYPOINT /bin/bash /usr/sbin/init
+ENTRYPOINT /bin/bash /usr/sbin/init-web
 
 EXPOSE 80 443 8301 8302 8500 8400

@@ -1,19 +1,12 @@
-FROM centos
+FROM tomcat
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
-ENV CATALINA_BASE /usr/share/tomcat
-ENV CATALINA_HOME /usr/share/java/tomcat
 ENV CONSUL_DIR /usr/share/consul
-ENV NAME tomcat
 
 # Install Service
-RUN yum -y update && \
-    yum -y install java-1.8.0-openjdk-devel \
-        tomcat \
-        maven && \
-    sed -i 's/8080/8888/g' /etc/tomcat/server.xml && \
-    sed -i 's/<Connector /<Connector address="0.0.0.0" /g' /etc/tomcat/server.xml
-COPY target/ReserveRESTJerseyExample-0.0.2-SNAPSHOT.war /usr/share/tomcat/webapps/order.war
+RUN sed -i 's/8080/8888/g' /usr/local/tomcat/conf/server.xml && \
+    sed -i 's/<Connector /<Connector address="0.0.0.0" /g' /usr/local/tomcat/conf/server.xml
+COPY target/ReserveRESTJerseyExample-0.0.2-SNAPSHOT.war /usr/local/tomcat/webapps/order.war
 
 # Install consul
 COPY consul consul-template /usr/bin/
@@ -23,9 +16,9 @@ RUN mkdir -p /etc/consul.d && \
 COPY order.json /etc/consul.d/order.json
 
 # Install entry point
-COPY init /usr/local/sbin/init
-RUN chmod +x /usr/local/sbin/init
+COPY init /usr/local/sbin/init-order
+RUN chmod +x /usr/local/sbin/init-order
 
-ENTRYPOINT /bin/bash /usr/local/sbin/init
+ENTRYPOINT /bin/bash /usr/local/sbin/init-order
 
 EXPOSE 8888 8301 8302 8500 8400
