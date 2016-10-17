@@ -28,5 +28,5 @@ while true; do
         break
     fi
 done
-tomcat start
+/usr/local/tomcat/bin/catalina.sh run &
 while true; do sleep 20; done

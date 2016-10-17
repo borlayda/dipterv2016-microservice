@@ -1,0 +1,52 @@
+global
+    log 127.0.0.1 local1 notice
+    chroot /var/lib/haproxy
+    stats socket /run/haproxy/admin.sock mode 660 level admin
+    stats timeout 30s
+    user haproxy
+    group haproxy
+    daemon
+
+defaults
+    log     global
+    mode    http
+    option  httplog
+    option  dontlognull
+    timeout connect 5000
+    timeout client  50000
+    timeout server  50000
+    errorfile 500 /etc/haproxy/errors/500.http
+
+frontend web
+    bind *:80
+    mode http
+    default_backend nodes
+
+backend nodes
+    mode http
+    balance roundrobin{{range "app.web"}}
+    service {{.ID}} {{.Address}}:{{.Port}}{{end}}
+
+frontend database
+    bind *:3306
+    default_backend dbnodes
+
+backend dbnodes
+    balance roundrobin{{range "app.database"}}
+    service {{.ID}} {{.Address}}:{{.Port}}{{end}}
+
+frontend order
+    bind *:8888
+    default_backend onodes
+
+backend onodes
+    balance roundrobin{{range "app.order"}}
+    service {{.ID}} {{.Address}}:{{.Port}}{{end}}
+
+frontend auth
+    bind *:8081
+    default_backend anodes
+
+backend anodes
+    balance roundrobin{{range "app.auth"}}
+    service {{.ID}} {{.Address}}:{{.Port}}{{end}}
