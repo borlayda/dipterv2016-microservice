@@ -59,4 +59,4 @@ Ezzel ellentétben a mikroszolgáltatás architektúrát ugyan nehezen lehet meg
 
 ##Archivematica
 
-Az Archivematica[@archivematica] egy nyilt forráskódú elektronikus tartalom kezelő, ami tud kezelni különböző fájlokat, multimédiás adatokat, illetve akármilyen szöveges tartalmat. Ez az alakmazás alapvetően monolitikus architektúrára épül, azonban elkezdték átalakítani a struktúráját mikroszolgáltatásokat használó architektúrára. Ezt úgy kivitelezték, hogy a különböző plusz funkciókat az eredeti alkalmazás plugin szerűen mikroszolgáltatásokból nyeri ki, és ennek megfelelően a tovább fejlesztés is megalapozott[@archivematica-wiki].
+Az Archivematica[@archivematica] egy nyílt forráskódú elektronikus tartalom kezelő, ami tud kezelni különböző fájlokat, multimédiás adatokat, illetve akármilyen szöveges tartalmat. Ez az alakmazás alapvetően monolitikus architektúrára épül, azonban elkezdték átalakítani a struktúráját mikroszolgáltatásokat használó architektúrára. Ezt úgy kivitelezték, hogy a különböző plusz funkciókat az eredeti alkalmazás plugin szerűen mikroszolgáltatásokból nyeri ki, és ennek megfelelően a tovább fejlesztés is megalapozott[@archivematica-wiki].
