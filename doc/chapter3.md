@@ -54,9 +54,11 @@ Minden konfigurációs menedzsment eszköznek megvan a saját nyelve, amivel dek
 
 ## Skálázási technológiák
 
-A mikroszolgáltatás alapú architektúrák egyik nagy előnye, hogy az egyes funkciókra épülő szolgáltatásokat könnyedén lehet skálázni, mivel egy load balancert használva csupán egy újabb gépet kell beszervezni, és máris nagyobb terhelést is elbír a rendszer. Ahhoz hogy ezt kivitelezni tudjuk, szükségünk van egy terhelés elosztóra, és egy olyan logikára, ami képes megsokszorozni az erőforrásainkat. Számítási felhő alapú környezetben ez könnyen kivitelezhető, egyébként hideg tartalékban tartott gépek behozatalával elérhető. Sajnálatos módon általános célú skálázó eszköz nincsen a piacon, viszont gyakran készítenek maguknak saját logikát a nagyobb gyártók.
+A mikroszolgáltatás alapú architektúrák egyik nagy előnye, hogy az egyes funkciókra épülő szolgáltatásokat könnyedén lehet skálázni, mivel egy load balancert használva csupán egy újabb gépet kell beszervezni, és máris nagyobb terhelést is elbír a rendszer. Ahhoz hogy ezt kivitelezni tudjuk, szükségünk van egy terheléselosztóra, és egy olyan logikára, ami képes megsokszorozni az erőforrásainkat. Számítási felhő alapú környezetben ez könnyen kivitelezhető, egyébként hideg tartalékban tartott gépek behozatalával elérhető. Sajnálatos módon általános célú skálázó eszköz nincsen a piacon, viszont gyakran készítenek maguknak saját logikát a nagyobb gyártók.
 
 * **Elastic Load Balancer**[@elastic-load-balance]: Az Amazon AWS-ben az ELB avagy rugalmas terhelés elosztó az, ami ezt a célt szolgálja. Ennek a szolgáltatásnak az lenne a lényege, hogy segítse az Amazon Cloud-ban futó virtuális gépek hibatűrését, illtve egységbe szervezi a különböző elérhetőségi zónákban lévő gépeket, amivel gyorsabb elérést tudunk elérni. Mivel ez a szolgáltatás csupán az Amazon AWS-t felhasználva tud működni, nem megfelelő általános célra, azonban ha az Amazon Cloud-ban építjük fel a mikroszolgáltatás alapú architektúránkat, akkor erős eszköz lehet számunkra.
+
+A skálázás egyik legegyszerűbb megvalósítása, hogy egy proxy szervert felhasználva, valamilyen módon egységesen elosztjuk a kéréseket, és egy saját monitorozó eszközzel figyeljük a terhelést (processzor terheltség, memória, hálózati terhelés). Ha valamelyik érték megnő, egy ágenses vagy ágens nélküli technológiával a virtualizált környezetben egy új példányt készítünk a terhelt szolgáltatásból, és a proxy automatikusan megoldja a többit. Nem tökéletes megoldát kapunk, azonban ez a legtöbb felhasználási esetben megfelelőnek bizonyul.
 
 ## Terheléselosztás
 
@@ -65,6 +67,8 @@ A mikroszolgáltatás alapú architektúrának egyik fontos eleme a terhelés el
 * **HAProxy**[@haproxy] [@LB-haproxy]: Egy magas rendelkezésre állást biztosító, és megbízhatóságot növelő terheléselosztó eszköz. Konfigurációs fájlokon keresztül megszervezhetjük, hogy mely gépet hogyan érjünk el, milyen IP címek mely szolgáltatásokhoz tartoznak, illetve választhatóan round robin, legkisebb terhelés, session alapú, vagy egyéb módon osztja szét a kéréseket az egyes szerverek között. Ez az eszköz csak és kizárólak a HTTP TCP kéréseket tudja elosztani, de egyszerű, könnyen telepíthető, és könnyen kezelhető (ha nem dinamikusan változnak a fürtben lévő gépek, mert ha igen akkor szükséges egy mellékes frissítő logika is).
 
 * **ngnix**[@nginx]: Az Nginx egy nyílt forráskódú web kiszolgáló és reverse proxy szerver, amivel nagy méretű rendszereket kezelhetünk, és segít az alkalmazás biztonságának megörzésében. A kiterjesztett változatával (Nginx Plus) képesek lehetünk a terheléselosztásra, és alkalmazás telepítésre. Nem teljesen a proxy szerver szerepét váltja ki, de képes elvégezni azt.
+
+A kézi megvalósítás gyakorlatilag egy kézileg implementált terheléselosztó eszköz lenne, amihez viszont hálózati megfigyelés, és routing szökséges, így nem javalott ilyen eszköz készítése.
 
 ## Virtualizációs technológiák
 
@@ -78,6 +82,8 @@ A mikroszolgáltatás alapú architektúrák kialakításánál nagy előnyt jel
 
 * **Akármilyen cloud**: Ha virtualizációról beszélünk, akkor adja magát hogy a számítási felhőket is ide értsük. Egy mikroszolgáltatás architektúrájú programot a legcélszerűbb valamilyen számítási felhőben létrehozni, mivel egy ilyen környezetnek definiciója szerint tartalmaznia kell egy virtualizációs szintet, megosztott erőforrásokat, monitorozást, és egyfajta leltárat a futó példányokról. Ennek megfelelően a mikroszolgáltatás alapú architektúra minden környezeti feltételét lefedi, csupán a szolgáltatásokat, business logikát, és az interfészeket kell elkészítenünk. Jellemzően a Cloud-os környezetek tartalmaznak terheléselosztást, és skálázási megoldást is, amivel szintén erősítik a szolgáltatás alapú architektúrákat. Ilyen környezet lehet az Amazon, Microsoft Azure, Google App Engine, OpenStack, és sokan mások.
 
+Amennyiben nincs a kezünkben egy saját virtualizáló eszköz, a virtualizálás kézi megvalósítása értelmetlen plusz komplexitást ad az alkalmazáshoz.
+
 ## Szolgáltatás jegyzékek (service registry)
 
 Számon kell tartani, hogy milyen szolgáltatások elérhetők, milyen címen és hány példányban az architektúránkban, és ehhez valamilyen szolgáltatás nyilvántartási eszközt[@service-registry-pattern]  [@micro-introPt3] kell használnunk.
@@ -87,6 +93,8 @@ Számon kell tartani, hogy milyen szolgáltatások elérhetők, milyen címen é
 * **Consul**: Korábban már említettem ezt az eszközt, mivel abban segít, hogy felismerjék egymást a szolgáltatások. A kapcsolatot vizsgáló és felderítő logikán kívül tartalmaz egy nyilvántartást is a beregisztrált szolgáltatásokról, amiknek az állapotát is vizsgálhatjuk.
 
 * **Apache Zookeeper**[@zookeeper]: A Zookeeper egy központosított szolgáltatás konfigurációs adatok és hálózati adatok karbantartására, ami támogatja az elosztott működést, és a szerverek csoportosítását. Az alkalmazást elosztott alkalmazás fejlesztésre, és komplex rendszer felügyeletére és telepítés segítésére tervezték. A consulhoz hasonlóan működik, és a feladata is ugyan az.
+
+Kézi megoldás erre nem nagyon van, csupán egy központi adatbázisban, vagy leltár alkalmazásban elmentet adatokból tudunk valamilyen jegyzéket csinálni, amihez viszont a szolgáltatások mindegyikének hozzá kell férni. Könnyen konfigurálható megoldást kapunk, és tetszőleges adatot menthetünk a szolgáltatásokról, de egyéb funkciók, mint az esemény küldés és fogadás, csak bonyolult implementációval lehetséges.
 
 ## Monitorozás, loggolás
 
@@ -101,3 +109,5 @@ Ha már megépítettük a mikroszolgáltatás alapú architektúrát, akkor meg 
 * **Cronitor**[@cronitor] [@cron-monitoring]: Ez a monitorozó eszköz mikroszolgáltatások és cron job-ok megfigyelésére lett kifejlesztve, HTTP-n keresztül kommunikál, és a szologáltatások állapotát figyeli. Nem túl széleskörű eszköz, azonban ha csak a szolgáltatások állapota érdekel hasznos lehet, és segíthet a szolgáltatás jegyzék képzésében is.
 
 * **Ruxit**[@ruxit] [@ruxit-monitoring]: Egy számítási felhőben működő monitorozó eszköz, amivel teljesítmény monitorozást, elérhetőség monitorozást, és figyelmeztetés küldést végezhetünk. Az benne a különleges, hogy mesterséges intelligencia figyeli a szervereket, és kianalizálja a szerver állapotát, és a figyelmeztetéseket is követi. Könnyen skálázható, és használat alapú bérezése van. Ez a választás akkor jön jól, ha olyan feladatot szánunk az alkalmazásunknak, ami esetleg időben nagyon változó terhelést mutat, és az itt kapot riasztások szerint akarunk skálázni.
+
+A monitorozás kézi megvalósítása egyszerűen kivitelezhető, ha van egy központi adatbázisunk, amit minden szolgáltatás elér, és ebben az adatbázisban a szolgáltatásokba ültetett egyszerű logika küldhet adatokat, amit valamilyen egyszerű módszerrel megjelenítve, valamilyen monitorozást érhetünk el. Ennek egyik előnye, hogy nem kell komplex eszközt telepíteni mindenhova, és nem kell karban tartani, hátránya viszont, hogy nehezen karbantartható, minden szolgáltatásra külön kell elkészíteni, és a fenti megoldásokkal ellentétben a semmiből kell kiindulni.
