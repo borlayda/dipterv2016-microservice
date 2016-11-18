@@ -7,7 +7,7 @@ UNIVERSITY = Budapesti Műszaki és Gazdaságtudományi Egyetem
 DEPARTMENT = Méréstechnika és Információs Rendszerek Tanszék
 THESIS_TYPE = Diplomaterv
 DOCUMENT_LANG = magyar
-SOURCE_FILES = abstract.md intro.md chapter1.md chapter2.md chapter3.md chapter4.md chapter5.md chapter6.md summary.md
+SOURCE_FILES = abstract.md intro.md chapter1.md chapter2.md chapter3.md chapter4.md chapter5.md chapter6.md chapter7.md chapter8.md chapter9.md summary.md
 APPENDIX_FILE = appendix.md
 
 # variables for the PDF/HTML compiler
@@ -34,7 +34,7 @@ LATEX_ARGS = \
 	--variable=documentclass:report \
 	--variable=fontsize:11pt \
 	--variable=papersize:a4paper \
-	--variable=sides:oneside \
+	--variable=sides:twoside \
 	--variable=numbersections \
 	--natbib \
 	--variable=biblio-files:"bibliography" \

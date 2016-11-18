@@ -6,45 +6,45 @@ Database file #1: bibliography.bib
 Warning--string name "sept" is undefined
 --line 22 of file bibliography.bib
 Warning--I didn't find a database entry for "ruxit"
-You've used 46 entries,
+You've used 47 entries,
             2118 wiz_defined-function locations,
-            685 strings with 9070 characters,
-and the built_in function-call counts, 9660 in all, are:
-= -- 909
-> -- 322
+            689 strings with 9228 characters,
+and the built_in function-call counts, 9870 in all, are:
+= -- 929
+> -- 329
 < -- 1
-+ -- 142
-- -- 92
-* -- 271
-:= -- 1613
-add.period$ -- 138
-call.type$ -- 46
-change.case$ -- 184
++ -- 145
+- -- 94
+* -- 279
+:= -- 1648
+add.period$ -- 141
+call.type$ -- 47
+change.case$ -- 188
 chr.to.int$ -- 0
-cite$ -- 46
-duplicate$ -- 344
-empty$ -- 1020
-format.name$ -- 92
-if$ -- 2123
+cite$ -- 47
+duplicate$ -- 351
+empty$ -- 1042
+format.name$ -- 94
+if$ -- 2169
 int.to.chr$ -- 0
-int.to.str$ -- 46
+int.to.str$ -- 47
 missing$ -- 3
-newline$ -- 233
-num.names$ -- 92
-pop$ -- 357
+newline$ -- 238
+num.names$ -- 94
+pop$ -- 365
 preamble$ -- 1
-purify$ -- 138
+purify$ -- 141
 quote$ -- 0
-skip$ -- 372
+skip$ -- 379
 stack$ -- 0
-substring$ -- 266
-swap$ -- 55
+substring$ -- 271
+swap$ -- 56
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 184
+type$ -- 188
 warning$ -- 0
-while$ -- 95
-width$ -- 48
-write$ -- 426
+while$ -- 97
+width$ -- 49
+write$ -- 436
 (There were 2 warnings)

@@ -1,5 +1,5 @@
 Technológiai áttekintés
-=======================
+-----------------------
 
 Az integrációhoz olyan technológiákat[@micro-introPt1] lehet használni, melyek lehetővé teszik az egyes szolgáltatások elkülönült működését. Ahhoz, hogy jó technológiákat válasszunk, mindeképpen ismernünk kell az igényeket, mivel a technológiák széles köre áll rendelkezésünkre. Fontos szem előtt tartani pár általános érvényű szabályt is[@micro-golden], ami a mikroszolgáltatások helyes működéséhez kell. Ezek pedig a következők:
 
@@ -18,7 +18,7 @@ A következő feladatokra kellenek technológiák:
 * A meglévő szolgáltatásokat hogyan tartsuk nyilván? (service registy)
 * Hogyan figyeljük meg az alkalmazást működés közben (monitorozás, loggolás)
 
-## Telepítési technológiák
+### Telepítési technológiák
 
 A mikroszolgáltatásokat valamilyen módon létre kell hozni, egy hosthoz kell rendelni, és az egyes elemeket össze kell kötni. A szolgáltatások telepítéséhez olyan technológiára van szükség amivel könnyen elérhetünk egy távoli gépet, és könnyen kezelhetjük az ottani erőforrásokat. Ehhez a legkézenfekvőbb megoldás a Linux rendszerek esetén az SSH kapcsolaton keresztül végrehajtott Bash parancs, de vannak eszközök, amikkel ezt egyszerűbben és elosztottabban is megtehetjük.
 
@@ -30,7 +30,7 @@ A mikroszolgáltatásokat valamilyen módon létre kell hozni, egy hosthoz kell 
 
 Egyéb lehetőség, hogy a fejlesztő készít magának egy olyan szkriptet, ami elkészíti számára a mikroszolgáltatás alapú architektúrát, és lehetővé teszi az elemek dinamikus kicserélését (ad-hoc megoldás). Ennek a megoldásnak a hátránya hogy nincs támogatva, és minden funkciót külön kell implementálni. Sokkal nagyobb erőforrásokat emészthet fel mint egy ingyenes, vagy nyílt forrású megoldást választani.
 
-## Környezet felderítési technológiák
+### Környezet felderítési technológiák
 
 Az egyes szolgáltatásoknak meg kell találniuk egymást, hogy megfelelően működhessen a rendszer, azonban ez nem mindig triviális, így szükség van egy olyan alkalmazásra, amivel felderíthetjük az aktív szolgáltatásokat.
 
@@ -38,7 +38,7 @@ Az egyes szolgáltatásoknak meg kell találniuk egymást, hogy megfelelően mű
 
 A Consult leszámítva nem nagyon találtam olyan eszközt ami a nekem kellő funkciókat tudta volna, főleg csak bizonyos szolgáltatásokhoz találtam felderítő eszközt. A kézi megoldás itt is lehetséges, mivel saját névfeloldás esetén a névfeloldó szervert használhatjuk az egyes állomások felderítésére, vagy Docker-t használva a Docker hálózatok elérhetővé teszik a szolgáltatásokat a futtató konténer hoszt nevével.
 
-## Konfiguráció management
+### Konfiguráció management
 
 A telepítéshez és a rendszer állapotának a fenntartásához egy olyan eszköz kell, amivel gyorsan egyszerűen végrehajthatjuk a változtatásainkat, és ha valamit változtatunk egy szolgáltatásban, akkor az összes hozzá hasonló szolgáltatás értesüljön a változtatásról, vagy hajtson végre ő maga is változtatást.
 
@@ -52,7 +52,7 @@ A telepítéshez és a rendszer állapotának a fenntartásához egy olyan eszk�
 
 Minden konfigurációs menedzsment eszköznek megvan a saját nyelve, amivel deklaratívan le lehet írni, hogy mit szeretnénk változtatni, és azokat a program beállítja. Erre a feladatra nem nagyon érdemes saját eszközt készíteni, mivel számos megoldás elérhető, és a megvalósítás komoly tervezést, és fejlesztést igényel. Érdemes megemlíteni a Docker konténerek adta lehetőséget, mivel a Docker konténerek gyorsan konfigurálhatók, fejleszthetők, és a konténer képeken keresztül jól karbantarthatók, így a konfiguráció menedzsment is megoldható velük. Ami hiányzik ebből a megoldásból az a többi szolgáltatás értesítése a változtatásról.
 
-## Skálázási technológiák
+### Skálázási technológiák
 
 A mikroszolgáltatás alapú architektúrák egyik nagy előnye, hogy az egyes funkciókra épülő szolgáltatásokat könnyedén lehet skálázni, mivel egy load balancert használva csupán egy újabb gépet kell beszervezni, és máris nagyobb terhelést is elbír a rendszer. Ahhoz hogy ezt kivitelezni tudjuk, szükségünk van egy terheléselosztóra, és egy olyan logikára, ami képes megsokszorozni az erőforrásainkat. Számítási felhő alapú környezetben ez könnyen kivitelezhető, egyébként hideg tartalékban tartott gépek behozatalával elérhető. Sajnálatos módon általános célú skálázó eszköz nincsen a piacon, viszont gyakran készítenek maguknak saját logikát a nagyobb gyártók.
 
@@ -60,7 +60,7 @@ A mikroszolgáltatás alapú architektúrák egyik nagy előnye, hogy az egyes f
 
 A skálázás egyik legegyszerűbb megvalósítása, hogy egy proxy szervert felhasználva, valamilyen módon egységesen elosztjuk a kéréseket, és egy saját monitorozó eszközzel figyeljük a terhelést (processzor terheltség, memória, hálózati terhelés). Ha valamelyik érték megnő, egy ágenses vagy ágens nélküli technológiával a virtualizált környezetben egy új példányt készítünk a terhelt szolgáltatásból, és a proxy automatikusan megoldja a többit. Nem tökéletes megoldát kapunk, azonban ez a legtöbb felhasználási esetben megfelelőnek bizonyul.
 
-## Terheléselosztás
+### Terheléselosztás
 
 A mikroszolgáltatás alapú architektúrának egyik fontos eleme a terhelés elosztó, vagy valamilyen fürtözést lehetővé tevő eszköz. Ez azért fontos, mert egy egységes interfészt tudunk kialakítani a szolgáltatásaink elérésére, és könnyíti a skálázódást a szolgáltatások mentén.
 
@@ -70,7 +70,7 @@ A mikroszolgáltatás alapú architektúrának egyik fontos eleme a terhelés el
 
 A kézi megvalósítás gyakorlatilag egy kézileg implementált terheléselosztó eszköz lenne, amihez viszont hálózati megfigyelés, és routing szökséges, így nem javalott ilyen eszköz készítése.
 
-## Virtualizációs technológiák
+### Virtualizációs technológiák
 
 A mikroszolgáltatás alapú architektúrák kialakításánál nagy előnyt jelenthet, ha valamilyen virtualizációt használunk fel a környezet kialakításához. Virtualizált környezetben könnyebb a telepítés, skálázás, és a monitorozás is egyszerűbb lehet.
 
@@ -84,7 +84,7 @@ A mikroszolgáltatás alapú architektúrák kialakításánál nagy előnyt jel
 
 Amennyiben nincs a kezünkben egy saját virtualizáló eszköz, a virtualizálás kézi megvalósítása értelmetlen plusz komplexitást ad az alkalmazáshoz.
 
-## Szolgáltatás jegyzékek (service registry)
+### Szolgáltatás jegyzékek (service registry)
 
 Számon kell tartani, hogy milyen szolgáltatások elérhetők, milyen címen és hány példányban az architektúránkban, és ehhez valamilyen szolgáltatás nyilvántartási eszközt[@service-registry-pattern]  [@micro-introPt3] kell használnunk.
 
@@ -96,7 +96,7 @@ Számon kell tartani, hogy milyen szolgáltatások elérhetők, milyen címen é
 
 Kézi megoldás erre nem nagyon van, csupán egy központi adatbázisban, vagy leltár alkalmazásban elmentet adatokból tudunk valamilyen jegyzéket csinálni, amihez viszont a szolgáltatások mindegyikének hozzá kell férni. Könnyen konfigurálható megoldást kapunk, és tetszőleges adatot menthetünk a szolgáltatásokról, de egyéb funkciók, mint az esemény küldés és fogadás, csak bonyolult implementációval lehetséges.
 
-## Monitorozás, loggolás
+### Monitorozás, loggolás
 
 Ha már megépítettük a mikroszolgáltatás alapú architektúrát, akkor meg kell bizonyosodnunk róla, hogy minden megfelelően működik, és minden rendben zajlik a szolgáltatásokkal. Ezekhez az adatokhoz többféle módon és többféle eszközzel is hozzáférhetünk, mivel az alkalmazás hibákat egy log szerver, a környezeti problémákat egy monitorozó szerver tudja megfelelően megmutatni számunkra[@micro-service-monitoring] [@microservice-monitoring].
 

@@ -85,6 +85,13 @@ Nemeth Gergely.
 \newblock
   \url{https://www.loggly.com/blog/monitoring-microservices-three-ways-to-overcome-the-biggest-challenges/}.
 
+\bibitem{docker-is-bad}
+The~HFT Guy.
+\newblock Docker in production: A history of failure.
+\newblock
+  \url{https://thehftguy.wordpress.com/2016/11/01/docker-in-production-an-history-of-failure/},
+  November 2016.
+
 \bibitem{haproxy}
 HAProxy.
 \newblock The reliable, high performance tcp/http load balancer.

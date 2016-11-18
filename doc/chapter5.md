@@ -1,5 +1,5 @@
-Minta alkalmazás terve
-======================
+Minta alkalmazás
+================
 
 ![Microservices](img/microservices.png)
 
@@ -31,3 +31,10 @@ Ezekből a feladatokból a következő szolgáltatásokat lehet elkészíteni:
 * **Vásárlási szolgáltatás**: A böngészés közben kiválasztott könyveket lefoglalja a raktári készletből. Csökkenti az adatbázisban a készlet tartalmát, és létrehoz egy új bejegyzést a vásárlások adattáblájában, ami tartalmazza a vásálás adatait. Ha túl sokat akar venni a felhasználó, vagy nem létező könyvből akar vásárolni, akkor hibajelzést küldök.
 * **Adatbázis szolgáltatás**: Ez a szolgáltatás tartalmazza a raktár tartalmát, a vásárlási naplót, és a bejelentkezési adatokat. Mivel a legtöbb adatbázis kezelő távolról elérhető, és fürtözési lehetőségeket is nyújt, ezért ehhez a szolgáltatáshoz nem szükséges mögöttes logika. Az interfésze az adatbázist kezelő eszköz interfésze (pl.: MySQL szerver, és SQL nyelvű interfész.).
 * **Terhelés elosztó szolgáltatás**: Ez a szolgálatatás a skálázhatóságot segíti, és egy egységes interfész kialakításában segít. Tartalmaz egy proxy kiszolgálót, és egy konfigurációs fájlt, amit az infrastruktúra változásával bővítünk (pl.: HAProxy, és a hozzá tartozó konfigurációs fájl). Nehéz kérdés lehet egy új szolgáltatás beiktatása, mivel a proxy szerver interfésze változna meg tőle, így ennek a szolgáltatásnak a többivel együtt kell változnia.
+
+Értékelés
+---------
+
+Az alkalmazás kellően egyszerű, hogy rövid idő alatt implementálni lehessen, és alkalmas rá, hogy a fejlesztés során használt folytonos integrációra épülő feladatokat bemutassam rajta.
+
+A tervben azért szerepelnek külön az adatbázis és a proxy szoláltatások, mivel túl bonyolulttá, és feleslegesen erőforrás igényessé tenné az alkalmazást, ha minden szolgáltatás saját adatbázissal rendelkezne és a saját skálázhatóságát is menedzselné. Van néhány bottleneck szolgáltatás, mint a web kiszolgáló, és az adatbázis szerver, viszont egy olyan változat, melyben ez nem áll fenn, nagyságrendekkel több idő lett volna elkészíteni, így a diplomaterv során ezzel nem foglalkoztam.

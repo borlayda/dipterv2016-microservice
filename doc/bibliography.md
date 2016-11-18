@@ -90,3 +90,5 @@ Irodalomjegyzék {.unnumbered}
 [44] Sebastián Peyrott: [An Introduction to Microservices, Part 1](https://auth0.com/blog/2015/09/04/an-introduction-to-microservices-part-1/)
 
 [45] James Lewis, Martin Fowler: [Microservices a definition of this new architectural term](http://martinfowler.com/articles/microservices.html)
+
+[46] The HFT Guy: [Docker in Production: A History of Failure](https://thehftguy.wordpress.com/2016/11/01/docker-in-production-an-history-of-failure/)
