@@ -122,6 +122,11 @@ Jenkins.
 \newblock Jenkins.
 \newblock https://jenkins.io/index.html.
 
+\bibitem{jenkins-pipeline}
+Jenkins.
+\newblock Pipeline examples.
+\newblock \url{https://jenkins.io/doc/pipeline/examples/}.
+
 \bibitem{microservices-light}
 Mercedes~Garijo Jose Ignacio Fernández-Villamor, Carlos Á.~Iglesias.
 \newblock {M}icroservices: {L}ightwieght services descriptors for {REST}

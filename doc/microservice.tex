@@ -25,6 +25,7 @@
 \usepackage{minibox}
 \usepackage{pdfpages}
 \usepackage{tikz}
+\usepackage{float}
 % fix for pandoc 1.14
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -190,16 +191,17 @@ Napjainkban komoly gondot okoz, hogy hogyan lehet hatékonyan elosztott,
 jó rendelkezésre állású, könnyen skálázható alkalmazást építeni. Sok
 architektúrális megközelítés van, amit alapul véve hatákonyan
 tervezhetjük meg a rendszerünket, és könnyen elkészíthetjük az
-alkalmazásunkat. Egy ilyen architektúrális megközelítés a mikro
-szolgáltatásokon alapuló architektúra, amivel apró részletekre bontva a
-feladatot, könnyen kezünkben tarthatjuk az elosztott alkalmazásunkat.
+alkalmazásunkat. Egy ilyen architektúrális megközelítés a
+mikroszolgáltatásokon alapuló architektúra, amivel apró részletekre
+bontva a feladatot, könnyen kezünkben tarthatjuk az elosztott
+alkalmazásunkat.
 
 A diplomaterv keretében az volt a feladatom, hogy megismerjem az
 architektúra lényegét és müködését, illetve kiderítsem, hogy milyen
 eszközökkel tudom automatizálás segítségével támogatni a fejlesztés, és
 működtetés folyamatát.
 
-A diplomaterv célkitűzése, hogy egy olyan mikro szolgáltatásokra épülő
+A diplomaterv célkitűzése, hogy egy olyan mikroszolgáltatásokra épülő
 alkalmazást készítsek, amellyel be tudom mutatni az architektúra
 előnyeit, végig tudom vezetni rajta a tesztelés folyamatát, tudom
 automatizálni a tesztelését, és működtetését, és betekintést tudok adni
@@ -207,6 +209,24 @@ az architektúrához használatos technológiákba.
 
 \chapter*{Abstract}\label{abstract}
 \addcontentsline{toc}{chapter}{Abstract}
+
+Nowadays it's a very big problem, that how to build a distributed,
+highly available, easily scalable application efficiently. There are
+many ways to design our system and application which we could base on
+our plans. One of these design patterns is the microservice based
+architecture, which creates small services from the big application, by
+separating the functionality, and we can handle more efficiently our
+distributed application.
+
+The goal of this thesis is to gather knowledge about the architecture,
+how it works or how it could be designed, or which continuous
+integration tool could be used for helping development and maintenance.
+
+The goal of this thesis is to create and example application based on
+microservice architecture, which could be used for showing the
+advantages of the technique, and I can show the full process of testing
+and I can create a framework for helping the development of the
+application by automated testing and integration.
 
 \chapter{Bevezetés}\label{bevezetuxe9s}
 
@@ -347,7 +367,7 @@ felvágva. A választást segíti a témában elterjedt fogalom, a scaling
 cube\citep{scale-cube}, ami azt mutatja, hogy az architektúrális
 terveket milyen szempontok mentén lehet felosztani.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics{img/ScaleCude.jpg}
 \caption{Scaling Cube}
@@ -1138,7 +1158,7 @@ fejlesztőknek, akiknek minden hívást karban kell tartaniuk.
 
 \chapter{Minta alkalmazás}\label{minta-alkalmazuxe1s}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics{img/microservices.png}
 \caption{Microservices}
@@ -1596,7 +1616,7 @@ hatékonyabb tervezésre.
 Először is megpróbáltam megtervezni a feladatokat és végrehajtási
 sorrendet, az általam ismert Jenkins verzióban:
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics{img/jenkins-old.png}
 \caption{Régi Jenkins terve}
@@ -1635,7 +1655,7 @@ kivárnom. Mivel nem tudtam hogyan is lehetne jól tesztelni a folyamatot,
 de éles rendszeren ajánlott alkalmazni. Az új feladat rendszer tehát a
 következőképp nézett ki:
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics{img/jenkins-new.png}
 \caption{Új Jenkins terve}
@@ -1656,7 +1676,7 @@ lehetőséget ad egy saját Pipeline alkotó nyelv, ami a Groovy-n alapszik,
 a folyam. A diplomatervben elkészített pipeline job-nak a szkriptje
 megtalálható a Függelékben.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics{img/pipeline-job.png}
 \caption{Pipeline job}
@@ -1665,27 +1685,220 @@ megtalálható a Függelékben.
 Amit még ajánlott alkalmazni egy ilyen rendszer kiépítése során, az egy
 verzió kezelő alkalmazás, amit össze lehet kapcsolni a Jenkins-el, mivel
 sok verziókezelőhöz van támogatott feladat indító feltétel (trigger).
-Egy ilyen feltétel beállításai láthatók az \ref{jenkins-cred} és
-\ref{job-trigger} képeken.
+Egy ilyen feltétel beállításai láthatók az \ref{jenkins-cred},
+\ref{github-hook}, \ref{job-trigger} és \ref{job-conf} ábrákon.
 
-\begin{figure}[htbp]
+Ez a változtatás lehetővé teszi, hogy a fejlesztők probléma mentesen, a
+folytonos integrációt támogató eszköz ismerete nélkül is képesek
+legyenek kihasználni annak előnyeit. Ehhez a funkcióhoz viszont kell
+támogatás mind a Jenkins mind a GitHub oldaláról, ami azt jelenti, hogy
+a GitHub-nak meg kell adni egy külső elérésű címet, amire küldheti az
+adatokat, a Jenkins-nek pedig szüksége van olyan authentikációs
+adatokra, amikkel csatlakozni tud a szerverhez, és változtatásokat tud
+végrehajtani. Nekem sajnos nem volt külső elérésű a Jenkins szerverem,
+így a triggerelést nem tudtam kipróbálni.
+
+\begin{figure}[H]
 \centering
 \includegraphics{img/github-cred.png}
 \caption{Github beállítások a Jenkinsben\label{jenkins-cred}}
 \end{figure}
 
-\begin{figure}[htbp]
+Jenkins oldalról könnyen beállítható a triggerelés, mivel kapcsolódási
+teszteket biztosít az eszköz, és felhasználhatóvá teszi az összes
+azonosítót ami fel van véve a Jenkins-ben.
+
+\begin{figure}[H]
+\centering
+\includegraphics{img/github-webhooks.png}
+\caption{Github webhook beállítás a repository
+támogatásához\label{github-hook}}
+\end{figure}
+
+A GitHub oldaláról sem nehéz beállítani a kapcsolódást, viszont itt kell
+megadni a publikus elérését a Jenkins szervernek, illetve egy
+authentikációs kulcsot, amivel azonosítható az üzenet.
+
+\begin{figure}[H]
 \centering
 \includegraphics{img/github-trigger.png}
 \caption{Github trigger beállítása egy job-on\label{job-trigger}}
 \end{figure}
 
+Az indítandó job szempontjából meg kell mondani, hogy melyik projektről
+van szó, és hogy akarjuk-e, hogy változtatásokra elinduljon a job, vagy
+sem.
+
+\begin{figure}[H]
+\centering
+\includegraphics{img/github-job-conf.png}
+\caption{Job Github-hoz rendelése\label{job-conf}}
+\end{figure}
+
+A teljesség kedvéért megemlítem, hogy nem csak a GitHub-bal lehet
+összekötni a Jenkins-t ilyen céllal, hanem a Gerrit nevezetű Gites
+adminisztratív eszközt, vagy más verzió kezelő eszközt melyhez találunk
+telepíthető plugint.
+
+\section{Folytonos Integrációt támogató rendszer
+elkészítése}\label{folytonos-integruxe1ciuxf3t-tuxe1mogatuxf3-rendszer-elkuxe9szuxedtuxe9se}
+
+Szerencsére könnyen és probléma mentesen tudtam dolgozni a Jenkins-el,
+ami főleg annak köszönhető, hogy a szakmai gyakorlatom, és a korábbi
+féléveim során is találkoztam vele. Az új funkciók nem lettek
+túlbonyolítva, így könnyen tudtam kezelni a Pipeline job-ot is, csupán
+rá kellett jönnöm, mely kulcsszavak mit csinálnak a konfigurációban.
+Ehhez sok hasznos információt ad a Jenkins ehhez tartozó
+honlapja\citep{jenkins-pipeline}. A Pipeline job-om alá szerveztem be a
+buildeket, a telepítést, és a környezet kitisztítását.
+
+A build job-ok úgy lettek meghatározva, hogy egy bash szkript hivásával
+indítható legyen, és a végeredmény megjelenjen a job végeredménye
+képpen. Mivel fontos lehet látni minden lépést a build folyamatában a
+log-okat is csatolom a futásnál a végeredmény mellé. A telepítés
+folymata is egy szkript meghívásával lett megoldva, ami Docker
+konténereket indít a Jenkins-t futtató gépen. A létrehozott környezetben
+lehet tesztelni bármilyen funkciót, de nekem nem volt mit tesztelnem,
+így csupán a környezet indíthatósága volt a szempont. A tisztító job egy
+olyan szkriptet indít el, ami törli a fájlokat a temporális
+könyvtárakból, és kitisztitja a Docker-t, mint konténer, mind image
+szintjén.
+
+Minden job ugyan arra a konfigurációra épült, mivel minden job-ban volt
+egyforma rész. A job-ok közös része a \ref{job-configuration} ábrán
+látható.
+
+\begin{figure}[H]
+\centering
+\includegraphics{img/common-job-conf}
+\caption{Közös job konfiguráció\label{job-configuration}}
+\end{figure}
+
+Ami pedig különbözött minden job-ban, az a név, leírás, és a meghívott
+szkript, ami a GitHub-os repository-ban található meg. Minden híváshoz a
+jenkins-ben egy shell hívás tartozik, ami a következő képpen néz ki:
+
+\begin{verbatim}
+#!/bin/bash
+
+echo "Start <Name of the phase>"
+echo $PWD
+
+./<path to script>
+\end{verbatim}
+
+Mivel minden image és build úgy lett elkészítve, hogy nyugodtan futhat
+egymás mellett, a Jenkins-nek megadtam, hogy egymásra indíthatja a
+feladatokat.
+
+Ezek után kész volt a teljes folyamat, és minden használható volt. Az
+egész összeállítása során, csakis a Jenkins beállításival volt gondom,
+mivel a GitHub-al való összepároztatást több helyen is be kellett
+állítani.
+
 \chapter{Valós alkalmazás
 értékelése}\label{valuxf3s-alkalmazuxe1s-uxe9rtuxe9keluxe9se}
 
+Ugyan az elkészített minta alkalmazás és a folytonos integrációt
+támogató keretrendszer elkészült, és működik ahogy kell, de vannak
+dolgok, amiket nem teljesen úgy valósítottam meg ahogy az elmélet
+elvárná, illetve vannak olyan területek ahol tovább lehetne fejleszteni
+az alkalmazást.
+
+\subsection{Tervezésbeli
+eltérések}\label{tervezuxe9sbeli-eltuxe9ruxe9sek}
+
+A Diplomaterv során megvalósított alkalmazás és folytonos integrációt
+támogató keretrendszer megalkotása nem teljesen a mikroszolgáltatások
+elvei szerint lettek megvalósítva, mégpedig azért, mert a tökéletes
+megoldás túl sok időt emésztett volna fel, és tartalmazott volna olyan
+elemeket is, amik feleslegesek lettek volna a bemutatáshoz. Az első
+eltérést már leírtam, a minta alkalmazás tervezése közben, mivel az
+adatbázis nem egy különálló szolgáltatás kellett volna, hogy legyen, de
+nagyságrendekkel több idő lett volna megoldani, hogy minden szolgáltatás
+a saját adatbázisát kezelje. Egy másik eltérés, hogy a
+mikroszolgáltatásokhoz kellene tartozni egy központi kezelő felületnek,
+mivel a teljes alkalmazás kezelése nehézkes, viszont a Diplomaterv
+szempontjából irreleváns. Erre a célra használható egyébként a
+Kubernetes nevezetű alkalmazás, ami ugyan még gyerekcipőben jár, de egy
+teljes körű alkalmazás konténer kezelő rendszer, így minden kívánalmat
+lefed, ami a mikroszolgáltatásokhoz kell. A Diplomaterv elkészítésénél
+inkább a fejlesztési folyamat bemutatása volt a célpont, mintsem egy
+kész eszköz bemutatása, így ez sem került be a félév anyagába.
+
+\subsection{Továbbfejlesztési javaslatok, valós alkalmazásban
+használandó
+elemek}\label{tovuxe1bbfejlesztuxe9si-javaslatok-valuxf3s-alkalmazuxe1sban-hasznuxe1landuxf3-elemek}
+
+Az elkészített struktúra használható ipari környezetben is, mivel a
+szétválasztás adatbázisokat kezelő részét kivéve egy jó szétválasztás,
+és nincs is ennél aprólékosabb, illetve a hozzá tartozó folytonos
+integrációt támogató környezet is képes kezelni bármilyen komplex
+alkalmazást.
+
+Ha adott a külső elérésű Jenkins szerver, és rendelkezésre áll egy
+verziókezelő program, akkor a Diplomaterv során elkészített
+infrastruktúra használható a folytonos szállításhoz, és egy gyors
+visszajelzést ad a fejlesztők felé, minden egyes apró változtatáshoz.
+Amivel ki kell bővíteni az itt elkészült anyagot, az unit tesztek egy
+halmaza a buildelendő alkalmazáshoz, funkció tesztek készítése a komplex
+alkalmazás teszteléséhez, és stabilitás teszteléshez alapos stressz
+teszt. Ha ezek megvannak, egy valós alkalmazás is megbízhatóan fog
+működni tetszőleges környezetben.
+
+Mivel a mikroszolgáltatások kis méretűek, és gyorsan, egyszerűen
+skálázhatók, megfelelőenek tűnhet a Docker konténerek használata, de
+mint már korábban mutattam, vannak limitációi, és nem túl megbízható a
+használata. Ahhoz, hogy ezt kiküszöböljük erődorrásokra van szükség,
+mivel kis méretű virtuális gépekben punt ugyan ilyen jól kialakítható a
+rendszer, csupán meg kell oldani, hogy a Docker konténerekhez hasonló
+sebességgel lehessen elindítani a szolgáltatásokat. Ezzel a
+változtatással több előnyt is nyerhetünk, mivel így skálázhatók lesznek
+az erőforrások a szolgáltatás alatt is és nem csak szolgáltatás
+duplikációt használhatunk, illetve kiaknázva a virtualizáló eszközt amit
+használunk, minotorozást, és pontos erőforrás megfigyelést is
+nyerhetünk. Mivel nekem nem volt elegendő erőforrásom ennyi virtuális
+gépet fenntartani, és nem volt lehetőségem valamilyen fizetős cloud
+szolgáltatást felhasználva kipróbálni ezt a módszert, így ezt csak
+ajánlani tudom.
+
+Valós alkalmazás fejlesztésénél célszerűbb előre elkészíteni a folytonos
+integrációt támogató keretrendszert, mivel azzal sokkal könnyebb lesz
+már a kezdeti fejlesztés is, és kisebb gondot okoz a későbbi
+változtatás. Amire érdemes odafigyelni, az a szolgáltatások teljesen
+külön kezelése addig a pontig, amíg nem az integrált környezetet akarjuk
+tesztelni, mert egy mikroszolgáltatás alapú alkalmazásnak minden kis
+eleme külön termék, és így külön életciklusa van.
+
+Ami a minta alkalmazást illeti, érdemes lehet a webes megjelenítést a
+Rest-es kiszolgáló részévé tenni, mivel a Rest kommunikáció képes
+kiszolgálni a böngészőből jövő HTTP kérést, de én nem ezt alkalmaztam,
+mert könnyebben megvalósítható egy olyan oldal, aminek egy központi
+kiszolgálója van.
+
 \chapter{Összefoglaló}\label{uxf6sszefoglaluxf3}
 
-A diplomaterv összefoglaló fejezete.
+A Diplomaterv során megismerkedtem a mikroszolgáltatásokra épülő
+architektúrákkal illetve, hogy hogyan lehet készíteni egy alkalmazást az
+elv alapján. Megismertem rengeteg olyan eszközt, amikkel meg lehet
+alkotni egy jól karbantartható, skálázható, és egyszerűen formálható
+rendszert, és megkerestem a legideálisabb tervezési módszereket a
+metodológiával kapcsolatban. Megterveztem egy alkalmazást, ami egy
+könyvesboltot valósít meg, és szétszedtem apró szolgáltatásokra, amiket
+külön kezelhettem. A minta alkalmazáshoz felkonfiguráltam egy folytonos
+integrációt támogató eszközt, és kipróbáltam, hogy hogyan tudja
+támogatni a mikroszolgáltatásokra épülő alkalmazásomat.
+
+A minta alkalmazás terve a praktika és a mikroszolgáltatás alapú
+architektúrák elve alapján készült el, és működéséről megbizonyosodtam.
+Az integrációt támogató keretrendszer a korábbi tapasztalataimra építve
+készült el Jenkins folytonos integrációt támogató eszközzel, és ebben az
+eszközben megvalósítottam minden szolgáltatás build-jét, a közös
+integráció lépését, és egy tisztító műveletet.
+
+A Diplomaterv eredményeként elért architektúrával tetszőleges más
+mikroszolgáltatásokra épülő alkalmazásnak alapot képezhet, és apróbb
+változattásokkal fel is használható.
 
 \listoftables
 \listoffigures
@@ -1707,16 +1920,35 @@ Dockerfile.auth.service
 FROM ubuntu
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
-COPY auth.sh /usr/sbin/auth.sh
+ENV CONSUL_DIR /usr/share/consul
+
+# Install Service
 COPY auth-service.py /usr/sbin/auth-service.py
+RUN apt-get -y update && \
+    apt-get -y install \
+        vim \
+        bash \
+        iputils-ping \
+        python-oauth \
+        python-mysqldb \
+        python \
+        python-flask && \
+    chmod +x /usr/sbin/auth-service.py
 
-RUN apt-get -y update
-RUN apt-get -y install vim bash python-oauth python-mysqldb python \
-    python-flask
-RUN chmod +x /usr/sbin/auth.sh
-RUN chmod +x /usr/sbin/auth-service.py
+# Install consul
+COPY consul consul-template /usr/bin/
+RUN chmod +x /usr/bin/consul && \
+    chmod +x /usr/bin/consul-template && \
+    mkdir -p /etc/consul.d
+COPY auth.json /etc/consul.d/auth.json
 
-EXPOSE 8081
+# Install entry point
+COPY init /usr/sbin/init-auth
+RUN chmod +x /usr/sbin/init-auth
+
+ENTRYPOINT /bin/bash /usr/sbin/init-auth
+
+EXPOSE 8081 8301 8302 8500 8400
 \end{verbatim}
 
 \subsection{Proxy}\label{proxy}
@@ -1727,16 +1959,29 @@ Dockerfile.proxy.service
 FROM haproxy
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
-COPY proxy.sh /usr/sbin/proxy.sh
+ENV CONSUL_DIR /usr/share/consul
 
-RUN apt-get -y update
-RUN apt-get -y install vim haproxy
-RUN chmod +x /usr/sbin/proxy.sh
+# Install Service
+COPY proxy.sh /usr/sbin/proxy.sh
+RUN apt-get -y update && \
+    apt-get -y --force-yes install haproxy iputils-ping && \
+    chmod +x /usr/sbin/proxy.sh
 COPY haproxy.cfg /etc/haproxy/haproxy.cfg
 
-ENTRYPOINT proxy.sh
+# Install consul
+COPY consul consul-template /usr/bin/
+RUN mkdir -p /etc/consul.d && \
+    chmod +x /usr/bin/consul && \
+    chmod +x /usr/bin/consul-template
+COPY proxy.json /etc/consul.d/proxy.json
 
-EXPOSE 8080
+# Install entry point
+COPY init /usr/sbin/init-proxy
+RUN chmod +x /usr/sbin/init-proxy
+
+ENTRYPOINT /bin/bash /usr/sbin/init-proxy
+
+EXPOSE 8080 8301 8302 8500 8400
 \end{verbatim}
 
 \subsection{Adatbázis}\label{adatbuxe1zis}
@@ -1747,54 +1992,104 @@ Dockerfile.database.service
 FROM ubuntu
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
+USER root
+ENV CONSUL_DIR /usr/share/consul
+
+# Install Service
 COPY database.sh /usr/sbin/database.sh
-COPY auth_init.sql /tmp/auth_init.sql
-COPY bookstore_init.sql /tmp/bookstore_init.sql
+COPY auth_init.sql bookstore_init.sql /tmp/
+RUN apt-get -y update && \
+    /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'" && \
+    /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'" && \
+    apt-get -y install mysql-server \
+        iputils-ping \
+        mysql-client && \
+    chmod +x /usr/sbin/database.sh
 
-RUN apt-get -y update
-RUN apt-get -y install mysql-server mysql-client vim
-RUN chmod +x /usr/sbin/database.sh
-RUN sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' /etc/mysql/my.cnf
+# Install consul
+COPY consul consul-template /usr/bin/
+RUN mkdir -p /etc/consul.d && \
+    chmod +x /usr/bin/consul && \
+    chmod +x /usr/bin/consul-template
+COPY database.json /etc/consul.d/database.json
 
-EXPOSE 3306
+# Install entry point
+COPY init /usr/sbin/init-db
+RUN chmod +x /usr/sbin/init-db && \
+    sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
+
+ENTRYPOINT /bin/bash /usr/sbin/init-db
+
+EXPOSE 3306 8301 8302 8500 8400
 \end{verbatim}
 
 \subsection{Vásárlás}\label{vuxe1suxe1rluxe1s}
 
-Dockerfile.reserve.service
+Dockerfile.order.service
 
 \begin{verbatim}
-FROM centos
+FROM tomcat
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
-COPY reserve.sh /usr/sbin/reserve.sh
+ENV CONSUL_DIR /usr/share/consul
 
-RUN yum -y update
-RUN yum -y install vim java-1.8.0-openjdk-devel tomcat7
-RUN chmod +x /usr/sbin/reserve.sh
+# Install Service
+RUN sed -i 's/8080/8888/g' /usr/local/tomcat/conf/server.xml && \
+    sed -i 's/<Connector /<Connector address="0.0.0.0" /g' /usr/local/tomcat/conf/server.xml
+COPY target/ReserveRESTJerseyExample-0.0.2-SNAPSHOT.war /usr/local/tomcat/webapps/order.war
 
-EXPOSE 8888
+# Install consul
+COPY consul consul-template /usr/bin/
+RUN mkdir -p /etc/consul.d && \
+    chmod +x /usr/bin/consul && \
+    chmod +x /usr/bin/consul-template
+COPY order.json /etc/consul.d/order.json
+
+# Install entry point
+COPY init /usr/local/sbin/init-order
+RUN chmod +x /usr/local/sbin/init-order
+
+ENTRYPOINT /bin/bash /usr/local/sbin/init-order
+
+EXPOSE 8888 8301 8302 8500 8400
 \end{verbatim}
 
 \subsection{Webkiszolgáló
 (böngészés)}\label{webkiszolguxe1luxf3-buxf6nguxe9szuxe9s}
 
-Dockerfile.webserver.service
+Dockerfile.web.service
 
 \begin{verbatim}
 FROM httpd
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
+ENV CONSUL_DIR /usr/share/consul
+
+# Install Service
 COPY webserver.sh /usr/sbin/webserver.sh
-COPY index.html /var/www/html/index.html
-COPY login.php /var/www/html/login.php
-COPY store.php /var/www/html/store.php
+RUN apt-get -y update && \
+    apt-get -y install php5 \
+        php5-mysql \
+        curl \
+        iputils-ping \
+        php5-curl && \
+    chmod +x /usr/sbin/webserver.sh
+COPY index.html main.css login.php store.php order.php /var/www/html/
 
-RUN apt-get -y update
-RUN apt-get -y install vim php5 php5-mysql curl php5-curl
-RUN chmod +x /usr/sbin/webserver.sh
+# Install consul
+COPY consul consul-template /usr/bin/
+RUN mkdir -p /etc/consul.d && \
+    chmod +x /usr/bin/consul && \
+    chmod +x /usr/bin/consul-template
+COPY web.json /etc/consul.d/web.json
 
-EXPOSE 80 443
+# Install entry point
+COPY init /usr/sbin/init-web
+RUN chmod +x /usr/sbin/init-web
+
+ENTRYPOINT /bin/bash /usr/sbin/init-web
+
+EXPOSE 80 443 8301 8302 8500 8400
 \end{verbatim}
 
 \section{Szkriptek}\label{szkriptek}
@@ -1803,24 +2098,47 @@ EXPOSE 80 443
 
 \subsubsection{Build}\label{build}
 
-build\_docker.sh
+build\_\{service\}.sh
 
 \begin{verbatim}
 #!/bin/bash
 
-services="database webserver proxy reserve auth"
+<SERVICE>_SERVICE_HOME=services/<SERVICE>
+<SERVICE>_SERVICE_DOCKERFILE=Dockerfiles/Dockerfile.<SERVICE>.service
+<SERVICE>_SCRIPT_DIR=scripts/<SERVICE>
+<SERVICE>_CONF_DIR=conf/<SERVICE>
+<SERVICE>_IMAGE_NAME=bookstore_<SERVICE>
 
-for service in ${services}
-do
-    echo "Create ${service} for bookstore ..."
-    mkdir -p services/${service}
-    cp Dockerfiles/Dockerfile.${service}.service services/${service}/Dockerfile
-    cp -R scripts/${service}/* services/${service}/
-    docker build -t bookstore_${service} services/${service} \
-      &> services/${service}/build.log
-done
+pushd ..
+if [[ ! -e consul ]]; then
+    echo "Get Consul script from Internet"
+    wget https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_linux_386.zip && unzip consul_0.7.0_linux_386.zip
+fi
 
-echo "Microservices has been created!"
+if [[ ! -e consul-template ]]; then
+    echo "Get consul-template script from Internet"
+    wget https://releases.hashicorp.com/consul-template/0.16.0/consul-template_0.16.0_linux_386.zip && unzip consul-template_0.16.0_linux_386.zip
+fi
+
+echo "Create <SERVICE> service for bookstore ..."
+echo " - Create directory for Docker data"
+mkdir -p ${<SERVICE>_SERVICE_HOME}
+echo " - Move Dockerfile to data directory"
+cp ${<SERVICE>_SERVICE_DOCKERFILE} ${<SERVICE>_SERVICE_HOME}/Dockerfile
+echo " - Move script files to data directory"
+cp -R ${<SERVICE>_SCRIPT_DIR}/* ${<SERVICE>_SERVICE_HOME}/
+echo " - Move config files to data directory"
+cp -R ${<SERVICE>_CONF_DIR}/* ${<SERVICE>_SERVICE_HOME}/
+echo " - Move consul to data directory"
+cp consul ${<SERVICE>_SERVICE_HOME}/
+cp consul-template ${<SERVICE>_SERVICE_HOME}/
+echo " - Building Docker image"
+docker build -t ${<SERVICE>_IMAGE_NAME} ${<SERVICE>_SERVICE_HOME} &> ${<SERVICE>_SERVICE_HOME}/build.log
+echo " - Save image"
+docker save --output ${<SERVICE>_SERVICE_HOME}/${<SERVICE>_IMAGE_NAME}.img ${DATABASE_IMAGE_NAME}
+
+echo "<SERVICE> service has been created!"
+popd
 \end{verbatim}
 
 \subsubsection{Futtatás}\label{futtatuxe1s}
@@ -1830,15 +2148,14 @@ run\_containers.sh
 \begin{verbatim}
 #!/bin/bash
 
-services="database webserver reserve auth proxy"
+services="database webserver order auth proxy"
 
 docker network create bookstore
 
 for service in ${services}
 do
     echo "Start ${service} service ..."
-    docker run -d --name "${service}" -h "${service}" \
-      --net=bookstore bookstore_${service} ${service}.sh "${DOCKER_IP_HAPROXY}"
+    docker run -d --name "${service}" -h "${service}" --net=bookstore bookstore_${service}
 done
 \end{verbatim}
 
@@ -1849,7 +2166,7 @@ clean\_docker.sh
 \begin{verbatim}
 #!/bin/bash
 
-services="database webserver proxy reserve auth"
+services="database webserver proxy order auth"
 
 docker stop $(docker ps -a | awk '/bookstore/ {print $1}')
 docker rm $(docker ps -a | awk '/bookstore/ {print $1}')
@@ -1860,11 +2177,53 @@ do
     docker rmi bookstore_${service}
 done
 
-rm -rf services
+if [ -d services ]; then
+    rm -rf services
+fi
 docker network rm bookstore
+
+if [ -e consul ]; then
+    rm -rf consul*
+fi
 \end{verbatim}
 
 \subsection{Szolgáltatásokhoz}\label{szolguxe1ltatuxe1sokhoz}
+
+\subsubsection{Init szkript}\label{init-szkript}
+
+\begin{verbatim}
+#!/bin/bash
+
+IP_ADDR=$(hostname -I)
+MASK=${IP_ADDR%.*}
+
+while true; do
+    FOUND=false
+    for ADDR in $(seq 1 255); do
+        echo "${MASK}.${ADDR}  ${IP_ADDR}"
+        [[ "${MASK}.${ADDR}" == "${IP_ADDR}" ]] && continue
+        ping -c 1  "${MASK}.${ADDR}"
+        [ $? -eq 0 ] || continue
+        echo "Try consul with ${MASK}.${ADDR}"
+        consul agent -server \
+                     -join "${MASK}.${ADDR}" \
+                     -datacenter "bookstore" \
+                     -data-dir "${CONSUL_DIR}" > /var/log/bookstore-consul.log &
+        sleep 10
+        cat /var/log/bookstore-consul.log
+        if ps ax | grep -v grep | grep "consul" > /dev/null; then
+            echo "Consul could run!!!"
+            FOUND=true
+            break
+        fi
+    done
+    echo "${FOUND}"
+    if [[ "${FOUND}" == "true" ]]; then
+        break
+    fi
+done
+<service>.sh
+\end{verbatim}
 
 \subsubsection{Adatbázis
 inicializálás}\label{adatbuxe1zis-inicializuxe1luxe1s}
@@ -1926,150 +2285,29 @@ INSERT INTO store (book_name, count)
 VALUES ("Lord of the Rings: The Return of the King", 0);
 \end{verbatim}
 
-\subsubsection{Bejelentkezéshez}\label{bejelentkezuxe9shez}
+\subsection{Proxy}\label{proxy-1}
 
-login.php:
-
-\begin{verbatim}
-<?php
-
-if(!isset( $_POST['username'], $_POST['password']))
-{
-    echo 'Please enter a valid username and password';
-}
-else
-{
-    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-    $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_URL,
-        "http://auth:8081/auth/{$username}/{$password}"
-    );
-    $content = curl_exec($ch);
-    echo $content;
-}
-?>
-\end{verbatim}
-
-auth-service.py:
+Proxy config template:
 
 \begin{verbatim}
-#!/usr/bin/env python
-from flask import Flask, abort
-import MySQLdb as mdb
-app = Flask(__name__)
+global
+    log 127.0.0.1 local1 notice
+    chroot /var/lib/haproxy
+    stats socket /run/haproxy/admin.sock mode 660 level admin
+    stats timeout 30s
+    user haproxy
+    group haproxy
+    daemon
 
-@app.route("/auth/<username>/<password>")
-def hello(username, password):
-    try:
-        con = mdb.connect('database', 'root', '', 'authenticate');
-        cur = con.cursor()
-        cur.execute("SELECT user_id FROM user_auth \
-                     WHERE username='%s' AND password='%s'" %
-                     (username, password))
-        user_id = cur.fetchone()
-        print user_id
-        if not user_id:
-            abort(401)
-    except mdb.Error, e:
-        print "Error %d: %s" % (e.args[0],e.args[1])
-        abort(401)
-    finally:
-        if con:
-            con.close()
-    return "Successfully authenticated!"
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8081)
-\end{verbatim}
-
-\subsubsection{Böngészés}\label{buxf6nguxe9szuxe9s}
-
-index.html:
-
-\begin{verbatim}
-<html>
-<head>
-<title>Bookstore Microservice</title>
-</head>
-<body>
-
-<h2>Login:</h2>
-<form action="login.php" method="post">
-  <fieldset>
-    <p>
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" value=""/>
-    </p>
-    <p>
-      <label for="password">Password</label>
-      <input type="text" id="password" name="password" value=""/>
-    </p>
-    <p>
-      <input type="submit" value="Login" />
-    </p>
-  </fieldset>
-</form>
-
-</body>
-</html>
-\end{verbatim}
-
-store.php:
-
-\begin{verbatim}
-<html>
-<head>
-<title>Bookstore Microservice</title>
-</head>
-<body>
-
-<h2>Books:</h2>
-
-<table>
-  <tbody>
-    <tr><th>Name</th><th>Quantity</th></tr>
-
-    <?php
-      $servername = "database";
-      $username = "root";
-      $password = "";
-      $dbname = "bookstore";
-
-      // Create connection
-      $conn = new mysqli($servername, $username, $password, $dbname);
-      // Check connection
-      if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-      }
-
-      $sql = "SELECT * FROM store";
-      $result = $conn->query($sql);
-
-      if ($result->num_rows > 0) {
-          // output data of each row
-          while($row = $result->fetch_assoc()) {
-              echo "<tr><td>" . $row["book_name"]. \
-              "</td><td> " . $row["count"]. "</td></tr>";
-          }
-      } else {
-          echo "0 results";
-      }
-      $conn->close();
-    ?>
-
-  </tbody>
-</table>
-
-</body>
-</html>
-\end{verbatim}
-
-Proxy config:
-
-\begin{verbatim}
+defaults
+    log     global
+    mode    http
+    option  httplog
+    option  dontlognull
+    timeout connect 5000
+    timeout client  50000
+    timeout server  50000
+    errorfile 500 /etc/haproxy/errors/500.http
 
 frontend web
     bind *:80
@@ -2078,8 +2316,32 @@ frontend web
 
 backend nodes
     mode http
-    balance roundrobin
-    server webserver webserver:80 cookie check
+    balance roundrobin{{range "app.web"}}
+    service {{.ID}} {{.Address}}:{{.Port}}{{end}}
+
+frontend database
+    bind *:3306
+    default_backend dbnodes
+
+backend dbnodes
+    balance roundrobin{{range "app.database"}}
+    service {{.ID}} {{.Address}}:{{.Port}}{{end}}
+
+frontend order
+    bind *:8888
+    default_backend onodes
+
+backend onodes
+    balance roundrobin{{range "app.order"}}
+    service {{.ID}} {{.Address}}:{{.Port}}{{end}}
+
+frontend auth
+    bind *:8081
+    default_backend anodes
+
+backend anodes
+    balance roundrobin{{range "app.auth"}}
+    service {{.ID}} {{.Address}}:{{.Port}}{{end}}
 \end{verbatim}
 
 \end{document}

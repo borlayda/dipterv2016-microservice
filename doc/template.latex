@@ -25,6 +25,7 @@
 \usepackage{minibox}
 \usepackage{pdfpages}
 \usepackage{tikz}
+\usepackage{float}
 % fix for pandoc 1.14
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}

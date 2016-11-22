@@ -79,6 +79,7 @@ epub: compile-guideline-html compile-appendix-html
 		--epub-metadata=metadata.xml \
 
 build-latex:
+	sed -i s/begin{figure}\[[htbp]*\]/begin{figure}[H]/g $(FILENAME).tex
 	pdflatex $(FILENAME).tex
 	bibtex $(FILENAME).aux
 	pdflatex $(FILENAME).tex

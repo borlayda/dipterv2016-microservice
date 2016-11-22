@@ -49,15 +49,48 @@ Az összefogó pipeline job-nak az az előnye, hogy látható mely szakasz menny
 
 ![Pipeline job](img/pipeline-job.png)
 
-Amit még ajánlott alkalmazni egy ilyen rendszer kiépítése során, az egy verzió kezelő alkalmazás, amit össze lehet kapcsolni a Jenkins-el, mivel sok verziókezelőhöz van támogatott feladat indító feltétel (trigger). Egy ilyen feltétel beállításai láthatók az \ref{jenkins-cred} és \ref{job-trigger} ábrákon.
+Amit még ajánlott alkalmazni egy ilyen rendszer kiépítése során, az egy verzió kezelő alkalmazás, amit össze lehet kapcsolni a Jenkins-el, mivel sok verziókezelőhöz van támogatott feladat indító feltétel (trigger). Egy ilyen feltétel beállításai láthatók az \ref{jenkins-cred}, \ref{github-hook}, \ref{job-trigger} és \ref{job-conf} ábrákon.
+
+Ez a változtatás lehetővé teszi, hogy a fejlesztők probléma mentesen, a folytonos integrációt támogató eszköz ismerete nélkül is képesek legyenek kihasználni annak előnyeit. Ehhez a funkcióhoz viszont kell támogatás mind a Jenkins mind a GitHub oldaláról, ami azt jelenti, hogy a GitHub-nak meg kell adni egy külső elérésű címet, amire küldheti az adatokat, a Jenkins-nek pedig szüksége van olyan authentikációs adatokra, amikkel csatlakozni tud a szerverhez, és változtatásokat tud végrehajtani. Nekem sajnos nem volt külső elérésű a Jenkins szerverem, így a triggerelést nem tudtam kipróbálni.
 
 ![Github beállítások a Jenkinsben\label{jenkins-cred}](img/github-cred.png)
 
+Jenkins oldalról könnyen beállítható a triggerelés, mivel kapcsolódási teszteket biztosít az eszköz, és felhasználhatóvá teszi az összes azonosítót ami fel van véve a Jenkins-ben.
+
+![Github webhook beállítás a repository támogatásához\label{github-hook}](img/github-webhooks.png)
+
+A GitHub oldaláról sem nehéz beállítani a kapcsolódást, viszont itt kell megadni a publikus elérését a Jenkins szervernek, illetve egy authentikációs kulcsot, amivel azonosítható az üzenet.
+
 ![Github trigger beállítása egy job-on\label{job-trigger}](img/github-trigger.png)
 
-Ez a változtatás lehetővé teszi, hogy a fejlesztők probléma menetesen, a folytonos integrációt támogató eszköz ismerete nélkül is képesek legyenek kihasználni annak előnyeit.
+Az indítandó job szempontjából meg kell mondani, hogy melyik projektről van szó, és hogy akarjuk-e, hogy változtatásokra elinduljon a job, vagy sem.
+
+![Job Github-hoz rendelése\label{job-conf}](img/github-job-conf.png)
+
+A teljesség kedvéért megemlítem, hogy nem csak a GitHub-bal lehet összekötni a Jenkins-t ilyen céllal, hanem a Gerrit nevezetű Gites adminisztratív eszközt, vagy más verzió kezelő eszközt melyhez találunk telepíthető plugint.
 
 Folytonos Integrációt támogató rendszer elkészítése
 ---------------------------------------------------
 
-Szerencsére könnyen és probléma mentesen tudtam dolgozni a Jenkins-el, ami főleg annak köszönhető, hogy a szakmai gyakorlatom, és akorábbi féléveim során is találkoztam vele. Az új funkciók nem lettek túlbonyolítva, így könnyen tudtam kezelni a Pipeline job-ot is, csupán rá kellett jönnöm, mely kulcsszavak mit csinálnak a konfigurációban. Ehhez sok hasznos információt ad a Jenkins ehhez tartozó honlapja[@jenkins-pipeline].
+Szerencsére könnyen és probléma mentesen tudtam dolgozni a Jenkins-el, ami főleg annak köszönhető, hogy a szakmai gyakorlatom, és a korábbi féléveim során is találkoztam vele. Az új funkciók nem lettek túlbonyolítva, így könnyen tudtam kezelni a Pipeline job-ot is, csupán rá kellett jönnöm, mely kulcsszavak mit csinálnak a konfigurációban. Ehhez sok hasznos információt ad a Jenkins ehhez tartozó honlapja[@jenkins-pipeline]. A Pipeline job-om alá szerveztem be a buildeket, a telepítést, és a környezet kitisztítását.
+
+A build job-ok úgy lettek meghatározva, hogy egy bash szkript hivásával indítható legyen, és a végeredmény megjelenjen a job végeredménye képpen. Mivel fontos lehet látni minden lépést a build folyamatában a log-okat is csatolom a futásnál a végeredmény mellé. A telepítés folymata is egy szkript meghívásával lett megoldva, ami Docker konténereket indít a Jenkins-t futtató gépen. A létrehozott környezetben lehet tesztelni bármilyen funkciót, de nekem nem volt mit tesztelnem, így csupán a környezet indíthatósága volt a szempont. A tisztító job egy olyan szkriptet indít el, ami törli a fájlokat a temporális könyvtárakból, és kitisztitja a Docker-t, mint konténer, mind image szintjén.
+
+Minden job ugyan arra a konfigurációra épült, mivel minden job-ban volt egyforma rész. A job-ok közös része a \ref{job-configuration} ábrán látható.
+
+![Közös job konfiguráció\label{job-configuration}](img/common-job-conf)
+
+Ami pedig különbözött minden job-ban, az a név, leírás, és a meghívott szkript, ami a GitHub-os repository-ban található meg. Minden híváshoz a jenkins-ben egy shell hívás tartozik, ami a következő képpen néz ki:
+
+```{bash}
+#!/bin/bash
+
+echo "Start <Name of the phase>"
+echo $PWD
+
+./<path to script>
+```
+
+Mivel minden image és build úgy lett elkészítve, hogy nyugodtan futhat egymás mellett, a Jenkins-nek megadtam, hogy egymásra indíthatja a feladatokat.
+
+Ezek után kész volt a teljes folyamat, és minden használható volt. Az egész összeállítása során, csakis a Jenkins beállításival volt gondom, mivel a GitHub-al való összepároztatást több helyen is be kellett állítani.

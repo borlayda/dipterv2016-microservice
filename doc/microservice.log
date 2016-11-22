@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.9)  18 NOV 2016 21:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.9)  21 NOV 2016 22:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -856,14 +856,22 @@ File: pppdftex.def 2013/08/25 v0.4v Pdfpages driver for pdfTeX (AM)
 \c@AM@survey=\count172
 \AM@templatesizebox=\box62
 )
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count173
+\float@exts=\toks56
+\float@box=\box63
+\@float@everytoks=\toks57
+\@floatcapt=\box64
+)
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2013/05/23 v2.5a Micro-typographical refinements (RS)
-\MT@toks=\toks56
-\MT@count=\count173
+\MT@toks=\toks58
+\MT@count=\count174
 LaTeX Info: Redefining \textls on input line 766.
 \MT@outer@kern=\dimen284
 LaTeX Info: Redefining \textmicrotypecontext on input line 1285.
-\MT@listname@count=\count174
+\MT@listname@count=\count175
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
 File: microtype-pdftex.def 2013/05/23 v2.5a Definitions specific to pdftex (RS)
@@ -964,8 +972,8 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
-\inpenc@prehook=\toks57
-\inpenc@posthook=\toks58
+\inpenc@prehook=\toks59
+\inpenc@posthook=\toks60
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
@@ -1259,7 +1267,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip72
 \bibsep=\skip73
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count175
+\c@NAT@ctr=\count176
 )
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
@@ -1314,15 +1322,15 @@ Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
 \@linkdim=\dimen285
-\Hy@linkcounter=\count176
-\Hy@pagecounter=\count177
+\Hy@linkcounter=\count177
+\Hy@pagecounter=\count178
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count178
+\Hy@SavedSpaceFactor=\count179
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -1341,7 +1349,7 @@ Package hyperref Info: Plain pages OFF on input line 4458.
 Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
-\c@Hy@tempcnt=\count179
+\c@Hy@tempcnt=\count180
 
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
@@ -1349,7 +1357,7 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5041.
 \XeTeXLinkMargin=\dimen286
-\Fld@menulength=\count180
+\Fld@menulength=\count181
 \Field@Width=\dimen287
 \Fld@charsize=\dimen288
 Package hyperref Info: Hyper figures OFF on input line 6295.
@@ -1361,17 +1369,17 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count181
-\c@Item=\count182
-\c@Hfootnote=\count183
+\Hy@abspage=\count182
+\c@Item=\count183
+\c@Hfootnote=\count184
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
-\Fld@listcount=\count184
-\c@bookmark@seq@number=\count185
+\Fld@listcount=\count185
+\c@bookmark@seq@number=\count186
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
@@ -1380,13 +1388,13 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip74
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 78.
+Package hyperref Info: Option `breaklinks' set `true' on input line 79.
 
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 78.
+(hyperref)                setting the option has no effect on input line 79.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 78.
+Package hyperref Info: Option `colorlinks' set `true' on input line 79.
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2013/12/03 3.9h The Babel package
 
@@ -1395,57 +1403,57 @@ Language: magyar 2007/10/19 v1.5 Magyar support from the babel v3.7 system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2013/12/03 3.9h Babel common definitions
-\babel@savecnt=\count186
+\babel@savecnt=\count187
 \U@D=\dimen289
 )
 Package babel Info: Making ` an active character on input line 2731.
-\c@footnote@add=\count187
-\c@footnote@ch=\count188
+\c@footnote@add=\count188
+\c@footnote@ch=\count189
 ))
 (./microservice.aux)
 \openout1 = `microservice.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 117.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 117.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 118.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 117.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 118.
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count189
+\scratchcounter=\count190
 \scratchdimen=\dimen290
-\scratchbox=\box63
-\nofMPsegments=\count190
-\nofMParguments=\count191
-\everyMPshowfont=\toks59
-\MPscratchCnt=\count192
+\scratchbox=\box65
+\nofMPsegments=\count191
+\nofMParguments=\count192
+\everyMPshowfont=\toks61
+\MPscratchCnt=\count193
 \MPscratchDim=\dimen291
-\MPnumerator=\count193
-\makeMPintoPDFobject=\count194
-\everyMPtoPDFconversion=\toks60
+\MPnumerator=\count194
+\makeMPintoPDFobject=\count195
+\everyMPtoPDFconversion=\toks62
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -1461,22 +1469,23 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count195
+\c@lstlisting=\count196
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             macros/latex/contrib/pageslts/ 
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 117.
+(lastpage)             ! on input line 118.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: magyar babel option is loaded.
+Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box64
-LaTeX Info: Redefining \microtypecontext on input line 117.
+\AtBeginShipoutBox=\box66
+LaTeX Info: Redefining \microtypecontext on input line 118.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1491,7 +1500,7 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring ON on input line 117.
+Package hyperref Info: Link coloring ON on input line 118.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1499,11 +1508,11 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count196
+\c@section@level=\count197
 )
-LaTeX Info: Redefining \ref on input line 117.
-LaTeX Info: Redefining \pageref on input line 117.
-LaTeX Info: Redefining \nameref on input line 117.
+LaTeX Info: Redefining \ref on input line 118.
+LaTeX Info: Redefining \pageref on input line 118.
+LaTeX Info: Redefining \nameref on input line 118.
 
 (./microservice.out) (./microservice.out)
 \@outlinefile=\write4
@@ -1514,11 +1523,11 @@ LaTeX Info: Redefining \nameref on input line 117.
 LaTeX Info: Redefining \cal on input line 586.
 LaTeX Info: Redefining \mit on input line 587.
 )
-<img/BME1782logo.pdf, id=244, 709.65125pt x 199.74625pt>
+<img/BME1782logo.pdf, id=260, 709.65125pt x 199.74625pt>
 File: img/BME1782logo.pdf Graphic file (type pdf)
 
 <use img/BME1782logo.pdf>
-Package pdftex.def Info: img/BME1782logo.pdf used on input line 129.
+Package pdftex.def Info: img/BME1782logo.pdf used on input line 130.
 (pdftex.def)             Requested size: 170.71652pt x 48.04979pt.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10.95'.
@@ -1526,36 +1535,36 @@ Package microtype Info: Character `029' is missing
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/14.4'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 141.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 142.
 
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 141.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 142.
 
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 141
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 142
 .
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 141
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 142
 .
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 141.
+(Font)              <10.95> on input line 142.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 141.
+(Font)              <8> on input line 142.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 141.
-LaTeX Font Info:    Try loading font information for U+msa on input line 141.
+(Font)              <6> on input line 142.
+LaTeX Font Info:    Try loading font information for U+msa on input line 142.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1563,7 +1572,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 141.
+LaTeX Font Info:    Try loading font information for U+msb on input line 142.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1597,17 +1606,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 [8]
 2. fejezet.
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 303.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 323.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [9
 
 ]
-<img/ScaleCude.jpg, id=361, 722.7pt x 542.025pt>
+<img/ScaleCude.jpg, id=381, 722.7pt x 542.025pt>
 File: img/ScaleCude.jpg Graphic file (type jpg)
  <use img/ScaleCude.jpg>
-Package pdftex.def Info: img/ScaleCude.jpg used on input line 352.
+Package pdftex.def Info: img/ScaleCude.jpg used on input line 372.
 (pdftex.def)             Requested size: 433.62334pt x 325.2175pt.
 
 [10 <./img/ScaleCude.jpg>] [11] [12]
@@ -1616,16 +1625,16 @@ Underfull \vbox (badness 3884) has occurred while \output is active []
  [13]
 [14] [15] [16] [17] [18] [19] [20] [21]
 
-Package natbib Warning: Citation `ruxit' on page 22 undefined on input line 104
+Package natbib Warning: Citation `ruxit' on page 22 undefined on input line 106
 1.
 
 [22] [23]
 3. fejezet.
-<img/microservices.png, id=530, 978.65625pt x 417.56pt>
+<img/microservices.png, id=550, 978.65625pt x 417.56pt>
 File: img/microservices.png Graphic file (type png)
 
 <use img/microservices.png>
-Package pdftex.def Info: img/microservices.png used on input line 1143.
+Package pdftex.def Info: img/microservices.png used on input line 1163.
 (pdftex.def)             Requested size: 587.19829pt x 250.53792pt.
  [24
 
@@ -1634,7 +1643,7 @@ Package pdftex.def Info: img/microservices.png used on input line 1143.
 [27
 
 ]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1328
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1348
 .
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1647,60 +1656,91 @@ Package microtype Info: Loading generic settings for font family
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [29]
-[30] [31] [32] <img/jenkins-old.png, id=580, 777.90625pt x 90.3375pt>
+[30] [31] [32] <img/jenkins-old.png, id=600, 777.90625pt x 90.3375pt>
 File: img/jenkins-old.png Graphic file (type png)
 
 <use img/jenkins-old.png>
-Package pdftex.def Info: img/jenkins-old.png used on input line 1601.
+Package pdftex.def Info: img/jenkins-old.png used on input line 1621.
 (pdftex.def)             Requested size: 466.74734pt x 54.2029pt.
  [33 <./img/jenkins-old.png>]
-<img/jenkins-new.png, id=589, 1031.855pt x 666.49pt>
+<img/jenkins-new.png, id=609, 1031.855pt x 666.49pt>
 File: img/jenkins-new.png Graphic file (type png)
  <use img/jenkins-new.png>
-Package pdftex.def Info: img/jenkins-new.png used on input line 1640.
+Package pdftex.def Info: img/jenkins-new.png used on input line 1660.
 (pdftex.def)             Requested size: 619.11778pt x 399.89708pt.
 
-<img/pipeline-job.png, id=590, 1252.68pt x 966.61125pt>
+<img/pipeline-job.png, id=610, 733.74126pt x 768.8725pt>
 File: img/pipeline-job.png Graphic file (type png)
 
 <use img/pipeline-job.png>
-Package pdftex.def Info: img/pipeline-job.png used on input line 1661.
-(pdftex.def)             Requested size: 751.6138pt x 579.97124pt.
+Package pdftex.def Info: img/pipeline-job.png used on input line 1681.
+(pdftex.def)             Requested size: 440.24815pt x 461.32706pt.
 
-<img/github-cred.png, id=593, 1142.2675pt x 359.3425pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34 <./img/jenkins-new.png>] <img/github-cred.png, id=621, 1142.2675pt x 359.3
+425pt>
 File: img/github-cred.png Graphic file (type png)
 
 <use img/github-cred.png>
-Package pdftex.def Info: img/github-cred.png used on input line 1673.
+Package pdftex.def Info: img/github-cred.png used on input line 1703.
 (pdftex.def)             Requested size: 685.3658pt x 215.60715pt.
 
-<img/github-trigger.png, id=594, 1007.765pt x 240.9pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [35 <./img/pipeline-job.png>] <img/github-webhooks.png, id=632, 779.91376pt x 
+674.52pt>
+File: img/github-webhooks.png Graphic file (type png)
+
+<use img/github-webhooks.png>
+Package pdftex.def Info: img/github-webhooks.png used on input line 1713.
+(pdftex.def)             Requested size: 467.95187pt x 404.71512pt.
+
+<img/github-trigger.png, id=633, 1007.765pt x 240.9pt>
 File: img/github-trigger.png Graphic file (type png)
 
 <use img/github-trigger.png>
-Package pdftex.def Info: img/github-trigger.png used on input line 1679.
+Package pdftex.def Info: img/github-trigger.png used on input line 1724.
 (pdftex.def)             Requested size: 604.66367pt x 144.5411pt.
- [34 <./img/jenkins-new.png>] [35 <./img/pipeline-job.png> <./img/github-cred.p
-ng>] [36 <./img/github-trigger.png>]
-5. fejezet.
-[37
+ [36 <./img/github-cred.png> <./img/github-webhooks.png>] <img/github-job-conf.
+png, id=640, 595.22375pt x 144.54pt>
+File: img/github-job-conf.png Graphic file (type png)
 
-]
+<use img/github-job-conf.png>
+Package pdftex.def Info: img/github-job-conf.png used on input line 1734.
+(pdftex.def)             Requested size: 357.13701pt x 86.72466pt.
+
+<img/common-job-conf.png, id=643, 1054.94125pt x 680.5425pt>
+File: img/common-job-conf.png Graphic file (type png)
+
+<use img/common-job-conf.png>
+Package pdftex.def Info: img/common-job-conf.png used on input line 1773.
+(pdftex.def)             Requested size: 632.96965pt x 408.32864pt.
+ [37 <./img/github-trigger.png> <./img/github-job-conf.png>] [38 <./img/common-
+job-conf.png>]
+5. fejezet.
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 1809.
+
+[39
+
+] [40]
 6. fejezet.
-[38
+[41
 
 ] (./microservice.lot)
 \tf@lot=\write6
 \openout6 = `microservice.lot'.
 
- [39
+ [42
 
 ] (./microservice.lof)
 \tf@lof=\write7
 \openout7 = `microservice.lof'.
 
  (./microservice.bbl
-[40
+[43
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 36--39
@@ -1714,63 +1754,63 @@ Underfull \hbox (badness 2050) in paragraph at lines 83--87
 ][]$https : / / www . loggly . com / blog /
  []
 
-[41
+[44
 
 ]
-Underfull \hbox (badness 4229) in paragraph at lines 147--150
+Underfull \hbox (badness 4229) in paragraph at lines 152--155
 []\T1/lmr/m/n/10.95 (+20) David Liu.  Eu-ra-ka at glance.  [][]$https : / / git
 hub . com / Net^^]ix / eureka / wiki /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--188
+Underfull \hbox (badness 10000) in paragraph at lines 189--193
 []\T1/lmr/m/n/10.95 (+20) Sebastián Pey-rott.  An int-ro-duc-ti-on to mic-ros-e
 r-vi-ces, part
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--188
+Underfull \hbox (badness 10000) in paragraph at lines 189--193
 \T1/lmr/m/n/10.95 (+20) 3: The ser-vi-ce re-g-istry.  [][]$https : / / auth0 . 
 com / blog / 2015 / 10 / 02 /
  []
 
-[42]
-Underfull \hbox (badness 10000) in paragraph at lines 205--211
+[45]
+Underfull \hbox (badness 10000) in paragraph at lines 210--216
 []\T1/lmr/m/n/10.95 (+20) Chris Ri-chard-son.  Buil-ding mic-ros-er-vi-ces: Int
 er-process com-mu-ni-ca-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 205--211
+Underfull \hbox (badness 10000) in paragraph at lines 210--216
 \T1/lmr/m/n/10.95 (+20) ti-on in a mic-ros-er-vi-ces ar-chi-tec-tu-re.  [][]$ht
 tps : / / www . nginx . com / blog /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--245
+Underfull \hbox (badness 10000) in paragraph at lines 244--250
 []\T1/lmr/m/n/10.95 (+20) Daniel West-heide.  Why rest-ful com-mu-ni-ca-ti-on b
 et-ween mic-ros-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--245
+Underfull \hbox (badness 10000) in paragraph at lines 244--250
 \T1/lmr/m/n/10.95 (+20) er-vi-ces can be per-fectly fi-ne.  [][]$https : / / ww
 w . innoq . com / en / blog /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--245
+Underfull \hbox (badness 10000) in paragraph at lines 244--250
 \T1/lmr/m/n/10.95 (+20) why-[]restful-[]communication-[]between-[]microservices
 -[]can-[]be-[]perfectly-[]^^\ne/$[][], march
  []
 
-) [43]
+) [46]
 A. f\"uggel\'ek.
-[44
+[47
 
-]
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 176
-0.
+] [48]
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 202
+4.
  (/usr/share/texmf/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1782,72 +1822,120 @@ Package microtype Info: Character `texttrademark ' is missing
 (microtype)             in font `TS1/lmtt/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 1760--1760
-[]\T1/lmtt/m/n/10.95 RUN sed -i \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 s/bind-
+Overfull \hbox (181.42465pt too wide) in paragraph at lines 2024--2024
+[]    \T1/lmtt/m/n/10.95 /bin/bash -c "debconf-set-selections <<< \TS1/lmtt/m/n
+/10.95 '\T1/lmtt/m/n/10.95 mysql-server mysql-server/root_password password roo
+t\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 " && \[] 
+ []
+
+
+Overfull \hbox (215.91705pt too wide) in paragraph at lines 2024--2024
+[]    \T1/lmtt/m/n/10.95 /bin/bash -c "debconf-set-selections <<< \TS1/lmtt/m/n
+/10.95 '\T1/lmtt/m/n/10.95 mysql-server mysql-server/root_password_again passwo
+rd root\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 " && \[] 
+ []
+
+
+Overfull \hbox (102.09213pt too wide) in paragraph at lines 2024--2024
+[]    \T1/lmtt/m/n/10.95 sed -i \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 s/bind-
 address.*=.*/bind-address = 0.0.0.0/g\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 /
-etc/mysql/my.cnf[] 
+etc/mysql/mysql.conf.d/mysqld.cnf[] 
  []
 
-[45]
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1824--1824
-[]    \T1/lmtt/m/n/10.95 cp Dockerfiles/Dockerfile.${service}.service services/
-${service}/Dockerfile[] 
+
+Overfull \hbox (102.09213pt too wide) in paragraph at lines 2055--2055
+[]    \T1/lmtt/m/n/10.95 sed -i \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 s/<Conn
+ector /<Connector address="0.0.0.0" /g\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 
+/usr/local/tomcat/conf/server.xml[] 
  []
 
-[46]
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1843--1843
-[]      \T1/lmtt/m/n/10.95 --net=bookstore bookstore_${service} ${service}.sh "
-${DOCKER_IP_HAPROXY}"[] 
+
+Overfull \hbox (96.05595pt too wide) in paragraph at lines 2055--2055
+[]\T1/lmtt/m/n/10.95 COPY target/ReserveRESTJerseyExample-0.0.2-SNAPSHOT.war /u
+sr/local/tomcat/webapps/order.war[] 
  []
 
-[47]
-Overfull \hbox (2.63904pt too wide) in paragraph at lines 1889--1889
+[49] [50]
+Overfull \hbox (234.313pt too wide) in paragraph at lines 2142--2142
+[]    \T1/lmtt/m/n/10.95 wget https://releases.hashicorp.com/consul/0.7.0/consu
+l_0.7.0_linux_386.zip && unzip consul_0.7.0_linux_386.zip[] 
+ []
+
+
+Overfull \hbox (406.77501pt too wide) in paragraph at lines 2142--2142
+[]    \T1/lmtt/m/n/10.95 wget https://releases.hashicorp.com/consul-template/0.
+16.0/consul-template_0.16.0_linux_386.zip && unzip consul-template_0.16.0_linux
+_386.zip[] 
+ []
+
+[51]
+Overfull \hbox (171.07693pt too wide) in paragraph at lines 2142--2142
+[]\T1/lmtt/m/n/10.95 docker build -t ${<SERVICE>_IMAGE_NAME} ${<SERVICE>_SERVIC
+E_HOME} &> ${<SERVICE>_SERVICE_HOME}/build.log[] 
+ []
+
+
+Overfull \hbox (128.5363pt too wide) in paragraph at lines 2142--2142
+[]\T1/lmtt/m/n/10.95 docker save --output ${<SERVICE>_SERVICE_HOME}/${<SERVICE>
+_IMAGE_NAME}.img ${DATABASE_IMAGE_NAME}[] 
+ []
+
+
+Overfull \hbox (88.29517pt too wide) in paragraph at lines 2160--2160
+[]    \T1/lmtt/m/n/10.95 docker run -d --name "${service}" -h "${service}" --ne
+t=bookstore bookstore_${service}[] 
+ []
+
+[52]
+Overfull \hbox (33.10733pt too wide) in paragraph at lines 2226--2226
+[]                     \T1/lmtt/m/n/10.95 -data-dir "${CONSUL_DIR}" > /var/log/
+bookstore-consul.log &[] 
+ []
+
+[53]
+Overfull \hbox (2.63904pt too wide) in paragraph at lines 2248--2248
 []\T1/lmtt/m/n/10.95 INSERT INTO user_auth (username, password) VALUES ("test",
  "testpassword");[] 
  []
 
-[48] [49] [50]
-Underfull \vbox (badness 1472) has occurred while \output is active []
-
- [51]
+[54] [55]
 \tf@thm=\write8
 \openout8 = `microservice.thm'.
 
-
-
+ 
 AED: lastpage setting LastPage
-[52]
+[56]
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2085.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2085.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2347.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2347.
 (./microservice.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2085.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2085.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2347.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2347.
 
 Package rerunfilecheck Info: File `microservice.out' has not changed.
-(rerunfilecheck)             Checksum: AB2B7607455A0D6BBD394279DA693F66;10680.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2085.
+(rerunfilecheck)             Checksum: 8AA427D6101B7EC588BDA14FAB2A52AC;11732.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2347.
  ) 
 Here is how much of TeX's memory you used:
- 32206 strings out of 493304
- 557256 string characters out of 6139872
- 629864 words of memory out of 5000000
- 34751 multiletter control sequences out of 15000+600000
+ 32291 strings out of 493304
+ 558755 string characters out of 6139872
+ 631752 words of memory out of 5000000
+ 34818 multiletter control sequences out of 15000+600000
  66872 words of font info for 102 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,7n,92p,10395b,608s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,7n,92p,10395b,606s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
 vips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/shar
 e/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/l
 m/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri
 10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on microservice.pdf (52 pages, 598045 bytes).
+Output written on microservice.pdf (56 pages, 637623 bytes).
 PDF statistics:
- 841 PDF objects out of 1000 (max. 8388607)
- 758 compressed objects within 8 object streams
- 202 named destinations out of 1000 (max. 500000)
- 19981 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 898 PDF objects out of 1000 (max. 8388607)
+ 804 compressed objects within 9 object streams
+ 213 named destinations out of 1000 (max. 500000)
+ 20028 words of extra memory for PDF output out of 20736 (max. 10000000)
 
