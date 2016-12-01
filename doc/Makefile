@@ -1,6 +1,6 @@
 # constants for defining the author, title, etc.
 FILENAME = microservice
-TITLE = Mikroszolgáltatásokra épülő architektúra fejlesztésének és tesztelésének támogatása
+TITLE = Microservice architektúra fejlesztésének és tesztelésének támogatása
 AUTHOR = Borlay Dániel
 ADVISOR = Szatmári Zoltán
 UNIVERSITY = Budapesti Műszaki és Gazdaságtudományi Egyetem
