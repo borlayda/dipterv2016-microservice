@@ -44,48 +44,46 @@
 \select@language {magyar} \contentsline {subsubsection}{\numberline {2.4.1.2}SOAP (HTTP/XML):}{23}{subsubsection.2.4.1.2}
 \select@language {magyar} \contentsline {subsubsection}{\numberline {2.4.1.3}Socket (TCP):}{23}{subsubsection.2.4.1.3}
 \select@language {magyar} \contentsline {subsection}{\numberline {2.4.2}Interf\IeC {\'e}szek}{23}{subsection.2.4.2}
-\select@language {magyar} \contentsline {chapter}{\numberline {3}Minta alkalmaz\IeC {\'a}s}{24}{chapter.3}
-\select@language {magyar} \contentsline {section}{\numberline {3.1}Alkalmaz\IeC {\'a}s le\IeC {\'\i }r\IeC {\'a}s:}{24}{section.3.1}
-\select@language {magyar} \contentsline {section}{\numberline {3.2}Szolg\IeC {\'a}ltat\IeC {\'a}sok:}{24}{section.3.2}
-\select@language {magyar} \contentsline {section}{\numberline {3.3}\IeC {\'E}rt\IeC {\'e}kel\IeC {\'e}s}{25}{section.3.3}
-\select@language {magyar} \contentsline {chapter}{\numberline {4}Implement\IeC {\'a}ci\IeC {\'o} \IeC {\'e}s kapcsol\IeC {\'o}d\IeC {\'o} neh\IeC {\'e}zs\IeC {\'e}gek}{27}{chapter.4}
-\select@language {magyar} \contentsline {section}{\numberline {4.1}Minta alkalmaz\IeC {\'a}s implement\IeC {\'a}ci\IeC {\'o}ja}{27}{section.4.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.1.1}Szolg\IeC {\'a}ltat\IeC {\'a}sok megval\IeC {\'o}s\IeC {\'\i }t\IeC {\'a}sa Docker kont\IeC {\'e}nerekben}{27}{subsection.4.1.1}
-\select@language {magyar} \contentsline {section}{\numberline {4.2}Szolg\IeC {\'a}ltat\IeC {\'a}s felismer\IeC {\'e}s megold\IeC {\'a}sai}{28}{section.4.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Kapcsolatok \IeC {\'e}p\IeC {\'\i }t\IeC {\'e}se Docker-el:}{28}{subsection.4.2.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.2.2}Kapcsolatok \IeC {\'e}p\IeC {\'\i }t\IeC {\'e}se Consul-al:}{29}{subsection.4.2.2}
-\select@language {magyar} \contentsline {section}{\numberline {4.3}Neh\IeC {\'e}zs\IeC {\'e}gek, megold\IeC {\'a}s \IeC {\'e}rt\IeC {\'e}kel\IeC {\'e}se}{29}{section.4.3}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.1}Neh\IeC {\'e}zs\IeC {\'e}gek a Docker haszn\IeC {\'a}lat\IeC {\'a}val}{29}{subsection.4.3.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.2}Neh\IeC {\'e}zs\IeC {\'e}gek a Consul haszn\IeC {\'a}lat\IeC {\'a}val}{30}{subsection.4.3.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.3}V\IeC {\'a}ratlan meglepet\IeC {\'e}sek}{30}{subsection.4.3.3}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.3.4}\IeC {\'E}rt\IeC {\'e}kel\IeC {\'e}s}{30}{subsection.4.3.4}
-\select@language {magyar} \contentsline {subsubsection}{\numberline {4.3.4.1}Komponensek}{30}{subsubsection.4.3.4.1}
-\select@language {magyar} \contentsline {subsubsection}{\numberline {4.3.4.2}Kommunik\IeC {\'a}ci\IeC {\'o}}{31}{subsubsection.4.3.4.2}
-\select@language {magyar} \contentsline {subsubsection}{\numberline {4.3.4.3}Fejleszt\IeC {\'e}si \IeC {\'e}lm\IeC {\'e}ny}{31}{subsubsection.4.3.4.3}
-\select@language {magyar} \contentsline {section}{\numberline {4.4}Automatiz\IeC {\'a}l\IeC {\'a}s}{31}{section.4.4}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.1}K\IeC {\'o}dol\IeC {\'a}s tesztel\IeC {\'e}se}{31}{subsection.4.4.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.2}Funkcionalit\IeC {\'a}s tesztel\IeC {\'e}se}{32}{subsection.4.4.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.3}Interf\IeC {\'e}sz tesztek}{32}{subsection.4.4.3}
-\select@language {magyar} \contentsline {subsection}{\numberline {4.4.4}Teljes m\IeC {\H u}k\IeC {\"o}d\IeC {\'e}s tesztje}{32}{subsection.4.4.4}
-\select@language {magyar} \contentsline {section}{\numberline {4.5}Folytonos integr\IeC {\'a}ci\IeC {\'o}s l\IeC {\'e}p\IeC {\'e}sek tervez\IeC {\'e}se}{32}{section.4.5}
-\select@language {magyar} \contentsline {section}{\numberline {4.6}Folytonos Integr\IeC {\'a}ci\IeC {\'o}t t\IeC {\'a}mogat\IeC {\'o} rendszer elk\IeC {\'e}sz\IeC {\'\i }t\IeC {\'e}se}{37}{section.4.6}
-\select@language {magyar} \contentsline {chapter}{\numberline {5}Val\IeC {\'o}s alkalmaz\IeC {\'a}s \IeC {\'e}rt\IeC {\'e}kel\IeC {\'e}se}{39}{chapter.5}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.0.1}Tervez\IeC {\'e}sbeli elt\IeC {\'e}r\IeC {\'e}sek}{39}{subsection.5.0.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {5.0.2}Tov\IeC {\'a}bbfejleszt\IeC {\'e}si javaslatok, val\IeC {\'o}s alkalmaz\IeC {\'a}sban haszn\IeC {\'a}land\IeC {\'o} elemek}{39}{subsection.5.0.2}
-\select@language {magyar} \contentsline {chapter}{\numberline {6}\IeC {\"O}sszefoglal\IeC {\'o}}{41}{chapter.6}
-\select@language {magyar} \contentsline {chapter}{\numberline {A}F\IeC {\"u}ggel\IeC {\'e}k}{47}{appendix.A}
-\select@language {magyar} \contentsline {section}{\numberline {A.1}Dockerfile-ok}{47}{section.A.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {A.1.1}Authentik\IeC {\'a}ci\IeC {\'o}}{47}{subsection.A.1.1}
-\select@language {magyar} \contentsline {subsection}{\numberline {A.1.2}Proxy}{48}{subsection.A.1.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {A.1.3}Adatb\IeC {\'a}zis}{48}{subsection.A.1.3}
-\select@language {magyar} \contentsline {subsection}{\numberline {A.1.4}V\IeC {\'a}s\IeC {\'a}rl\IeC {\'a}s}{49}{subsection.A.1.4}
-\select@language {magyar} \contentsline {subsection}{\numberline {A.1.5}Webkiszolg\IeC {\'a}l\IeC {\'o} (b\IeC {\"o}ng\IeC {\'e}sz\IeC {\'e}s)}{50}{subsection.A.1.5}
-\select@language {magyar} \contentsline {section}{\numberline {A.2}Szkriptek}{51}{section.A.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {A.2.1}Futtat\IeC {\'a}shoz}{51}{subsection.A.2.1}
-\select@language {magyar} \contentsline {subsubsection}{\numberline {A.2.1.1}Build}{51}{subsubsection.A.2.1.1}
-\select@language {magyar} \contentsline {subsubsection}{\numberline {A.2.1.2}Futtat\IeC {\'a}s}{52}{subsubsection.A.2.1.2}
-\select@language {magyar} \contentsline {subsubsection}{\numberline {A.2.1.3}Tisztogat\IeC {\'a}s}{52}{subsubsection.A.2.1.3}
-\select@language {magyar} \contentsline {subsection}{\numberline {A.2.2}Szolg\IeC {\'a}ltat\IeC {\'a}sokhoz}{53}{subsection.A.2.2}
-\select@language {magyar} \contentsline {subsubsection}{\numberline {A.2.2.1}Init szkript}{53}{subsubsection.A.2.2.1}
-\select@language {magyar} \contentsline {subsubsection}{\numberline {A.2.2.2}Adatb\IeC {\'a}zis inicializ\IeC {\'a}l\IeC {\'a}s}{54}{subsubsection.A.2.2.2}
-\select@language {magyar} \contentsline {subsection}{\numberline {A.2.3}Proxy}{55}{subsection.A.2.3}
+\select@language {magyar} \contentsline {chapter}{\numberline {3}Feladat megtervez\IeC {\'e}se}{24}{chapter.3}
+\select@language {magyar} \contentsline {section}{\numberline {3.1}Minta alkalmaz\IeC {\'a}s tervez\IeC {\'e}se}{24}{section.3.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.1.1}Minta alkalmaz\IeC {\'a}s}{24}{subsection.3.1.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.1.2}Szolg\IeC {\'a}ltat\IeC {\'a}sok}{24}{subsection.3.1.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.1.3}Kommunik\IeC {\'a}ci\IeC {\'o}}{25}{subsection.3.1.3}
+\select@language {magyar} \contentsline {section}{\numberline {3.2}Folytonos Integr\IeC {\'a}ci\IeC {\'o}}{26}{section.3.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.1}Haszn\IeC {\'a}lati m\IeC {\'o}dok}{27}{subsection.3.2.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.2}Folytonos Integr\IeC {\'a}ci\IeC {\'o}t haszn\IeC {\'a}l\IeC {\'o} keretrendszer feladatai}{28}{subsection.3.2.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.3}Keretrendszer el\IeC {\H o}nyei a fejleszt\IeC {\'e}sre n\IeC {\'e}zve}{28}{subsection.3.2.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.4}L\IeC {\'e}p\IeC {\'e}sek bemutat\IeC {\'a}sa}{28}{subsection.3.2.4}
+\select@language {magyar} \contentsline {chapter}{\numberline {4}Feladat implement\IeC {\'a}ci\IeC {\'o}ja}{29}{chapter.4}
+\select@language {magyar} \contentsline {section}{\numberline {4.1}Minta alkalmaz\IeC {\'a}s elk\IeC {\'e}sz\IeC {\'\i }t\IeC {\'e}se}{29}{section.4.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.1.1}Felhaszn\IeC {\'a}lt technol\IeC {\'o}gi\IeC {\'a}k}{29}{subsection.4.1.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.1.2}Szolg\IeC {\'a}ltat\IeC {\'a}sok implement\IeC {\'a}l\IeC {\'a}s}{29}{subsection.4.1.2}
+\select@language {magyar} \contentsline {subsubsection}{\numberline {4.1.2.1}Docker kont\IeC {\'e}nerek}{29}{subsubsection.4.1.2.1}
+\select@language {magyar} \contentsline {subsubsection}{\numberline {4.1.2.2}Alkalmaz\IeC {\'a}sok}{29}{subsubsection.4.1.2.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.1.3}Kommunik\IeC {\'a}ci\IeC {\'o}, avagy hogy m\IeC {\H u}k\IeC {\"o}dik a Consul}{29}{subsection.4.1.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.1.4}M\IeC {\H u}k\IeC {\"o}d\IeC {\'e}s \IeC {\'e}s alkalmaz\IeC {\'a}s}{29}{subsection.4.1.4}
+\select@language {magyar} \contentsline {section}{\numberline {4.2}Folytonos integr\IeC {\'a}ci\IeC {\'o} elk\IeC {\'e}sz\IeC {\'\i }t\IeC {\'e}se}{29}{section.4.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Jenkins}{29}{subsection.4.2.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.2}Pipeline Job}{29}{subsection.4.2.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.3}Jenkins Job-ok a keretrendszerhez}{29}{subsection.4.2.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.4}Job Konfigur\IeC {\'a}ci\IeC {\'o}k}{29}{subsection.4.2.4}
+\select@language {magyar} \contentsline {chapter}{\numberline {5}\IeC {\'E}rt\IeC {\'e}kel\IeC {\'e}s}{30}{chapter.5}
+\select@language {magyar} \contentsline {section}{\numberline {5.1}Lehet\IeC {\H o}s\IeC {\'e}gek}{30}{section.5.1}
+\select@language {magyar} \contentsline {section}{\numberline {5.2}Probl\IeC {\'e}m\IeC {\'a}k, Kritika}{30}{section.5.2}
+\select@language {magyar} \contentsline {section}{\numberline {5.3}Hol haszn\IeC {\'a}lhat\IeC {\'o}}{30}{section.5.3}
+\select@language {magyar} \contentsline {chapter}{\numberline {A}F\IeC {\"u}ggel\IeC {\'e}k}{36}{appendix.A}
+\select@language {magyar} \contentsline {section}{\numberline {A.1}Dockerfile-ok}{36}{section.A.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {A.1.1}Authentik\IeC {\'a}ci\IeC {\'o}}{36}{subsection.A.1.1}
+\select@language {magyar} \contentsline {subsection}{\numberline {A.1.2}Proxy}{37}{subsection.A.1.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {A.1.3}Adatb\IeC {\'a}zis}{37}{subsection.A.1.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {A.1.4}V\IeC {\'a}s\IeC {\'a}rl\IeC {\'a}s}{38}{subsection.A.1.4}
+\select@language {magyar} \contentsline {subsection}{\numberline {A.1.5}Webkiszolg\IeC {\'a}l\IeC {\'o} (b\IeC {\"o}ng\IeC {\'e}sz\IeC {\'e}s)}{39}{subsection.A.1.5}
+\select@language {magyar} \contentsline {section}{\numberline {A.2}Szkriptek}{40}{section.A.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {A.2.1}Futtat\IeC {\'a}shoz}{40}{subsection.A.2.1}
+\select@language {magyar} \contentsline {subsubsection}{\numberline {A.2.1.1}Build}{40}{subsubsection.A.2.1.1}
+\select@language {magyar} \contentsline {subsubsection}{\numberline {A.2.1.2}Futtat\IeC {\'a}s}{41}{subsubsection.A.2.1.2}
+\select@language {magyar} \contentsline {subsubsection}{\numberline {A.2.1.3}Tisztogat\IeC {\'a}s}{41}{subsubsection.A.2.1.3}
+\select@language {magyar} \contentsline {subsection}{\numberline {A.2.2}Szolg\IeC {\'a}ltat\IeC {\'a}sokhoz}{42}{subsection.A.2.2}
+\select@language {magyar} \contentsline {subsubsection}{\numberline {A.2.2.1}Init szkript}{42}{subsubsection.A.2.2.1}
+\select@language {magyar} \contentsline {subsubsection}{\numberline {A.2.2.2}Adatb\IeC {\'a}zis inicializ\IeC {\'a}l\IeC {\'a}s}{43}{subsubsection.A.2.2.2}
+\select@language {magyar} \contentsline {subsection}{\numberline {A.2.3}Proxy}{44}{subsection.A.2.3}

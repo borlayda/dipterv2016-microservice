@@ -73,6 +73,12 @@ Elasticsearch.
 \newblock Logstash.
 \newblock \url{https://www.elastic.co/products/logstash}.
 
+\bibitem{continuous-integration}
+Martin Fowler.
+\newblock Continuous integration.
+\newblock \url{http://martinfowler.com/articles/continuousIntegration.html},
+  May 2006.
+
 \bibitem{archivematica}
 Peter~Van Garderen.
 \newblock Archivematica: Using micro-services and open-source software to
@@ -85,13 +91,6 @@ Nemeth Gergely.
 \newblock
   \url{https://www.loggly.com/blog/monitoring-microservices-three-ways-to-overcome-the-biggest-challenges/}.
 
-\bibitem{docker-is-bad}
-The~HFT Guy.
-\newblock Docker in production: A history of failure.
-\newblock
-  \url{https://thehftguy.wordpress.com/2016/11/01/docker-in-production-an-history-of-failure/},
-  November 2016.
-
 \bibitem{haproxy}
 HAProxy.
 \newblock The reliable, high performance tcp/http load balancer.
@@ -101,6 +100,11 @@ HAProxy.
 Hashicorp.
 \newblock Consul.
 \newblock \url{https://www.consul.io/}.
+
+\bibitem{continuous-delivery}
+Jez Humble.
+\newblock Continuous delivery.
+\newblock \url{https://continuousdelivery.com/}.
 
 \bibitem{chef}
 Chef~Software Inc.
@@ -121,11 +125,6 @@ Jenkins.
 Jenkins.
 \newblock Jenkins.
 \newblock https://jenkins.io/index.html.
-
-\bibitem{jenkins-pipeline}
-Jenkins.
-\newblock Pipeline examples.
-\newblock \url{https://jenkins.io/doc/pipeline/examples/}.
 
 \bibitem{microservices-light}
 Mercedes~Garijo Jose Ignacio Fernández-Villamor, Carlos Á.~Iglesias.

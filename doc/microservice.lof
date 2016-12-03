@@ -2,16 +2,8 @@
 \select@language {magyar} \addvspace {10\p@ }
 \select@language {magyar} \contentsline {figure}{\numberline {2.1}{\ignorespaces Scaling Cube\relax }}{10}{figure.caption.4}
 \select@language {magyar} \addvspace {10\p@ }
-\select@language {magyar} \contentsline {figure}{\numberline {3.1}{\ignorespaces Microservices\relax }}{24}{figure.caption.5}
-\select@language {magyar} \addvspace {10\p@ }
-\select@language {magyar} \contentsline {figure}{\numberline {4.1}{\ignorespaces R\IeC {\'e}gi Jenkins terve\relax }}{33}{figure.caption.6}
-\select@language {magyar} \contentsline {figure}{\numberline {4.2}{\ignorespaces \IeC {\'U}j Jenkins terve\relax }}{34}{figure.caption.7}
-\select@language {magyar} \contentsline {figure}{\numberline {4.3}{\ignorespaces Pipeline job\relax }}{35}{figure.caption.8}
-\select@language {magyar} \contentsline {figure}{\numberline {4.4}{\ignorespaces Github be\IeC {\'a}ll\IeC {\'\i }t\IeC {\'a}sok a Jenkinsben\relax }}{36}{figure.caption.9}
-\select@language {magyar} \contentsline {figure}{\numberline {4.5}{\ignorespaces Github webhook be\IeC {\'a}ll\IeC {\'\i }t\IeC {\'a}s a repository t\IeC {\'a}mogat\IeC {\'a}s\IeC {\'a}hoz\relax }}{36}{figure.caption.10}
-\select@language {magyar} \contentsline {figure}{\numberline {4.6}{\ignorespaces Github trigger be\IeC {\'a}ll\IeC {\'\i }t\IeC {\'a}sa egy job-on\relax }}{37}{figure.caption.11}
-\select@language {magyar} \contentsline {figure}{\numberline {4.7}{\ignorespaces Job Github-hoz rendel\IeC {\'e}se\relax }}{37}{figure.caption.12}
-\select@language {magyar} \contentsline {figure}{\numberline {4.8}{\ignorespaces K\IeC {\"o}z\IeC {\"o}s job konfigur\IeC {\'a}ci\IeC {\'o}\relax }}{38}{figure.caption.13}
+\select@language {magyar} \contentsline {figure}{\numberline {3.1}{\ignorespaces Mikroszolg\IeC {\'a}ltat\IeC {\'a}sok terve\relax }}{25}{figure.caption.5}
+\select@language {magyar} \contentsline {figure}{\numberline {3.2}{\ignorespaces Folytonos integr\IeC {\'a}ci\IeC {\'o} f\IeC {\'a}zisai\relax }}{26}{figure.caption.6}
 \select@language {magyar} \addvspace {10\p@ }
 \select@language {magyar} \addvspace {10\p@ }
 \select@language {magyar} \addvspace {10\p@ }

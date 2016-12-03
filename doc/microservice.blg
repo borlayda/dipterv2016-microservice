@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: microservice.aux
 The style file: plain.bst
@@ -8,7 +8,7 @@ Warning--string name "sept" is undefined
 Warning--I didn't find a database entry for "ruxit"
 You've used 48 entries,
             2118 wiz_defined-function locations,
-            692 strings with 9308 characters,
+            694 strings with 9281 characters,
 and the built_in function-call counts, 10074 in all, are:
 = -- 948
 > -- 336

@@ -10,7 +10,7 @@ Ezt az architektúrális mintát az teszi erőssé, hogy nem függenek egymást�
 
 Egy mikroszolgáltatást használó architektúra kiépítéséhez sokféle funkcionális elkülönítési módot használnak, amivel a szolgáltatásokat kialakíthatjuk. Egy ilyen elválasztásí módszer a rendszer specifikációjában lévő főnevek vagy igék kiválasztása, és az így kapot halmaz felbontása. Egy felbontás akkor minősül ideálisnak, ha nem tudjuk tovább bontani az adott funkciót. A valóságban soha nem lesz az ideálisnak megfelelő felbontás, mivel erőforrás pazalró, és túlzottan elosztott rendszert kapnánk.
 
-###Szolgáltatás elválasztás tervezése
+###Szolgáltatás elválasztás tervezése\label{splitting}
 
 A tervezési folyamatnál a következő szempontokat szokták figyelembe venni:
 
