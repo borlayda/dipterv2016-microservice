@@ -151,7 +151,7 @@ EXPOSE 8888 8301 8302 8500 8400
 Dockerfile.web.service
 
 ```{Dockerfile}
-FROM httpd
+FROM ubuntu
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
 ENV CONSUL_DIR /usr/share/consul
@@ -159,11 +159,12 @@ ENV CONSUL_DIR /usr/share/consul
 # Install Service
 COPY webserver.sh /usr/sbin/webserver.sh
 RUN apt-get -y update && \
-    apt-get -y install php5 \
-        php5-mysql \
+    apt-get -y install apache2 php \
+        libapache2-mod-php \
+        php-mysql \
         curl \
         iputils-ping \
-        php5-curl && \
+        php-curl && \
     chmod +x /usr/sbin/webserver.sh
 COPY index.html main.css login.php store.php order.php /var/www/html/
 

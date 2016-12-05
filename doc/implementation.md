@@ -211,9 +211,10 @@ A háttérben minden kérésünkre a szolgáltatások között kommunikáció in
 
 ## Folytonos integráció elkészítése
 
-A folytonos integrációt támogató keretrendszerek közül a Jenkins-t választottam, mivel ez a legelterjedtebb nyílt forrású eszköz, amivel képes vagyok véghezvinni a feladatot. 
+A folytonos integrációt támogató keretrendszerek közül a Jenkins-t választottam, mivel ez a legelterjedtebb nyílt forrású eszköz, amivel képes vagyok véghezvinni a feladatokat.
 
 ### Jenkins
+
 
 
 ### Pipeline Job

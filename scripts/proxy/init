@@ -14,6 +14,7 @@ while true; do
         consul agent -server \
                      -join "${MASK}.${ADDR}" \
                      -datacenter "bookstore" \
+                     -config-dir /etc/consul.d \
                      -data-dir "${CONSUL_DIR}" > /var/log/bookstore-consul.log &
         sleep 10
         cat /var/log/bookstore-consul.log
