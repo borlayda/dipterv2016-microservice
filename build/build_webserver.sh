@@ -1,12 +1,14 @@
 #!/bin/bash
 
+set -euo pipfail
+
 WEBSERVER_SERVICE_HOME=services/web
 WEBSERVER_SERVICE_DOCKERFILE=Dockerfiles/Dockerfile.web.service
 WEBSERVER_SCRIPT_DIR=scripts/webserver
 WEBSERVER_CONF_DIR=conf/webserver
 WEBSERVER_IMAGE_NAME=bookstore_webserver
 
-pushd ..
+#pushd ..
 if [[ ! -e consul ]]; then
     echo "Get Consul script from Internet"
     wget https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_linux_386.zip && unzip consul_0.7.0_linux_386.zip

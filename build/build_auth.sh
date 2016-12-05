@@ -1,12 +1,14 @@
 #!/bin/bash
 
+set -euo pipfail
+
 AUTH_SERVICE_HOME=services/authentication
 AUTH_SERVICE_DOCKERFILE=Dockerfiles/Dockerfile.auth.service
 AUTH_SCRIPT_DIR=scripts/auth
 AUTH_CONF_DIR=conf/auth
 AUTH_IMAGE_NAME=bookstore_auth
 
-pushd ..
+#pushd ..
 if [[ ! -e consul ]]; then
     echo "Get Consul script from Internet"
     wget https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_linux_386.zip && unzip consul_0.7.0_linux_386.zip

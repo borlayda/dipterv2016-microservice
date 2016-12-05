@@ -1,12 +1,14 @@
 #!/bin/bash
 
+set -euo pipfail
+
 RESERVE_SERVICE_HOME=services/order
 RESERVE_SERVICE_DOCKERFILE=Dockerfiles/Dockerfile.order.service
 RESERVE_SCRIPT_DIR=scripts/order
 RESERVE_CONF_DIR=conf/order
 RESERVE_IMAGE_NAME=bookstore_order
 
-pushd ..
+#pushd ..
 if [[ ! -e consul ]]; then
     echo "Get Consul script from Internet"
     wget https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_linux_386.zip && unzip consul_0.7.0_linux_386.zip
