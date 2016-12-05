@@ -7,7 +7,6 @@ ENV CONSUL_DIR /usr/share/consul
 COPY auth-service.py /usr/sbin/auth-service.py
 RUN apt-get -y update && \
     apt-get -y install \
-        vim \
         bash \
         iputils-ping \
         python-oauth \

@@ -82,17 +82,19 @@ A folytonos integrációt használó keretrendszereknek lehetőséget kell bizto
 
 ### Keretrendszer előnyei a fejlesztésre nézve
 
-Ha egy mikroszolgáltatásokra épülő alkalmazást fejlesztünk a folytonos integrációt támogató keretrendszer rengeteg előnyt nyújthat a fejlezstéshez. Ha adott egy szolgáltattás alaposan kitesztelő folyamat, akkor ennek a végeredménye egy gyors válaszként szolgál a fejlesztőnek arra a kérdésre, hogy vajon működik-e amit csinált.
+A feladat részeként el kell készítenem egy folytonos integrációt támogató keretrendszert, ami a korábban felsorolt tulajdonságokat, és feladatokat képes végrehajtani. Egy mikroszolgáltatás alapú alklamazás fejlesztése közben egy ilyen keretrendszer segít a gyors visszajelzésben, mivel egy szolgáltatás fejlesztése közben nem lehetünk biztosak benne, hogy minden esetben a teljes alkalmazás működő képes, illetve segít felderíteni a szolgáltatás interfészek közötti kritikus eltéréseket.
 
-Egy másik előny, hogy az egyes szolgáltatások folytonosan integrált változata egy olyan kimeneti artifact-ot hoz létre, ami az alklamazás szempontjából egy kiadható, és felhaszálható új verzió.
+A gyors visszajelzés mindig fontos, hiszen lassú, és erőforrás igényes feladat, ha a fejlesztő csapatnak kell kipróbálnia a szolgáltatást mind magában egyedileg, mind a komplex alkalmazás részeként. Ezt a költséget megspóroljuk, ha központileg fut az ellenőrzés, és a közös erőforrésokat is könnyebbenlehet optimalizálni. Az összes csapatnak adható olyan folytonos integrációs struktúra, amely a szolgáltatás változtatása esetén egy build folyamatot futtatva megpróbálja integrálni az eredményként kapott alkalmazás részletet, és teszteli az együttműködő képességet. Mivel közös erőforrásokon fut nem kell várni, hogy szabad idősávot kapjon a csapat, és az automatizáltság segít, hogy a csapat másra fordíthassa a figyelmet, amíg nem kap eredményt.
 
-A visszajelzés
+Az interfészek figyelését ugyan az az infrastruktúra figyelheti ami az integrációt, és a szolgáltatás helyességét figyeli, de ebben a tesztelési logikában szerepelnie kell egy olyan interfész tesztelésnek, ami képes detektálni azt, hogy a jelenlegi interfészekkel kompatiblis a szolgáltatás, illetve azt is, hogy visszafelé, korábbi verziókkal kompatilibis-e az új kialakítás.
+
+Fejlesztés szempontjából a folytonos integrációs eszköz tartalmazhat olyan logikát, ami a közvetlen változásokra fut le, és intelligens módon határozza meg a változás hatásait. Az egyik legnépszerűbb folytonos integrációt támogató rendszerben a Jenkins-ben például van plugin minden verziókezelőhöz, amely képes a változtatások felküldésére olyan feladatokat futtatni, amik a kód minőségét (kódolási technika, formázottság, dokumentáció generálás, stb.) figyelik és javítják. Ennek a funkciónak a használata ugyan úgy hasznos lehet mikroszolgáltatások esetén, mint bármilyen fejlesztési módszer esetén.
 
 ### Lépések bemutatása
 
-A feladathoz úgy határoztam meg, hogy a következő fázisok kellenek:
+A feladat tervezése közben próbáltam minden szempontot szem előtt tartani, és a következő részeket határoztam meg a minta alkalmazásomhoz.
 
-* Buildelés minden szolgáltatásra:
-* Alkalmazás indítása, minden szolgáltatással:
-* Tesztek futtatása:
-* Utómunkálatok elvégzése:
+* Buildelés minden szolgáltatásra: Mivel minden szolgáltatás egyedi, és a szolgáltatások külön termékként kezelésével növelhetjük a modularitást, és az újrafelhasználhatóságot, így minden szolgáltatásnak külön build folyamatot terveztem, amik eredményeként az önműködő alklamazás részleteket kapjuk meg.
+* Alkalmazás indítása, minden szolgáltatással: Ha minden részlet elkészült, akkor az összes szolgáltatás indításával és a környezet felkészítésvel egy minta környezetet készítek amiben az alkalmazás fut.
+* Tesztek futtatása: A minta környezetben teszteket futtatok, amivel megbizonyosodhatom az alkalmazás működőképességéről.
+* Utómunkálatok elvégzése: Mivel a környezet a saját gépem lesz, ezért a nem használt elemek törlése, és a környezet kitisztítása, illetve az eredmények lementése kerül ide.

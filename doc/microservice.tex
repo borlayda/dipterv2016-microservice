@@ -904,7 +904,7 @@ mentén.
   és könnyen kezelhető (ha nem dinamikusan változnak a fürtben lévő
   gépek, mert ha igen akkor szükséges egy mellékes frissítő logika is).
 \item
-  \textbf{ngnix}\citep{nginx}: Az Nginx egy nyílt forráskódú web
+  \textbf{Ngnix}\citep{nginx}: Az Nginx egy nyílt forráskódú web
   kiszolgáló és reverse proxy szerver, amivel nagy méretű rendszereket
   kezelhetünk, és segít az alkalmazás biztonságának megörzésében. A
   kiterjesztett változatával (Nginx Plus) képesek lehetünk a
@@ -944,7 +944,7 @@ skálázás, és a monitorozás is egyszerűbb lehet.
   szabhatjuk meg, tehát a hardveres erőforrások megosztásában nyújt nagy
   segítséget.
 \item
-  \textbf{kvm}\citep{kvm}: A KVM egy kernel szintű virtualizációs
+  \textbf{KVM}\citep{kvm}: A KVM egy kernel szintű virtualizációs
   eszköz, amivel virtuális gépeket tudunk készíteni. Processzor szintjén
   képes szétválasztani az erőforrásokat, és ezzel szeparált
   környezeteket létrehozni. Virtualizál a processzoron kívül hálózati
@@ -1325,7 +1325,8 @@ kívül egy fejlesztési, és egy kiadási fázissal toldották meg, ami a
 megjelenő termék kiadását, és a kód fejlesztésének meghatározását
 takarja.
 
-\subsection{Használati módok}\label{hasznuxe1lati-muxf3dok}
+\subsection{Használati módok mikroszolgáltatások
+esetén}\label{hasznuxe1lati-muxf3dok-mikroszolguxe1ltatuxe1sok-esetuxe9n}
 
 Mikroszolgáltatások esetén a folytonos integrációt támogató rendszereket
 hatékonyan lehet fölhasználni, mivel minden szolgáltatás külön
@@ -1383,30 +1384,209 @@ előnyöket.
 \subsection{Folytonos Integrációt használó keretrendszer
 feladatai}\label{folytonos-integruxe1ciuxf3t-hasznuxe1luxf3-keretrendszer-feladatai}
 
+A folytonos integrációt használó keretrendszereknek lehetőséget kell
+biztosítaniuk, hogy a buildelés, integráció, és tesztelés folyamata,
+valamilyen automatizmus segítségével végrehajtható legyen. Ehhez egy
+általános interfészt kell biztosítania, amivel megmondhatjuk, hogy
+milyen lépéseken kell végigmenni, hogy az adott fázis végrehajtottnak
+legyen tekinthető.
+
 \subsection{Keretrendszer előnyei a fejlesztésre
 nézve}\label{keretrendszer-elux151nyei-a-fejlesztuxe9sre-nuxe9zve}
 
+A feladat részeként el kell készítenem egy folytonos integrációt
+támogató keretrendszert, ami a korábban felsorolt tulajdonságokat, és
+feladatokat képes végrehajtani. Egy mikroszolgáltatás alapú alklamazás
+fejlesztése közben egy ilyen keretrendszer segít a gyors
+visszajelzésben, mivel egy szolgáltatás fejlesztése közben nem lehetünk
+biztosak benne, hogy minden esetben a teljes alkalmazás működő képes,
+illetve segít felderíteni a szolgáltatás interfészek közötti kritikus
+eltéréseket.
+
+A gyors visszajelzés mindig fontos, hiszen lassú, és erőforrás igényes
+feladat, ha a fejlesztő csapatnak kell kipróbálnia a szolgáltatást mind
+magában egyedileg, mind a komplex alkalmazás részeként. Ezt a költséget
+megspóroljuk, ha központileg fut az ellenőrzés, és a közös erőforrésokat
+is könnyebbenlehet optimalizálni. Az összes csapatnak adható olyan
+folytonos integrációs struktúra, amely a szolgáltatás változtatása
+esetén egy build folyamatot futtatva megpróbálja integrálni az
+eredményként kapott alkalmazás részletet, és teszteli az együttműködő
+képességet. Mivel közös erőforrásokon fut nem kell várni, hogy szabad
+idősávot kapjon a csapat, és az automatizáltság segít, hogy a csapat
+másra fordíthassa a figyelmet, amíg nem kap eredményt.
+
+Az interfészek figyelését ugyan az az infrastruktúra figyelheti ami az
+integrációt, és a szolgáltatás helyességét figyeli, de ebben a
+tesztelési logikában szerepelnie kell egy olyan interfész tesztelésnek,
+ami képes detektálni azt, hogy a jelenlegi interfészekkel kompatiblis a
+szolgáltatás, illetve azt is, hogy visszafelé, korábbi verziókkal
+kompatilibis-e az új kialakítás.
+
+Fejlesztés szempontjából a folytonos integrációs eszköz tartalmazhat
+olyan logikát, ami a közvetlen változásokra fut le, és intelligens módon
+határozza meg a változás hatásait. Az egyik legnépszerűbb folytonos
+integrációt támogató rendszerben a Jenkins-ben például van plugin minden
+verziókezelőhöz, amely képes a változtatások felküldésére olyan
+feladatokat futtatni, amik a kód minőségét (kódolási technika,
+formázottság, dokumentáció generálás, stb.) figyelik és javítják. Ennek
+a funkciónak a használata ugyan úgy hasznos lehet mikroszolgáltatások
+esetén, mint bármilyen fejlesztési módszer esetén.
+
 \subsection{Lépések bemutatása}\label{luxe9puxe9sek-bemutatuxe1sa}
+
+A feladat tervezése közben próbáltam minden szempontot szem előtt
+tartani, és a következő részeket határoztam meg a minta alkalmazásomhoz.
+
+\begin{itemize}
+\tightlist
+\item
+  Buildelés minden szolgáltatásra: Mivel minden szolgáltatás egyedi, és
+  a szolgáltatások külön termékként kezelésével növelhetjük a
+  modularitást, és az újrafelhasználhatóságot, így minden
+  szolgáltatásnak külön build folyamatot terveztem, amik eredményeként
+  az önműködő alklamazás részleteket kapjuk meg.
+\item
+  Alkalmazás indítása, minden szolgáltatással: Ha minden részlet
+  elkészült, akkor az összes szolgáltatás indításával és a környezet
+  felkészítésvel egy minta környezetet készítek amiben az alkalmazás
+  fut.
+\item
+  Tesztek futtatása: A minta környezetben teszteket futtatok, amivel
+  megbizonyosodhatom az alkalmazás működőképességéről.
+\item
+  Utómunkálatok elvégzése: Mivel a környezet a saját gépem lesz, ezért a
+  nem használt elemek törlése, és a környezet kitisztítása, illetve az
+  eredmények lementése kerül ide.
+\end{itemize}
 
 \chapter{Feladat implementációja}\label{feladat-implementuxe1ciuxf3ja}
 
-\section{Minta alkalmazás
-elkészítése}\label{minta-alkalmazuxe1s-elkuxe9szuxedtuxe9se}
+A minta alkalmazás implementálása során próbáltam a ma legnépszerűbb és
+leggyakrabban használt technológiákat használni, és a terveknek
+megfelelő legjobb megvalósítást.
 
-\subsection{Felhasznált
+\section{Felhasznált
 technológiák}\label{felhasznuxe1lt-technoluxf3giuxe1k}
 
-\subsection{Szolgáltatások
+A minta alkalmazás szolgáltatásaiban több kevert technológiát
+használtam, hogy be tudjam mutatni a mikroszolgáltatásokon alapuló
+alkalmazások legnagyobb erősségét, a kervert technológiás megvalósítást.
+A kiszolgálási logikát Python, Java és PHP nyelveken írtam, és
+használtam Apache webkiszolgáló alkalmazást, és Ngnix webkiszolgálót, és
+reverse proxy szervert. A szolgáltatások futtatásához bash szkripteket
+készítettem, és Docker konténereket használtam fel a
+környezetfüggetlenség eléréséhez.
+
+Python nyelven nagyon egyszerű implementálni egy webkiszolgálót, amin
+keresztül a ksizolgáló interfészt elkészíthetem, illetve a program
+logika és adatbázis kapcsolat is könnyen megvalósítható, mivel rengeteg
+elkészített könyvtár áll rendelkezésemre. A Python egy széles körben
+felhasznált technológia, így egy valós mikroszolgáltatás alapú
+alkalmazásba is nagy valószínűséggel belekerülne.
+
+A Java egy platform függyetlen nyelv, amit mind kliens oldali
+alkalmazásokhoz, mind szerver alkalmazások elkészítéséhez is használják,
+és viszonylag öregebb nyelv amihez rengeteg típusú hálózati
+kommunikációs protokollt implementáltak, így könnyen és széles körben
+használható nyelv. Egy másik előnye a feladat szempontjából, hogy
+fordítás szükséges hozzá, és így a build folyamatban egy jar állomány
+elkészítését is be tudom mutatni.
+
+A PHP egy olyan dinamikus webkiszolgáló nyelv, amit már hosszú ideje
+használnak, és elég a feladathoz tartozó egyszerű webes böngésző
+felületet elkészítéséhez. Ezzel a nyelvel gyorsan tudok dolgozni, mivel
+korábban is találkoztam a nyelvvel.
+
+Az Nginx a Java-s alkalmazások kiszolgálásához használt leggyakoribb
+webkiszolgáló szerver, az Apache webszerver pedig a statikus és
+dinamikus tartalmak kiszolgálásban gyakran használt eszköz.
+
+A Docker a mikroszolgáltatások gyakran használt virtualizáló eszköze,
+amit gyors, és egyszerű használata teszi alkalmassá. A Docker álltal
+létrehozott virtuális konténer környezetben pontosan annyi van, amennyit
+a szolgáltatáshoz fel akarunk használni, de könnyen bővíthető,
+karbantartható, és kicserélhetők a konténerek.
+
+A kommunikációhoz, és a szolgáltatások egymásra találásához a Consul
+szolgáltatásfelderító eszközt használtam, amivel már volt korábbi
+tapasztalatom. A Cnsul könnyen telepíthető, és egyszerűen használható,
+és a piacon található más termékekkel ellentétben ingyenes, és gyorsan
+fejlődő eszköz. Minden funkciót tartalmaz amire szükségem van, és sokkal
+könnyebben bekonfigurálható, mint a mikroszolgáltatásoknál gyakran
+használt Apache Zookeeper.
+
+\section{Szolgáltatások
 implementálás}\label{szolguxe1ltatuxe1sok-implementuxe1luxe1s}
 
-\subsubsection{Docker konténerek}\label{docker-kontuxe9nerek}
+Minden szolgáltatáshoz külön el kellett készítenem a környezetet, és a
+szolgáltatást futtató logikát, amit jól elkülöníthető módon tudtam
+véghez vinni.
 
-\subsubsection{Alkalmazások}\label{alkalmazuxe1sok}
+\subsection{Docker konténerek}\label{docker-kontuxe9nerek}
 
-\subsection{Kommunikáció, avagy hogy működik a
+Szolgáltatásonként készítettem egy Docker image-et, amiből elindíthatók
+az alkalmlazás részei. Minden konténer egyedi, de vannak olyan részei
+amik minden szolgáltatáshoz szükségesek. Egy ilyen rész a Consul
+alkalmazás telepítése, és a konfiguráció bemásolása:
+
+\begin{verbatim}
+FROM ...
+
+# Install consul
+COPY consul consul-template /usr/bin/
+RUN chmod +x /usr/bin/consul && \
+    chmod +x /usr/bin/consul-template && \
+    mkdir -p /etc/consul.d
+COPY <service>.json /etc/consul.d/<service>.json
+...
+\end{verbatim}
+
+Az eszköz telepítése egy egyszerű fájl másolásból áll, és a
+jogosultságok beállítása után, már használható is. Minden
+szolgáltatáshoz tartozik egy JSON fájl, ami tartalmazza a szolgáltatás
+Consul-hoz kapcsolódó adatait, mint a felhasznált kommunikációs port, és
+a szolgáltatás megnevezése, kategorizálása.
+
+Ami minden szolgáltatásnál különbözik, az a telepített alkalmazások
+listája, amik aszerint lettek meghatározva, hogy milyen függőségei
+vannak a szolgáltatást futtató programnak. Ez a rész a Docker image
+disztribúciójának megfelelő telepítő programmal történik. Az
+adatbáziskezelő esetében nem volt ennyire egyszerű a helyzet, ugyanis a
+\textbf{mysql-server} csomag telepítése, egy interaktív választ kér a
+felhasználótól, amit automatizáltan a következő módon tudunk megtenni:
+
+\begin{verbatim}
+FROM ...
+
+RUN apt-get -y update && \
+    /bin/bash -c "debconf-set-selections \
+        <<< 'mysql-server mysql-server/root_password password root'" && \
+    /bin/bash -c "debconf-set-selections \
+        <<< 'mysql-server mysql-server/root_password_again password root'" && \
+    apt-get -y install mysql-server
+...
+\end{verbatim}
+
+Minden Docker image készítésénél az első telepítéshez kellő parancs a
+repository frissítése, ami jelen esetben az \textbf{apt-get update}. Ha
+ezt nem tesszük meg akkor az alap image ismeretlenül régi csomaglistáját
+használjuk, ami azt eredményezi, hogy a telepítő nem talál csomagokat,
+illetve nem a jó verziót találja meg. A \textbf{debconf-set-selctions}
+egy olyan program ami lehetővé teszi, hogy a debian csomagkezelő
+kérdéseire automatikusan tudjunk válaszolni.
+
+Minden szolgáltatáshoz tartozik egy indító szkript, ami tartalmazza az
+alkalmazás többi elemének a megkeresését, és a szolgáltatás
+elindításához tartozó lépéseket. Az elkészült Dockerfile-ok amikkel az
+image-eket építettem, és az indító szkiptek megtalálhatók a függelékben
+(\ref{appendix-dockerfile}. és \ref{appendix-runner}. fejezet).
+
+\subsection{Alkalmazások}\label{alkalmazuxe1sok}
+
+\section{Kommunikáció, avagy hogy működik a
 Consul}\label{kommunikuxe1ciuxf3-avagy-hogy-mux171kuxf6dik-a-consul}
 
-\subsection{Működés és
+\section{Működés és
 alkalmazás}\label{mux171kuxf6duxe9s-uxe9s-alkalmazuxe1s}
 
 \section{Folytonos integráció
@@ -1439,7 +1619,7 @@ keretrendszerhez}\label{jenkins-job-ok-a-keretrendszerhez}
 
 \chapter{Függelék}\label{fuxfcggeluxe9k}
 
-\section{Dockerfile-ok}\label{dockerfile-ok}
+\section{\texorpdfstring{Dockerfile-ok\label{appendix-dockerfile}}{Dockerfile-ok}}\label{dockerfile-ok}
 
 \subsection{Authentikáció}\label{authentikuxe1ciuxf3}
 
@@ -1455,7 +1635,6 @@ ENV CONSUL_DIR /usr/share/consul
 COPY auth-service.py /usr/sbin/auth-service.py
 RUN apt-get -y update && \
     apt-get -y install \
-        vim \
         bash \
         iputils-ping \
         python-oauth \
@@ -1625,7 +1804,7 @@ EXPOSE 80 443 8301 8302 8500 8400
 
 \subsection{Futtatáshoz}\label{futtatuxe1shoz}
 
-\subsubsection{Build}\label{build}
+\subsubsection{\texorpdfstring{Build\label{appendix-build}}{Build}}\label{build}
 
 build\_\{service\}.sh
 
@@ -1670,7 +1849,7 @@ echo "<SERVICE> service has been created!"
 popd
 \end{verbatim}
 
-\subsubsection{Futtatás}\label{futtatuxe1s}
+\subsubsection{\texorpdfstring{Futtatás\label{appendix-runner}}{Futtatás}}\label{futtatuxe1s}
 
 run\_containers.sh
 
@@ -1688,7 +1867,7 @@ do
 done
 \end{verbatim}
 
-\subsubsection{Tisztogatás}\label{tisztogatuxe1s}
+\subsubsection{\texorpdfstring{Tisztogatás\label{appendix-cleanup}}{Tisztogatás}}\label{tisztogatuxe1s}
 
 clean\_docker.sh
 
@@ -1718,7 +1897,8 @@ fi
 
 \subsection{Szolgáltatásokhoz}\label{szolguxe1ltatuxe1sokhoz}
 
-\subsubsection{Init szkript}\label{init-szkript}
+\subsubsection{\texorpdfstring{Init
+szkript\label{appendix-starter}}{Init szkript}}\label{init-szkript}
 
 \begin{verbatim}
 #!/bin/bash
@@ -1814,7 +1994,7 @@ INSERT INTO store (book_name, count)
 VALUES ("Lord of the Rings: The Return of the King", 0);
 \end{verbatim}
 
-\subsection{Proxy}\label{proxy-1}
+\subsection{\texorpdfstring{Proxy\label{appendix-template}}{Proxy}}\label{proxy-1}
 
 Proxy config template:
 

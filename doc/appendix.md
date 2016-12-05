@@ -3,7 +3,7 @@
 Függelék
 ========
 
-##Dockerfile-ok
+##Dockerfile-ok\label{appendix-dockerfile}
 
 ###Authentikáció
 
@@ -19,7 +19,6 @@ ENV CONSUL_DIR /usr/share/consul
 COPY auth-service.py /usr/sbin/auth-service.py
 RUN apt-get -y update && \
     apt-get -y install \
-        vim \
         bash \
         iputils-ping \
         python-oauth \
@@ -188,7 +187,7 @@ EXPOSE 80 443 8301 8302 8500 8400
 
 ###Futtatáshoz
 
-####Build
+####Build\label{appendix-build}
 
 build_{service}.sh
 
@@ -233,7 +232,7 @@ echo "<SERVICE> service has been created!"
 popd
 ```
 
-####Futtatás
+####Futtatás\label{appendix-runner}
 
 run_containers.sh
 
@@ -251,7 +250,7 @@ do
 done
 ```
 
-####Tisztogatás
+####Tisztogatás\label{appendix-cleanup}
 
 clean_docker.sh
 
@@ -281,7 +280,7 @@ fi
 
 ###Szolgáltatásokhoz
 
-####Init szkript
+####Init szkript\label{appendix-starter}
 
 ```{bash}
 #!/bin/bash
@@ -317,7 +316,105 @@ done
 <service>.sh
 ```
 
-####Adatbázis inicializálás
+####Böngészés kódjai\label{appendix-http}
+
+Login oldal:
+
+```{PHP}
+<?php
+
+if(!isset( $_POST['username'], $_POST['password']))
+{
+    echo 'Please enter a valid username and password';
+}
+else
+{
+    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_URL,
+        "http://auth:8081/auth/{$username}/{$password}"
+    );
+    $output = curl_exec($ch);
+    $info = curl_getinfo($ch);
+    if ($output === false || $info['http_code'] != 200) {
+        header("Location: /login.php");
+        die();
+    }
+    else {
+        header("Location: /store.php");
+        die();
+    }
+    curl_close($ch);
+}
+?>
+```
+
+Könyveket megjelenítő oldal:
+
+```{PHP}
+<html>
+<head>
+<title>Bookstore Microservice</title>
+<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+
+<div id="storeBox">
+<h2>Books:</h2>
+
+<table>
+  <tbody>
+    <tr><th>Name</th><th>Quantity</th></tr>
+
+    <?php
+      $servername = "database";
+      $username = "store";
+      $password = "store";
+      $dbname = "bookstore";
+
+      // Create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+
+      $sql = "SELECT * FROM store";
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+              echo "<tr><td>" . $row["book_name"]. \
+                "</td><td> " . $row["count"]. "</td></tr>";
+          }
+      } else {
+          echo "0 results";
+      }
+      $conn->close();
+    ?>
+
+  </tbody>
+</table>
+</div>
+<div id="orderBox">
+<form action="order.php" method="post">
+    <span>Name of Book: </span>\
+        <input type="text" name="nameOfBook" /><br/>
+    <span>Number of Books: </span>\
+        <input type="text" name="numberOfBooks"/><br/>
+    <input type="submit" name="send" value="Send"/>
+</form>
+</div>
+
+</body>
+</html>
+```
+
+####Adatbázis inicializálás\label{appendix-database}
 
 Authentikáció:
 
@@ -376,7 +473,7 @@ INSERT INTO store (book_name, count)
 VALUES ("Lord of the Rings: The Return of the King", 0);
 ```
 
-###Proxy
+###Proxy\label{appendix-template}
 
 Proxy config template:
 

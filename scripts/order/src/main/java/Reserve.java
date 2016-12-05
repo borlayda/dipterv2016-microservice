@@ -80,16 +80,21 @@ public class Reserve extends HttpServlet{
                rs.next();
                int count = rs.getInt("COUNT");
                count = count - number;
-               this.logger.info("Update books in database");
-               updateStmt.setInt(1, count);
-               updateStmt.setString(2, nameOfBook);
-               updateStmt.executeUpdate();
-               this.logger.info("Save the executed order");
-               insertStmt.setString(1, "test");
-               insertStmt.setString(2, nameOfBook);
-               insertStmt.setInt(3, number);
-               insertStmt.setString(4, new Date().toString());
-               insertStmt.executeUpdate();
+               if (count > 0) {
+                  this.logger.info("Update books in database");
+                  updateStmt.setInt(1, count);
+                  updateStmt.setString(2, nameOfBook);
+                  updateStmt.executeUpdate();
+                  this.logger.info("Save the executed order");
+                  insertStmt.setString(1, "test");
+                  insertStmt.setString(2, nameOfBook);
+                  insertStmt.setInt(3, number);
+                  insertStmt.setString(4, new Date().toString());
+                  insertStmt.executeUpdate();
+               } else {
+                 this.logger.info("Not enough book in the store!");
+                 status = 500;
+               }
             }
         } catch(Exception ex) {
             this.logger.info("Something went wrong on updating database: " + ex.getMessage());

@@ -2,7 +2,7 @@
 
 \chapter{Függelék}\label{fuxfcggeluxe9k}
 
-\section{Dockerfile-ok}\label{dockerfile-ok}
+\section{\texorpdfstring{Dockerfile-ok\label{appendix-dockerfile}}{Dockerfile-ok}}\label{dockerfile-ok}
 
 \subsection{Authentikáció}\label{authentikuxe1ciuxf3}
 
@@ -18,7 +18,6 @@ ENV CONSUL_DIR /usr/share/consul
 COPY auth-service.py /usr/sbin/auth-service.py
 RUN apt-get -y update && \
     apt-get -y install \
-        vim \
         bash \
         iputils-ping \
         python-oauth \
@@ -188,7 +187,7 @@ EXPOSE 80 443 8301 8302 8500 8400
 
 \subsection{Futtatáshoz}\label{futtatuxe1shoz}
 
-\subsubsection{Build}\label{build}
+\subsubsection{\texorpdfstring{Build\label{appendix-build}}{Build}}\label{build}
 
 build\_\{service\}.sh
 
@@ -233,7 +232,7 @@ echo "<SERVICE> service has been created!"
 popd
 \end{verbatim}
 
-\subsubsection{Futtatás}\label{futtatuxe1s}
+\subsubsection{\texorpdfstring{Futtatás\label{appendix-runner}}{Futtatás}}\label{futtatuxe1s}
 
 run\_containers.sh
 
@@ -251,7 +250,7 @@ do
 done
 \end{verbatim}
 
-\subsubsection{Tisztogatás}\label{tisztogatuxe1s}
+\subsubsection{\texorpdfstring{Tisztogatás\label{appendix-cleanup}}{Tisztogatás}}\label{tisztogatuxe1s}
 
 clean\_docker.sh
 
@@ -281,7 +280,8 @@ fi
 
 \subsection{Szolgáltatásokhoz}\label{szolguxe1ltatuxe1sokhoz}
 
-\subsubsection{Init szkript}\label{init-szkript}
+\subsubsection{\texorpdfstring{Init
+szkript\label{appendix-starter}}{Init szkript}}\label{init-szkript}
 
 \begin{verbatim}
 #!/bin/bash
@@ -377,7 +377,7 @@ INSERT INTO store (book_name, count)
 VALUES ("Lord of the Rings: The Return of the King", 0);
 \end{verbatim}
 
-\subsection{Proxy}\label{proxy-1}
+\subsection{\texorpdfstring{Proxy\label{appendix-template}}{Proxy}}\label{proxy-1}
 
 Proxy config template:
 
