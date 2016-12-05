@@ -37,4 +37,4 @@ echo " - Save image"
 docker save --output ${WEBSERVER_SERVICE_HOME}/${WEBSERVER_IMAGE_NAME}.img ${WEBSERVER_IMAGE_NAME}
 
 echo "Webserver service has been created!"
-popd
+#popd

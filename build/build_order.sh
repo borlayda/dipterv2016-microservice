@@ -41,4 +41,4 @@ echo " - Save image"
 docker save --output ${RESERVE_SERVICE_HOME}/${RESERVE_IMAGE_NAME}.img ${RESERVE_IMAGE_NAME}
 
 echo "Order service has been created!"
-popd
+#popd

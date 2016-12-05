@@ -37,4 +37,4 @@ echo " - Save image"
 docker save --output ${PROXY_SERVICE_HOME}/${PROXY_IMAGE_NAME}.img ${PROXY_IMAGE_NAME}
 
 echo "Proxy service has been created!"
-popd
+#popd

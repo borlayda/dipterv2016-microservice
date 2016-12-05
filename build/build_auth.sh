@@ -37,4 +37,4 @@ echo " - Save image"
 docker save --output ${AUTH_SERVICE_HOME}/${AUTH_IMAGE_NAME}.img ${AUTH_IMAGE_NAME}
 
 echo "Authentication service has been created!"
-popd
+#popd

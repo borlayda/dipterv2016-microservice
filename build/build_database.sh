@@ -37,4 +37,4 @@ echo " - Save image"
 docker save --output ${DATABASE_SERVICE_HOME}/${DATABASE_IMAGE_NAME}.img ${DATABASE_IMAGE_NAME}
 
 echo "Database service has been created!"
-popd
+#popd
