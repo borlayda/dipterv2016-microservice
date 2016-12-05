@@ -1,11 +1,13 @@
 #!/bin/bash
 
-test_auth(){
+PROXY_IP=$(docker inspect -f '{{ .NetworkSettings.Networks.bookstore.IPAddress }}' proxy)
 
+test_auth(){
+    echo "Testing authentication"
 }
 
 test_order(){
-
+    echo "Testing order"
 }
 
 test_all(){
