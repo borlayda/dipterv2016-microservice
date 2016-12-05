@@ -2,6 +2,11 @@
 
 PROXY_IP=$(docker inspect -f '{{ .NetworkSettings.Networks.bookstore.IPAddress }}' proxy)
 
+echo "Proxy server for tests: ${PROXY_IP}"
+
+export HTTP_PROXY=
+export http_proxy=
+
 test_auth(){
     echo "Testing authentication"
     curl -X POST -H "Content-Type: application/x-www-form-urlencoded" --data "username=test&password=testpassword" "http://${PROXY_IP}/login.php"
