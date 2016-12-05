@@ -6,11 +6,11 @@ ENV CONSUL_DIR /usr/share/consul
 # Install Service
 COPY webserver.sh /usr/sbin/webserver.sh
 RUN apt-get -y update && \
-    apt-get -y install apache2 php5 \
-        php5-mysql \
+    apt-get -y install apache2 php \
+        php-mysql \
         curl \
         iputils-ping \
-        php5-curl && \
+        php-curl && \
     chmod +x /usr/sbin/webserver.sh
 COPY index.html main.css login.php store.php order.php /var/www/html/
 
