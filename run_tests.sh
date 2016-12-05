@@ -4,8 +4,8 @@ PROXY_IP=$(docker inspect -f '{{ .NetworkSettings.Networks.bookstore.IPAddress }
 
 echo "Proxy server for tests: ${PROXY_IP}"
 
-export HTTP_PROXY=
-export http_proxy=
+export HTTP_PROXY=127.0.0.1,${PROXY_IP}:80
+export http_proxy=127.0.0.1,${PROXY_IP}:80
 
 test_auth(){
     echo "Testing authentication"
@@ -22,4 +22,6 @@ test_all(){
    test_order
 }
 
+# Waiting for service sync
+sleep 30
 test_all
