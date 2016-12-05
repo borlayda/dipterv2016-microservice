@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipfail
+set -euo pipefail
 
 RESERVE_SERVICE_HOME=services/order
 RESERVE_SERVICE_DOCKERFILE=Dockerfiles/Dockerfile.order.service

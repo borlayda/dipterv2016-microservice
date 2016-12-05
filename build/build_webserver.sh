@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipfail
+set -euo pipefail
 
 WEBSERVER_SERVICE_HOME=services/web
 WEBSERVER_SERVICE_DOCKERFILE=Dockerfiles/Dockerfile.web.service

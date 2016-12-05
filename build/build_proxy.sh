@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipfail
+set -euo pipefail
 
 PROXY_SERVICE_HOME=services/proxy
 PROXY_SERVICE_DOCKERFILE=Dockerfiles/Dockerfile.proxy.service

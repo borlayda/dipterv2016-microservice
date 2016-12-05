@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipfail
+set -euo pipefail
 
 DATABASE_SERVICE_HOME=services/database
 DATABASE_SERVICE_DOCKERFILE=Dockerfiles/Dockerfile.database.service

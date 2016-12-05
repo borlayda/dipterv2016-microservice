@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipfail
+set -euo pipefail
 
 AUTH_SERVICE_HOME=services/authentication
 AUTH_SERVICE_DOCKERFILE=Dockerfiles/Dockerfile.auth.service
