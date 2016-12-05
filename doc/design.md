@@ -76,10 +76,6 @@ A teljes alkalmazást figyelő integrációs keretrendszernél megkapjuk a folya
 
 A feladat elvégzéséhez próbáltam egy mindent automatizáló keretrendszert létrehozni, hogy maximalizálni tudjam a mikroszolgáltatásokhoz adott előnyöket.
 
-### Folytonos Integrációt használó keretrendszer feladatai
-
-A folytonos integrációt használó keretrendszereknek lehetőséget kell biztosítaniuk, hogy a buildelés, integráció, és tesztelés folyamata, valamilyen automatizmus segítségével végrehajtható legyen. Ehhez egy általános interfészt kell biztosítania, amivel megmondhatjuk, hogy milyen lépéseken kell végigmenni, hogy az adott fázis végrehajtottnak legyen tekinthető.
-
 ### Keretrendszer előnyei a fejlesztésre nézve
 
 A feladat részeként el kell készítenem egy folytonos integrációt támogató keretrendszert, ami a korábban felsorolt tulajdonságokat, és feladatokat képes végrehajtani. Egy mikroszolgáltatás alapú alklamazás fejlesztése közben egy ilyen keretrendszer segít a gyors visszajelzésben, mivel egy szolgáltatás fejlesztése közben nem lehetünk biztosak benne, hogy minden esetben a teljes alkalmazás működő képes, illetve segít felderíteni a szolgáltatás interfészek közötti kritikus eltéréseket.

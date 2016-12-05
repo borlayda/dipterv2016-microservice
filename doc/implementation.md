@@ -181,10 +181,37 @@ A pontos cím és a szolgáltatás is kinyerhető a Consul adatbázisából, íg
 
 ## Működés és alkalmazás
 
+Az alkalmazás indításához elkészítettem egy elég általános indító szkriptet, ami a neki megadott Docker konténerekből indít el egy alkalmazást.
+
+```{bash}
 ...
+for service in ${services}
+do
+    echo "Start ${service} service ..."
+    docker run -d --name "${service}" -h "${service}" --net=bookstore bookstore_${service}
+done
+...
+```
+
+Miután elindult az alkalmazás, a webes felület elérhető a proxy, vagy a böngésző Docker konténer IP címén keresztül. Ehhez az információhoz a következő paranccsal juthatunk:
+
+```{bash}
+docker inspect -f '{{ .NetworkSettings.Networks.bookstore.IPAddress }}' proxy
+```
+
+Ha valamilyen névfeloldás áll rendelkezésre, akkor a proxy szolgáltatás IP címét érdemes megadni neki. A felhasználó egy egyszerű bejelentkeztető felületet láthat az alkalmazás indítása után, amin keresztül a felhasználó nevet és jelszavat adhatja meg.
+
+![Bejelentkező felület](img/loginscreen.png)
+
+Ha bejelentkeztünk a böngésző oldalra dob az alkalmazás, és lehetőségünk nyilik rendeléseket is feladni.
+
+![Böngésző felület](img/browsescreen.png)
+
+A háttérben minden kérésünkre a szolgáltatások között kommunikáció indul meg, és a különböző funkciók esetén más-más szolgáltatás kiszolgáló kódja indul el.
 
 ## Folytonos integráció elkészítése
 
+A folytonos integrációt támogató keretrendszerek közül a Jenkins-t választottam, mivel ez a legelterjedtebb nyílt forrású eszköz, amivel képes vagyok véghezvinni a feladatot. 
 
 ### Jenkins
 

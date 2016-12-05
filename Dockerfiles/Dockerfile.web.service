@@ -1,4 +1,4 @@
-FROM httpd
+FROM ubuntu
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
 ENV CONSUL_DIR /usr/share/consul
@@ -6,7 +6,7 @@ ENV CONSUL_DIR /usr/share/consul
 # Install Service
 COPY webserver.sh /usr/sbin/webserver.sh
 RUN apt-get -y update && \
-    apt-get -y install php5 \
+    apt-get -y install apache2 php5 \
         php5-mysql \
         curl \
         iputils-ping \
