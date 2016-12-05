@@ -181,10 +181,18 @@ A pontos cím és a szolgáltatás is kinyerhető a Consul adatbázisából, íg
 
 ## Működés és alkalmazás
 
-
+...
 
 ## Folytonos integráció elkészítése
+
+
 ### Jenkins
+
+
 ### Pipeline Job
+
+
 ### Jenkins Job-ok a keretrendszerhez
+
+
 ### Job Konfigurációk

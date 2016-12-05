@@ -9,6 +9,7 @@ RUN apt-get -y update && \
     apt-get -y --force-yes install haproxy iputils-ping && \
     chmod +x /usr/sbin/proxy.sh
 COPY haproxy.cfg /etc/haproxy/haproxy.cfg
+COPY haproxy.ctml /etc/haproxy/haproxy.ctml
 
 # Install consul
 COPY consul consul-template /usr/bin/

@@ -4,12 +4,12 @@ PROXY_IP=$(docker inspect -f '{{ .NetworkSettings.Networks.bookstore.IPAddress }
 
 test_auth(){
     echo "Testing authentication"
-    curl -X "POST" "${PROXY_IP}/login.php?username=test&password=testpassword"
+    curl -X POST -H "Content-Type: application/x-www-form-urlencoded" --data "username=test&password=testpassword" "http://${PROXY_IP}/login.php"
 }
 
 test_order(){
     echo "Testing order"
-    curl -X "POST" "${PROXY_IP}/order.php?nameOfBook=Harry Potter and the Chamber of Secret&numberOfBooks=1"
+    curl -X POST --data "nameOfBook=Harry Potter and the Chamber of Secret&numberOfBooks=1" "http://${PROXY_IP}/order.php"
 }
 
 test_all(){
