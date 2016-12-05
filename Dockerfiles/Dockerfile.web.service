@@ -7,6 +7,7 @@ ENV CONSUL_DIR /usr/share/consul
 COPY webserver.sh /usr/sbin/webserver.sh
 RUN apt-get -y update && \
     apt-get -y install apache2 php \
+        libapache2-mod-php \
         php-mysql \
         curl \
         iputils-ping \
