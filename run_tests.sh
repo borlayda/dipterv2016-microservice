@@ -20,5 +20,5 @@ test_all(){
 }
 
 # Waiting for service sync
-sleep 10
+sleep 120
 test_all
