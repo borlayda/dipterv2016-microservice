@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/bin/bash
 
 PROXY_IP=$(docker inspect -f '{{ .NetworkSettings.Networks.bookstore.IPAddress }}' proxy)
 
