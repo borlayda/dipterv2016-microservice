@@ -6,12 +6,12 @@ echo "Proxy server for tests: ${PROXY_IP}"
 
 test_auth(){
     echo "Testing authentication"
-    python run_test.py "${PROXY_IP}" "login.php"
+    python run_tests.py "${PROXY_IP}" "login.php"
 }
 
 test_order(){
     echo "Testing order"
-    python run_test.py "${PROXY_IP}" "order.php"
+    python run_tests.py "${PROXY_IP}" "order.php"
 }
 
 test_all(){
