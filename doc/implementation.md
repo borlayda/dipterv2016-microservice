@@ -211,14 +211,40 @@ A háttérben minden kérésünkre a szolgáltatások között kommunikáció in
 
 ## Folytonos integráció elkészítése
 
-A folytonos integrációt támogató keretrendszerek közül a Jenkins-t választottam, mivel ez a legelterjedtebb nyílt forrású eszköz, amivel képes vagyok véghezvinni a feladatokat.
+A folytonos integrációt támogató keretrendszerek közül a Jenkins-t választottam, mivel ez a legelterjedtebb nyílt forrású eszköz, amivel képes vagyok véghez vinni a feladatokat.
 
 ### Jenkins
 
+A Jenkins egy olyan folytonos integrációt támogató keretrendszer, aminek a Java implementációja lehetővé teszi, hogy bármely az eszközhöz beregisztrált gépen futtassunk tetszőleges kódot. Ahhoz, hogy ezeket a kódokat futtassuk, egy jól struktúrált végrehajtási rendszert implemenetál, aminek a következők a részei:
 
+* Jenkins: A Jenkins maga a legnagyobb egység, ami az összes végrehajtandó feladatot tartalmazza, struktúrálja, és konfigurálhatóvá teszi a felhasznált plugin-eket, autentikációt, és mindent ami a feladatokhoz tartozhat.
+* View: A feladatok egy jól struktúrált egysége.
+* Job: Ez a feladatok implementációja, minden Job tetszőleges mennyiségű végrehajtandó feladatot tartalmaz, képes más Job-ok hívására, és a plugin-ek használatával gyakorlatilag bármilyen feladatot képes elvégezni (build-et futtat, java forrásokat fordít maven-nel, vagy Docker konténereket vezérel, stb.).
+* Build: Ez az egység egy Job egyszeri futását jelenti, ehhez tartozik egy azonosító, ami az adott Job-ra nézve megkülönbözteti, a futtatás paraméterei, környezeti változói, és egy olyan szeparált környezet (workspace), amiben a feladatokat végrehajtja.
+
+Ahhoz hogy megcsináhassam az alkalmazásom fejlesztését támogató keretrendszert, ahhoz Job-kat kellett létrehoznom, amik végrehajtották a szoftverrel kapcsolatos feladatokat.
 
 ### Pipeline Job
 
+A Pipeline job egy olyan Jenkins-ben elérhető Job fajta, ami képes egységbe szervezni a feladatokat, és levezényelni a közös futásukat. A legtöbb folytonos integrációt támogató rendszerben egy rövidebb, hosszabb munkafolyamatot kell lebonyolítani, aminek a pipeline nevet adta a Jenkins, mivel az egyes Job-ok az előzetes Job-ok build-jeitől függenek, ami annyit jelent, hogy például a telepítési fázis függ a build fázis artifact-jaitól.
+
+A Jenkins 2.0-ban megjelenő Pipeline job-hoz tartozik egy új leíró nyelv is, amit Pipline szkriptnek neveznek. Lehetőség van fájlban tárolni a konfigurációt, amit Jenkinsfile néven lehet menteni. A Dockerfile-hoz hasonlóan ez is a működést írja le, és Pipeline szkriptet tartalmaz.
+
+```{Pipeline script}
+node {
+    echo 'Running '+jobName+' build'
+    build job: jobName
+}
+...
+```
+
+
+
+```{Pipeline script}
+stage 'Deploy'
+echo 'Deploying services ...'
+build job: 'deploy-services'
+```
 
 ### Jenkins Job-ok a keretrendszerhez
 

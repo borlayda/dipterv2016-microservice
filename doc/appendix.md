@@ -474,6 +474,45 @@ INSERT INTO store (book_name, count)
 VALUES ("Lord of the Rings: The Return of the King", 0);
 ```
 
+###Pipeline job szkript\label{appendix-pipline}
+
+Pipline job full szkript:
+
+```{Pipeline script}
+buildNames = [
+    'build-auth-service',
+    'build-database-service',
+    'build-order-service',
+    'build-proxy-service',
+    'build-webserver-service'
+]
+
+def buildJobs = [:]
+
+for (int i=0; i<buildNames.size(); ++i) {
+    def buildName = buildNames[i]
+    buildJobs[buildNames[i]] = {
+        node {
+            echo 'Running '+buildName+' build'
+            build job: buildName
+        }
+    }
+}
+
+stage 'Build'
+echo 'Building services ...'
+parallel buildJobs
+stage 'Deploy'
+echo 'Deploying services ...'
+build job: 'deploy-services'
+stage 'Test'
+echo 'Testing services ...'
+build job: 'test-services'
+stage 'Cleanup'
+echo 'Cleaning up services ...'
+build job: 'cleanup-services'
+```
+
 ###Proxy\label{appendix-template}
 
 Proxy config template:
