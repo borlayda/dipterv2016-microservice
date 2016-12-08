@@ -189,12 +189,21 @@ Budapest, \today
 
 Napjainkban komoly gondot okoz, hogy hogyan lehet hatékonyan elosztott,
 jó rendelkezésre állású, könnyen skálázható alkalmazást építeni. Sok
-architektúrális megközelítés van, amit alapul véve hatákonyan
+architektúrális megközelítés van, amit alapul véve hatékonyan
 tervezhetjük meg a rendszerünket, és könnyen elkészíthetjük az
 alkalmazásunkat. Egy ilyen architektúrális megközelítés a
 mikroszolgáltatásokon alapuló architektúra, amivel apró részletekre
 bontva a feladatot, könnyen kezünkben tarthatjuk az elosztott
 alkalmazásunkat.
+
+A mikroszolgáltatásokra épülő architekrúra (microservices), egy olyan
+alkalmazás fejlesztési módszertan, ami a programot alkotó elemeire
+szedi, és minden funkcionalitást teljesen különálló egységként kezel.
+Egy ilyen alkalmazás fejlesztése közben oda kell figyelni az összes
+szolgáltatással való együtetteműködésre, a visszamenőleges
+kompatibilitásra, és meg kell tartani az alkotóelemek kapcsolatának a
+konzisztenciáját. Ennek a fenntartása egy nehéz feladat, amit kézileg
+szinte lehetetlen hosszú távon fenntartani.
 
 A diplomaterv keretében az volt a feladatom, hogy megismerjem az
 architektúra lényegét és müködését, illetve kiderítsem, hogy milyen
@@ -217,6 +226,14 @@ our plans. One of these design patterns is the microservice based
 architecture, which creates small services from the big application, by
 separating the functionality, and we can handle more efficiently our
 distributed application.
+
+Microservice architecture is a software development methodology, which
+separates the parts of the application to the smallest functionality,
+which could be run from a separated environment. It is important to take
+care about the cooperation between the services, the backward
+compatibility and the consistency of the service connectivity through
+the development flow. It is hard to keep these attributes, and almost
+impossible to keep it on long term by manual verification.
 
 The goal of this thesis is to gather knowledge about the architecture,
 how it works or how it could be designed, or which continuous
@@ -290,7 +307,7 @@ lehetséges folytatási lehetőségeire.
 \section{Mikroszolgáltatások}\label{mikroszolguxe1ltatuxe1sok}
 
 A mikroszolgáltatás\citep{microservices} \citep{micro-arch}
-\citep{microservices-light} egy olyan architektúrális modellezési mód,
+\citep{microservices-light} egy olyan architektúrális tervezési módszer,
 amikor a tervezett rendszert/alkalmazást kisebb funkciókra bontjuk, és
 önálló szolgáltatásokként, önálló erőforrásokkal, valamilyen jól
 definiált interfészen keresztül tesszük elérhetővé.
@@ -370,12 +387,12 @@ terveket milyen szempontok mentén lehet felosztani.
 \begin{figure}[H]
 \centering
 \includegraphics{img/ScaleCude.jpg}
-\caption{Scaling Cube}
+\caption{Scaling Cube\label{scalecube}}
 \end{figure}
 
-Ahogy a képen is látható a meghatározó felbontási fogalmak, az adat
-menti felbontás, a tetszőleges fogalom menti felbontás, illetve a
-klónozás.
+Ahogy a \ref{scalecube}. ábrán képen is látható a meghatározó felbontási
+fogalmak, az adat menti felbontás, a tetszőleges fogalom menti
+felbontás, illetve a klónozás.
 
 \subsubsection{Adat menti felbontás}\label{adat-menti-felbontuxe1s}
 
@@ -482,21 +499,30 @@ egyáltalán nem az atomicitás a lényege.
 \subsection{Példák mikroszolgáltatásokat használó
 alkalmazásokra}\label{puxe9lduxe1k-mikroszolguxe1ltatuxe1sokat-hasznuxe1luxf3-alkalmazuxe1sokra}
 
-Amazon - minden Amazon-nal kommunikáló eszköz illetve az egyes funkciók
-implementációja is szolgáltatásokra van szedve, és ezeket hívják az
-egyes funkciók (vm indítás, törlés, mozgatás, stb.)
-
-eBay - Különböző műveletek szerint van felbonva a funkcionalitás, és
-ennek megfelelően külön szolgáltatásként érhető el a fizetés,
-megrendelés, szállítási információk, stb.
-
-NetFlix - A nagy terhelést elkerülendő bizonyos streaming
-szolgáltatásokat átalakítottak, hogy a mikroszolgáltatás architektúra
-szerint működjön.
-
-Archivematica\citep{archivematica} - Egy Fájlkezelő rendszer, amiben
-mikroszolgáltatásoknak megfelelően alakították ki a plugin-ként
-használható funkciókat.
+\begin{itemize}
+\item
+  \textbf{Amazon}: minden Amazon-nal kommunikáló eszköz illetve az egyes
+  funkciók implementációja is szolgáltatásokra van szedve, és ezeket
+  hívják az egyes funkciók (vm indítás, törlés, mozgatás, stb.)
+\item
+  \textbf{eBay}: Különböző műveletek szerint van felbonva a
+  funkcionalitás, és ennek megfelelően külön szolgáltatásként érhető el
+  a fizetés, megrendelés, szállítási információk, stb.
+\item
+  \textbf{NetFlix}: A nagy terhelést elkerülendő bizonyos streaming
+  szolgáltatásokat átalakítottak, hogy a mikroszolgáltatás architektúra
+  szerint működjön.
+\item
+  \textbf{Archivematica}: Az Archivematica\citep{archivematica} egy
+  nyílt forráskódú elektronikus tartalom kezelő, ami tud kezelni
+  különböző fájlokat, multimédiás adatokat, illetve akármilyen szöveges
+  tartalmat. Ez az alakmazás alapvetően monolitikus architektúrára épül,
+  azonban elkezdték átalakítani a struktúráját mikroszolgáltatásokat
+  használó architektúrára. Ezt úgy kivitelezték, hogy a különböző plusz
+  funkciókat az eredeti alkalmazás plugin szerűen mikroszolgáltatásokból
+  nyeri ki, és ennek megfelelően a tovább fejlesztés is
+  megalapozott\citep{archivematica-wiki}.
+\end{itemize}
 
 \section{Mikroszolgáltatások előnyei és
 hátrányai}\label{mikroszolguxe1ltatuxe1sok-elux151nyei-uxe9s-huxe1truxe1nyai}
@@ -648,18 +674,6 @@ csak előnye a mikroszolgáltatás architektúrának, hogy különböző
 technológiákat lehet keverni vele, mivel az egyes szolgáltatások
 különböző technológiákkal különböző platformon is futhatnak.
 
-\subsection{Archivematica}\label{archivematica}
-
-Az Archivematica\citep{archivematica} egy nyílt forráskódú elektronikus
-tartalom kezelő, ami tud kezelni különböző fájlokat, multimédiás
-adatokat, illetve akármilyen szöveges tartalmat. Ez az alakmazás
-alapvetően monolitikus architektúrára épül, azonban elkezdték
-átalakítani a struktúráját mikroszolgáltatásokat használó
-architektúrára. Ezt úgy kivitelezték, hogy a különböző plusz funkciókat
-az eredeti alkalmazás plugin szerűen mikroszolgáltatásokból nyeri ki, és
-ennek megfelelően a tovább fejlesztés is
-megalapozott\citep{archivematica-wiki}.
-
 \section{Technológiai
 áttekintés}\label{technoluxf3giai-uxe1ttekintuxe9s}
 
@@ -707,8 +721,7 @@ A következő feladatokra kellenek technológiák:
   loggolás)
 \end{itemize}
 
-\subsection{Telepítési
-technológiák}\label{telepuxedtuxe9si-technoluxf3giuxe1k}
+\subsection{Futtatókörnyezetek}\label{futtatuxf3kuxf6rnyezetek}
 
 A mikroszolgáltatásokat valamilyen módon létre kell hozni, egy hosthoz
 kell rendelni, és az egyes elemeket össze kell kötni. A szolgáltatások
@@ -734,14 +747,14 @@ egyszerűbben és elosztottabban is megtehetjük.
   \textbf{ElasticBox}\citep{elasticbox}: Egy olyan alkalmazás, melyben
   nyilvántarthatjuk az alkalmazásainkat, és könnyen egyszerűen
   telepíthetjük őket. Támogatja a konfigurációk változását, illetve
-  számos technológiát, amivel karban tarthatjuk a környezetünket
-  (Docker, Puppet, Ansible, Chef, stb). Együtt működik különböző
-  számítási felhő megoldásokkal, mint az AWS, vSphere, Azure, és más
-  környezetek. Hasonlít a Jenkins-re, csupán ki van élezve a
-  mikroszolgáltatás alapú architektúrák vezérlésére (Illetve fizetős a
-  Jenkins-el ellentétben). Mindent végre tud hajtani ami egy
-  mikroszolgáltatás alapú alkalmazáshoz szükséges, teljes körű
-  felügyeletet biztosít. \citep{jenkins-elasticbox}
+  számos technológiát, amivel karbantarthatjuk a környezetünket (Docker,
+  Puppet, Ansible, Chef, stb). Együtt működik különböző számítási felhő
+  megoldásokkal, mint az AWS, vSphere, Azure, és más környezetek.
+  Hasonlít a Jenkins-re, csupán ki van élezve a mikroszolgáltatás alapú
+  architektúrák vezérlésére (Illetve fizetős a Jenkins-el ellentétben).
+  Mindent végre tud hajtani ami egy mikroszolgáltatás alapú
+  alkalmazáshoz szükséges, teljes körű felügyeletet biztosít.
+  \citep{jenkins-elasticbox}
 \item
   \textbf{Kubernetes}\citep{kubernetes}: A Kubernetes az ElasticBox egy
   opensource változata, ami lényegesen kevesebbet tud, azonban
@@ -764,7 +777,6 @@ működhessen a rendszer, azonban ez nem mindig triviális, így szükség van
 egy olyan alkalmazásra, amivel felderíthetjük az aktív szolgáltatásokat.
 
 \begin{itemize}
-\tightlist
 \item
   \textbf{Consul}\citep{consul}: A Hashicorp szolgáltatásfelderítő
   alkalmazása, amely egy kliens-szerver architektúrának megfelelően
@@ -777,6 +789,16 @@ egy olyan alkalmazásra, amivel felderíthetjük az aktív szolgáltatásokat.
   vezényelni a feliratkozást, egy nagyon erős eszköz kerül a kezünkbe,
   mivel eseményeket küldhetünk a szervereknek, és ezekre különböző
   feladatokat hajthatunk végre.
+\item
+  \textbf{Serf}\citep{serf}: A Hashicorp egy másik hálózati feldeítő
+  eszköze, ami elosztottan nagy rendelkezésre állással képes a fürtözött
+  elemek között fenntartani a kapcsolatot. Ugyan elsősorban fürtözött
+  elemek közé tervezték, de tetszőleges kapcsolat feldeítésre, és
+  nyilvántartására alkalmas. A Consul-hoz hasonló módon egy saját
+  protokollon keresztül kommunikál a többi serf ágenssel, de nem
+  szükséges neki szerver-kliens kapcsolat. Képes egyszerű események
+  küldésére, azonban a szolgáltatásokat nem képes külön kezelni, inkább
+  csak a végpont állapotát figyeli.
 \end{itemize}
 
 A Consult leszámítva nem nagyon találtam olyan eszközt ami a nekem kellő
@@ -846,43 +868,6 @@ karbantarthatók, így a konfiguráció menedzsment is megoldható velük. Ami
 hiányzik ebből a megoldásból az a többi szolgáltatás értesítése a
 változtatásról.
 
-\subsection{Skálázási
-technológiák}\label{skuxe1luxe1zuxe1si-technoluxf3giuxe1k}
-
-A mikroszolgáltatás alapú architektúrák egyik nagy előnye, hogy az egyes
-funkciókra épülő szolgáltatásokat könnyedén lehet skálázni, mivel egy
-load balancert használva csupán egy újabb gépet kell beszervezni, és
-máris nagyobb terhelést is elbír a rendszer. Ahhoz hogy ezt kivitelezni
-tudjuk, szükségünk van egy terheléselosztóra, és egy olyan logikára, ami
-képes megsokszorozni az erőforrásainkat. Számítási felhő alapú
-környezetben ez könnyen kivitelezhető, egyébként hideg tartalékban
-tartott gépek behozatalával elérhető. Sajnálatos módon általános célú
-skálázó eszköz nincsen a piacon, viszont gyakran készítenek maguknak
-saját logikát a nagyobb gyártók.
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Elastic Load Balancer}\citep{elastic-load-balance}: Az Amazon
-  AWS-ben az ELB avagy rugalmas terhelés elosztó az, ami ezt a célt
-  szolgálja. Ennek a szolgáltatásnak az lenne a lényege, hogy segítse az
-  Amazon Cloud-ban futó virtuális gépek hibatűrését, illtve egységbe
-  szervezi a különböző elérhetőségi zónákban lévő gépeket, amivel
-  gyorsabb elérést tudunk elérni. Mivel ez a szolgáltatás csupán az
-  Amazon AWS-t felhasználva tud működni, nem megfelelő általános célra,
-  azonban ha az Amazon Cloud-ban építjük fel a mikroszolgáltatás alapú
-  architektúránkat, akkor erős eszköz lehet számunkra.
-\end{itemize}
-
-A skálázás egyik legegyszerűbb megvalósítása, hogy egy proxy szervert
-felhasználva, valamilyen módon egységesen elosztjuk a kéréseket, és egy
-saját monitorozó eszközzel figyeljük a terhelést (processzor terheltség,
-memória, hálózati terhelés). Ha valamelyik érték megnő, egy ágenses vagy
-ágens nélküli technológiával a virtualizált környezetben egy új példányt
-készítünk a terhelt szolgáltatásból, és a proxy automatikusan megoldja a
-többit. Nem tökéletes megoldát kapunk, azonban ez a legtöbb
-felhasználási esetben megfelelőnek bizonyul.
-
 \subsection{Terheléselosztás}\label{terheluxe9selosztuxe1s}
 
 A mikroszolgáltatás alapú architektúrának egyik fontos eleme a terhelés
@@ -915,6 +900,49 @@ mentén.
 A kézi megvalósítás gyakorlatilag egy kézileg implementált
 terheléselosztó eszköz lenne, amihez viszont hálózati megfigyelés, és
 routing szökséges, így nem javalott ilyen eszköz készítése.
+
+\subsection{Skálázási
+technológiák}\label{skuxe1luxe1zuxe1si-technoluxf3giuxe1k}
+
+A mikroszolgáltatás alapú architektúrák egyik nagy előnye, hogy az egyes
+funkciókra épülő szolgáltatásokat könnyedén lehet skálázni, mivel egy
+load balancert használva csupán egy újabb gépet kell beszervezni, és
+máris nagyobb terhelést is elbír a rendszer. Ahhoz hogy ezt kivitelezni
+tudjuk, szükségünk van egy terheléselosztóra, és egy olyan logikára, ami
+képes megsokszorozni az erőforrásainkat. Számítási felhő alapú
+környezetben ez könnyen kivitelezhető, egyébként hideg tartalékban
+tartott gépek behozatalával elérhető. Sajnálatos módon általános célú
+skálázó eszköz nincsen a piacon, viszont gyakran készítenek maguknak
+saját logikát a nagyobb gyártók.
+
+\begin{itemize}
+\item
+  \textbf{Elastic Load Balancer}\citep{elastic-load-balance}: Az Amazon
+  AWS-ben az ELB avagy rugalmas terhelés elosztó az, ami ezt a célt
+  szolgálja. Ennek a szolgáltatásnak az lenne a lényege, hogy segítse az
+  Amazon Cloud-ban futó virtuális gépek hibatűrését, illtve egységbe
+  szervezi a különböző elérhetőségi zónákban lévő gépeket, amivel
+  gyorsabb elérést tudunk elérni. Mivel ez a szolgáltatás csupán az
+  Amazon AWS-t felhasználva tud működni, nem megfelelő általános célra,
+  azonban ha az Amazon Cloud-ban építjük fel a mikroszolgáltatás alapú
+  architektúránkat, akkor erős eszköz lehet számunkra.
+\item
+  \textbf{Terheléselosztó használata}: Vannak olyan terheléselosztók,
+  melyek bizonyos szolgáltatásokat nyújtó gépeket képesek automatikusan
+  skálázni. Ilyen a HAProxy, és az Ngnix is. Például a HAProxy a TCP
+  üzeneteket képes fogadni és elosztani a hozzá beregisztrált gépek
+  között, és beállítástól függően képes kezelni automatikusan gépeket
+  elvenni, vagy hozzáadni a hálózathoz.
+\end{itemize}
+
+A skálázás egyik legegyszerűbb megvalósítása, hogy egy proxy szervert
+felhasználva, valamilyen módon egységesen elosztjuk a kéréseket, és egy
+saját monitorozó eszközzel figyeljük a terhelést (processzor terheltség,
+memória, hálózati terhelés). Ha valamelyik érték megnő, egy ágenses vagy
+ágens nélküli technológiával a virtualizált környezetben egy új példányt
+készítünk a terhelt szolgáltatásból, és a proxy automatikusan megoldja a
+többit. Nem tökéletes megoldát kapunk, azonban ez a legtöbb
+felhasználási esetben megfelelőnek bizonyul.
 
 \subsection{Virtualizációs
 technológiák}\label{virtualizuxe1ciuxf3s-technoluxf3giuxe1k}
@@ -952,19 +980,19 @@ skálázás, és a monitorozás is egyszerűbb lehet.
   forráskódú projekt és létrehozhatunk vele Linux és Windows gépeket is
   egyaránt.
 \item
-  \textbf{Akármilyen cloud}: Ha virtualizációról beszélünk, akkor adja
-  magát hogy a számítási felhőket is ide értsük. Egy mikroszolgáltatás
-  architektúrájú programot a legcélszerűbb valamilyen számítási felhőben
-  létrehozni, mivel egy ilyen környezetnek definiciója szerint
-  tartalmaznia kell egy virtualizációs szintet, megosztott
-  erőforrásokat, monitorozást, és egyfajta leltárat a futó példányokról.
-  Ennek megfelelően a mikroszolgáltatás alapú architektúra minden
-  környezeti feltételét lefedi, csupán a szolgáltatásokat, business
-  logikát, és az interfészeket kell elkészítenünk. Jellemzően a Cloud-os
-  környezetek tartalmaznak terheléselosztást, és skálázási megoldást is,
-  amivel szintén erősítik a szolgáltatás alapú architektúrákat. Ilyen
-  környezet lehet az Amazon, Microsoft Azure, Google App Engine,
-  OpenStack, és sokan mások.
+  \textbf{Kereskedelmi cloud szolgáltatás}: Ha virtualizációról
+  beszélünk, akkor adja magát hogy a számítási felhőket is ide értsük.
+  Egy mikroszolgáltatás architektúrájú programot a legcélszerűbb
+  valamilyen számítási felhőben létrehozni, mivel egy ilyen környezetnek
+  definiciója szerint tartalmaznia kell egy virtualizációs szintet,
+  megosztott erőforrásokat, monitorozást, és egyfajta leltárat a futó
+  példányokról. Ennek megfelelően a mikroszolgáltatás alapú architektúra
+  minden környezeti feltételét lefedi, csupán a szolgáltatásokat,
+  business logikát, és az interfészeket kell elkészítenünk. Jellemzően a
+  Cloud-os környezetek tartalmaznak terheléselosztást, és skálázási
+  megoldást is, amivel szintén erősítik a szolgáltatás alapú
+  architektúrákat. Ilyen környezet lehet az Amazon, Microsoft Azure,
+  Google App Engine, OpenStack, és sokan mások.
 \end{itemize}
 
 Amennyiben nincs a kezünkben egy saját virtualizáló eszköz, a
@@ -1381,16 +1409,6 @@ A feladat elvégzéséhez próbáltam egy mindent automatizáló keretrendszert
 létrehozni, hogy maximalizálni tudjam a mikroszolgáltatásokhoz adott
 előnyöket.
 
-\subsection{Folytonos Integrációt használó keretrendszer
-feladatai}\label{folytonos-integruxe1ciuxf3t-hasznuxe1luxf3-keretrendszer-feladatai}
-
-A folytonos integrációt használó keretrendszereknek lehetőséget kell
-biztosítaniuk, hogy a buildelés, integráció, és tesztelés folyamata,
-valamilyen automatizmus segítségével végrehajtható legyen. Ehhez egy
-általános interfészt kell biztosítania, amivel megmondhatjuk, hogy
-milyen lépéseken kell végigmenni, hogy az adott fázis végrehajtottnak
-legyen tekinthető.
-
 \subsection{Keretrendszer előnyei a fejlesztésre
 nézve}\label{keretrendszer-elux151nyei-a-fejlesztuxe9sre-nuxe9zve}
 
@@ -1475,7 +1493,9 @@ A kiszolgálási logikát Python, Java és PHP nyelveken írtam, és
 használtam Apache webkiszolgáló alkalmazást, és Ngnix webkiszolgálót, és
 reverse proxy szervert. A szolgáltatások futtatásához bash szkripteket
 készítettem, és Docker konténereket használtam fel a
-környezetfüggetlenség eléréséhez.
+környezetfüggetlenség eléréséhez. Az adatbázis kezelésére MySQL
+adatbázis kezelő szervert használtam, mivel ez a legelterjedtebb
+ingyenesen használható adatbázis kezelő.
 
 Python nyelven nagyon egyszerű implementálni egy webkiszolgálót, amin
 keresztül a ksizolgáló interfészt elkészíthetem, illetve a program
@@ -1579,27 +1599,424 @@ Minden szolgáltatáshoz tartozik egy indító szkript, ami tartalmazza az
 alkalmazás többi elemének a megkeresését, és a szolgáltatás
 elindításához tartozó lépéseket. Az elkészült Dockerfile-ok amikkel az
 image-eket építettem, és az indító szkiptek megtalálhatók a függelékben
-(\ref{appendix-dockerfile}. és \ref{appendix-runner}. fejezet).
+(\ref{appendix-dockerfile}. és \ref{appendix-starter}. fejezet).
 
-\subsection{Alkalmazások}\label{alkalmazuxe1sok}
+\subsection{Alkalmazás részletek}\label{alkalmazuxe1s-ruxe9szletek}
+
+Minden szolgáltatáshoz tartozik egy vagy több forrásfájl, ami
+tartalmazza a kiszolgáló kódot. A kiszlgáló kód egy HTTP protokollal
+elérhető webkiszolgáló, mivel az általam választott Rest-es
+kommunikációhoz erre van szükség.
+
+Az autentikációt lehetővé tevő szolgáltatás tartalmaz egy \textbf{Python
+Flask} implementációt, ami egy olyan webkiszolgáló Python könyvtár,
+amivel az egyes URL-eket metódusokhoz rendelhetjük. Ezen kívül egy
+adatbázis elérést tartalmaz, amit a \textbf{MySQLdb} modul segítségével
+implementáltam. Az egyszerűség kedvéért, az adatbázis már a kezdetektől
+fogva fel van töltve, és nem lehet bele új felhasználót felvenni. Ha
+valaki szerepel az adtbázisban, és a jelszava a neki megadott jelszó,
+akkor sikeresnek jelzem az autentikációt, egyébként ``HTTP 401
+Unauthorized'' üzenettel jelzem a hibát.
+
+Az adatbázishoz nem kellett külön szolgáltatáskódot írnom, mivel a MySQL
+adatbázis önmagában is képes kezelni a felé eső kéréseket. A
+szolgáltatást használat előtt töltöm fel adatokkal, amiken keresztül be
+tudom mutatni a működést. Az adatok betöltését kisebb SQL nyelven írt
+szkriptekkel írtam le. A könyvekhez tartozó adatbázis léterhozása
+például a következő képpen néz ki:
+
+\begin{verbatim}
+...
+CREATE TABLE store
+(
+    store_id int NOT NULL AUTO_INCREMENT,
+    book_name varchar(255) NOT NULL,
+    count int NOT NULL,
+    PRIMARY KEY (store_id)
+);
+...
+\end{verbatim}
+
+Ahogy látható a könyvekhez tartozik egy név és egy számosságot jelző
+`count' mező, illetve egy kulcs érték, amin keresztül minden könyv
+egyedien megkülönböztethető. A többi adattábla ehhez hasonlóan van
+elkészítve, és a hozzájuk tartozó kód megtekinthető a függelékben
+(\ref{appendix-database}. fejezet).
+
+A böngészéshez tisztán PHP kódot írtam, amit az Apache HTTP szerver
+ajánl ki. Ezek a szkriptek teszik elérhetővé a felhasználó számára a
+szolgáltatásokat, egy nagyon egyszerű HTML oldalon keresztül. Az egyes
+funkciók magukban is elérhetők a saját kiszolgálójukon keresztül, de a
+PHP kódok egy közös ferlhasználói interfészt adnak, ami annyit tesz,
+hogy a PHP kódok tovább hívnak a szolgáltatások interfészeire. Ha kliens
+oldali alkalmazást készítettem volna, akkor a böngészéshez tartozó kód,
+egy garfikus felület kódja lett volna, ami pont ugyan így kommunikált
+volna a többi szolgáltatással. Ugyan így elmondható, hogy bármikor
+kicserélhető a megjelenítés a böngészés szolgáltatás kicserélésével. A
+PHP küdok megtalálhatók a függelékben (\ref{appendix-http}. fejezet).
+
+A legbonyolultabb szolgáltatás a megrendeléshez tartozó szolgáltatás,
+ami az alábbi kódrészletet tartalmazza. Ennek megfelelően a program
+megkeresi a megrendelendő könyvet a nyilvántartásban, megnézi
+lehetséges-e a feladott megrendelés, és ha igen bejegyzéseket tesz róla
+az adatbázisban. Levontja a kívánt mennyiséget a jelenlegi mennyiségből,
+és felvesz egy új rendelést a rendelések jegyzékébe.
+
+\begin{verbatim}
+...
+selectStmt = this.conn.prepareStatement(
+    "SELECT count FROM store WHERE book_name LIKE ?"
+);
+updateStmt = this.conn.prepareStatement(
+    "UPDATE store SET count = ? WHERE book_name LIKE ?"
+);
+insertStmt = this.conn.prepareStatement(
+    "INSERT INTO reservation (username, book_name, count, res_date)" +
+    "VALUES (?, ?, ?, ?)"
+);
+this.logger.info("Get book list");
+this.conn.setAutoCommit(true);
+selectStmt.setString(1, nameOfBook);
+if (selectStmt.execute()) {
+   rs = selectStmt.getResultSet();
+   rs.next();
+   int count = rs.getInt("COUNT");
+   count = count - number;
+   if (count > 0){
+     this.logger.info("Update books in database");
+     updateStmt.setInt(1, count);
+     updateStmt.setString(2, nameOfBook);
+     updateStmt.executeUpdate();
+     this.logger.info("Save the executed order");
+     insertStmt.setString(1, "test");
+     insertStmt.setString(2, nameOfBook);
+     insertStmt.setInt(3, number);
+     insertStmt.setString(4, new Date().toString());
+     insertStmt.executeUpdate();
+   } else {
+     this.logger.info("Not enough book in the store!");
+     status = 500;     
+   }
+}
+...
+\end{verbatim}
+
+A Proxy szolgáltatás az adatbázishoz hasonlóan nem igyénel önálló
+logikát, mivel a HAProxy, amit kiválasztottam mintt proxy vezérlő, nem
+igényel semmilyen mögöttes logikát, csupán egy konfiguráció beállítást.
+Ezt a beállítást Consul template segítségével értem el, amit a következő
+módon konfiguráltam:
+
+\begin{verbatim}
+...
+frontend <servicename>
+    bind *:<serviceport>
+    default_backend <backendname>
+
+backend <backendname>
+    balance roundrobin{{range "app.<service>"}}
+    service {{.ID}} {{.Address}}:{{.Port}}{{end}}
+...
+\end{verbatim}
+
+Minden szolgáltatáshoz tartozik egy ilyen bejegyzés, ami pontosan
+megmondja, hogy az adott szolgáltatáshoz melyik port tartozik, és hol
+találhatók a backend szerverei. A Consul template pedig kitölti a
+backend szerverhez tartozó részeket az összes élő
+szolgáltatáspéldánnyal. Ha egy szolgáltatás konténer leáll, akkor a
+hozzá rendelt bejegyzés automatikusan eltűnik. A konkrét Consul template
+megtalálható a függelékben (\ref{appendix-template}. fejezet).
 
 \section{Kommunikáció, avagy hogy működik a
 Consul}\label{kommunikuxe1ciuxf3-avagy-hogy-mux171kuxf6dik-a-consul}
 
+A szolgáltatások közötti kommunikáció Rest-es interfészeken keresztül
+történik, HTTP protokollal. Az interfészek minden szolgáltatásra
+egyediek, és csak egy olyan szolgáltatás van akinek mindegyik interfészt
+ismernie kell, ez pedig a böngészés, mivel ezen keresztül érhető el az
+összes funkció. Az egyes szolgáltatások nem tudnak egymásról, így
+kellett egy mechanizmus, ami megtalálja az összes szolgáltatást, és
+elérhetővé teszi egymás számára.
+
+Ez a technológia a Consul lett, amihez ha beregisztrálunk egy végpontot,
+akkor minden adatát elérhetővé teszi a consul álltal létrehozott
+hálózaton belül. Egészen pontosan úgy történik ez, hogy létrehozunk egy
+Consul szervert, ami képes megosztani az adatokat a hozzá beregisztrált
+kliensekhez, illetve csatlakozhat más hálózatokhoz is, amikben ő mint
+kliens jelenik meg. Ezt kihasználva egy olyan logikát csináltam, ami
+minden végpontot Consul szerverként kezel, és automatikusan a legkisebb
+IP című másik szervert megtalálja.
+
+\begin{verbatim}
+...
+while true; do
+    FOUND=false
+    for ADDR in $(seq 1 255); do
+        echo "${MASK}.${ADDR}  ${IP_ADDR}"
+        [[ "${MASK}.${ADDR}" == "${IP_ADDR}" ]] && continue
+        ping -c 1  "${MASK}.${ADDR}"
+        [ $? -eq 0 ] || continue
+        echo "Try consul with ${MASK}.${ADDR}"
+        consul agent -server \
+                     -join "${MASK}.${ADDR}" \
+                     -datacenter "bookstore" \
+                     -data-dir "${CONSUL_DIR}" > /var/log/bookstore-consul.log &
+        sleep 10
+        cat /var/log/bookstore-consul.log
+        if ps ax | grep -v grep | grep "consul" > /dev/null; then
+            echo "Consul could run!!!"
+            FOUND=true
+            break
+        fi
+    done
+    echo "${FOUND}"
+    if [[ "${FOUND}" == "true" ]]; then
+        break
+    fi
+done
+...
+\end{verbatim}
+
+Ha megtalálta egymást néhány szerver, akkor egyre több és több lehetőség
+lesz csatlakozni a hálózathoz, és bármely szerver kiesése esetén az
+össze szolgáltatás helyettesítheti a kiesőt. Ettől a consul hálózat
+hibatűtő lesz, és az adat is meg lesz osztva a végpontok között.
+
+A pontos cím és a szolgáltatás is kinyerhető a Consul adatbázisából, így
+bármelyik funkió elérhetővé válik.
+
 \section{Működés és
 alkalmazás}\label{mux171kuxf6duxe9s-uxe9s-alkalmazuxe1s}
+
+Az alkalmazás indításához elkészítettem egy elég általános indító
+szkriptet, ami a neki megadott Docker konténerekből indít el egy
+alkalmazást.
+
+\begin{verbatim}
+...
+for service in ${services}
+do
+    echo "Start ${service} service ..."
+    docker run -d --name "${service}" -h "${service}" --net=bookstore bookstore_${service}
+done
+...
+\end{verbatim}
+
+Miután elindult az alkalmazás, a webes felület elérhető a proxy, vagy a
+böngésző Docker konténer IP címén keresztül. Ehhez az információhoz a
+következő paranccsal juthatunk:
+
+\begin{verbatim}
+docker inspect -f '{{ .NetworkSettings.Networks.bookstore.IPAddress }}' proxy
+\end{verbatim}
+
+Ha valamilyen névfeloldás áll rendelkezésre, akkor a proxy szolgáltatás
+IP címét érdemes megadni neki. A felhasználó egy egyszerű
+bejelentkeztető felületet láthat az alkalmazás indítása után, amin
+keresztül a felhasználó nevet és jelszavat adhatja meg.
+
+\begin{figure}[H]
+\centering
+\includegraphics{img/loginscreen.png}
+\caption{Bejelentkező felület}
+\end{figure}
+
+Ha bejelentkeztünk a böngésző oldalra dob az alkalmazás, és lehetőségünk
+nyilik rendeléseket is feladni.
+
+\begin{figure}[H]
+\centering
+\includegraphics{img/browsescreen.png}
+\caption{Böngésző felület}
+\end{figure}
+
+A háttérben minden kérésünkre a szolgáltatások között kommunikáció indul
+meg, és a különböző funkciók esetén más-más szolgáltatás kiszolgáló
+kódja indul el.
 
 \section{Folytonos integráció
 elkészítése}\label{folytonos-integruxe1ciuxf3-elkuxe9szuxedtuxe9se}
 
+A folytonos integrációt támogató keretrendszerek közül a Jenkins-t
+választottam, mivel ez a legelterjedtebb nyílt forrású eszköz, amivel
+képes vagyok véghez vinni a feladatokat.
+
 \subsection{Jenkins}\label{jenkins}
 
+A Jenkins egy olyan folytonos integrációt támogató keretrendszer, aminek
+a Java implementációja lehetővé teszi, hogy bármely, az eszközhöz
+beregisztrált gépen futtassunk tetszőleges kódot. Ahhoz, hogy ezeket a
+kódokat futtassuk, egy jól struktúrált végrehajtási rendszert
+implemenetál, aminek a következők a részei:
+
+\begin{itemize}
+\tightlist
+\item
+  Jenkins: A Jenkins maga a legnagyobb egység, ami az összes
+  végrehajtandó feladatot tartalmazza, struktúrálja, és konfigurálhatóvá
+  teszi a felhasznált plugin-eket, autentikációt, és mindent ami a
+  feladatokhoz tartozhat.
+\item
+  View: A feladatok egy jól struktúrált egysége.
+\item
+  Job: Ez a feladatok implementációja, minden Job tetszőleges mennyiségű
+  végrehajtandó feladatot tartalmaz, képes más Job-ok hívására, és a
+  plugin-ek használatával gyakorlatilag bármilyen feladatot képes
+  elvégezni (build-et futtat, java forrásokat fordít maven-nel, vagy
+  Docker konténereket vezérel, stb.).
+\item
+  Build: Ez az egység egy Job egyszeri futását jelenti, ehhez tartozik
+  egy azonosító, ami az adott Job-ra nézve megkülönbözteti, a futtatás
+  paraméterei, környezeti változói, és egy olyan szeparált környezet
+  (workspace), amiben a feladatokat végrehajtja.
+\end{itemize}
+
+Ahhoz hogy megcsináhassam az alkalmazásom fejlesztését támogató
+keretrendszert, ahhoz Job-kat kellett létrehoznom, amik végrehajtották a
+szoftverrel kapcsolatos feladatokat.
+
 \subsection{Pipeline Job}\label{pipeline-job}
+
+A Pipeline job egy olyan Jenkins-ben elérhető Job fajta, ami képes
+egységbe szervezni a feladatokat, és levezényelni a közös futásukat. A
+legtöbb folytonos integrációt támogató rendszerben egy rövidebb,
+hosszabb munkafolyamatot kell lebonyolítani, aminek a pipeline nevet
+adta a Jenkins, mivel az egyes Job-ok az előzetes Job-ok build-jeitől
+függenek, ami annyit jelent, hogy például a telepítési fázis függ a
+build fázis artifact-jaitól.
+
+A Jenkins 2.0-ban megjelenő Pipeline job-hoz tartozik egy új leíró nyelv
+is, amit Pipline szkriptnek neveznek. Lehetőség van fájlban tárolni a
+konfigurációt, amit Jenkinsfile néven lehet menteni. A Dockerfile-hoz
+hasonlóan ez is a működést írja le, és Pipeline szkriptet tartalmaz.
+
+\begin{verbatim}
+...
+node {
+    echo 'Running '+jobName+' job'
+    build job: jobName
+}
+...
+\end{verbatim}
+
+A fenti részlet egy olyan Pipline szkriptet mutat, amiben egy bizonyos
+Job-ot akarunk futtatni. A `node' kulcsszó jelzi a gépet amin futtatni
+akarjuk a feladatot, aminek ha nem adunk meg semmit, akkor tetszőleges
+helyen fut le. A zárójelek között leírt utasítások pedig megmondják, mi
+történjen azon a végponton. Egy utasítás lehet bármi amit egy Jenkins
+álltal alapból támogatott Job esetén beállíthatnánk, de ezek a parancsok
+inkább arra vannak kiélezve, hogy a feladatok közötti kapcsolatot
+leírják. Az egyik ilyen parancs az \textbf{echo} amivel kiírhatunk a
+build során üzeneteket a console kimenetre. Másik utasítás, a
+\textbf{build job}, amivel elindíthatunk egy Job-ot. Az alábbi példában
+egy fázis definiálása látható.
+
+\begin{verbatim}
+stage 'Deploy'
+echo 'Deploying services ...'
+build job: 'deploy-services'
+\end{verbatim}
+
+Egy fázis definiálása során egy képzeletbeli egységet alkotunk, ami
+job-ok futtatását, illetve parancsok futtatását tartalmazza. Új fázist a
+\textbf{stage} kulcsszóval definiálhatunk, és az utána írt utasítások
+mind a fázis részeként fognak megjelenni.
+
+Az általam implementált Pipeline job, tartalmaz egy `Build', egy
+`Deploy', egy `Test', és egy Cleanup fázist. Az alábbi ábrán látható a
+Job-hoz tartozó összefoglaló nézet, ahol láthatók a Job futtatásai:
+
+\begin{figure}[H]
+\centering
+\includegraphics{img/pipeline-job.png}
+\caption{Pipline Job a mikszolgáltatás támogatásához}
+\end{figure}
+
+A képen látható, hogy hogyan is választja szép a fázisokat a Pipiline
+Job, és hogy hogyan lehet kategorizálni a feladatok megívását. Az első
+`Build' fázis mögött például 5 darab build Job hívás van, ami azt
+jelenti, hogy minden szolgáltatást külön fordít le és készíti el a hozzá
+tartozó Docker image-et.
 
 \subsection{Jenkins Job-ok a
 keretrendszerhez}\label{jenkins-job-ok-a-keretrendszerhez}
 
+Az előző fejezetben már látható volt, hogy van egy egész folyamatot
+vezénylő Pipeline Job, amivel az összes folyamatot irányítom. Minden
+fázishoz tartozik legalább egy másik Job, amiben leírtam, hogy pontosan
+mit is kell csinálni abban a munkafolyamatban. A következő Job-okat
+hoztam létre:
+
+\begin{itemize}
+\tightlist
+\item
+  build-auth-service: Authentikációs szolgáltatás elkészítése, ami egy
+  Docker image-et build-el.
+\item
+  build-database-service: Adatbázis szolgáltatás elkészítése, ami egy
+  Docker image-et build-el.
+\item
+  build-order-service: Megrendelés szolgáltatás elkészítése, ami Maven
+  build segítségével elkészíti a Java programot, és egy Docker image-et
+  build-el.
+\item
+  build-proxy-service: Proxy szolgáltatás elkészítése, ami egy Docker
+  image-et build-el.
+\item
+  build-webserver-service: Böngészés szolgáltatás elkészítése, ami egy
+  Docker image-et build-el.
+\item
+  cleanup-services: Letörli a futó konténereket, és eltünteti a régi
+  image-eket a Docker-ből.
+\item
+  deploy-services: Alkalmazás indítása, avagy a szolgáltatásokhoz
+  tartozó konténerek indítása, hozzá tartozó hálózat elkészítésével.
+\item
+  test-services: Tesztek futtatása, amely az alkalmazás funkcionalitását
+  teszteli.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics{img/job-view.png}
+\caption{Jenkins Job-ok listája}
+\end{figure}
+
 \subsection{Job Konfigurációk}\label{job-konfiguruxe1ciuxf3k}
+
+Vannak bizonyos beállítások, amik minden létrehozott Job-ra egyformák,
+mivel egy közös verziókezelő eszközből a GitHub-ből vette a
+forrásfájlokat minden Job. Az ehhez tartozó beállításokat az
+\ref{github-conf}. ábra mutatja.
+
+\includegraphics{img/github-config.png}\label{github-conf}
+
+Ez a konfiguráció azt mondja meg, hogy honnan töltse le a forrásokat a
+Jenkins, és milyen branch tartalmát akarom felhasználni. Van egy
+beállítás az autentikáció lebonyolítására is, ami a Jenkins-en belül egy
+felhasználónév jelszó pár, amit felhasználva a Jenkins tudja használni a
+GitHub-ot. Ezt a párost globálisan lehet megadni a Jenkins-nek, amit a
+\emph{Jenkins/Credentials} fülön keresztül érhetünk el.
+
+Másik mindenhol beállított tulajdonság a konkurrens futtatás beállítása,
+ami azt jelenti, hogy több build is futhat egy időben. Feltételezve,
+hogy a Job-ok külön gépeken futnak, lehetséges, hogy több példány is
+fusson belőlük.
+
+Amiben minden Job különbözik az a futtatott kód. Minden Job-hoz
+készítettem egy szkriptet amit meghívhatok a Jenkins-ből. Egy ilyen
+Jenkins beállítás a \ref{script-run}. ábrán látható.
+
+\includegraphics{img/script-run.png}\label{script-run}
+
+A build Job-ok esetén egy artifact is keletkezik, ami az adott build-hez
+kapcsolódoan lesz lementve. A beállítást a \ref{archive}. ábra mutatja.
+
+\includegraphics{img/archive.png}\label{archive}
+
+Az elmentet Docker image-ek letölthetők a Jenkins-ből minden build után,
+így könnyen reprodukálható bármelyik futás, illetve könnyen kiadható
+bármelyik verzió.
 
 \chapter{Értékelés}\label{uxe9rtuxe9keluxe9s}
 
@@ -1768,7 +2185,7 @@ EXPOSE 8888 8301 8302 8500 8400
 Dockerfile.web.service
 
 \begin{verbatim}
-FROM httpd
+FROM ubuntu
 MAINTAINER Borlay Dániel <borlay.daniel@gmail.com>
 
 ENV CONSUL_DIR /usr/share/consul
@@ -1776,11 +2193,12 @@ ENV CONSUL_DIR /usr/share/consul
 # Install Service
 COPY webserver.sh /usr/sbin/webserver.sh
 RUN apt-get -y update && \
-    apt-get -y install php5 \
-        php5-mysql \
+    apt-get -y install apache2 php \
+        libapache2-mod-php \
+        php-mysql \
         curl \
         iputils-ping \
-        php5-curl && \
+        php-curl && \
     chmod +x /usr/sbin/webserver.sh
 COPY index.html main.css login.php store.php order.php /var/www/html/
 
@@ -1934,8 +2352,107 @@ done
 <service>.sh
 \end{verbatim}
 
-\subsubsection{Adatbázis
-inicializálás}\label{adatbuxe1zis-inicializuxe1luxe1s}
+\subsubsection{\texorpdfstring{Böngészés
+kódjai\label{appendix-http}}{Böngészés kódjai}}\label{buxf6nguxe9szuxe9s-kuxf3djai}
+
+Login oldal:
+
+\begin{verbatim}
+<?php
+
+if(!isset( $_POST['username'], $_POST['password']))
+{
+    echo 'Please enter a valid username and password';
+}
+else
+{
+    $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_URL,
+        "http://auth:8081/auth/{$username}/{$password}"
+    );
+    $output = curl_exec($ch);
+    $info = curl_getinfo($ch);
+    if ($output === false || $info['http_code'] != 200) {
+        header("Location: /login.php");
+        die();
+    }
+    else {
+        header("Location: /store.php");
+        die();
+    }
+    curl_close($ch);
+}
+?>
+\end{verbatim}
+
+Könyveket megjelenítő oldal:
+
+\begin{verbatim}
+<html>
+<head>
+<title>Bookstore Microservice</title>
+<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+
+<div id="storeBox">
+<h2>Books:</h2>
+
+<table>
+  <tbody>
+    <tr><th>Name</th><th>Quantity</th></tr>
+
+    <?php
+      $servername = "database";
+      $username = "store";
+      $password = "store";
+      $dbname = "bookstore";
+
+      // Create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+
+      $sql = "SELECT * FROM store";
+      $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+              echo "<tr><td>" . $row["book_name"]. \
+                "</td><td> " . $row["count"]. "</td></tr>";
+          }
+      } else {
+          echo "0 results";
+      }
+      $conn->close();
+    ?>
+
+  </tbody>
+</table>
+</div>
+<div id="orderBox">
+<form action="order.php" method="post">
+    <span>Name of Book: </span>\
+        <input type="text" name="nameOfBook" /><br/>
+    <span>Number of Books: </span>\
+        <input type="text" name="numberOfBooks"/><br/>
+    <input type="submit" name="send" value="Send"/>
+</form>
+</div>
+
+</body>
+</html>
+\end{verbatim}
+
+\subsubsection{\texorpdfstring{Adatbázis
+inicializálás\label{appendix-database}}{Adatbázis inicializálás}}\label{adatbuxe1zis-inicializuxe1luxe1s}
 
 Authentikáció:
 
@@ -1993,6 +2510,27 @@ VALUES ("Lord of the Rings: The Two Towers", 3);
 INSERT INTO store (book_name, count)
 VALUES ("Lord of the Rings: The Return of the King", 0);
 \end{verbatim}
+
+\subsection{\texorpdfstring{Pipeline job
+szkript\label{appendix-pipline}}{Pipeline job szkript}}\label{pipeline-job-szkript}
+
+Pipline job full szkript:
+
+```\{Pipeline script\} buildNames = {[} `build-auth-service',
+`build-database-service', `build-order-service', `build-proxy-service',
+`build-webserver-service'{]}
+
+def buildJobs = {[}:{]}
+
+for (int i=0; i\textless{}buildNames.size(); ++i) \{ def buildName =
+buildNames{[}i{]} buildJobs{[}buildNames{[}i{]}{]} = \{ node \{ echo
+`Running'+buildName+`build' build job: buildName \} \} \}
+
+stage `Build' echo `Building services \ldots{}' parallel buildJobs stage
+`Deploy' echo `Deploying services \ldots{}' build job: `deploy-services'
+stage `Test' echo `Testing services \ldots{}' build job: `test-services'
+stage `Cleanup' echo `Cleaning up services \ldots{}' build job:
+`cleanup-services' ```
 
 \subsection{\texorpdfstring{Proxy\label{appendix-template}}{Proxy}}\label{proxy-1}
 

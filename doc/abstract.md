@@ -1,7 +1,9 @@
 Kivonat {.unnumbered}
 =======
 
-Napjainkban komoly gondot okoz, hogy hogyan lehet hatékonyan elosztott, jó rendelkezésre állású, könnyen skálázható alkalmazást építeni. Sok architektúrális megközelítés van, amit alapul véve hatákonyan tervezhetjük meg a rendszerünket, és könnyen elkészíthetjük az alkalmazásunkat. Egy ilyen architektúrális megközelítés a mikroszolgáltatásokon alapuló architektúra, amivel apró részletekre bontva a feladatot, könnyen kezünkben tarthatjuk az elosztott alkalmazásunkat.
+Napjainkban komoly gondot okoz, hogy hogyan lehet hatékonyan elosztott, jó rendelkezésre állású, könnyen skálázható alkalmazást építeni. Sok architektúrális megközelítés van, amit alapul véve hatékonyan tervezhetjük meg a rendszerünket, és könnyen elkészíthetjük az alkalmazásunkat. Egy ilyen architektúrális megközelítés a mikroszolgáltatásokon alapuló architektúra, amivel apró részletekre bontva a feladatot, könnyen kezünkben tarthatjuk az elosztott alkalmazásunkat.
+
+A mikroszolgáltatásokra épülő architekrúra (microservices), egy olyan architektúrális fejlesztési módszertan, ami a programot alkotó elemeire szedi, és minden funkcionalitást teljesen különálló egységként kezel. Egy ilyen alkalmazás fejlesztése közben oda kell figyelni az összes szolgáltatással való együtetteműködésre, a visszamenőleges kompatibilitásra, és meg kell tartani az alkotóelemek kapcsolatának a konzisztenciáját. Ennek a fenntartása egy nehéz feladat, amit kézileg szinte lehetetlen hosszú távon fenntartani.
 
 A diplomaterv keretében az volt a feladatom, hogy megismerjem az architektúra lényegét és müködését, illetve kiderítsem, hogy milyen eszközökkel tudom automatizálás segítségével támogatni a fejlesztés, és működtetés folyamatát.
 
@@ -11,6 +13,8 @@ Abstract {.unnumbered}
 ========
 
 Nowadays it's a very big problem, that how to build a distributed, highly available, easily scalable application efficiently. There are many ways to design our system and application which we could base on our plans. One of these design patterns is the microservice based architecture, which creates small services from the big application, by separating the functionality, and we can handle more efficiently our distributed application.
+
+Microservice architecture is a software development methodology, which separates the parts of the application to the smallest functionality, which could be run from a separated environment. It is important to take care about the cooperation between the services, the backward compatibility and the consistency of the service connectivity through the development flow. It is hard to keep these attributes, and almost impossible to keep it on long term by manual verification.
 
 The goal of this thesis is to gather knowledge about the architecture, how it works or how it could be designed, or which continuous integration tool could be used for helping development and maintenance.
 

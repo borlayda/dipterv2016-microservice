@@ -199,13 +199,13 @@ Miután elindult az alkalmazás, a webes felület elérhető a proxy, vagy a bö
 docker inspect -f '{{ .NetworkSettings.Networks.bookstore.IPAddress }}' proxy
 ```
 
-Ha valamilyen névfeloldás áll rendelkezésre, akkor a proxy szolgáltatás IP címét érdemes megadni neki. A felhasználó egy egyszerű bejelentkeztető felületet láthat az alkalmazás indítása után, amin keresztül a felhasználó nevet és jelszavat adhatja meg.
+Ha valamilyen névfeloldás áll rendelkezésre, akkor a proxy szolgáltatás IP címét érdemes megadni neki. A felhasználó egy egyszerű bejelentkeztető felületet láthat az alkalmazás indítása után, amin keresztül a felhasználó nevet és jelszavat adhatja meg (\ref{login}. ábra).
 
-![Bejelentkező felület](img/loginscreen.png)
+![Bejelentkező felület\label{login}](img/loginscreen.png)
 
-Ha bejelentkeztünk a böngésző oldalra dob az alkalmazás, és lehetőségünk nyilik rendeléseket is feladni.
+Ha bejelentkeztünk a böngésző oldalra dob az alkalmazás, és lehetőségünk nyilik rendeléseket is feladni (\ref{browse}. ábra).
 
-![Böngésző felület](img/browsescreen.png)
+![Böngésző felület\label{browse}](img/browsescreen.png)
 
 A háttérben minden kérésünkre a szolgáltatások között kommunikáció indul meg, és a különböző funkciók esetén más-más szolgáltatás kiszolgáló kódja indul el.
 
@@ -215,7 +215,7 @@ A folytonos integrációt támogató keretrendszerek közül a Jenkins-t válasz
 
 ### Jenkins
 
-A Jenkins egy olyan folytonos integrációt támogató keretrendszer, aminek a Java implementációja lehetővé teszi, hogy bármely az eszközhöz beregisztrált gépen futtassunk tetszőleges kódot. Ahhoz, hogy ezeket a kódokat futtassuk, egy jól struktúrált végrehajtási rendszert implemenetál, aminek a következők a részei:
+A Jenkins egy olyan folytonos integrációt támogató keretrendszer, aminek a Java implementációja lehetővé teszi, hogy bármely, az eszközhöz beregisztrált gépen futtassunk tetszőleges kódot. Ahhoz, hogy ezeket a kódokat futtassuk, egy jól struktúrált végrehajtási rendszert implemenetál, aminek a következők a részei:
 
 * Jenkins: A Jenkins maga a legnagyobb egység, ami az összes végrehajtandó feladatot tartalmazza, struktúrálja, és konfigurálhatóvá teszi a felhasznált plugin-eket, autentikációt, és mindent ami a feladatokhoz tartozhat.
 * View: A feladatok egy jól struktúrált egysége.
@@ -230,23 +230,62 @@ A Pipeline job egy olyan Jenkins-ben elérhető Job fajta, ami képes egységbe 
 
 A Jenkins 2.0-ban megjelenő Pipeline job-hoz tartozik egy új leíró nyelv is, amit Pipline szkriptnek neveznek. Lehetőség van fájlban tárolni a konfigurációt, amit Jenkinsfile néven lehet menteni. A Dockerfile-hoz hasonlóan ez is a működést írja le, és Pipeline szkriptet tartalmaz.
 
-```{Pipeline script}
+```{Pipeline}
+...
 node {
-    echo 'Running '+jobName+' build'
+    echo 'Running '+jobName+' job'
     build job: jobName
 }
 ...
 ```
 
+A fenti részlet egy olyan Pipline szkriptet mutat, amiben egy bizonyos Job-ot akarunk futtatni. A 'node' kulcsszó jelzi a gépet amin futtatni akarjuk a feladatot, aminek ha nem adunk meg semmit, akkor tetszőleges helyen fut le. A zárójelek között leírt utasítások pedig megmondják, mi történjen azon a végponton. Egy utasítás lehet bármi amit egy Jenkins álltal alapból támogatott Job esetén beállíthatnánk, de ezek a parancsok inkább arra vannak kiélezve, hogy a feladatok közötti kapcsolatot leírják. Az egyik ilyen parancs az **echo** amivel kiírhatunk a build során üzeneteket a console kimenetre. Másik utasítás, a **build job**, amivel elindíthatunk egy Job-ot. Az alábbi példában egy fázis definiálása látható.
 
-
-```{Pipeline script}
+```{Pipeline}
 stage 'Deploy'
 echo 'Deploying services ...'
 build job: 'deploy-services'
 ```
 
+Egy fázis definiálása során egy képzeletbeli egységet alkotunk, ami job-ok futtatását, illetve parancsok futtatását tartalmazza. Új fázist a **stage** kulcsszóval definiálhatunk, és az utána írt utasítások mind a fázis részeként fognak megjelenni.
+
+Az általam implementált Pipeline job, tartalmaz egy 'Build', egy 'Deploy', egy 'Test', és egy Cleanup fázist. Az alábbi ábrán látható a Job-hoz tartozó összefoglaló nézet, ahol láthatók a Job futtatásai:
+
+![Pipline Job a mikszolgáltatás támogatásához](img/pipeline-job.png)
+
+A képen látható, hogy hogyan is választja szép a fázisokat a Pipiline Job, és hogy hogyan lehet kategorizálni a feladatok megívását. Az első 'Build' fázis mögött például 5 darab build Job hívás van, ami azt jelenti, hogy minden szolgáltatást külön fordít le és készíti el a hozzá tartozó Docker image-et.
+
 ### Jenkins Job-ok a keretrendszerhez
 
+Az előző fejezetben már látható volt, hogy van egy egész folyamatot vezénylő Pipeline Job, amivel az összes folyamatot irányítom. Minden fázishoz tartozik legalább egy másik Job, amiben leírtam, hogy pontosan mit is kell csinálni abban a munkafolyamatban. A következő Job-okat hoztam létre:
+
+* build-auth-service: Authentikációs szolgáltatás elkészítése, ami egy Docker image-et build-el.
+*	build-database-service: Adatbázis szolgáltatás elkészítése, ami egy Docker image-et build-el.
+*	build-order-service: Megrendelés szolgáltatás elkészítése, ami Maven build segítségével elkészíti a Java programot, és egy Docker image-et build-el.
+*	build-proxy-service: Proxy szolgáltatás elkészítése, ami egy Docker image-et build-el.
+*	build-webserver-service: Böngészés szolgáltatás elkészítése, ami egy Docker image-et build-el.
+*	cleanup-services: Letörli a futó konténereket, és eltünteti a régi image-eket a Docker-ből.
+*	deploy-services: Alkalmazás indítása, avagy a szolgáltatásokhoz tartozó konténerek indítása, hozzá tartozó hálózat elkészítésével.
+*	test-services: Tesztek futtatása, amely az alkalmazás funkcionalitását teszteli.
+
+![Jenkins Job-ok listája](img/job-view.png)
 
 ### Job Konfigurációk
+
+Vannak bizonyos beállítások, amik minden létrehozott Job-ra egyformák, mivel egy közös verziókezelő eszközből a GitHub-ből vette a forrásfájlokat minden Job. Az ehhez tartozó beállításokat az \ref{github-conf}. ábra mutatja.
+
+![GitHub beállítások\label{github-conf}](img/github-config.png)
+
+Ez a konfiguráció azt mondja meg, hogy honnan töltse le a forrásokat a Jenkins, és milyen branch tartalmát akarom felhasználni. Van egy beállítás az autentikáció lebonyolítására is, ami a Jenkins-en belül egy felhasználónév jelszó pár, amit felhasználva a Jenkins tudja használni a GitHub-ot. Ezt a párost globálisan lehet megadni a Jenkins-nek, amit a *Jenkins/Credentials* fülön keresztül érhetünk el.
+
+Másik mindenhol beállított tulajdonság a konkurrens futtatás beállítása, ami azt jelenti, hogy több build is futhat egy időben. Feltételezve, hogy a Job-ok külön gépeken futnak, lehetséges, hogy több példány is fusson belőlük.
+
+Amiben minden Job különbözik az a futtatott kód. Minden Job-hoz készítettem egy szkriptet amit meghívhatok a Jenkins-ből. Egy ilyen Jenkins beállítás a \ref{script-run}. ábrán látható.
+
+![Szkript fuuttatása\label{script-run}](img/script-run.png)
+
+A build Job-ok esetén egy artifact is keletkezik, ami az adott build-hez kapcsolódoan lesz lementve. A beállítást a \ref{archive}. ábra mutatja.
+
+![Archiválás beállítása\label{archive}](img/archive.png)
+
+Az elmentet Docker image-ek letölthetők a Jenkins-ből minden build után, így könnyen reprodukálható bármelyik futás, illetve könnyen kiadható bármelyik verzió.

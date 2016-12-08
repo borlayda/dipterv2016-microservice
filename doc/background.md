@@ -4,7 +4,7 @@ Háttérismeretek
 Mikroszolgáltatások
 -------------------
 
-A mikroszolgáltatás[@microservices] [@micro-arch] [@microservices-light] egy olyan architektúrális modellezési mód, amikor a tervezett rendszert/alkalmazást kisebb funkciókra bontjuk, és önálló szolgáltatásokként, önálló erőforrásokkal, valamilyen jól definiált interfészen keresztül tesszük elérhetővé.
+A mikroszolgáltatás[@microservices] [@micro-arch] [@microservices-light] egy olyan architektúrális tervezési módszer, amikor a tervezett rendszert/alkalmazást kisebb funkciókra bontjuk, és önálló szolgáltatásokként, önálló erőforrásokkal, valamilyen jól definiált interfészen keresztül tesszük elérhetővé.
 
 Ezt az architektúrális mintát az teszi erőssé, hogy nem függenek egymástól a különálló komponensek, és csak egy kommunikációs interfészt ismerve is karbantartható a rendszer. Egy szoftver fejlesztési projektben előnyös lehet, hogy az egyes csapatok fókuszálhatnak a saját szolgáltatásukra, és nincs szükség a folyamatos kompatibilitás tesztelésére.
 
@@ -28,9 +28,9 @@ A tervezési folyamatnál a következő szempontokat szokták figyelembe venni:
 
 Ezekkel a lépéssekkel meg lehet alapozni, hogy az általunk készítendő rendszer hogyan is lesz kialakítva, és milyen paraméterek mentén lesz felvágva. A választást segíti a témában elterjedt fogalom, a scaling cube[@scale-cube], ami azt mutatja, hogy az architektúrális terveket milyen szempontok mentén lehet felosztani.
 
-![Scaling Cube](img/ScaleCude.jpg)
+![Scaling Cube\label{scalecube}](img/ScaleCude.jpg)
 
-Ahogy a képen is látható a meghatározó felbontási fogalmak, az adat menti felbontás, a tetszőleges fogalom menti felbontás, illetve a klónozás.
+Ahogy a \ref{scalecube}. ábrán képen is látható a meghatározó felbontási fogalmak, az adat menti felbontás, a tetszőleges fogalom menti felbontás, illetve a klónozás.
 
 ####Adat menti felbontás
 
@@ -74,10 +74,10 @@ A mikroszolgáltatások a szolgáltatás orientált architektúrális minta fino
 
 ###Példák mikroszolgáltatásokat használó alkalmazásokra
 
-Amazon - minden Amazon-nal kommunikáló eszköz illetve az egyes funkciók implementációja is szolgáltatásokra van szedve, és ezeket hívják az egyes funkciók (vm indítás, törlés, mozgatás, stb.)
+* **Amazon**: minden Amazon-nal kommunikáló eszköz illetve az egyes funkciók implementációja is szolgáltatásokra van szedve, és ezeket hívják az egyes funkciók (vm indítás, törlés, mozgatás, stb.)
 
-eBay - Különböző műveletek szerint van felbonva a funkcionalitás, és ennek megfelelően külön szolgáltatásként érhető el a fizetés, megrendelés, szállítási információk, stb.
+* **eBay**: Különböző műveletek szerint van felbonva a funkcionalitás, és ennek megfelelően külön szolgáltatásként érhető el a fizetés, megrendelés, szállítási információk, stb.
 
-NetFlix - A nagy terhelést elkerülendő bizonyos streaming szolgáltatásokat átalakítottak, hogy a mikroszolgáltatás architektúra szerint működjön.
+* **NetFlix**: A nagy terhelést elkerülendő bizonyos streaming szolgáltatásokat átalakítottak, hogy a mikroszolgáltatás architektúra szerint működjön.
 
-Archivematica[@archivematica] - Egy Fájlkezelő rendszer, amiben mikroszolgáltatásoknak megfelelően alakították ki a plugin-ként használható funkciókat.
+* **Archivematica**: Az Archivematica[@archivematica] egy nyílt forráskódú elektronikus tartalom kezelő, ami tud kezelni különböző fájlokat, multimédiás adatokat, illetve akármilyen szöveges tartalmat. Ez az alakmazás alapvetően monolitikus architektúrára épül, azonban elkezdték átalakítani a struktúráját mikroszolgáltatásokat használó architektúrára. Ezt úgy kivitelezték, hogy a különböző plusz funkciókat az eredeti alkalmazás plugin szerűen mikroszolgáltatásokból nyeri ki, és ennek megfelelően a tovább fejlesztés is megalapozott[@archivematica-wiki].

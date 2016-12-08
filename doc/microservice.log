@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.9)  4 DEC 2016 21:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.9)  7 DEC 2016 21:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1523,7 +1523,7 @@ LaTeX Info: Redefining \nameref on input line 118.
 LaTeX Info: Redefining \cal on input line 586.
 LaTeX Info: Redefining \mit on input line 587.
 )
-<img/BME1782logo.pdf, id=260, 709.65125pt x 199.74625pt>
+<img/BME1782logo.pdf, id=256, 709.65125pt x 199.74625pt>
 File: img/BME1782logo.pdf Graphic file (type pdf)
 
 <use img/BME1782logo.pdf>
@@ -1606,61 +1606,66 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 [8]
 2. fejezet.
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 323.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 340.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [9
 
 ]
-<img/ScaleCude.jpg, id=381, 722.7pt x 542.025pt>
+<img/ScaleCude.jpg, id=376, 722.7pt x 542.025pt>
 File: img/ScaleCude.jpg Graphic file (type jpg)
  <use img/ScaleCude.jpg>
-Package pdftex.def Info: img/ScaleCude.jpg used on input line 372.
+Package pdftex.def Info: img/ScaleCude.jpg used on input line 389.
 (pdftex.def)             Requested size: 433.62334pt x 325.2175pt.
 
-[10 <./img/ScaleCude.jpg>] [11] [12]
-Underfull \vbox (badness 3884) has occurred while \output is active []
+[10 <./img/ScaleCude.jpg>] [11] [12] [13] [14] [15] [16]
 
- [13]
-[14] [15] [16] [17] [18] [19] [20] [21]
+Package natbib Warning: Citation `serf' on page 17 undefined on input line 793.
 
-Package natbib Warning: Citation `ruxit' on page 22 undefined on input line 106
-1.
 
-[22] [23]
+[17] [18] [19] [20] [21]
+
+Package natbib Warning: Citation `ruxit' on page 22 undefined on input line 108
+9.
+
+[22] [23] [24]
 3. fejezet.
-[24
+[25
 
 ] <img/microservices.png, id=555, 979.66pt x 418.56375pt>
 File: img/microservices.png Graphic file (type png)
 
 <use img/microservices.png>
-Package pdftex.def Info: img/microservices.png used on input line 1238.
+Package pdftex.def Info: img/microservices.png used on input line 1266.
 (pdftex.def)             Requested size: 587.80055pt x 251.14018pt.
 
 
-LaTeX Warning: Reference `CIphases' on page 25 undefined on input line 1260.
+LaTeX Warning: Reference `CIphases' on page 26 undefined on input line 1288.
 
 
 Underfull \vbox (badness 2221) has occurred while \output is active []
 
- [25 <./img/microservices.png>] <img/ci_phases.png, id=565, 827.09pt x 465.74pt
+ [26 <./img/microservices.png>] <img/ci_phases.png, id=564, 827.09pt x 465.74pt
 >
 File: img/ci_phases.png Graphic file (type png)
 
 <use img/ci_phases.png>
-Package pdftex.def Info: img/ci_phases.png used on input line 1264.
+Package pdftex.def Info: img/ci_phases.png used on input line 1292.
 (pdftex.def)             Requested size: 496.25783pt x 279.44615pt.
- [26 <./img/ci_phases.png>] [27] [28] [29]
+ [27 <./img/ci_phases.png>] [28]
+Underfull \vbox (badness 2027) has occurred while \output is active []
+
+ [29]
+[30]
 4. fejezet.
 
 Underfull \vbox (badness 1946) has occurred while \output is active []
 
- [30
+ [31
 
 ]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1532
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1552
 .
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
@@ -1670,7 +1675,8 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 156
+ [32]
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 158
 8.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmtt.fd
@@ -1683,29 +1689,111 @@ Package microtype Info: Loading generic settings for font family
 Package microtype Info: Character `texttrademark ' is missing
 (microtype)             in font `TS1/lmtt/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
- [31]
-Overfull \hbox (26.20885pt too wide) in paragraph at lines 1568--1568
+
+Overfull \hbox (26.20885pt too wide) in paragraph at lines 1588--1588
 []        \T1/lmtt/m/n/10.95 <<< \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 mysql-
 server mysql-server/root_password_again password root\TS1/lmtt/m/n/10.95 '\T1/l
 mtt/m/n/10.95 " && \[] 
  []
 
-[32]
+[33] [34] [35]
+Overfull \hbox (33.10733pt too wide) in paragraph at lines 1778--1778
+[]                     \T1/lmtt/m/n/10.95 -data-dir "${CONSUL_DIR}" > /var/log/
+bookstore-consul.log &[] 
+ []
+
+[36]
+Overfull \hbox (88.29517pt too wide) in paragraph at lines 1803--1803
+[]    \T1/lmtt/m/n/10.95 docker run -d --name "${service}" -h "${service}" --ne
+t=bookstore bookstore_${service}[] 
+ []
+
+
+Overfull \hbox (15.57368pt too wide) in paragraph at lines 1811--1811
+[]\T1/lmtt/m/n/10.95 docker inspect -f \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 
+{{ .NetworkSettings.Networks.bookstore.IPAddress }}\TS1/lmtt/m/n/10.95 ' \T1/lm
+tt/m/n/10.95 proxy[] 
+ []
+
+<img/loginscreen.png, id=622, 818.05624pt x 256.96pt>
+File: img/loginscreen.png Graphic file (type png)
+
+<use img/loginscreen.png>
+Package pdftex.def Info: img/loginscreen.png used on input line 1820.
+(pdftex.def)             Requested size: 490.83754pt x 154.17719pt.
+
+<img/browsescreen.png, id=623, 990.70125pt x 320.19624pt>
+File: img/browsescreen.png Graphic file (type png)
+
+<use img/browsescreen.png>
+Package pdftex.def Info: img/browsescreen.png used on input line 1829.
+(pdftex.def)             Requested size: 594.42534pt x 192.11922pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [37 <./img/loginscreen.png>]
+Underfull \vbox (badness 1178) has occurred while \output is active []
+
+ [38 <./img/browsescreen.png>] <img/pipeline-job.png, id=637, 1169.36874pt x 75
+0.805pt>
+File: img/pipeline-job.png Graphic file (type png)
+
+<use img/pipeline-job.png>
+Package pdftex.def Info: img/pipeline-job.png used on input line 1931.
+(pdftex.def)             Requested size: 701.62666pt x 450.48647pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [39]
+[40 <./img/pipeline-job.png>]
+<img/job-view.png, id=648, 590.205pt x 390.45876pt>
+File: img/job-view.png Graphic file (type png)
+ <use img/job-view.png>
+Package pdftex.def Info: img/job-view.png used on input line 1981.
+(pdftex.def)             Requested size: 354.12573pt x 234.27705pt.
+
+<img/github-config.png, id=650, 757.83125pt x 512.91624pt>
+File: img/github-config.png Graphic file (type png)
+
+<use img/github-config.png>
+Package pdftex.def Info: img/github-config.png used on input line 1992.
+(pdftex.def)             Requested size: 454.70226pt x 307.75212pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [41 <./img/job-view.png>] <img/script-run.png, id=658, 720.6925pt x 276.03125p
+t>
+File: img/script-run.png Graphic file (type png)
+
+<use img/script-run.png>
+Package pdftex.def Info: img/script-run.png used on input line 2010.
+(pdftex.def)             Requested size: 432.41884pt x 165.62001pt.
+ <img/archive.png, id=660, 558.085pt x 262.9825pt>
+File: img/archive.png Graphic file (type png)
+
+<use img/archive.png>
+Package pdftex.def Info: img/archive.png used on input line 2015.
+(pdftex.def)             Requested size: 334.85359pt x 157.7907pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [42 <./img/github-config.png> <./img/script-run.png>] [43 <./img/archive.png>]
+
 5. fejezet.
-[33
+[44
 
 ] (./microservice.lot)
 \tf@lot=\write6
 \openout6 = `microservice.lot'.
 
- [34
+ [45
 
 ] (./microservice.lof)
 \tf@lof=\write7
 \openout7 = `microservice.lof'.
 
  (./microservice.bbl
-[35
+[46
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 36--39
@@ -1725,7 +1813,7 @@ Underfull \hbox (badness 2050) in paragraph at lines 89--93
 ][]$https : / / www . loggly . com / blog /
  []
 
-[36
+[47
 
 ]
 Underfull \hbox (badness 4229) in paragraph at lines 151--154
@@ -1745,7 +1833,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 188--192
 com / blog / 2015 / 10 / 02 /
  []
 
-[37]
+[48]
 Underfull \hbox (badness 10000) in paragraph at lines 209--215
 []\T1/lmr/m/n/10.95 (+20) Chris Ri-chard-son.  Buil-ding mic-ros-er-vi-ces: Int
 er-process com-mu-ni-ca-
@@ -1775,116 +1863,123 @@ Underfull \hbox (badness 10000) in paragraph at lines 243--249
 -[]can-[]be-[]perfectly-[]^^\ne/$[][], march
  []
 
-) [38]
+) [49]
 A. f\"uggel\'ek.
-[39
+[50
 
-] [40]
-Overfull \hbox (181.42465pt too wide) in paragraph at lines 1732--1732
+] [51]
+Overfull \hbox (181.42465pt too wide) in paragraph at lines 2149--2149
 []    \T1/lmtt/m/n/10.95 /bin/bash -c "debconf-set-selections <<< \TS1/lmtt/m/n
 /10.95 '\T1/lmtt/m/n/10.95 mysql-server mysql-server/root_password password roo
 t\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 " && \[] 
  []
 
 
-Overfull \hbox (215.91705pt too wide) in paragraph at lines 1732--1732
+Overfull \hbox (215.91705pt too wide) in paragraph at lines 2149--2149
 []    \T1/lmtt/m/n/10.95 /bin/bash -c "debconf-set-selections <<< \TS1/lmtt/m/n
 /10.95 '\T1/lmtt/m/n/10.95 mysql-server mysql-server/root_password_again passwo
 rd root\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 " && \[] 
  []
 
 
-Overfull \hbox (102.09213pt too wide) in paragraph at lines 1732--1732
+Overfull \hbox (102.09213pt too wide) in paragraph at lines 2149--2149
 []    \T1/lmtt/m/n/10.95 sed -i \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 s/bind-
 address.*=.*/bind-address = 0.0.0.0/g\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 /
 etc/mysql/mysql.conf.d/mysqld.cnf[] 
  []
 
 
-Overfull \hbox (102.09213pt too wide) in paragraph at lines 1763--1763
+Overfull \hbox (102.09213pt too wide) in paragraph at lines 2180--2180
 []    \T1/lmtt/m/n/10.95 sed -i \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 s/<Conn
 ector /<Connector address="0.0.0.0" /g\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 
 /usr/local/tomcat/conf/server.xml[] 
  []
 
 
-Overfull \hbox (96.05595pt too wide) in paragraph at lines 1763--1763
+Overfull \hbox (96.05595pt too wide) in paragraph at lines 2180--2180
 []\T1/lmtt/m/n/10.95 COPY target/ReserveRESTJerseyExample-0.0.2-SNAPSHOT.war /u
 sr/local/tomcat/webapps/order.war[] 
  []
 
-[41] [42]
-Overfull \hbox (234.313pt too wide) in paragraph at lines 1850--1850
+[52] [53]
+Overfull \hbox (234.313pt too wide) in paragraph at lines 2268--2268
 []    \T1/lmtt/m/n/10.95 wget https://releases.hashicorp.com/consul/0.7.0/consu
 l_0.7.0_linux_386.zip && unzip consul_0.7.0_linux_386.zip[] 
  []
 
 
-Overfull \hbox (406.77501pt too wide) in paragraph at lines 1850--1850
+Overfull \hbox (406.77501pt too wide) in paragraph at lines 2268--2268
 []    \T1/lmtt/m/n/10.95 wget https://releases.hashicorp.com/consul-template/0.
 16.0/consul-template_0.16.0_linux_386.zip && unzip consul-template_0.16.0_linux
 _386.zip[] 
  []
 
-[43]
-Overfull \hbox (171.07693pt too wide) in paragraph at lines 1850--1850
+[54]
+Overfull \hbox (171.07693pt too wide) in paragraph at lines 2268--2268
 []\T1/lmtt/m/n/10.95 docker build -t ${<SERVICE>_IMAGE_NAME} ${<SERVICE>_SERVIC
 E_HOME} &> ${<SERVICE>_SERVICE_HOME}/build.log[] 
  []
 
 
-Overfull \hbox (128.5363pt too wide) in paragraph at lines 1850--1850
+Overfull \hbox (128.5363pt too wide) in paragraph at lines 2268--2268
 []\T1/lmtt/m/n/10.95 docker save --output ${<SERVICE>_SERVICE_HOME}/${<SERVICE>
 _IMAGE_NAME}.img ${DATABASE_IMAGE_NAME}[] 
  []
 
 
-Overfull \hbox (88.29517pt too wide) in paragraph at lines 1868--1868
+Overfull \hbox (88.29517pt too wide) in paragraph at lines 2286--2286
 []    \T1/lmtt/m/n/10.95 docker run -d --name "${service}" -h "${service}" --ne
 t=bookstore bookstore_${service}[] 
  []
 
-[44]
-Overfull \hbox (33.10733pt too wide) in paragraph at lines 1935--1935
+[55]
+Overfull \hbox (33.10733pt too wide) in paragraph at lines 2353--2353
 []                     \T1/lmtt/m/n/10.95 -data-dir "${CONSUL_DIR}" > /var/log/
 bookstore-consul.log &[] 
  []
 
-[45]
-Overfull \hbox (2.63904pt too wide) in paragraph at lines 1957--1957
+[56] [57]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58]
+Overfull \hbox (2.63904pt too wide) in paragraph at lines 2474--2474
 []\T1/lmtt/m/n/10.95 INSERT INTO user_auth (username, password) VALUES ("test",
  "testpassword");[] 
  []
 
-[46] [47]
+[59] [60]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [61]
 \tf@thm=\write8
 \openout8 = `microservice.thm'.
 
- 
+
+
 AED: lastpage setting LastPage
-[48]
+[62]
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2056.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2056.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2594.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2594.
 (./microservice.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2056.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2056.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2594.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2594.
 
 Package rerunfilecheck Info: File `microservice.out' has not changed.
-(rerunfilecheck)             Checksum: 1A2790C39471E5638F461FFF83A0C065;10985.
+(rerunfilecheck)             Checksum: 45E30E8F29025D59A910093AA612B707;10682.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2056.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2594.
  ) 
 Here is how much of TeX's memory you used:
- 32221 strings out of 493304
- 557281 string characters out of 6139872
- 631867 words of memory out of 5000000
- 34780 multiletter control sequences out of 15000+600000
+ 32292 strings out of 493304
+ 558405 string characters out of 6139872
+ 632510 words of memory out of 5000000
+ 34826 multiletter control sequences out of 15000+600000
  66612 words of font info for 100 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  63i,7n,92p,10395b,606s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1894,10 +1989,10 @@ e/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/l
 m/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri
 10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on microservice.pdf (48 pages, 428102 bytes).
+Output written on microservice.pdf (62 pages, 673697 bytes).
 PDF statistics:
- 823 PDF objects out of 1000 (max. 8388607)
- 752 compressed objects within 8 object streams
- 192 named destinations out of 1000 (max. 500000)
- 19993 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 910 PDF objects out of 1000 (max. 8388607)
+ 810 compressed objects within 9 object streams
+ 210 named destinations out of 1000 (max. 500000)
+ 20020 words of extra memory for PDF output out of 20736 (max. 10000000)
 
