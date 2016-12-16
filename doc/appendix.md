@@ -91,8 +91,10 @@ ENV CONSUL_DIR /usr/share/consul
 COPY database.sh /usr/sbin/database.sh
 COPY auth_init.sql bookstore_init.sql /tmp/
 RUN apt-get -y update && \
-    /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'" && \
-    /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'" && \
+    /bin/bash -c "debconf-set-selections \
+<<< 'mysql-server mysql-server/root_password password root'" && \
+    /bin/bash -c "debconf-set-selections \
+<<< 'mysql-server mysql-server/root_password_again password root'" && \
     apt-get -y install mysql-server \
         iputils-ping \
         mysql-client && \
@@ -108,7 +110,8 @@ COPY database.json /etc/consul.d/database.json
 # Install entry point
 COPY init /usr/sbin/init-db
 RUN chmod +x /usr/sbin/init-db && \
-    sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
+    sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' \
+        /etc/mysql/mysql.conf.d/mysqld.cnf
 
 ENTRYPOINT /bin/bash /usr/sbin/init-db
 
@@ -127,8 +130,10 @@ ENV CONSUL_DIR /usr/share/consul
 
 # Install Service
 RUN sed -i 's/8080/8888/g' /usr/local/tomcat/conf/server.xml && \
-    sed -i 's/<Connector /<Connector address="0.0.0.0" /g' /usr/local/tomcat/conf/server.xml
-COPY target/ReserveRESTJerseyExample-0.0.2-SNAPSHOT.war /usr/local/tomcat/webapps/order.war
+    sed -i 's/<Connector /<Connector address="0.0.0.0" \
+        /g' /usr/local/tomcat/conf/server.xml
+COPY target/ReserveRESTJerseyExample-0.0.2-SNAPSHOT.war \
+    /usr/local/tomcat/webapps/order.war
 
 # Install consul
 COPY consul consul-template /usr/bin/
@@ -201,15 +206,21 @@ build_{service}.sh
 <SERVICE>_CONF_DIR=conf/<SERVICE>
 <SERVICE>_IMAGE_NAME=bookstore_<SERVICE>
 
+CONSUL_BASE=https://releases.hashicorp.com
+CON_VER=0.7.0/consul_0.7.0_linux_386.zip
+CONSUL_URL=${CONSUL_BASE}/consul/${CON_VER}
+TEMP_VER=0.16.0/consul-template_0.16.0_linux_386.zip
+CONSULT_URL=${CONSUL_BASE}/consul-template/${TEMP_VER}
+
 pushd ..
 if [[ ! -e consul ]]; then
     echo "Get Consul script from Internet"
-    wget https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_linux_386.zip && unzip consul_0.7.0_linux_386.zip
+    wget ${CONSUL_URL} && unzip consul_0.7.0_linux_386.zip
 fi
 
 if [[ ! -e consul-template ]]; then
     echo "Get consul-template script from Internet"
-    wget https://releases.hashicorp.com/consul-template/0.16.0/consul-template_0.16.0_linux_386.zip && unzip consul-template_0.16.0_linux_386.zip
+    wget ${CONSULT_URL} && unzip consul-template_0.16.0_linux_386.zip
 fi
 
 echo "Create <SERVICE> service for bookstore ..."
@@ -225,9 +236,12 @@ echo " - Move consul to data directory"
 cp consul ${<SERVICE>_SERVICE_HOME}/
 cp consul-template ${<SERVICE>_SERVICE_HOME}/
 echo " - Building Docker image"
-docker build -t ${<SERVICE>_IMAGE_NAME} ${<SERVICE>_SERVICE_HOME} &> ${<SERVICE>_SERVICE_HOME}/build.log
+docker build -t ${<SERVICE>_IMAGE_NAME} \
+    ${<SERVICE>_SERVICE_HOME} &> ${<SERVICE>_SERVICE_HOME}/build.log
 echo " - Save image"
-docker save --output ${<SERVICE>_SERVICE_HOME}/${<SERVICE>_IMAGE_NAME}.img ${DATABASE_IMAGE_NAME}
+docker save \
+    --output ${<SERVICE>_SERVICE_HOME}/${<SERVICE>_IMAGE_NAME}.img \
+    ${DATABASE_IMAGE_NAME}
 
 echo "<SERVICE> service has been created!"
 popd
@@ -247,7 +261,9 @@ docker network create bookstore
 for service in ${services}
 do
     echo "Start ${service} service ..."
-    docker run -d --name "${service}" -h "${service}" --net=bookstore bookstore_${service}
+    docker run -d --name "${service}" \
+               -h "${service}" \
+              --net=bookstore bookstore_${service}
 done
 ```
 
@@ -300,7 +316,8 @@ while true; do
         consul agent -server \
                      -join "${MASK}.${ADDR}" \
                      -datacenter "bookstore" \
-                     -data-dir "${CONSUL_DIR}" > /var/log/bookstore-consul.log &
+                     -data-dir "${CONSUL_DIR}" \
+                       > /var/log/bookstore-consul.log &
         sleep 10
         cat /var/log/bookstore-consul.log
         if ps ax | grep -v grep | grep "consul" > /dev/null; then
@@ -433,7 +450,8 @@ CREATE TABLE user_auth
 	PRIMARY KEY (user_id)
 );
 # Fill Tables
-INSERT INTO user_auth (username, password) VALUES ("test", "testpassword");
+INSERT INTO user_auth (username, password)
+VALUES ("test", "testpassword");
 ```
 
 Bookstore raktár:
@@ -478,7 +496,7 @@ VALUES ("Lord of the Rings: The Return of the King", 0);
 
 Pipline job full szkript:
 
-```{Pipeline script}
+```{Pipeline}
 buildNames = [
     'build-auth-service',
     'build-database-service',

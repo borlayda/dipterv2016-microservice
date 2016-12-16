@@ -88,7 +88,7 @@
   \usepackage[magyar]{babel}
 \fi
 
-\title{Microservice architektúra fejlesztésének és tesztelésének támogatása}
+\title{Mikroszolgáltatás alapú architektúra fejlesztésének és tesztelésének támogatása}
 \author{Borlay Dániel}
 
 \renewcommand*{\hyperref}[2][\ar]{%
@@ -135,7 +135,7 @@
 \textmd{}\\[5cm]
 
 \vspace{0.4cm}
-{\huge \bfseries Microservice architektúra fejlesztésének és tesztelésének támogatása}\\[0.8cm]
+{\huge \bfseries Mikroszolgáltatás alapú architektúra fejlesztésének és tesztelésének támogatása}\\[0.8cm]
 \vspace{0.5cm}
 \textsc{\Large Diplomaterv}\\[4cm]
 
@@ -197,7 +197,7 @@ bontva a feladatot, könnyen kezünkben tarthatjuk az elosztott
 alkalmazásunkat.
 
 A mikroszolgáltatásokra épülő architekrúra (microservices), egy olyan
-alkalmazás fejlesztési módszertan, ami a programot alkotó elemeire
+architektúrális fejlesztési módszertan, ami a programot alkotó elemeire
 szedi, és minden funkcionalitást teljesen különálló egységként kezel.
 Egy ilyen alkalmazás fejlesztése közben oda kell figyelni az összes
 szolgáltatással való együtetteműködésre, a visszamenőleges
@@ -247,60 +247,104 @@ application by automated testing and integration.
 
 \chapter{Bevezetés}\label{bevezetuxe9s}
 
-Fontos, hogy az alkalmazásaink megbízhatóan, karbantarthatóan, és nagy
-rendelkezésre állással legyenek elérhetőek. Napjaink egyik feltörekvő
-architektúra építési elve a mikroszolgáltatások archtektúrája. Ezt az
-architektúra típust az elosztott működése, a szolgáltatásonkénti könnyen
-fejleszthetősége, és a jó skálázhatósága teszi népszerűvé. Sok cég
-választja ezt az új elvet, mivel az egyes komponensek fejlesztése
-egyszerűbb és gyorsabb, a végeredmény pedig könnyebben karbantartható,
-és egyszerűen számítási felhőbe integrálható.
+A mai informatikai nagyvállalatok rengeteg egymástól különböző
+alkalmazást készítenek. Minden alkalmazás fejlesztése és karbantartása
+nagy feladatot jelent, mivel rengeteg emberi erőt emészt fel a fordítás,
+telepítés, és a tesztelés. Sok hiba forrását jelenti a kézileg
+végrehajtott munkafolyamat, és a fejlesztőkre van bízva, hogy mely
+teszteket akarják futtatni a saját programjukon, és figyelmen kívül
+hagyhatják a más alkalmazásokkal történő egymásra hatásokat. A cég
+számára nagy költség lehet az ebből fakadó problémák kiküszöbölése, és
+ellenőrzése, illetve hatalmas adminisztrációs problémát okozhat.
 
-Jelen labor keretében megismerkedem a mikroszolgáltatások felépítésével,
-működésével, és egy automatizált megoldást adok a használatukra.
-Bemutatom, hogy hogyan lehet azt a technológiát automatizáltan
-tesztelni, és a fejlesztési folyamatot egyszerűen és felügyelve vezetni.
+A fejlesztők nem mindig képzettek, és nem is feltétlenül a feladatuk a
+tesztelés, így felesleges erőforrásokat vesz el a kézi tesztelés, és a
+telepítés ami a tesztek futtatásához kellhet. Orvosolható ez a probléma
+képzett tesztelők felvételével, de ez többlet költségeket okoz. Könnyen
+lehet az is a probléma, hogy a tezstelés nem elég teljeskörű, és az
+alkalmazásból nem lesz minden komponens kitesztelve, illetve az elemek
+közötti kapcsolat változtatása előzetes figyelmeztetés nélkül érvényre
+kerülhet. Ezzel rejtett hibákat hagyhatunk az alkalmazásban, amiket
+később komoly erőforrások, és költségek árán lehet csak kijavítani. Ha
+nem nézzük meg, hogy az alklamazás minden egyes része jól működik-e
+együtt, akkor olyan hibákat hagyhatunk a rendszerben, amit nagyon
+nehezen lehet detektálni, és még nehezebb felelősöket hozzárendelni.
+Ahhoz, hogy ezeket a problémákat kiküszöböljük egy jól definiált
+tesztelési módszerre van szükség, amit be kell tartatni, illetve az
+alkalmazás részeit egy környezetbe telepítve kell egyszerre tesztelni,
+mivel így teljeskörűen vizsgálható a termék. Ha nincs felügyelve a
+teljes munkafolyamat, akkor olyan információk is elveszhetnek, mint a
+fordítással, vagy a telepítéssel kapcsolatos információk, ami sokat
+segíthet egy hiba feltárása során.
+
+Nagy segítséget nyújthat egy automatizált keretrendszer, amelynek a
+célja, hogy levegye a terhet a fejlesztő válláról, és jól definiált
+módon hajtsa végre a fejlesztést, telepítést, és tesztelést. Az
+automatizálatlan fejlesztési fázisok potenciális veszélyforrások a
+végeredmény szempontjából, és a követhetőségük, reprodukálhatóságuk, és
+rugalmasságuk is sokkal rosszabb. Erre a problémára nyújt megoldást a
+folytonos integráció (Continuous Integration), illetve a folytonos
+telepítés (Continuous Deployment), mely módszertanok megmondják, hogy
+hogyan, és milyen módszerekkel lehet elősegíteni a jól végrehajtott, és
+ellenőrzött fejlesztési folyamatot. Egy folytonos integrációt támogató
+rendszerben minden folyamat felügyelt módon hajtódik végre, és pontosan
+azokat a lépéseket hajtja végre amit előzetesen definiáltak neki, így
+egyszerűsíti az adminisztrációt, növeli a tesztlefedettséget minden
+részegységre, és figyelembe veszi a teljes alkalmazás részenkéknti
+egyűttműködését, mindezt automatizáltam, a fejlesztő beavatkozása
+nélkül.
+
+Jelen diplomamunka célja, hogy bemutassam a mikroszolgáltatáso
+architektúrára épülő alkalmazások előnyeit, hátrányait, és fejlesztésük
+folyamatát, az ilyen alkalmazásokhoz tartozó legjellemzőbb
+technológiákat, és elkészítési stratégiákat. Meg kell terveznem és el
+kell készítenem egy folytonos integrációt támogató keretrendszert, ami
+képes a mikroszolgáltatásokhoz tartozó feladatok mind elemi, mind teljes
+architektúra szempontjából, illetve értékelnem kell az elkészült
+keretrendszert a minta alkalmazás segítségével.
+
+A diplomamunka keretében elkészítettem egy könyvesbolt webes felületét
+kiszolgáló minta alkalmzást, amely a mikroszolgáltatások architektúrára
+épült, és készítettem egy ennek a fejlesztését, és tesztelését támogató
+folytonos integráción alapuló keretrendszert, ami képes az alkalmazás
+minden részletét fordítani, telepíteni, és tesztelni. A minta alkalmazás
+elkészítése közben figyeltem a funkciók szerinti szétbontásra, és a
+szolgáltatások közötti kommunikáció bővíthető implementációjára. A
+folytonos integrációt támogató keretrendszer amit elkészítettem képes
+lefordítani az összes szolgáltatás forrásából a telepítéshez szükséges
+artifact-okat, és elérhetővé teszi a webes felületen keresztül. Képes a
+folytonos telepítésre, vagyis a szolgáltatásokat egymástól függetlenül
+telepíteni, és egy működő alkalmazást kialakítani.
+
+A diplomamunka struktúráját tekintve a következő képpen néz ki:
 
 Az második fejezetben beleástam magam a technológiai áttekintésbe, ahol
 az architektúra lényegét próbáltam megérteni, és összeszedtem, hogy
 milyen tervezési kérdések merülnek fel egy mikroszolgáltatásokra épülő
-alkalmazás elkészítésénél.
+alkalmazás elkészítésénél. Körüljártam a felhasználható technológiákat,
+és megnéztem milyen referencia alkalmazások léteznek a piacon.
 
-A harmadik fejezetben megnéztem, hogy milyen előnyei illetve hátrányai
-lehetnek ennek a módszernek, illetve megnéztem egy példát
-(Archivematica), ami segíthet az átfogó kép alkotásában, és saját
-alkalmazás fejlesztésében.
+A harmadik fejezetben a minta alkalmazást, és a hozzá tartozó folytonos
+integrációt támogató keretrendszert terveztem meg. A tervezés közben
+kitértem a szolgáltatások különválasztásának okaira, és feladataik
+szétosztására, illetve megterveztem a kommunikációt a részek között.
+Kifejtettem mit is jelent a folytonos integráció, és hogyan lehet
+felhasználni hatékonyan mikroszolgáltatás architektúrára épülő
+alkalmazások esetén, majd bemutattam az elkészítendő keretrendszert.
 
-A negyedik fejezetben a kapcsolódó technológiákról készítettem egy
-összefoglalást, ami tartalmazza a jelenleg használt technológiákat,
-amikkel mikroszolgáltatásokra épülő architektúrát lehet építeni, illetve
-olyan technológiákat, amikkel kiegészítve teljesen felügyelhető a
-szolgáltatások működése.
+A negyedik fejezetben az implementációt fejtettem ki részleteiben,
+kitérve az egyes szolgáltatások megvalósításához kellő logika
+elkészítésére, és a környezet előkészítéséhez kellő Docker konténerekre.
+Bemutattam a kommunikáció működését, és kitértem a teljes alkalmazás
+átfogó felépülésére. A folytonos integrációt támogó keretrendszer
+esetében bemutattam a Jenkins eszközt, amit a diplomamunka
+elkészítéséhez feljhasználtam, illetve az egyes alkotó elemeket mutattam
+be részleteiben.
 
-Az ötödik fejezetben a különböző kommunikációs lehetőségekkel
-foglalkoztam, amikkel össze lehet kötni a szolgáltatásokat, illetve a
-kommunikáció tervezése közben felmerülő nehézségeket néztem át.
-
-A hatodik fejezetben megterveztem a példa alkalmazást, illetve az
-architektúrát, amit meg fogok alkotni a diplomaterv során.
-
-A hetedik fejezetben az alkalmazás implementációját járom körbe.
-
-A nyolcadik fejezetben az elkészítés közben tapasztalt nehézségeket, és
-az alkalmazás értékelését fejtem ki bővebben.
-
-A kilencedik fejezetben az automatizálást járom körbe, kitérek arra,
-hogy mit hogyan célszerű csinálni egy mikroszolgáltatásokra épülő
-automatizált rendszerben, és mit lehet véghez vinni az általam
-elkészített struktúrában.
-
-A tizedik fejezetben a valós felhasználási módokat mutatom be, és
-kifejtem, hogy mikor és milyen körülmények között van értelme az
-automatizált támogatásnak és a mikroszolgáltatások használatának.
-
-A tizenegyedik fejezet tartalmazza az összefoglalást, ami egy értékelést
-ad az elvégzett munkáról. Ebben a fejezetben térek ki a diploma munka
-lehetséges folytatási lehetőségeire.
+Az ötödik fejezetben értékeltem az elkészített alkalmazást, és
+keretrendszert, illetve adtam pár fejlesztési javaslatot, amellyel jobbá
+tehető mind az alkalmazás, mint a támogató keretrendszer. Megemlítettem
+a fejlesztés közben fellépő hibákat, és elmagyaráztam a megoldásukat.
 
 \chapter{Háttérismeretek}\label{huxe1ttuxe9rismeretek}
 
@@ -387,7 +431,7 @@ terveket milyen szempontok mentén lehet felosztani.
 \begin{figure}[H]
 \centering
 \includegraphics{img/ScaleCude.jpg}
-\caption{Scaling Cube\label{scalecube}}
+\caption{Scaling Cube\citep{scale-cube}\label{scalecube}}
 \end{figure}
 
 Ahogy a \ref{scalecube}. ábrán képen is látható a meghatározó felbontási
@@ -499,19 +543,31 @@ egyáltalán nem az atomicitás a lényege.
 \subsection{Példák mikroszolgáltatásokat használó
 alkalmazásokra}\label{puxe9lduxe1k-mikroszolguxe1ltatuxe1sokat-hasznuxe1luxf3-alkalmazuxe1sokra}
 
+Ugyan a mikroszolgáltatásokra épülő architektúra egy viszonylag új
+fejlesztési módszer, de találhatunk az iparban erre épülő
+alkalmazásokat. Az alábbi vállalatok átalakították, vagy elkeztdék
+átalakítani a szolgáltatásaikat ennek a módszernek megfelelően:
+
 \begin{itemize}
 \item
-  \textbf{Amazon}: minden Amazon-nal kommunikáló eszköz illetve az egyes
-  funkciók implementációja is szolgáltatásokra van szedve, és ezeket
-  hívják az egyes funkciók (vm indítás, törlés, mozgatás, stb.)
+  \textbf{Amazon}: Az Amazon Cloud szolgáltatása, és web álruháza is
+  szolgáltatásokká átalakította, mivel a legtöbb funkció amit a
+  felhasználók elérhetnek, interaktívan kommunikálnak, és minden
+  feladathoz tartozó implementáció külön szolgáltatásokra van szedve.
+  Ugyan vannak összetett funkciók mint a skálázás, ami több funkció
+  együttesétől függ, de a háttérben a szolgáltatások közötti
+  kommunikáció zajlik. (vm monitoring, vm create, vm start, stb.)
 \item
-  \textbf{eBay}: Különböző műveletek szerint van felbonva a
-  funkcionalitás, és ennek megfelelően külön szolgáltatásként érhető el
-  a fizetés, megrendelés, szállítási információk, stb.
+  \textbf{eBay}: Az eBay vásárló oldala kezdetektől fogva
+  szolgáltatásokra volt bontva, de elkezdték szétbontani kisebb alkotó
+  elemekre őket, illetve saját konténerekben futtatják a funkciókat.
+  Elkülönített szolgáltatásként szerepel például a vásárlás, vagy a
+  megrendeléshez tartozó szolgáltatás.
 \item
-  \textbf{NetFlix}: A nagy terhelést elkerülendő bizonyos streaming
-  szolgáltatásokat átalakítottak, hogy a mikroszolgáltatás architektúra
-  szerint működjön.
+  \textbf{NetFlix}: A NetFlix videomegosztó alkalmazása, az eBay-hez
+  hasonlóan szolgáltatásokra volt bontva a teljes alkalmazás, azonban a
+  streaming álltal okozott skálázási problémák miatt elkezdték
+  átalakítani a részegységeket a mikroszolgáltatások elve szerint.
 \item
   \textbf{Archivematica}: Az Archivematica\citep{archivematica} egy
   nyílt forráskódú elektronikus tartalom kezelő, ami tud kezelni
@@ -733,17 +789,6 @@ egyszerűbben és elosztottabban is megtehetjük.
 
 \begin{itemize}
 \item
-  \textbf{Jenkins}\citep{jenkins}: A Jenkins egy olyan folytonos
-  integráláshoz kifejlesztett eszköz, mellyel képesek vagyunk különböző
-  funkciókat automatizálni, vagy időzítetten futtani. A Jenkins egy Java
-  alapú webes felülettel rendelkező alkalmazás, amely képes bash
-  parancsokat futtatni, Docker konténereket kezelni, build-eket
-  futtatni, illetve a hozzá fejlesztett plugin-eken keresztül, szinte
-  bármire képes. Támogatja a fürtözést is, így képesek vagyunk Jenkins
-  slave-eket létrehozni, amik a mester szerverrel kommunikálva végzik el
-  a dolgukat. A mikroszolgáltatás architektúrák esetén alkalmas a
-  szolgáltatások telepítésére, és tesztelésére.
-\item
   \textbf{ElasticBox}\citep{elasticbox}: Egy olyan alkalmazás, melyben
   nyilvántarthatjuk az alkalmazásainkat, és könnyen egyszerűen
   telepíthetjük őket. Támogatja a konfigurációk változását, illetve
@@ -768,6 +813,51 @@ lehetővé teszi az elemek dinamikus kicserélését (ad-hoc megoldás). Ennek
 a megoldásnak a hátránya hogy nincs támogatva, és minden funkciót külön
 kell implementálni. Sokkal nagyobb erőforrásokat emészthet fel mint egy
 ingyenes, vagy nyílt forrású megoldást választani.
+
+\subsection{Folytonos Integrációt támogató
+eszközök}\label{folytonos-integruxe1ciuxf3t-tuxe1mogatuxf3-eszkuxf6zuxf6k}
+
+Mivel az mikroszolgáltatások fejlesztését, tesztelését, és minden
+funkcióját, eszközét figyelnünk kell, ezért nem árt, ha van egy
+folytonos integrációt támogató keretrendszer, ami képes figyelni a
+mikroszolgáltatásokhoz tartozó eszközöket, segíti a fejlesztés
+folyamatát azzal, hogy automatizáltan végrehajtja a szolgáltatások
+fordítását, telepítését, és tesztelését. Ezek az eszközök leginkább a
+fejlesztés folyamtában használhatók fel, de van olyan belőlük, amivel
+tetszőlegesen komplex feladatokat is végrehajthatunk az
+alkalmazásunkkal.
+
+\begin{itemize}
+\item
+  \textbf{Jenkins}\citep{jenkins}: A Jenkins egy olyan folytonos
+  integráláshoz kifejlesztett eszköz, mellyel képesek vagyunk különböző
+  funkciókat automatizálni, vagy időzítetten futtani. A Jenkins egy Java
+  alapú webes felülettel rendelkező alkalmazás, amely képes bash
+  parancsokat futtatni, Docker konténereket kezelni, build-eket
+  futtatni, illetve a hozzá fejlesztett plugin-eken keresztül, szinte
+  bármire képes. Támogatja a fürtözést is, így képesek vagyunk Jenkins
+  slave-eket létrehozni, amik a mester szerverrel kommunikálva végzik el
+  a dolgukat. A mikroszolgáltatás architektúrák esetén alkalmas a minden
+  feladatot ellátni, és véghez vinni a fordítást, telepítést, és
+  tesztelést.
+\item
+  \textbf{Travis CI}\citep{travis}: A Travis CI egy olyan Cloud
+  szolgáltatás, amely képes teszteket, és fordítást végezni egy megadott
+  Github projektből, és ehhez egy teljesen tiszta virtuális környezetet
+  használ fel. A rendszer a saját beépített támogató moduljain keresztül
+  képes kiszolgáltani a felhasználó kéréseit, amit a Jenkins-hez hasonló
+  módon tesz. A Jenkins-hez képest nincs teljes kontrollunk a teljes
+  architektúra felett, nem támogat bármely verziókezelőt, és
+  mikroszolgáltatások esetén a szolgáltatás konténerének a meghatározása
+  is nehézségekbe ütközik, azonban a kezdeti egység tesztelésre, és
+  funkció tesztek futtatására alkalmas.
+\end{itemize}
+
+Folytonos integrációt támogató keretrendszert sok erőfeszítés lenne
+kézileg elkészíteni, mivel összetett kapcsolatokat kell kiépítenie a
+végrehajtandó folyamatok közben, aminek az implementálása nem triviális,
+és egy ingyenesen használható eszköz sokkal könnyebben
+felkonfigurálható.
 
 \subsection{Környezet felderítési
 technológiák}\label{kuxf6rnyezet-felderuxedtuxe9si-technoluxf3giuxe1k}
@@ -1086,11 +1176,11 @@ megfelelően megmutatni számunkra\citep{micro-service-monitoring}
   szolgáltatások állapota érdekel hasznos lehet, és segíthet a
   szolgáltatás jegyzék képzésében is.
 \item
-  \textbf{Ruxit}\citep{ruxit} \citep{ruxit-monitoring}: Egy számítási
-  felhőben működő monitorozó eszköz, amivel teljesítmény monitorozást,
-  elérhetőség monitorozást, és figyelmeztetés küldést végezhetünk. Az
-  benne a különleges, hogy mesterséges intelligencia figyeli a
-  szervereket, és kianalizálja a szerver állapotát, és a
+  \textbf{Ruxit}\citep{ruxit-overview} \citep{ruxit-monitoring}: Egy
+  számítási felhőben működő monitorozó eszköz, amivel teljesítmény
+  monitorozást, elérhetőség monitorozást, és figyelmeztetés küldést
+  végezhetünk. Az benne a különleges, hogy mesterséges intelligencia
+  figyeli a szervereket, és kianalizálja a szerver állapotát, és a
   figyelmeztetéseket is követi. Könnyen skálázható, és használat alapú
   bérezése van. Ez a választás akkor jön jól, ha olyan feladatot szánunk
   az alkalmazásunknak, ami esetleg időben nagyon változó terhelést
@@ -1185,6 +1275,21 @@ akkor könnyen lehet, hogy nagy mennyiségű plusz munkát adunk a
 fejlesztőknek, akiknek minden hívást karban kell tartaniuk.
 
 \chapter{Feladat megtervezése}\label{feladat-megtervezuxe9se}
+
+A mikroszolgáltatás alapú architektúrák tesztelésének, és támogatásának
+bemutatásához szükségem van egy minta alkalmazásra, ami a módszertan
+alapján lesz elkészítve, és egy támogató keretrendszerre, ami képes
+automatizáltan futtatni azokat a folyamatokat, amik meghatározzák az
+alkalmazást. A fejlesztés támogatásához egy folytonos integrációt
+támogató eszköz kell, mivel az iteratív fejlesztés könnyebben
+megfigyelhető, ha folytonosan, minden változtatás esetén próbáljuk ki az
+alkalmazást. Ahhoz, hogy telepíteni is tudjuk folytonos telepítést
+(Continuous Deplyoment) érdemes használni, mert a mikroszolgáltatások
+architektúrája egy komplex rendszert ír le, ahol az egyszerű tepelítés
+nem elegendő, a környezet előkészítésével, és karbantartásával is
+foglalkozni kell. A minta alkamazás fejlesztéséhez és teszteléséhez is
+ez az eszköz szükséges, így az egyes funkciók implementációjához
+környezeti beállítások is kelleni fognak.
 
 \section{Minta alkalmazás
 tervezése}\label{minta-alkalmazuxe1s-tervezuxe9se}
@@ -1300,26 +1405,26 @@ gyorsítja a visszajelzés folyamatát. Ezeket a fázitokat mutatja az
   forrásokat meg tudjuk szerezni szervezett, követkető módon, egy
   verziókezelőre van szükség.
 \item
-  \emph{Automatizált build rendszer}: A kinyert változtatások alapján el
-  kell készíteni az alkalmazás futtatható és végleges formáját, amit
-  build formájában nyerhetünk ki. Ez sok esetben egy konkrét csomag
+  \emph{Automatizált fordító rendszer}: A kinyert változtatások alapján
+  el kell készíteni az alkalmazás futtatható és végleges formáját, amit
+  fordítás formájában nyerhetünk ki. Ez sok esetben egy konkrét csomag
   elkészítése, ami Linux rendszerek esetén egy Debian, vagy RPM csomag,
   vagy egy olyan termék az eredménye, amit egy az egyben fel lehet
   telepíteni tetszőleges rendszerre. Ennek a fázisnak a kimenete
-  legalább egy log fájl, ami tartalmazza a build folyamat minden
-  lépését, és a hibákat tartalmazza, ha valami rosszul sikerül, illetve
-  egy olyan artifact, ami sikeres build esetén felhasználható mint maga
-  a termék. A folyamat során teszteket is végrehajthatunk, mivel a
-  leggyakrabban a build folyamat részeként futnak le az egység tesztek,
-  amik az alap funkciók működő képességéről tanúskodnak.
+  legalább egy log fájl, ami tartalmazza a fordítási vagy csomagolási
+  folyamat minden lépését, a hibákat, ha valami rosszul sikerül, illetve
+  egy olyan artifactot, ami sikeres fordítás esetén felhasználható mint
+  maga a termék. A folyamat során teszteket is végrehajthatunk, mivel a
+  leggyakrabban a fordítási folyamat részeként futnak le az egység
+  tesztek, amik az alap funkciók működő képességéről tanúskodnak.
 \item
-  \emph{Automatikus integráció}: Ha már van egy sikeres build-ünk, akkor
-  azt a bizonyos eredmény artifact-ot valamilyen környezetbe integrálni
-  kell, hogy a valós körülményeknek megfelelően tesztelhessük őket. A
-  környezet maga lehet virtuális vagy valós, és lehetséges, hogy szükség
-  van a telepítés előtt felkészítő folyamatokra is, melyek részét
-  képezik ennek a fázisnak. Egy ilyen előzetes felkészítés lehet például
-  a tűzfal helyes beállítása, ha az alkalmazásunk külső hálózati
+  \emph{Automatikus integráció}: Ha már van egy sikeres fordításunk,
+  akkor azt a bizonyos eredmény artifact-ot valamilyen környezetbe
+  integrálni kell, hogy a valós körülményeknek megfelelően tesztelhessük
+  őket. A környezet maga lehet virtuális vagy valós, és lehetséges, hogy
+  szükség van a telepítés előtt felkészítő folyamatokra is, melyek
+  részét képezik ennek a fázisnak. Egy ilyen előzetes felkészítés lehet
+  például a tűzfal helyes beállítása, ha az alkalmazásunk külső hálózati
   kapcsolatot is használ.
 \item
   \emph{Alkalmazás valós környezetben való tesztelése}: Ebben a fázisban
@@ -1331,7 +1436,7 @@ gyorsítja a visszajelzés folyamatát. Ezeket a fázitokat mutatja az
   \emph{Kiértékelhető eredmények mentése}: Minden fázisnak van
   valamilyen információval bíró kimenetele, amiket el kell menteni egy
   olyan helyre, ahol bármikor visszakövethető, és kikereshetők az
-  eredmények. A build folyamatnak, az integrációnak, és a teszt
+  eredmények. A fordítási folyamatnak, az integrációnak, és a teszt
   eredményeknek olyan kimenetei is vannak, melyek alapján a konkrét
   környezet elérése nélkül is képesek lehetünk megmondani, hogy mi is
   volt a hiba forrása.
@@ -1424,10 +1529,10 @@ eltéréseket.
 A gyors visszajelzés mindig fontos, hiszen lassú, és erőforrás igényes
 feladat, ha a fejlesztő csapatnak kell kipróbálnia a szolgáltatást mind
 magában egyedileg, mind a komplex alkalmazás részeként. Ezt a költséget
-megspóroljuk, ha központileg fut az ellenőrzés, és a közös erőforrésokat
-is könnyebbenlehet optimalizálni. Az összes csapatnak adható olyan
+megspóroljuk, ha központilag fut az ellenőrzés, és a közös erőforrásokat
+is könnyebben lehet optimalizálni. Az összes csapatnak adható olyan
 folytonos integrációs struktúra, amely a szolgáltatás változtatása
-esetén egy build folyamatot futtatva megpróbálja integrálni az
+esetén, egy fordítási folyamatot futtatva megpróbálja integrálni az
 eredményként kapott alkalmazás részletet, és teszteli az együttműködő
 képességet. Mivel közös erőforrásokon fut nem kell várni, hogy szabad
 idősávot kapjon a csapat, és az automatizáltság segít, hogy a csapat
@@ -1458,11 +1563,11 @@ tartani, és a következő részeket határoztam meg a minta alkalmazásomhoz.
 \begin{itemize}
 \tightlist
 \item
-  Buildelés minden szolgáltatásra: Mivel minden szolgáltatás egyedi, és
-  a szolgáltatások külön termékként kezelésével növelhetjük a
+  Fordítás/Csomagolás minden szolgáltatásra: Mivel minden szolgáltatás
+  egyedi, és a szolgáltatások külön termékként kezelésével növelhetjük a
   modularitást, és az újrafelhasználhatóságot, így minden
-  szolgáltatásnak külön build folyamatot terveztem, amik eredményeként
-  az önműködő alklamazás részleteket kapjuk meg.
+  szolgáltatásnak külön fordítási folyamatot terveztem, amik
+  eredményeként az önműködő alkamazás részleteket kapjuk meg.
 \item
   Alkalmazás indítása, minden szolgáltatással: Ha minden részlet
   elkészült, akkor az összes szolgáltatás indításával és a környezet
@@ -1509,8 +1614,8 @@ alkalmazásokhoz, mind szerver alkalmazások elkészítéséhez is használják,
 és viszonylag öregebb nyelv amihez rengeteg típusú hálózati
 kommunikációs protokollt implementáltak, így könnyen és széles körben
 használható nyelv. Egy másik előnye a feladat szempontjából, hogy
-fordítás szükséges hozzá, és így a build folyamatban egy jar állomány
-elkészítését is be tudom mutatni.
+fordítás szükséges hozzá, és így a fordítási folyamatban egy jar
+állomány elkészítését is be tudom mutatni.
 
 A PHP egy olyan dinamikus webkiszolgáló nyelv, amit már hosszú ideje
 használnak, és elég a feladathoz tartozó egyszerű webes böngésző
@@ -1580,9 +1685,9 @@ FROM ...
 
 RUN apt-get -y update && \
     /bin/bash -c "debconf-set-selections \
-        <<< 'mysql-server mysql-server/root_password password root'" && \
+<<< 'mysql-server mysql-server/root_password password root'" && \
     /bin/bash -c "debconf-set-selections \
-        <<< 'mysql-server mysql-server/root_password_again password root'" && \
+<<< 'mysql-server mysql-server/root_password_again password root'" && \
     apt-get -y install mysql-server
 ...
 \end{verbatim}
@@ -1760,7 +1865,8 @@ while true; do
         consul agent -server \
                      -join "${MASK}.${ADDR}" \
                      -datacenter "bookstore" \
-                     -data-dir "${CONSUL_DIR}" > /var/log/bookstore-consul.log &
+                     -data-dir "${CONSUL_DIR}" \
+                       > /var/log/bookstore-consul.log &
         sleep 10
         cat /var/log/bookstore-consul.log
         if ps ax | grep -v grep | grep "consul" > /dev/null; then
@@ -1797,7 +1903,8 @@ alkalmazást.
 for service in ${services}
 do
     echo "Start ${service} service ..."
-    docker run -d --name "${service}" -h "${service}" --net=bookstore bookstore_${service}
+    docker run -d --name "${service}" \
+        -h "${service}" --net=bookstore bookstore_${service}
 done
 ...
 \end{verbatim}
@@ -1807,27 +1914,28 @@ böngésző Docker konténer IP címén keresztül. Ehhez az információhoz a
 következő paranccsal juthatunk:
 
 \begin{verbatim}
-docker inspect -f '{{ .NetworkSettings.Networks.bookstore.IPAddress }}' proxy
+docker inspect -f '{{ .NetworkSettings...IPAddress }}' proxy
 \end{verbatim}
 
 Ha valamilyen névfeloldás áll rendelkezésre, akkor a proxy szolgáltatás
 IP címét érdemes megadni neki. A felhasználó egy egyszerű
 bejelentkeztető felületet láthat az alkalmazás indítása után, amin
-keresztül a felhasználó nevet és jelszavat adhatja meg.
+keresztül a felhasználó nevet és jelszavat adhatja meg (\ref{login}.
+ábra).
 
 \begin{figure}[H]
 \centering
 \includegraphics{img/loginscreen.png}
-\caption{Bejelentkező felület}
+\caption{Bejelentkező felület\label{login}}
 \end{figure}
 
 Ha bejelentkeztünk a böngésző oldalra dob az alkalmazás, és lehetőségünk
-nyilik rendeléseket is feladni.
+nyilik rendeléseket is feladni (\ref{browse}. ábra).
 
 \begin{figure}[H]
 \centering
 \includegraphics{img/browsescreen.png}
-\caption{Böngésző felület}
+\caption{Böngésző felület\label{browse}}
 \end{figure}
 
 A háttérben minden kérésünkre a szolgáltatások között kommunikáció indul
@@ -1859,14 +1967,14 @@ implemenetál, aminek a következők a részei:
 \item
   View: A feladatok egy jól struktúrált egysége.
 \item
-  Job: Ez a feladatok implementációja, minden Job tetszőleges mennyiségű
-  végrehajtandó feladatot tartalmaz, képes más Job-ok hívására, és a
-  plugin-ek használatával gyakorlatilag bármilyen feladatot képes
-  elvégezni (build-et futtat, java forrásokat fordít maven-nel, vagy
-  Docker konténereket vezérel, stb.).
+  Job: Ez a feladatok implementációja, minden ilyen elem tetszőleges
+  mennyiségű végrehajtandó feladatot tartalmaz, képes más Job-ok
+  hívására, és a plugin-ek használatával gyakorlatilag bármilyen
+  feladatot képes elvégezni (comagolást futtat, java forrásokat fordít
+  maven-nel, vagy Docker konténereket vezérel, stb.).
 \item
   Build: Ez az egység egy Job egyszeri futását jelenti, ehhez tartozik
-  egy azonosító, ami az adott Job-ra nézve megkülönbözteti, a futtatás
+  egy azonosító, ami az adott futtatást megkülönbözteti, a futtatás
   paraméterei, környezeti változói, és egy olyan szeparált környezet
   (workspace), amiben a feladatokat végrehajtja.
 \end{itemize}
@@ -1877,15 +1985,15 @@ szoftverrel kapcsolatos feladatokat.
 
 \subsection{Pipeline Job}\label{pipeline-job}
 
-A Pipeline job egy olyan Jenkins-ben elérhető Job fajta, ami képes
+A Pipeline Job egy olyan Jenkins-ben elérhető feladat fajta, ami képes
 egységbe szervezni a feladatokat, és levezényelni a közös futásukat. A
 legtöbb folytonos integrációt támogató rendszerben egy rövidebb,
 hosszabb munkafolyamatot kell lebonyolítani, aminek a pipeline nevet
-adta a Jenkins, mivel az egyes Job-ok az előzetes Job-ok build-jeitől
-függenek, ami annyit jelent, hogy például a telepítési fázis függ a
-build fázis artifact-jaitól.
+adta a Jenkins, mivel az egyes feladatok futtatásai az előzetes futások
+eredményétől függenek, ami annyit jelent, hogy például a telepítési
+fázis függ a fordítási fázis artifact-jaitól.
 
-A Jenkins 2.0-ban megjelenő Pipeline job-hoz tartozik egy új leíró nyelv
+A Jenkins 2.0-ban megjelenő Pipeline Job-hoz tartozik egy új leíró nyelv
 is, amit Pipline szkriptnek neveznek. Lehetőség van fájlban tárolni a
 konfigurációt, amit Jenkinsfile néven lehet menteni. A Dockerfile-hoz
 hasonlóan ez is a működést írja le, és Pipeline szkriptet tartalmaz.
@@ -1900,16 +2008,16 @@ node {
 \end{verbatim}
 
 A fenti részlet egy olyan Pipline szkriptet mutat, amiben egy bizonyos
-Job-ot akarunk futtatni. A `node' kulcsszó jelzi a gépet amin futtatni
-akarjuk a feladatot, aminek ha nem adunk meg semmit, akkor tetszőleges
-helyen fut le. A zárójelek között leírt utasítások pedig megmondják, mi
-történjen azon a végponton. Egy utasítás lehet bármi amit egy Jenkins
-álltal alapból támogatott Job esetén beállíthatnánk, de ezek a parancsok
-inkább arra vannak kiélezve, hogy a feladatok közötti kapcsolatot
-leírják. Az egyik ilyen parancs az \textbf{echo} amivel kiírhatunk a
-build során üzeneteket a console kimenetre. Másik utasítás, a
-\textbf{build job}, amivel elindíthatunk egy Job-ot. Az alábbi példában
-egy fázis definiálása látható.
+feladatot akarunk futtatni. A `node' kulcsszó jelzi a gépet amin
+futtatni akarjuk a feladatot, aminek ha nem adunk meg semmit, akkor
+tetszőleges helyen fut le. A zárójelek között leírt utasítások pedig
+megmondják, mi történjen azon a végponton. Egy utasítás lehet bármi amit
+egy Jenkins álltal alapból támogatott Job esetén beállíthatnánk, de ezek
+a parancsok inkább arra vannak kiélezve, hogy a feladatok közötti
+kapcsolatot leírják. Az egyik ilyen parancs az \textbf{echo} amivel
+kiírhatunk a build során üzeneteket a console kimenetre. Másik utasítás,
+a \textbf{build job}, amivel elindíthatunk egy `Build'-et. Az alábbi
+példában egy fázis definiálása látható.
 
 \begin{verbatim}
 stage 'Deploy'
@@ -1918,13 +2026,14 @@ build job: 'deploy-services'
 \end{verbatim}
 
 Egy fázis definiálása során egy képzeletbeli egységet alkotunk, ami
-job-ok futtatását, illetve parancsok futtatását tartalmazza. Új fázist a
+Job-ok, illetve parancsok futtatását tartalmazza. Új fázist a
 \textbf{stage} kulcsszóval definiálhatunk, és az utána írt utasítások
 mind a fázis részeként fognak megjelenni.
 
-Az általam implementált Pipeline job, tartalmaz egy `Build', egy
+Az általam implementált Pipeline Job, tartalmaz egy `Build', egy
 `Deploy', egy `Test', és egy Cleanup fázist. Az alábbi ábrán látható a
-Job-hoz tartozó összefoglaló nézet, ahol láthatók a Job futtatásai:
+Jenkins-beli feladathoz tartozó összefoglaló nézet, ahol láthatók a Job
+futtatásai:
 
 \begin{figure}[H]
 \centering
@@ -1934,9 +2043,9 @@ Job-hoz tartozó összefoglaló nézet, ahol láthatók a Job futtatásai:
 
 A képen látható, hogy hogyan is választja szép a fázisokat a Pipiline
 Job, és hogy hogyan lehet kategorizálni a feladatok megívását. Az első
-`Build' fázis mögött például 5 darab build Job hívás van, ami azt
-jelenti, hogy minden szolgáltatást külön fordít le és készíti el a hozzá
-tartozó Docker image-et.
+`Build' fázis mögött például 5 darab fordító feladat meghívását
+tartalmazza, ami azt jelenti, hogy minden szolgáltatást külön fordít le
+és készíti el a hozzá tartozó Docker image-et.
 
 \subsection{Jenkins Job-ok a
 keretrendszerhez}\label{jenkins-job-ok-a-keretrendszerhez}
@@ -1989,7 +2098,11 @@ mivel egy közös verziókezelő eszközből a GitHub-ből vette a
 forrásfájlokat minden Job. Az ehhez tartozó beállításokat az
 \ref{github-conf}. ábra mutatja.
 
-\includegraphics{img/github-config.png}\label{github-conf}
+\begin{figure}[H]
+\centering
+\includegraphics{img/github-config.png}
+\caption{GitHub beállítások\label{github-conf}}
+\end{figure}
 
 Ez a konfiguráció azt mondja meg, hogy honnan töltse le a forrásokat a
 Jenkins, és milyen branch tartalmát akarom felhasználni. Van egy
@@ -1999,34 +2112,104 @@ GitHub-ot. Ezt a párost globálisan lehet megadni a Jenkins-nek, amit a
 \emph{Jenkins/Credentials} fülön keresztül érhetünk el.
 
 Másik mindenhol beállított tulajdonság a konkurrens futtatás beállítása,
-ami azt jelenti, hogy több build is futhat egy időben. Feltételezve,
-hogy a Job-ok külön gépeken futnak, lehetséges, hogy több példány is
-fusson belőlük.
+ami azt jelenti, hogy egy feladat többször is futtatható egy időben.
+Feltételezve, hogy a Job-ok külön gépeken futnak, lehetséges, hogy több
+példány is fusson belőlük.
 
-Amiben minden Job különbözik az a futtatott kód. Minden Job-hoz
-készítettem egy szkriptet amit meghívhatok a Jenkins-ből. Egy ilyen
-Jenkins beállítás a \ref{script-run}. ábrán látható.
+Amiben minden feladat különbözik az a futtatott kód. Minden futtatandó
+kódhoz készítettem egy szkriptet amit meghívhatok a Jenkins-ből. Egy
+ilyen Jenkins beállítás a \ref{script-run}. ábrán látható.
 
-\includegraphics{img/script-run.png}\label{script-run}
+\begin{figure}[H]
+\centering
+\includegraphics{img/script-run.png}
+\caption{Szkript futtatása\label{script-run}}
+\end{figure}
 
-A build Job-ok esetén egy artifact is keletkezik, ami az adott build-hez
-kapcsolódoan lesz lementve. A beállítást a \ref{archive}. ábra mutatja.
+A fordító Job-ok esetén egy artifact is keletkezik, ami az adott
+fordításhoz kapcsolódoan lesz lementve. A beállítást a \ref{archive}.
+ábra mutatja.
 
-\includegraphics{img/archive.png}\label{archive}
+\begin{figure}[H]
+\centering
+\includegraphics{img/archive.png}
+\caption{Archiválás beállítása\label{archive}}
+\end{figure}
 
-Az elmentet Docker image-ek letölthetők a Jenkins-ből minden build után,
-így könnyen reprodukálható bármelyik futás, illetve könnyen kiadható
-bármelyik verzió.
+Az elmentet Docker image-ek letölthetők a Jenkins-ből minden futtatás
+után, így könnyen reprodukálható bármelyik futás, illetve könnyen
+kiadható bármelyik verzió.
 
 \chapter{Értékelés}\label{uxe9rtuxe9keluxe9s}
 
-\section{Lehetőségek}\label{lehetux151suxe9gek}
+Megismertem a mikroszolgáltatásokra épülő architektúrák tervezési
+módját, illetve a fejlesztésével, és karbantartásával kapcsolatos
+nehézségeket. Elkészítettem egy minta alklamazást, ami képes szimulálni
+egy könyvesbolt működését, és ezt az alkalmazást mikroszolgáltatásokra
+építettem. Az alkalmazás fejlesztéséhez és teszteléséhez készítettem egy
+folytonos integrációt támogató keretrendszert, amivel megmondhatjuk,
+hogy a változtatások jól működnek-e.
+
+\section{Tovább fejlesztési
+javaslatok}\label{tovuxe1bb-fejlesztuxe9si-javaslatok}
+
+A minta alkalmazásban rengeteg lehetőség van a továbbfejlesztés
+szempontjából. Lehet hozzá fejleszteni további funkciókat, mint a
+regisztráció, keresés, vagy adminisztrtív funkciók (új könyv bevitele,
+készlet frissítése, stb.). A jelenlegi funkciókat is lehet tovább
+fejleszteni jobb autentikációs módszerrel, szebb böngésző felülettel,
+vagy árral összefűzött vásárlással. Nem csak a lehetőségeket érdemes
+kibővíteni, hanem a használhatóságot, és a felügyeleti eszközöket, mivel
+monitorozás, közös log kezelés, és skálázási lehetőségek még nincsenek
+az alkalmazásba építve. Sok előnnyel járhat, ha valódi teljes hardver és
+szoftver virtualizációt használunk, mivel a Docker konténerek használat
+körülményes lehet, és nem is igazán stabil, ha egy gépnek kell több
+konténert futtatni.
+
+Ami a folytonos integrációt támogató keretrendszert illeti, lehetőség
+van a pipeline bővítésére, amit egy új funkció implemenntálása maga után
+vonna, vagy automatikusan indíthatóvá tehető az egész verifikációs
+folyam egy Jenkins pluginnel, ami a verziókezelővel együttműködve minden
+új változtatásra elindíthatja a pipeline-t. Új feladatokat is hozzá
+lehet fejleszteni, amik a kód minőségét javítják, és a céljuk, hogy
+összeszedett jól dokumentált kód készüljök. Egy ilyen ellenőrzés lehetne
+a Python fájlok formai kiértékelése, ami lehetséges a pylint programmal.
 
 \section{Problémák, Kritika}\label{probluxe9muxe1k-kritika}
 
+A feladat elkészítése közben több probléma is felmerült, ami könnyen
+lehet fejlesztés közben blokkoló tényező. A legnagyobb probléma a Docker
+image-ek készítésénél volt, mivel a Docker álltal készített image-ek
+gyakran változnak, és a visszafelé kompatilibitás nem teljesül 2 verzió
+között. A témával kapcsolatban találtam egy cikket\citep{docker-is-bad},
+ami kifejti, hogy pontosan hol is vannak a hibák a Docker fejlesztési
+stratégiában, amit a felhasználók észrevehetnek.
+
+Ezzel szembesültem én is, amikor fejlesztettem az adatbázis
+szolgáltatást, vagy a megrendelés szolgáltatását. A felhasznált
+\textbf{ubuntu} image mögött a csomagok dinamikusan változnak, és két
+build folyamat között is előfordul, hogy ugyan azon a néven más-más
+csomagot telepítünk. Az adatbázis kezelő esetén a MySQL csomag lett
+újabb, és egy nem várt felhasználónév jelszó párost kért, mivel többé
+már nem volt telepítés utáni alapértelmezett felhasználó. A probléma
+ugyan nem volt jelentős, de minden szolgáltatást érintett, és éppen
+ezért hosszabb időt vett igénybe a javítása. A megrendelés esetén a
+\textbf{centos} alap image változott meg, és nem lehetett egyáltalán
+szolgáltatást indítani a konténer belsejéből. Sajnálatos módon a
+megoldás az alap image cseréje volt.
+
 \section{Hol használható}\label{hol-hasznuxe1lhatuxf3}
 
-\listoftables
+Az elkészített folytonos integrációt támogató keretrendszer szinte
+minden mikroszolgáltatás alapú alkalmazás támogatásához felhasználható,
+mivel a folyamat amit implementál, és a szkriptek, amikkel a build-eket
+lebonyolítom, és a telepítést végzem, könnyen megváltoztathatók bármely
+más alkalmazás kiszolgálására. A minta alkalmazás nem lenne képes valós
+könyvesbolt vásárlásának irányítására, azonban nagyon jó mintául szolgál
+a fejlesztés bemutatására, mivel tartalmaz komplex szolgáltatásokat,
+amik önnálóan megtalálják egymást, és elég egyszerű, hogy tetszőlegesen
+továbbfejleszthető legyen.
+
 \listoffigures
 
 \bibliography{bibliography}
@@ -2124,8 +2307,10 @@ ENV CONSUL_DIR /usr/share/consul
 COPY database.sh /usr/sbin/database.sh
 COPY auth_init.sql bookstore_init.sql /tmp/
 RUN apt-get -y update && \
-    /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password password root'" && \
-    /bin/bash -c "debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password root'" && \
+    /bin/bash -c "debconf-set-selections \
+<<< 'mysql-server mysql-server/root_password password root'" && \
+    /bin/bash -c "debconf-set-selections \
+<<< 'mysql-server mysql-server/root_password_again password root'" && \
     apt-get -y install mysql-server \
         iputils-ping \
         mysql-client && \
@@ -2141,7 +2326,8 @@ COPY database.json /etc/consul.d/database.json
 # Install entry point
 COPY init /usr/sbin/init-db
 RUN chmod +x /usr/sbin/init-db && \
-    sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
+    sed -i 's/bind-address.*=.*/bind-address = 0.0.0.0/g' \
+        /etc/mysql/mysql.conf.d/mysqld.cnf
 
 ENTRYPOINT /bin/bash /usr/sbin/init-db
 
@@ -2160,8 +2346,10 @@ ENV CONSUL_DIR /usr/share/consul
 
 # Install Service
 RUN sed -i 's/8080/8888/g' /usr/local/tomcat/conf/server.xml && \
-    sed -i 's/<Connector /<Connector address="0.0.0.0" /g' /usr/local/tomcat/conf/server.xml
-COPY target/ReserveRESTJerseyExample-0.0.2-SNAPSHOT.war /usr/local/tomcat/webapps/order.war
+    sed -i 's/<Connector /<Connector address="0.0.0.0" \
+        /g' /usr/local/tomcat/conf/server.xml
+COPY target/ReserveRESTJerseyExample-0.0.2-SNAPSHOT.war \
+    /usr/local/tomcat/webapps/order.war
 
 # Install consul
 COPY consul consul-template /usr/bin/
@@ -2235,15 +2423,21 @@ build\_\{service\}.sh
 <SERVICE>_CONF_DIR=conf/<SERVICE>
 <SERVICE>_IMAGE_NAME=bookstore_<SERVICE>
 
+CONSUL_BASE=https://releases.hashicorp.com
+CON_VER=0.7.0/consul_0.7.0_linux_386.zip
+CONSUL_URL=${CONSUL_BASE}/consul/${CON_VER}
+TEMP_VER=0.16.0/consul-template_0.16.0_linux_386.zip
+CONSULT_URL=${CONSUL_BASE}/consul-template/${TEMP_VER}
+
 pushd ..
 if [[ ! -e consul ]]; then
     echo "Get Consul script from Internet"
-    wget https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_linux_386.zip && unzip consul_0.7.0_linux_386.zip
+    wget ${CONSUL_URL} && unzip consul_0.7.0_linux_386.zip
 fi
 
 if [[ ! -e consul-template ]]; then
     echo "Get consul-template script from Internet"
-    wget https://releases.hashicorp.com/consul-template/0.16.0/consul-template_0.16.0_linux_386.zip && unzip consul-template_0.16.0_linux_386.zip
+    wget ${CONSULT_URL} && unzip consul-template_0.16.0_linux_386.zip
 fi
 
 echo "Create <SERVICE> service for bookstore ..."
@@ -2259,9 +2453,12 @@ echo " - Move consul to data directory"
 cp consul ${<SERVICE>_SERVICE_HOME}/
 cp consul-template ${<SERVICE>_SERVICE_HOME}/
 echo " - Building Docker image"
-docker build -t ${<SERVICE>_IMAGE_NAME} ${<SERVICE>_SERVICE_HOME} &> ${<SERVICE>_SERVICE_HOME}/build.log
+docker build -t ${<SERVICE>_IMAGE_NAME} \
+    ${<SERVICE>_SERVICE_HOME} &> ${<SERVICE>_SERVICE_HOME}/build.log
 echo " - Save image"
-docker save --output ${<SERVICE>_SERVICE_HOME}/${<SERVICE>_IMAGE_NAME}.img ${DATABASE_IMAGE_NAME}
+docker save \
+    --output ${<SERVICE>_SERVICE_HOME}/${<SERVICE>_IMAGE_NAME}.img \
+    ${DATABASE_IMAGE_NAME}
 
 echo "<SERVICE> service has been created!"
 popd
@@ -2281,7 +2478,9 @@ docker network create bookstore
 for service in ${services}
 do
     echo "Start ${service} service ..."
-    docker run -d --name "${service}" -h "${service}" --net=bookstore bookstore_${service}
+    docker run -d --name "${service}" \
+               -h "${service}" \
+              --net=bookstore bookstore_${service}
 done
 \end{verbatim}
 
@@ -2335,7 +2534,8 @@ while true; do
         consul agent -server \
                      -join "${MASK}.${ADDR}" \
                      -datacenter "bookstore" \
-                     -data-dir "${CONSUL_DIR}" > /var/log/bookstore-consul.log &
+                     -data-dir "${CONSUL_DIR}" \
+                       > /var/log/bookstore-consul.log &
         sleep 10
         cat /var/log/bookstore-consul.log
         if ps ax | grep -v grep | grep "consul" > /dev/null; then
@@ -2470,7 +2670,8 @@ CREATE TABLE user_auth
     PRIMARY KEY (user_id)
 );
 # Fill Tables
-INSERT INTO user_auth (username, password) VALUES ("test", "testpassword");
+INSERT INTO user_auth (username, password)
+VALUES ("test", "testpassword");
 \end{verbatim}
 
 Bookstore raktár:
@@ -2516,21 +2717,40 @@ szkript\label{appendix-pipline}}{Pipeline job szkript}}\label{pipeline-job-szkri
 
 Pipline job full szkript:
 
-```\{Pipeline script\} buildNames = {[} `build-auth-service',
-`build-database-service', `build-order-service', `build-proxy-service',
-`build-webserver-service'{]}
+\begin{verbatim}
+buildNames = [
+    'build-auth-service',
+    'build-database-service',
+    'build-order-service',
+    'build-proxy-service',
+    'build-webserver-service'
+]
 
-def buildJobs = {[}:{]}
+def buildJobs = [:]
 
-for (int i=0; i\textless{}buildNames.size(); ++i) \{ def buildName =
-buildNames{[}i{]} buildJobs{[}buildNames{[}i{]}{]} = \{ node \{ echo
-`Running'+buildName+`build' build job: buildName \} \} \}
+for (int i=0; i<buildNames.size(); ++i) {
+    def buildName = buildNames[i]
+    buildJobs[buildNames[i]] = {
+        node {
+            echo 'Running '+buildName+' build'
+            build job: buildName
+        }
+    }
+}
 
-stage `Build' echo `Building services \ldots{}' parallel buildJobs stage
-`Deploy' echo `Deploying services \ldots{}' build job: `deploy-services'
-stage `Test' echo `Testing services \ldots{}' build job: `test-services'
-stage `Cleanup' echo `Cleaning up services \ldots{}' build job:
-`cleanup-services' ```
+stage 'Build'
+echo 'Building services ...'
+parallel buildJobs
+stage 'Deploy'
+echo 'Deploying services ...'
+build job: 'deploy-services'
+stage 'Test'
+echo 'Testing services ...'
+build job: 'test-services'
+stage 'Cleanup'
+echo 'Cleaning up services ...'
+build job: 'cleanup-services'
+\end{verbatim}
 
 \subsection{\texorpdfstring{Proxy\label{appendix-template}}{Proxy}}\label{proxy-1}
 

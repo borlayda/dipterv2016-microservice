@@ -32,6 +32,11 @@ David Chou.
 \newblock Using events in highly distributed architectures.
 \newblock {\em The Architecture Jounal}, October 2008.
 
+\bibitem{travis}
+Travis CI.
+\newblock Travis ci.
+\newblock \url{https://travis-ci.org}.
+
 \bibitem{cron-monitoring}
 Cronitor.
 \newblock Monitoring microservices.
@@ -52,6 +57,11 @@ Manfréd Sneps-Sneppe Dimirty~Namiot.
 Docker.
 \newblock Docker.
 \newblock \url{https://www.docker.com/}.
+
+\bibitem{ruxit-overview}
+dynatrace.
+\newblock Ruxit overview.
+\newblock \url{https://ruxit.com/why-ruxit/overview/#whyruxitoverview_start}.
 
 \bibitem{elasticbox}
 ElasticBox.
@@ -91,6 +101,13 @@ Nemeth Gergely.
 \newblock
   \url{https://www.loggly.com/blog/monitoring-microservices-three-ways-to-overcome-the-biggest-challenges/}.
 
+\bibitem{docker-is-bad}
+The~HFT Guy.
+\newblock Docker in production: A history of failure.
+\newblock
+  \url{https://thehftguy.wordpress.com/2016/11/01/docker-in-production-an-history-of-failure/},
+  November 2016.
+
 \bibitem{haproxy}
 HAProxy.
 \newblock The reliable, high performance tcp/http load balancer.
@@ -100,6 +117,11 @@ HAProxy.
 Hashicorp.
 \newblock Consul.
 \newblock \url{https://www.consul.io/}.
+
+\bibitem{serf}
+Hashicorp.
+\newblock Serf.
+\newblock \url{https://www.serf.io/}.
 
 \bibitem{continuous-delivery}
 Jez Humble.
@@ -124,7 +146,7 @@ Jenkins.
 \bibitem{jenkins}
 Jenkins.
 \newblock Jenkins.
-\newblock https://jenkins.io/index.html.
+\newblock \url{https://jenkins.io/index.html}.
 
 \bibitem{microservices-light}
 Mercedes~Garijo Jose Ignacio Fernández-Villamor, Carlos Á.~Iglesias.

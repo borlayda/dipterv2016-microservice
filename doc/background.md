@@ -28,7 +28,7 @@ A tervezési folyamatnál a következő szempontokat szokták figyelembe venni:
 
 Ezekkel a lépéssekkel meg lehet alapozni, hogy az általunk készítendő rendszer hogyan is lesz kialakítva, és milyen paraméterek mentén lesz felvágva. A választást segíti a témában elterjedt fogalom, a scaling cube[@scale-cube], ami azt mutatja, hogy az architektúrális terveket milyen szempontok mentén lehet felosztani.
 
-![Scaling Cube\label{scalecube}](img/ScaleCude.jpg)
+![Scaling Cube[@scale-cube]\label{scalecube}](img/ScaleCude.jpg)
 
 Ahogy a \ref{scalecube}. ábrán képen is látható a meghatározó felbontási fogalmak, az adat menti felbontás, a tetszőleges fogalom menti felbontás, illetve a klónozás.
 
@@ -74,10 +74,12 @@ A mikroszolgáltatások a szolgáltatás orientált architektúrális minta fino
 
 ###Példák mikroszolgáltatásokat használó alkalmazásokra
 
-* **Amazon**: minden Amazon-nal kommunikáló eszköz illetve az egyes funkciók implementációja is szolgáltatásokra van szedve, és ezeket hívják az egyes funkciók (vm indítás, törlés, mozgatás, stb.)
+Ugyan a mikroszolgáltatásokra épülő architektúra egy viszonylag új fejlesztési módszer, de találhatunk az iparban erre épülő alkalmazásokat. Az alábbi vállalatok átalakították, vagy elkeztdék átalakítani a szolgáltatásaikat ennek a módszernek megfelelően:
 
-* **eBay**: Különböző műveletek szerint van felbonva a funkcionalitás, és ennek megfelelően külön szolgáltatásként érhető el a fizetés, megrendelés, szállítási információk, stb.
+* **Amazon**: Az Amazon Cloud szolgáltatása, és web álruháza is szolgáltatásokká átalakította, mivel a legtöbb funkció amit a felhasználók elérhetnek, interaktívan kommunikálnak, és minden feladathoz tartozó implementáció külön szolgáltatásokra van szedve. Ugyan vannak összetett funkciók mint a skálázás, ami több funkció együttesétől függ, de a háttérben a szolgáltatások közötti kommunikáció zajlik. (vm monitoring, vm create, vm start, stb.)
 
-* **NetFlix**: A nagy terhelést elkerülendő bizonyos streaming szolgáltatásokat átalakítottak, hogy a mikroszolgáltatás architektúra szerint működjön.
+* **eBay**: Az eBay vásárló oldala kezdetektől fogva szolgáltatásokra volt bontva, de elkezdték szétbontani kisebb alkotó elemekre őket, illetve saját konténerekben futtatják a funkciókat. Elkülönített szolgáltatásként szerepel például a vásárlás, vagy a megrendeléshez tartozó szolgáltatás.
+
+* **NetFlix**: A NetFlix videomegosztó alkalmazása, az eBay-hez hasonlóan szolgáltatásokra volt bontva a teljes alkalmazás, azonban a streaming álltal okozott skálázási problémák miatt elkezdték átalakítani a részegységeket a mikroszolgáltatások elve szerint.
 
 * **Archivematica**: Az Archivematica[@archivematica] egy nyílt forráskódú elektronikus tartalom kezelő, ami tud kezelni különböző fájlokat, multimédiás adatokat, illetve akármilyen szöveges tartalmat. Ez az alakmazás alapvetően monolitikus architektúrára épül, azonban elkezdték átalakítani a struktúráját mikroszolgáltatásokat használó architektúrára. Ezt úgy kivitelezték, hogy a különböző plusz funkciókat az eredeti alkalmazás plugin szerűen mikroszolgáltatásokból nyeri ki, és ennek megfelelően a tovább fejlesztés is megalapozott[@archivematica-wiki].

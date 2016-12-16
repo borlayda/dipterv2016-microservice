@@ -5,47 +5,45 @@ The style file: plain.bst
 Database file #1: bibliography.bib
 Warning--string name "sept" is undefined
 --line 22 of file bibliography.bib
-Warning--I didn't find a database entry for "serf"
-Warning--I didn't find a database entry for "ruxit"
-You've used 48 entries,
+You've used 52 entries,
             2118 wiz_defined-function locations,
-            695 strings with 9285 characters,
-and the built_in function-call counts, 10074 in all, are:
-= -- 948
-> -- 336
+            707 strings with 9619 characters,
+and the built_in function-call counts, 10896 in all, are:
+= -- 1025
+> -- 364
 < -- 1
-+ -- 148
-- -- 96
-* -- 284
-:= -- 1682
-add.period$ -- 144
-call.type$ -- 48
-change.case$ -- 192
++ -- 160
+- -- 104
+* -- 307
+:= -- 1819
+add.period$ -- 156
+call.type$ -- 52
+change.case$ -- 208
 chr.to.int$ -- 0
-cite$ -- 48
-duplicate$ -- 358
-empty$ -- 1064
-format.name$ -- 96
-if$ -- 2214
+cite$ -- 52
+duplicate$ -- 386
+empty$ -- 1152
+format.name$ -- 104
+if$ -- 2395
 int.to.chr$ -- 0
-int.to.str$ -- 48
+int.to.str$ -- 52
 missing$ -- 3
-newline$ -- 243
-num.names$ -- 96
-pop$ -- 373
+newline$ -- 263
+num.names$ -- 104
+pop$ -- 405
 preamble$ -- 1
-purify$ -- 144
+purify$ -- 156
 quote$ -- 0
-skip$ -- 387
+skip$ -- 418
 stack$ -- 0
-substring$ -- 276
-swap$ -- 57
+substring$ -- 296
+swap$ -- 61
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 192
+type$ -- 208
 warning$ -- 0
-while$ -- 99
-width$ -- 50
-write$ -- 445
-(There were 3 warnings)
+while$ -- 107
+width$ -- 54
+write$ -- 482
+(There was 1 warning)
