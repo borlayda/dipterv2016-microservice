@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.9)  15 DEC 2016 23:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.9)  17 DEC 2016 13:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1632,31 +1632,39 @@ Underfull \vbox (badness 1540) has occurred while \output is active []
 File: img/microservices.png Graphic file (type png)
 
 <use img/microservices.png>
-Package pdftex.def Info: img/microservices.png used on input line 1371.
+Package pdftex.def Info: img/microservices.png used on input line 1377.
 (pdftex.def)             Requested size: 587.80055pt x 251.14018pt.
- [26 <./img/microservices.png>]
 
-LaTeX Warning: Reference `CIphases' on page 27 undefined on input line 1393.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<img/ci_phases.png, id=577, 827.09pt x 465.74pt>
+ [26]
+
+LaTeX Warning: Reference `CIphases' on page 27 undefined on input line 1399.
+
+<img/ci_phases.png, id=575, 827.09pt x 465.74pt>
 File: img/ci_phases.png Graphic file (type png)
  <use img/ci_phases.png>
-Package pdftex.def Info: img/ci_phases.png used on input line 1397.
+Package pdftex.def Info: img/ci_phases.png used on input line 1403.
 (pdftex.def)             Requested size: 496.25783pt x 279.44615pt.
 
-[27 <./img/ci_phases.png>] [28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27 <./img/microservices.png>]
+Underfull \vbox (badness 1019) has occurred while \output is active []
+
+ [28 <./img/ci_phases.png>] [29]
 Underfull \vbox (badness 2027) has occurred while \output is active []
 
- [29]
-[30]
+ [30]
+[31]
 4. fejezet.
 
 Underfull \vbox (badness 1946) has occurred while \output is active []
 
- [31
+ [32
 
 ]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1657
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 1667
 .
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
@@ -1666,8 +1674,8 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [32]
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 169
+ [33]
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 170
 3.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmtt.fd
@@ -1680,79 +1688,79 @@ Package microtype Info: Loading generic settings for font family
 Package microtype Info: Character `texttrademark ' is missing
 (microtype)             in font `TS1/lmtt/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
- [33] [34] [35] [36]
-<img/loginscreen.png, id=636, 818.05624pt x 256.96pt>
+ [34] [35] [36] [37]
+<img/loginscreen.png, id=641, 818.05624pt x 256.96pt>
 File: img/loginscreen.png Graphic file (type png)
 
 <use img/loginscreen.png>
-Package pdftex.def Info: img/loginscreen.png used on input line 1928.
+Package pdftex.def Info: img/loginscreen.png used on input line 1937.
 (pdftex.def)             Requested size: 490.83754pt x 154.17719pt.
 
-<img/browsescreen.png, id=638, 990.70125pt x 320.19624pt>
+<img/browsescreen.png, id=643, 990.70125pt x 320.19624pt>
 File: img/browsescreen.png Graphic file (type png)
 
 <use img/browsescreen.png>
-Package pdftex.def Info: img/browsescreen.png used on input line 1937.
+Package pdftex.def Info: img/browsescreen.png used on input line 1946.
 (pdftex.def)             Requested size: 594.42534pt x 192.11922pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [37 <./img/loginscreen.png>]
+ [38 <./img/loginscreen.png>]
 Underfull \vbox (badness 1178) has occurred while \output is active []
 
- [38 <./img/browsescreen.png>] <img/pipeline-job.png, id=652, 1169.36874pt x 75
+ [39 <./img/browsescreen.png>] <img/pipeline-job.png, id=656, 1169.36874pt x 75
 0.805pt>
 File: img/pipeline-job.png Graphic file (type png)
 
 <use img/pipeline-job.png>
-Package pdftex.def Info: img/pipeline-job.png used on input line 2040.
+Package pdftex.def Info: img/pipeline-job.png used on input line 2049.
 (pdftex.def)             Requested size: 701.62666pt x 450.48647pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 5832) has occurred while \output is active []
 
- [39]
-[40 <./img/pipeline-job.png>]
-<img/job-view.png, id=663, 590.205pt x 390.45876pt>
+ [40]
+[41 <./img/pipeline-job.png>]
+<img/job-view.png, id=667, 590.205pt x 390.45876pt>
 File: img/job-view.png Graphic file (type png)
  <use img/job-view.png>
-Package pdftex.def Info: img/job-view.png used on input line 2090.
+Package pdftex.def Info: img/job-view.png used on input line 2099.
 (pdftex.def)             Requested size: 354.12573pt x 234.27705pt.
 
-<img/github-config.png, id=665, 757.83125pt x 512.91624pt>
+<img/github-config.png, id=669, 757.83125pt x 512.91624pt>
 File: img/github-config.png Graphic file (type png)
 
 <use img/github-config.png>
-Package pdftex.def Info: img/github-config.png used on input line 2103.
+Package pdftex.def Info: img/github-config.png used on input line 2112.
 (pdftex.def)             Requested size: 454.70226pt x 307.75212pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [41 <./img/job-view.png>] <img/script-run.png, id=674, 720.6925pt x 276.03125p
+ [42 <./img/job-view.png>] <img/script-run.png, id=678, 720.6925pt x 276.03125p
 t>
 File: img/script-run.png Graphic file (type png)
 
 <use img/script-run.png>
-Package pdftex.def Info: img/script-run.png used on input line 2125.
+Package pdftex.def Info: img/script-run.png used on input line 2134.
 (pdftex.def)             Requested size: 432.41884pt x 165.62001pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [42 <./img/github-config.png>] <img/archive.png, id=682, 558.085pt x 262.9825p
+ [43 <./img/github-config.png>] <img/archive.png, id=687, 558.085pt x 262.9825p
 t>
 File: img/archive.png Graphic file (type png)
 
 <use img/archive.png>
-Package pdftex.def Info: img/archive.png used on input line 2135.
+Package pdftex.def Info: img/archive.png used on input line 2144.
 (pdftex.def)             Requested size: 334.85359pt x 157.7907pt.
- [43 <./img/script-run.png> <./img/archive.png>]
+ [44 <./img/script-run.png> <./img/archive.png>]
 5. fejezet.
-[44
+[45
 
-] [45] (./microservice.lof)
+] [46] (./microservice.lof)
 \tf@lof=\write6
 \openout6 = `microservice.lof'.
 
- (./microservice.bbl [46
+ (./microservice.bbl [47
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 41--44
@@ -1772,7 +1780,7 @@ Underfull \hbox (badness 2435) in paragraph at lines 87--91
 ]$http : / / martinfowler . com / articles /
  []
 
-[47
+[48
 
 ]
 Underfull \hbox (badness 2050) in paragraph at lines 99--103
@@ -1786,7 +1794,7 @@ Underfull \hbox (badness 4229) in paragraph at lines 173--176
 hub . com / Net^^]ix / eureka / wiki /
  []
 
-[48]
+[49]
 Underfull \hbox (badness 10000) in paragraph at lines 210--214
 []\T1/lmr/m/n/10.95 (+20) Sebastián Pey-rott.  An int-ro-duc-ti-on to mic-ros-e
 r-vi-ces, part
@@ -1828,40 +1836,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 265--271
 -[]can-[]be-[]perfectly-[]^^\ne/$[][], march
  []
 
-) [49]
+) [50]
 A. f\"uggel\'ek.
-[50
+[51
 
-] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61]
+] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62]
+ [63]
 \tf@thm=\write7
 \openout7 = `microservice.thm'.
 
 
 
 AED: lastpage setting LastPage
-[63]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2814.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2814.
+[64]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2823.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2823.
  (./microservice.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2814.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2814.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2823.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2823.
 
 Package rerunfilecheck Info: File `microservice.out' has not changed.
-(rerunfilecheck)             Checksum: 1696D013763EB787D895D7FD8B419907;11062.
+(rerunfilecheck)             Checksum: B1D8B92AA2D41C31EAA862B41ABD9541;10896.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2814.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2823.
  ) 
 Here is how much of TeX's memory you used:
- 32307 strings out of 493304
- 558728 string characters out of 6139872
- 632817 words of memory out of 5000000
- 34836 multiletter control sequences out of 15000+600000
+ 32309 strings out of 493304
+ 558720 string characters out of 6139872
+ 632805 words of memory out of 5000000
+ 34837 multiletter control sequences out of 15000+600000
  66612 words of font info for 100 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  63i,7n,92p,10395b,612s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1871,10 +1879,10 @@ e/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/l
 m/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri
 10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on microservice.pdf (63 pages, 685718 bytes).
+Output written on microservice.pdf (64 pages, 685197 bytes).
 PDF statistics:
- 949 PDF objects out of 1000 (max. 8388607)
- 847 compressed objects within 9 object streams
- 218 named destinations out of 1000 (max. 500000)
+ 953 PDF objects out of 1000 (max. 8388607)
+ 850 compressed objects within 9 object streams
+ 219 named destinations out of 1000 (max. 500000)
  20028 words of extra memory for PDF output out of 20736 (max. 10000000)
 

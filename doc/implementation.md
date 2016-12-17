@@ -1,12 +1,12 @@
 # Feladat implementációja
 
-A minta alkalmazás implementálása során próbáltam a ma legnépszerűbb  és leggyakrabban használt technológiákat használni, és a terveknek megfelelő legjobb megvalósítást.
+A minta alkalmazás implementálása során próbáltam a ma legnépszerűbb és leggyakrabban használt technológiákat használni, és a terveknek megfelelő legjobb megvalósítást.
 
 ## Felhasznált technológiák
 
-A minta alkalmazás szolgáltatásaiban több kevert technológiát használtam, hogy be tudjam mutatni a mikroszolgáltatásokon alapuló alkalmazások legnagyobb erősségét, a kervert technológiás megvalósítást. A kiszolgálási logikát Python, Java és PHP nyelveken írtam, és használtam Apache webkiszolgáló alkalmazást, és Ngnix webkiszolgálót, és reverse proxy szervert. A szolgáltatások futtatásához bash szkripteket készítettem, és Docker konténereket használtam fel a környezetfüggetlenség eléréséhez. Az adatbázis kezelésére MySQL adatbázis kezelő szervert használtam, mivel ez a legelterjedtebb ingyenesen használható adatbázis kezelő.
+A minta alkalmazás szolgáltatásaiban több kevert technológiát használtam, hogy be tudjam mutatni a mikroszolgáltatásokon alapuló alkalmazások legnagyobb erősségét, a kervert technológiás megvalósítást. A kiszolgálási logikát Python, Java és PHP nyelveken írtam, és használtam Apache webkiszolgáló alkalmazást, és Ngnix webkiszolgáló és reverse proxy szervert. A szolgáltatások futtatásához Bash szkripteket készítettem, és Docker konténereket használtam fel a környezetfüggetlenség eléréséhez. Az adatbázis kezelésére MySQL adatbázis kezelő szervert használtam, mivel ez a legelterjedtebb ingyenesen használható adatbázis kezelő.
 
-Python nyelven nagyon egyszerű implementálni egy webkiszolgálót, amin keresztül a ksizolgáló interfészt elkészíthetem, illetve a program logika és adatbázis kapcsolat is könnyen megvalósítható, mivel rengeteg elkészített könyvtár áll rendelkezésemre. A Python egy széles körben felhasznált technológia, így egy valós mikroszolgáltatás alapú alkalmazásba is nagy valószínűséggel belekerülne.
+Python nyelven nagyon egyszerű implementálni egy webkiszolgálót, amin keresztül a kiszolgáló interfészt elkészíthetem, illetve a program logika és adatbázis kapcsolat is könnyen megvalósítható, mivel rengeteg elkészített könyvtár áll rendelkezésemre. A Python egy széles körben felhasznált nyelv, így egy valós mikroszolgáltatás alapú alkalmazásba is nagy valószínűséggel belekerülne.
 
 A Java egy platform függyetlen nyelv, amit mind kliens oldali alkalmazásokhoz, mind szerver alkalmazások elkészítéséhez is használják, és viszonylag öregebb nyelv amihez rengeteg típusú hálózati kommunikációs protokollt implementáltak, így könnyen és széles körben használható nyelv. Egy másik előnye a feladat szempontjából, hogy fordítás szükséges hozzá, és így a fordítási folyamatban egy jar állomány elkészítését is be tudom mutatni.
 
@@ -16,7 +16,7 @@ Az Nginx a Java-s alkalmazások kiszolgálásához használt leggyakoribb webkis
 
 A Docker a mikroszolgáltatások gyakran használt virtualizáló eszköze, amit gyors, és egyszerű használata teszi alkalmassá. A Docker álltal létrehozott virtuális konténer környezetben pontosan annyi van, amennyit a szolgáltatáshoz fel akarunk használni, de könnyen bővíthető, karbantartható, és kicserélhetők a konténerek.
 
-A kommunikációhoz, és a szolgáltatások egymásra találásához a Consul szolgáltatásfelderító eszközt használtam, amivel már volt korábbi tapasztalatom. A Cnsul könnyen telepíthető, és egyszerűen használható, és a piacon található más termékekkel ellentétben ingyenes, és gyorsan fejlődő eszköz. Minden funkciót tartalmaz amire szükségem van, és sokkal könnyebben bekonfigurálható, mint a mikroszolgáltatásoknál gyakran használt Apache Zookeeper.
+A kommunikációhoz, és a szolgáltatások egymásra találásához a Consul szolgáltatás felderítő eszközt használtam, amivel már volt korábbi tapasztalatom. A Consul könnyen telepíthető, egyszerűen használható, és a piacon található más termékekkel ellentétben ingyenes, és gyorsan fejlődő eszköz. Minden funkciót tartalmaz amire szükségem van, és sokkal könnyebben bekonfigurálható, mint a mikroszolgáltatásoknál gyakran használt Apache Zookeeper.
 
 ## Szolgáltatások implementálás
 
@@ -40,7 +40,7 @@ COPY <service>.json /etc/consul.d/<service>.json
 
 Az eszköz telepítése egy egyszerű fájl másolásból áll, és a jogosultságok beállítása után, már használható is. Minden szolgáltatáshoz tartozik egy JSON fájl, ami tartalmazza a szolgáltatás Consul-hoz kapcsolódó adatait, mint a felhasznált kommunikációs port, és a szolgáltatás megnevezése, kategorizálása.
 
-Ami minden szolgáltatásnál különbözik, az a telepített alkalmazások listája, amik aszerint lettek meghatározva, hogy milyen függőségei vannak a szolgáltatást futtató programnak. Ez a rész a Docker image disztribúciójának megfelelő telepítő programmal történik. Az adatbáziskezelő esetében nem volt ennyire egyszerű a helyzet, ugyanis a **mysql-server** csomag telepítése, egy interaktív választ kér a felhasználótól, amit automatizáltan a következő módon tudunk megtenni:
+Ami minden szolgáltatásnál különbözik, az a telepített alkalmazások listája, amik aszerint lettek meghatározva, hogy milyen függőségei vannak a szolgáltatást futtató programnak. Ez a rész a Docker image disztribúciójának megfelelő telepítő programmal történik. Az adatbázis kezelő esetében nem volt ennyire egyszerű a helyzet, ugyanis a **mysql-server** csomag telepítése, egy interaktív választ kér a felhasználótól, amit automatizáltan a következő módon tudunk megtenni:
 
 ```{Dockerfile}
 FROM ...
@@ -54,17 +54,17 @@ RUN apt-get -y update && \
 ...
 ```
 
-Minden Docker image készítésénél az első telepítéshez kellő parancs a repository frissítése, ami jelen esetben az **apt-get update**. Ha ezt nem tesszük meg akkor az alap image ismeretlenül régi csomaglistáját használjuk, ami azt eredményezi, hogy a telepítő nem talál csomagokat, illetve nem a jó verziót találja meg. A **debconf-set-selctions** egy olyan program ami lehetővé teszi, hogy a debian csomagkezelő kérdéseire automatikusan tudjunk válaszolni.
+Minden Docker image készítésénél az első telepítéshez kellő parancs a repository frissítése, ami jelen esetben az **apt-get update**. Ha ezt nem tesszük meg akkor az alap image ismeretlenül régi csomaglistáját használjuk, ami azt eredményezi, hogy a telepítő nem talál csomagokat, illetve nem a jó verziót találja meg. A **debconf-set-selctions** egy olyan program ami lehetővé teszi, hogy a Debian csomagkezelő kérdéseire automatikusan tudjunk válaszolni.
 
 Minden szolgáltatáshoz tartozik egy indító szkript, ami tartalmazza az alkalmazás többi elemének a megkeresését, és a szolgáltatás elindításához tartozó lépéseket. Az elkészült Dockerfile-ok amikkel az image-eket építettem, és az indító szkiptek megtalálhatók a függelékben (\ref{appendix-dockerfile}. és \ref{appendix-starter}. fejezet).
 
 ### Alkalmazás részletek
 
-Minden szolgáltatáshoz tartozik egy vagy több forrásfájl, ami tartalmazza a kiszolgáló kódot. A kiszlgáló kód egy HTTP protokollal elérhető webkiszolgáló, mivel az általam választott Rest-es kommunikációhoz erre van szükség.
+Minden szolgáltatáshoz tartozik egy vagy több forrásfájl, ami tartalmazza a kiszolgáló kódot. A kiszolgáló kód egy HTTP protokollal elérhető webkiszolgáló, mivel az általam választott Rest-es kommunikációhoz erre van szükség.
 
 Az autentikációt lehetővé tevő szolgáltatás tartalmaz egy **Python Flask** implementációt, ami egy olyan webkiszolgáló Python könyvtár, amivel az egyes URL-eket metódusokhoz rendelhetjük. Ezen kívül egy adatbázis elérést tartalmaz, amit a **MySQLdb** modul segítségével implementáltam. Az egyszerűség kedvéért, az adatbázis már a kezdetektől fogva fel van töltve, és nem lehet bele új felhasználót felvenni. Ha valaki szerepel az adtbázisban, és a jelszava a neki megadott jelszó, akkor sikeresnek jelzem az autentikációt, egyébként "HTTP 401 Unauthorized" üzenettel jelzem a hibát.
 
-Az adatbázishoz nem kellett külön szolgáltatáskódot írnom, mivel a MySQL adatbázis önmagában is képes kezelni a felé eső kéréseket. A szolgáltatást használat előtt töltöm fel adatokkal, amiken keresztül be tudom mutatni a működést. Az adatok betöltését kisebb SQL nyelven írt szkriptekkel írtam le. A könyvekhez tartozó adatbázis léterhozása például a következő képpen néz ki:
+Az adatbázishoz nem kellett külön szolgáltatás kódot írnom, mivel a MySQL adatbázis önmagában is képes kezelni a felé eső kéréseket. A szolgáltatást használat előtt töltöm fel adatokkal, amiken keresztül be tudom mutatni a működést. Az adatok betöltését kisebb SQL nyelven írt szkriptekkel írtam le. A könyvekhez tartozó adatbázis léterhozása például a következő képpen néz ki:
 
 ```{SQL}
 ...
@@ -78,11 +78,11 @@ CREATE TABLE store
 ...
 ```
 
-Ahogy látható a könyvekhez tartozik egy név és egy számosságot jelző 'count' mező, illetve egy kulcs érték, amin keresztül minden könyv egyedien megkülönböztethető. A többi adattábla ehhez hasonlóan van elkészítve, és a hozzájuk tartozó kód megtekinthető a függelékben (\ref{appendix-database}. fejezet).
+Ahogy látható a könyvekhez tartozik egy név és egy számosságot jelző "count" mező, illetve egy kulcs érték, amin keresztül minden könyv egyedien megkülönböztethető. A többi adattábla ehhez hasonlóan van elkészítve, és a hozzájuk tartozó kód megtekinthető a függelékben (\ref{appendix-database}. fejezet).
 
-A böngészéshez tisztán PHP kódot írtam, amit az Apache HTTP szerver ajánl ki. Ezek a szkriptek teszik elérhetővé a felhasználó számára a szolgáltatásokat, egy nagyon egyszerű HTML oldalon keresztül. Az egyes funkciók magukban is elérhetők a saját kiszolgálójukon keresztül, de a PHP kódok egy közös ferlhasználói interfészt adnak, ami annyit tesz, hogy a PHP kódok tovább hívnak a szolgáltatások interfészeire. Ha kliens oldali alkalmazást készítettem volna, akkor a böngészéshez tartozó kód, egy garfikus felület kódja lett volna, ami pont ugyan így kommunikált volna a többi szolgáltatással. Ugyan így elmondható, hogy bármikor kicserélhető a megjelenítés a böngészés szolgáltatás kicserélésével. A PHP küdok megtalálhatók a függelékben (\ref{appendix-http}. fejezet).
+A böngészéshez tisztán PHP kódot írtam, amit az Apache HTTP szerver ajánl ki. Ezek a szkriptek teszik elérhetővé a felhasználó számára a szolgáltatásokat, egy nagyon egyszerű HTML oldalon keresztül. Az egyes funkciók magukban is elérhetők a saját kiszolgálójukon keresztül, de a PHP kódok egy közös felhasználói interfészt adnak, ami annyit tesz, hogy a PHP kódok tovább hívnak a szolgáltatások interfészeire. Ha kliens oldali alkalmazást készítettem volna, akkor a böngészéshez tartozó kód, egy grafikus felület kódja lett volna, ami pont ugyan így kommunikált volna a többi szolgáltatással. Ugyan így elmondható, hogy bármikor kicserélhető a megjelenítés a böngészés szolgáltatás kicserélésével. A PHP kódok megtalálhatók a függelékben (\ref{appendix-http}. fejezet).
 
-A legbonyolultabb szolgáltatás a megrendeléshez tartozó szolgáltatás, ami az alábbi kódrészletet tartalmazza. Ennek megfelelően a program megkeresi a megrendelendő könyvet a nyilvántartásban, megnézi lehetséges-e a feladott megrendelés, és ha igen bejegyzéseket tesz róla az adatbázisban. Levontja a kívánt mennyiséget a jelenlegi mennyiségből, és felvesz egy új rendelést a rendelések jegyzékébe.
+A legbonyolultabb szolgáltatás a megrendeléshez tartozó szolgáltatás, ami az alábbi kódrészletet tartalmazza. Ennek megfelelően a program megkeresi a megrendelendő könyvet a nyilvántartásban, megnézi lehetséges-e a feladott megrendelés, és ha igen bejegyzéseket tesz róla az adatbázisban. Levonja a kívánt mennyiséget a jelenlegi mennyiségből, és felvesz egy új rendelést a rendelések jegyzékébe.
 
 ```{java}
 ...
@@ -123,7 +123,7 @@ if (selectStmt.execute()) {
 ...
 ```
 
-A Proxy szolgáltatás az adatbázishoz hasonlóan nem igyénel önálló logikát, mivel a HAProxy, amit kiválasztottam mintt proxy vezérlő, nem igényel semmilyen mögöttes logikát, csupán egy konfiguráció beállítást. Ezt a beállítást Consul template segítségével értem el, amit a következő módon konfiguráltam:
+A Proxy szolgáltatás az adatbázishoz hasonlóan nem igyénel önálló logikát, mivel a HAProxy, amit kiválasztottam mint proxy vezérlő, nem igényel semmilyen mögöttes logikát, csupán egy konfiguráció beállítást. Ezt a beállítást Consul template segítségével értem el, amit a következő módon konfiguráltam:
 
 ```{config}
 ...
@@ -139,7 +139,7 @@ backend <backendname>
 
 Minden szolgáltatáshoz tartozik egy ilyen bejegyzés, ami pontosan megmondja, hogy az adott szolgáltatáshoz melyik port tartozik, és hol találhatók a backend szerverei. A Consul template pedig kitölti a backend szerverhez tartozó részeket az összes élő szolgáltatáspéldánnyal. Ha egy szolgáltatás konténer leáll, akkor a hozzá rendelt bejegyzés automatikusan eltűnik. A konkrét Consul template megtalálható a függelékben (\ref{appendix-template}. fejezet).
 
-## Kommunikáció, avagy hogy működik a Consul
+## Kommunikáció
 
 A szolgáltatások közötti kommunikáció Rest-es interfészeken keresztül történik, HTTP protokollal. Az interfészek minden szolgáltatásra egyediek, és csak egy olyan szolgáltatás van akinek mindegyik interfészt ismernie kell, ez pedig a böngészés, mivel ezen keresztül érhető el az összes funkció. Az egyes szolgáltatások nem tudnak egymásról, így kellett egy mechanizmus, ami megtalálja az összes szolgáltatást, és elérhetővé teszi egymás számára.
 
@@ -205,7 +205,7 @@ Ha valamilyen névfeloldás áll rendelkezésre, akkor a proxy szolgáltatás IP
 
 ![Bejelentkező felület\label{login}](img/loginscreen.png)
 
-Ha bejelentkeztünk a böngésző oldalra dob az alkalmazás, és lehetőségünk nyilik rendeléseket is feladni (\ref{browse}. ábra).
+Ha bejelentkeztünk, a böngésző oldalra dob az alkalmazás, és lehetőségünk nyilik rendeléseket is feladni (\ref{browse}. ábra).
 
 ![Böngésző felület\label{browse}](img/browsescreen.png)
 
@@ -221,14 +221,14 @@ A Jenkins egy olyan folytonos integrációt támogató keretrendszer, aminek a J
 
 * Jenkins: A Jenkins maga a legnagyobb egység, ami az összes végrehajtandó feladatot tartalmazza, struktúrálja, és konfigurálhatóvá teszi a felhasznált plugin-eket, autentikációt, és mindent ami a feladatokhoz tartozhat.
 * View: A feladatok egy jól struktúrált egysége.
-* Job: Ez a feladatok implementációja, minden ilyen elem tetszőleges mennyiségű végrehajtandó feladatot tartalmaz, képes más Job-ok hívására, és a plugin-ek használatával gyakorlatilag bármilyen feladatot képes elvégezni (comagolást futtat, java forrásokat fordít maven-nel, vagy Docker konténereket vezérel, stb.).
+* Job: Ez a feladatok implementációja, minden ilyen elem tetszőleges mennyiségű végrehajtandó feladatot tartalmaz, képes más Job-ok hívására, és a plugin-ek használatával gyakorlatilag bármilyen feladatot képes elvégezni (csomagolást futtat, java forrásokat fordít maven-nel, vagy Docker konténereket vezérel, stb.).
 * Build: Ez az egység egy Job egyszeri futását jelenti, ehhez tartozik egy azonosító, ami az adott futtatást megkülönbözteti, a futtatás paraméterei, környezeti változói, és egy olyan szeparált környezet (workspace), amiben a feladatokat végrehajtja.
 
-Ahhoz hogy megcsináhassam az alkalmazásom fejlesztését támogató keretrendszert, ahhoz Job-kat kellett létrehoznom, amik végrehajtották a szoftverrel kapcsolatos feladatokat.
+Ahhoz hogy megcsinálhassam az alkalmazásom fejlesztését támogató keretrendszert, ahhoz Job-kat kellett létrehoznom, amik végrehajtották a szoftverrel kapcsolatos feladatokat.
 
 ### Pipeline Job
 
-A Pipeline Job egy olyan Jenkins-ben elérhető feladat fajta, ami képes egységbe szervezni a feladatokat, és levezényelni a közös futásukat. A legtöbb folytonos integrációt támogató rendszerben egy rövidebb, hosszabb munkafolyamatot kell lebonyolítani, aminek a pipeline nevet adta a Jenkins, mivel az egyes feladatok futtatásai az előzetes futások eredményétől függenek, ami annyit jelent, hogy például a telepítési fázis függ a fordítási fázis artifact-jaitól.
+A Pipeline Job egy olyan Jenkins 2.0-ban elérhető feladat fajta, ami képes egységbe szervezni a feladatokat, és levezényelni a közös futásukat. A legtöbb folytonos integrációt támogató rendszerben egy rövidebb, hosszabb munkafolyamatot kell lebonyolítani, aminek a pipeline nevet adta a Jenkins, mivel az egyes feladatok futtatásai az előzetes futások eredményétől függenek, ami annyit jelent, hogy például a telepítési fázis függ a fordítási fázis artifact-jaitól.
 
 A Jenkins 2.0-ban megjelenő Pipeline Job-hoz tartozik egy új leíró nyelv is, amit Pipline szkriptnek neveznek. Lehetőség van fájlban tárolni a konfigurációt, amit Jenkinsfile néven lehet menteni. A Dockerfile-hoz hasonlóan ez is a működést írja le, és Pipeline szkriptet tartalmaz.
 
@@ -241,7 +241,7 @@ node {
 ...
 ```
 
-A fenti részlet egy olyan Pipline szkriptet mutat, amiben egy bizonyos feladatot akarunk futtatni. A 'node' kulcsszó jelzi a gépet amin futtatni akarjuk a feladatot, aminek ha nem adunk meg semmit, akkor tetszőleges helyen fut le. A zárójelek között leírt utasítások pedig megmondják, mi történjen azon a végponton. Egy utasítás lehet bármi amit egy Jenkins álltal alapból támogatott Job esetén beállíthatnánk, de ezek a parancsok inkább arra vannak kiélezve, hogy a feladatok közötti kapcsolatot leírják. Az egyik ilyen parancs az **echo** amivel kiírhatunk a build során üzeneteket a console kimenetre. Másik utasítás, a **build job**, amivel elindíthatunk egy 'Build'-et. Az alábbi példában egy fázis definiálása látható.
+A fenti részlet egy olyan Pipline szkriptet mutat, amiben egy bizonyos feladatot akarunk futtatni. A 'node' kulcsszó jelzi a gépet amin futtatni akarjuk a feladatot, aminek ha nem adunk meg semmit, akkor tetszőleges helyen fut le. A zárójelek között leírt utasítások pedig megmondják, mi történjen azon a végponton. Egy utasítás lehet bármi amit egy Jenkins álltal alapból támogatott Job esetén beállíthatnánk, de ezek a parancsok inkább arra vannak kiélezve, hogy a feladatok közötti kapcsolatot leírják. Az egyik ilyen parancs az **echo** amivel kiírhatunk a futtatás során üzeneteket a console kimenetre. Másik utasítás, a **build job**, amivel elindíthatunk egy 'Build'-et. Az alábbi példában egy fázis definiálása látható.
 
 ```{Pipeline}
 stage 'Deploy'
@@ -251,7 +251,7 @@ build job: 'deploy-services'
 
 Egy fázis definiálása során egy képzeletbeli egységet alkotunk, ami Job-ok, illetve parancsok futtatását tartalmazza. Új fázist a **stage** kulcsszóval definiálhatunk, és az utána írt utasítások mind a fázis részeként fognak megjelenni.
 
-Az általam implementált Pipeline Job, tartalmaz egy 'Build', egy 'Deploy', egy 'Test', és egy Cleanup fázist. Az alábbi ábrán látható a Jenkins-beli feladathoz tartozó összefoglaló nézet, ahol láthatók a Job futtatásai:
+Az általam implementált Pipeline Job, tartalmaz egy 'Build', egy 'Deploy', egy 'Test', és egy 'Cleanup' fázist. Az alábbi ábrán látható a Jenkins-beli feladathoz tartozó összefoglaló nézet, ahol láthatók a Job futtatásai:
 
 ![Pipline Job a mikszolgáltatás támogatásához](img/pipeline-job.png)
 
@@ -261,11 +261,11 @@ A képen látható, hogy hogyan is választja szép a fázisokat a Pipiline Job,
 
 Az előző fejezetben már látható volt, hogy van egy egész folyamatot vezénylő Pipeline Job, amivel az összes folyamatot irányítom. Minden fázishoz tartozik legalább egy másik Job, amiben leírtam, hogy pontosan mit is kell csinálni abban a munkafolyamatban. A következő Job-okat hoztam létre:
 
-* build-auth-service: Authentikációs szolgáltatás elkészítése, ami egy Docker image-et build-el.
-*	build-database-service: Adatbázis szolgáltatás elkészítése, ami egy Docker image-et build-el.
-*	build-order-service: Megrendelés szolgáltatás elkészítése, ami Maven build segítségével elkészíti a Java programot, és egy Docker image-et build-el.
-*	build-proxy-service: Proxy szolgáltatás elkészítése, ami egy Docker image-et build-el.
-*	build-webserver-service: Böngészés szolgáltatás elkészítése, ami egy Docker image-et build-el.
+* build-auth-service: Autentikációs szolgáltatás elkészítése, ami egy Docker image-et készít.
+*	build-database-service: Adatbázis szolgáltatás elkészítése, ami egy Docker image-et készít.
+*	build-order-service: Megrendelés szolgáltatás elkészítése, ami Maven build segítségével elkészíti a Java programot, és egy Docker image-et készít.
+*	build-proxy-service: Proxy szolgáltatás elkészítése, ami egy Docker image-et készít.
+*	build-webserver-service: Böngészés szolgáltatás elkészítése, ami egy Docker image-et készít.
 *	cleanup-services: Letörli a futó konténereket, és eltünteti a régi image-eket a Docker-ből.
 *	deploy-services: Alkalmazás indítása, avagy a szolgáltatásokhoz tartozó konténerek indítása, hozzá tartozó hálózat elkészítésével.
 *	test-services: Tesztek futtatása, amely az alkalmazás funkcionalitását teszteli.
@@ -274,7 +274,7 @@ Az előző fejezetben már látható volt, hogy van egy egész folyamatot vezén
 
 ### Job Konfigurációk
 
-Vannak bizonyos beállítások, amik minden létrehozott Job-ra egyformák, mivel egy közös verziókezelő eszközből a GitHub-ből vette a forrásfájlokat minden Job. Az ehhez tartozó beállításokat az \ref{github-conf}. ábra mutatja.
+Vannak bizonyos beállítások, amik minden létrehozott Job-ra egyformák, mivel egy közös verziókezelő eszközből, a GitHub-ból vette a forrásfájlokat minden Job. Az ehhez tartozó beállításokat az \ref{github-conf}. ábra mutatja.
 
 ![GitHub beállítások\label{github-conf}](img/github-config.png)
 
@@ -286,7 +286,7 @@ Amiben minden feladat különbözik az a futtatott kód. Minden futtatandó kód
 
 ![Szkript futtatása\label{script-run}](img/script-run.png)
 
-A fordító Job-ok esetén egy artifact is keletkezik, ami az adott fordításhoz kapcsolódoan lesz lementve. A beállítást a \ref{archive}. ábra mutatja.
+A fordító Job-ok esetén egy artifact is keletkezik, ami az adott fordításhoz kapcsolódóan lesz lementve. A beállítást a \ref{archive}. ábra mutatja.
 
 ![Archiválás beállítása\label{archive}](img/archive.png)
 

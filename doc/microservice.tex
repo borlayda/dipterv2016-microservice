@@ -197,20 +197,20 @@ bontva a feladatot, könnyen kezünkben tarthatjuk az elosztott
 alkalmazásunkat.
 
 A mikroszolgáltatásokra épülő architekrúra (microservices), egy olyan
-architektúrális fejlesztési módszertan, ami a programot alkotó elemeire
+architektúrális fejlesztési módszertan, ami a programot alkotóelemeire
 szedi, és minden funkcionalitást teljesen különálló egységként kezel.
 Egy ilyen alkalmazás fejlesztése közben oda kell figyelni az összes
-szolgáltatással való együtetteműködésre, a visszamenőleges
+szolgáltatással való együttműködésre, a visszamenőleges
 kompatibilitásra, és meg kell tartani az alkotóelemek kapcsolatának a
 konzisztenciáját. Ennek a fenntartása egy nehéz feladat, amit kézileg
 szinte lehetetlen hosszú távon fenntartani.
 
-A diplomaterv keretében az volt a feladatom, hogy megismerjem az
+A diplomamunka keretében az volt a feladatom, hogy megismerjem az
 architektúra lényegét és müködését, illetve kiderítsem, hogy milyen
 eszközökkel tudom automatizálás segítségével támogatni a fejlesztés, és
 működtetés folyamatát.
 
-A diplomaterv célkitűzése, hogy egy olyan mikroszolgáltatásokra épülő
+A diplomamunka célkitűzése, hogy egy olyan mikroszolgáltatásokra épülő
 alkalmazást készítsek, amellyel be tudom mutatni az architektúra
 előnyeit, végig tudom vezetni rajta a tesztelés folyamatát, tudom
 automatizálni a tesztelését, és működtetését, és betekintést tudok adni
@@ -221,11 +221,11 @@ az architektúrához használatos technológiákba.
 
 Nowadays it's a very big problem, that how to build a distributed,
 highly available, easily scalable application efficiently. There are
-many ways to design our system and application which we could base on
-our plans. One of these design patterns is the microservice based
-architecture, which creates small services from the big application, by
-separating the functionality, and we can handle more efficiently our
-distributed application.
+many ways to design our system, which tells how we can implement our
+application efficiently. One of these design patterns is the
+microservice based architecture, which creates small services from the
+big application, by separating the functionality, and we can handle more
+efficiently our distributed application.
 
 Microservice architecture is a software development methodology, which
 separates the parts of the application to the smallest functionality,
@@ -235,15 +235,15 @@ compatibility and the consistency of the service connectivity through
 the development flow. It is hard to keep these attributes, and almost
 impossible to keep it on long term by manual verification.
 
-The goal of this thesis is to gather knowledge about the architecture,
-how it works or how it could be designed, or which continuous
-integration tool could be used for helping development and maintenance.
+In this thesis I gathered knowledge about the architecture, how it
+works, how it could be designed, or which continuous integration tool
+could be used for helping development and maintenance.
 
 The goal of this thesis is to create and example application based on
 microservice architecture, which could be used for showing the
 advantages of the technique, and I can show the full process of testing
-and I can create a framework for helping the development of the
-application by automated testing and integration.
+and design. My goal also to create a framework for helping the
+development of the application by automated testing and integration.
 
 \chapter{Bevezetés}\label{bevezetuxe9s}
 
@@ -261,12 +261,12 @@ A fejlesztők nem mindig képzettek, és nem is feltétlenül a feladatuk a
 tesztelés, így felesleges erőforrásokat vesz el a kézi tesztelés, és a
 telepítés ami a tesztek futtatásához kellhet. Orvosolható ez a probléma
 képzett tesztelők felvételével, de ez többlet költségeket okoz. Könnyen
-lehet az is a probléma, hogy a tezstelés nem elég teljeskörű, és az
+lehet az is a probléma, hogy a tesztelés nem elég teljeskörű, és az
 alkalmazásból nem lesz minden komponens kitesztelve, illetve az elemek
 közötti kapcsolat változtatása előzetes figyelmeztetés nélkül érvényre
 kerülhet. Ezzel rejtett hibákat hagyhatunk az alkalmazásban, amiket
 később komoly erőforrások, és költségek árán lehet csak kijavítani. Ha
-nem nézzük meg, hogy az alklamazás minden egyes része jól működik-e
+nem nézzük meg, hogy az alkamazás minden egyes része jól működik-e
 együtt, akkor olyan hibákat hagyhatunk a rendszerben, amit nagyon
 nehezen lehet detektálni, és még nehezebb felelősöket hozzárendelni.
 Ahhoz, hogy ezeket a problémákat kiküszöböljük egy jól definiált
@@ -290,18 +290,18 @@ ellenőrzött fejlesztési folyamatot. Egy folytonos integrációt támogató
 rendszerben minden folyamat felügyelt módon hajtódik végre, és pontosan
 azokat a lépéseket hajtja végre amit előzetesen definiáltak neki, így
 egyszerűsíti az adminisztrációt, növeli a tesztlefedettséget minden
-részegységre, és figyelembe veszi a teljes alkalmazás részenkéknti
+részegységre, és figyelembe veszi a teljes alkalmazás részenkénti
 egyűttműködését, mindezt automatizáltam, a fejlesztő beavatkozása
 nélkül.
 
-Jelen diplomamunka célja, hogy bemutassam a mikroszolgáltatáso
+Jelen diplomamunka célja, hogy bemutassam a mikroszolgáltatások
 architektúrára épülő alkalmazások előnyeit, hátrányait, és fejlesztésük
 folyamatát, az ilyen alkalmazásokhoz tartozó legjellemzőbb
 technológiákat, és elkészítési stratégiákat. Meg kell terveznem és el
 kell készítenem egy folytonos integrációt támogató keretrendszert, ami
 képes a mikroszolgáltatásokhoz tartozó feladatok mind elemi, mind teljes
-architektúra szempontjából, illetve értékelnem kell az elkészült
-keretrendszert a minta alkalmazás segítségével.
+architektúra szempontjából való ellenőrzésére, illetve értékelnem kell
+az elkészült keretrendszert a minta alkalmazás segítségével.
 
 A diplomamunka keretében elkészítettem egy könyvesbolt webes felületét
 kiszolgáló minta alkalmzást, amely a mikroszolgáltatások architektúrára
@@ -329,7 +329,7 @@ integrációt támogató keretrendszert terveztem meg. A tervezés közben
 kitértem a szolgáltatások különválasztásának okaira, és feladataik
 szétosztására, illetve megterveztem a kommunikációt a részek között.
 Kifejtettem mit is jelent a folytonos integráció, és hogyan lehet
-felhasználni hatékonyan mikroszolgáltatás architektúrára épülő
+felhasználni hatékonyan mikroszolgáltatások architektúrára épülő
 alkalmazások esetén, majd bemutattam az elkészítendő keretrendszert.
 
 A negyedik fejezetben az implementációt fejtettem ki részleteiben,
@@ -338,7 +338,7 @@ elkészítésére, és a környezet előkészítéséhez kellő Docker konténer
 Bemutattam a kommunikáció működését, és kitértem a teljes alkalmazás
 átfogó felépülésére. A folytonos integrációt támogó keretrendszer
 esetében bemutattam a Jenkins eszközt, amit a diplomamunka
-elkészítéséhez feljhasználtam, illetve az egyes alkotó elemeket mutattam
+elkészítéséhez felhasználtam, illetve az egyes alkotó elemeket mutattam
 be részleteiben.
 
 Az ötödik fejezetben értékeltem az elkészített alkalmazást, és
@@ -350,7 +350,7 @@ a fejlesztés közben fellépő hibákat, és elmagyaráztam a megoldásukat.
 
 \section{Mikroszolgáltatások}\label{mikroszolguxe1ltatuxe1sok}
 
-A mikroszolgáltatás\citep{microservices} \citep{micro-arch}
+A mikroszolgáltatások\citep{microservices} \citep{micro-arch}
 \citep{microservices-light} egy olyan architektúrális tervezési módszer,
 amikor a tervezett rendszert/alkalmazást kisebb funkciókra bontjuk, és
 önálló szolgáltatásokként, önálló erőforrásokkal, valamilyen jól
@@ -434,7 +434,7 @@ terveket milyen szempontok mentén lehet felosztani.
 \caption{Scaling Cube\citep{scale-cube}\label{scalecube}}
 \end{figure}
 
-Ahogy a \ref{scalecube}. ábrán képen is látható a meghatározó felbontási
+Ahogy a \ref{scalecube}. ábrán is látható a meghatározó felbontási
 fogalmak, az adat menti felbontás, a tetszőleges fogalom menti
 felbontás, illetve a klónozás.
 
@@ -458,7 +458,7 @@ szoftvert, ezért az erőforrás szerinti szétválasztás kissé
 erőforrásait megéri külön szolgáltatásként kezelni. Ha egy
 mikroszolgáltatást tartunk arra, hogy az adatbázis kéréseket
 kiszolgálja, akkor az adatbázis nem oszlik meg a szolgáltatások között.
-Ennek ellenére pazarló lehet minden szolgáltatásnak saját adatbézist
+Ennek ellenére pazarló lehet minden szolgáltatásnak saját adatbázist
 fenntartani.
 
 \subsubsection{Fogalmi felbontás}\label{fogalmi-felbontuxe1s}
@@ -471,9 +471,9 @@ funkciók atomi felbontása.
 Példa: Adott egy könyvtár nyilvántartó rendszere, és ezt akarjuk
 fogalmanként szétvágni. Külön-külön lehet szolgáltatást csinálni a
 keresésnek, indexelésnek, foglalásnak, kivett könyvek nyilvántartásának,
-böngészésre, könyvek adatainak tárolására, és kiolvasására, és ehhez
+böngészésre, könyvek adatainak tárolására, kiolvasására, és ehhez
 hasonló funkciókra. Ezekkel a szétválasztásokkal a könyvtár működését
-kis részekre bontottuk, és ezek egy-egy kis szolgáltatásként könnyen
+kis részekre bontottuk, és egy-egy kis szolgáltatásként könnyen
 elérhetők.
 
 \subsubsection{Klónozás}\label{kluxf3nozuxe1s}
@@ -512,7 +512,7 @@ lesznek a feldolgozás közben, amik hátráltatják a teljes folyamatot.
 
 \subsubsection{Publisher/Subscriber}\label{publishersubscriber}
 
-Egy másik, elosztott rendszerekhez kitallált minta a
+Egy másik, elosztott rendszerekhez kitalált minta a
 publisher/subscriber\citep{pub-subscribed}, amely azon alapszik, hogy
 egy szolgáltatásnak szüksége van valamilyen adatra vagy funkcióra, és
 ezért feliratkozik egy másik szolgáltatásra. Ennek az lesz az eredménye,
@@ -524,7 +524,7 @@ feladatot kell végrehajtaniuk.
 architektúra}\label{esemuxe9ny-alapuxfa-architektuxfara}
 
 Az esemény alapú architektúrákat\citep{event-driven-pattern} könnyen
-kalakíthatjuk, ha egy mikroszolgáltatásokból álló rendszerben olyan
+kialakíthatjuk, ha egy mikroszolgáltatásokból álló rendszerben olyan
 alkalmazásokat és komponenseket fejlesztünk ahol eseményeken keresztül
 kommunikálnak az egyes elemek. Ezzel a nézettel olyan struktúrát lehet
 összeépíteni, ahol a kis egységek szükség szerint kommunikálnak, és a
@@ -550,7 +550,7 @@ alkalmazásokat. Az alábbi vállalatok átalakították, vagy elkeztdék
 
 \begin{itemize}
 \item
-  \textbf{Amazon}: Az Amazon Cloud szolgáltatása, és web álruháza is
+  \textbf{Amazon}: Az Amazon Cloud szolgáltatása, és web áruháza is
   szolgáltatásokká átalakította, mivel a legtöbb funkció amit a
   felhasználók elérhetnek, interaktívan kommunikálnak, és minden
   feladathoz tartozó implementáció külön szolgáltatásokra van szedve.
@@ -565,19 +565,19 @@ alkalmazásokat. Az alábbi vállalatok átalakították, vagy elkeztdék
   megrendeléshez tartozó szolgáltatás.
 \item
   \textbf{NetFlix}: A NetFlix videomegosztó alkalmazása, az eBay-hez
-  hasonlóan szolgáltatásokra volt bontva a teljes alkalmazás, azonban a
-  streaming álltal okozott skálázási problémák miatt elkezdték
-  átalakítani a részegységeket a mikroszolgáltatások elve szerint.
+  hasonlóan szolgáltatásokra volt bontva, azonban a streaming álltal
+  okozott skálázási problémák miatt elkezdték átalakítani a
+  részegységeket a mikroszolgáltatások elve szerint.
 \item
   \textbf{Archivematica}: Az Archivematica\citep{archivematica} egy
   nyílt forráskódú elektronikus tartalom kezelő, ami tud kezelni
   különböző fájlokat, multimédiás adatokat, illetve akármilyen szöveges
-  tartalmat. Ez az alakmazás alapvetően monolitikus architektúrára épül,
-  azonban elkezdték átalakítani a struktúráját mikroszolgáltatásokat
-  használó architektúrára. Ezt úgy kivitelezték, hogy a különböző plusz
-  funkciókat az eredeti alkalmazás plugin szerűen mikroszolgáltatásokból
-  nyeri ki, és ennek megfelelően a tovább fejlesztés is
-  megalapozott\citep{archivematica-wiki}.
+  tartalmat. Ez az alkalmazás alapvetően monolitikus architektúrára
+  épül, azonban elkezdték átalakítani a struktúráját
+  mikroszolgáltatásokat használó architektúrára. Ezt úgy kivitelezték,
+  hogy a különböző plusz funkciókat az eredeti alkalmazás plugin-szerűen
+  mikroszolgáltatásokból nyeri ki, és ennek megfelelően a tovább
+  fejlesztés is megalapozott\citep{archivematica-wiki}.
 \end{itemize}
 
 \section{Mikroszolgáltatások előnyei és
@@ -595,7 +595,7 @@ mérlegelnünk kell a tervezés folyamán.
 Mivel kis részekre van szedve az alkalmazásunk, a fejlesztést akár több
 csapatnak is ki lehet osztani, hogy az alkalmazás részeit alkossák meg,
 hiszen önállóan is életképesek a szolgáltatások. Az egyes szolgáltatások
-nem rendelkeznek túl sok logikával, így kis méretű könnyeb kezelhető
+nem rendelkeznek túl sok logikával, így kis méretű könnyen kezelhető
 feladatokkal kell a csapatoknak foglalkozni.
 
 \subsubsection{Egyszerűen
@@ -615,10 +615,11 @@ rendelkező szolgáltatásra bármikor kicserélhető, illetve módosítható ha
 megmaradnak a korábbi funkciók. A szolgáltatás telepítése is egyszerű,
 mivel csak kevés környezeti feltétele van annak, hogy egy ilyen kis
 méretű progam működni tudjon. A fejlesztést nagyban segíti, hogy egy
-korábbi verziójú programba plugin-szerűen be lehet integrálni az újonnan
-fejlesztett részeket, mivel ez gyors visszajelzést ad a fejlesztőknek.
-Ez a tulajdonsága a folytonos integrációt támogató eszközöknél is
-előnyös, mivel könnyen lehet vele automatizált metodológiákat készíteni.
+korábbi verziójú alkalmazásba plugin-szerűen be lehet integrálni az
+újonnan fejlesztett részeket, mivel ez gyors visszajelzést ad a
+fejlesztőknek. Ez a tulajdonsága a folytonos integrációt támogató
+eszközöknél is előnyös, mivel könnyen lehet vele automatizált
+metodológiákat készíteni.
 
 \subsubsection{Jól skálázható}\label{juxf3l-skuxe1luxe1zhatuxf3}
 
@@ -661,8 +662,8 @@ konzisztenciáját, a kommunikáció plusz feladatot ad minden szolgáltatás
 fejlesztőjének, és folyamatosan együtt kell működni a többi szolgáltatás
 fejlesztőjével.
 
-\subsubsection{Plusz munkát jelénthet az aszinkron üzenet
-fogadás}\label{plusz-munkuxe1t-jeluxe9nthet-az-aszinkron-uxfczenet-fogaduxe1s}
+\subsubsection{Plusz munkát jelenthet az aszinkron üzenet
+fogadás}\label{plusz-munkuxe1t-jelenthet-az-aszinkron-uxfczenet-fogaduxe1s}
 
 Mivel egy szolgáltatás egyszerre több kérést is ki kell hogy szolgáljon
 egyszerűbb ha aszinkron módon működik. Ezt azonban mindig le kell
@@ -698,21 +699,21 @@ egészben}\label{nehezen-tesztelhetux151-eguxe9szben}
 
 Mivel sok kis részletből rakódik össze a nagy egész alkalmazás, a
 tesztelési fázisban kell olyan teszteket is végezni, ami a rendszer
-egészét, és a kész alkalmazást teszteli. Egy ilyen teszt elksézítése
+egészét, és a kész alkalmazást teszteli. Egy ilyen teszt elkészítése
 bonyolult lehet, és plusz feladatot ad a sok szolgáltatás külön-külön
 fordítása, és telepítése is.
 
 \subsection{Összehasonlítva a monolitikus
 architektúrával}\label{uxf6sszehasonluxedtva-a-monolitikus-architektuxfaruxe1val}
 
-A mikroszolgáltatás architektúra a monolitikus architektúra ellentetjei,
-melyben az erőforrások központilag vannak kezelve, és minden funkció egy
-nagy interfészen keresztül érhető el. A monolitikus architektúra
-egyszerűen kiépíthető, könnyű tervezni és fejleszteni, azonban nehezen
-lehet kicserélni, nem elég robosztus, és nehezen skálázható, mivel az
-erőforrásokat közösen kezelik a funkciók.
+A mikroszolgáltatás architektúra és a monolitikus architektúra egymás
+ellentetjei, melyben az erőforrások központilag vannak kezelve, és
+minden funkció egy nagy interfészen keresztül érhető el. A monolitikus
+architektúra egyszerűen kiépíthető, könnyű tervezni és fejleszteni,
+azonban nehezen lehet kicserélni, nem elég robosztus, és nehezen
+skálázható, mivel az erőforrásokat közösen kezelik a funkciók.
 
-Ezzel ellentétben a mikroszolgáltatás architektúrát ugyan nehezen lehet
+Ezzel ellentétben a mikroszolgáltatás architektúrát nehezen lehet
 megtervezni, hiszen egy elosztott rendszert kell megtervezni, ahol az
 adatátviteltől kezdve az erőforrás megosztáson keresztül semmi sem
 egyértelmű. A kezdeti nehézségek után viszont a későbbi továbbfejlesztés
@@ -756,13 +757,14 @@ A következő feladatokra kellenek technológiák:
 \begin{itemize}
 \tightlist
 \item
-  Hogyan lehet feltelepíteni egy önálló szolgáltatást? (telepítés)
+  Hogyan lehet feltelepíteni egy önálló szolgáltatást? (telepítés,
+  folytonos integráció)
 \item
   Hogyan lehet összekötni ezeket a szolgáltatásokat? (automatikus
   környezet felderítés)
 \item
   Hogyan lehet fenntartani, változtatni a szolgáltatások környezetét?
-  (konfiguráció management)
+  (konfiguráció menedzsment)
 \item
   Hogyan lehet skálázni a szolgáltatást? (skálázás)
 \item
@@ -771,7 +773,8 @@ A következő feladatokra kellenek technológiák:
 \item
   Hogyan lehet virtualizáltan ezt kivitelezni? (virtualizálás)
 \item
-  A meglévő szolgáltatásokat hogyan tartsuk nyilván? (service registy)
+  A meglévő szolgáltatásokat hogyan tartsuk nyilván? (szolgáltatás
+  jegyzék)
 \item
   Hogyan figyeljük meg az alkalmazást működés közben (monitorozás,
   loggolás)
@@ -795,8 +798,6 @@ egyszerűbben és elosztottabban is megtehetjük.
   számos technológiát, amivel karbantarthatjuk a környezetünket (Docker,
   Puppet, Ansible, Chef, stb). Együtt működik különböző számítási felhő
   megoldásokkal, mint az AWS, vSphere, Azure, és más környezetek.
-  Hasonlít a Jenkins-re, csupán ki van élezve a mikroszolgáltatás alapú
-  architektúrák vezérlésére (Illetve fizetős a Jenkins-el ellentétben).
   Mindent végre tud hajtani ami egy mikroszolgáltatás alapú
   alkalmazáshoz szükséges, teljes körű felügyeletet biztosít.
   \citep{jenkins-elasticbox}
@@ -837,7 +838,7 @@ alkalmazásunkkal.
   futtatni, illetve a hozzá fejlesztett plugin-eken keresztül, szinte
   bármire képes. Támogatja a fürtözést is, így képesek vagyunk Jenkins
   slave-eket létrehozni, amik a mester szerverrel kommunikálva végzik el
-  a dolgukat. A mikroszolgáltatás architektúrák esetén alkalmas a minden
+  a dolgukat. A mikroszolgáltatás architektúrák esetén alkalmas minden
   feladatot ellátni, és véghez vinni a fordítást, telepítést, és
   tesztelést.
 \item
@@ -845,7 +846,7 @@ alkalmazásunkkal.
   szolgáltatás, amely képes teszteket, és fordítást végezni egy megadott
   Github projektből, és ehhez egy teljesen tiszta virtuális környezetet
   használ fel. A rendszer a saját beépített támogató moduljain keresztül
-  képes kiszolgáltani a felhasználó kéréseit, amit a Jenkins-hez hasonló
+  képes kiszolgálni a felhasználó kéréseit, amit a Jenkins-hez hasonló
   módon tesz. A Jenkins-hez képest nincs teljes kontrollunk a teljes
   architektúra felett, nem támogat bármely verziókezelőt, és
   mikroszolgáltatások esetén a szolgáltatás konténerének a meghatározása
@@ -880,7 +881,7 @@ egy olyan alkalmazásra, amivel felderíthetjük az aktív szolgáltatásokat.
   mivel eseményeket küldhetünk a szervereknek, és ezekre különböző
   feladatokat hajthatunk végre.
 \item
-  \textbf{Serf}\citep{serf}: A Hashicorp egy másik hálózati feldeítő
+  \textbf{Serf}\citep{serf}: A Hashicorp egy másik hálózati felderítő
   eszköze, ami elosztottan nagy rendelkezésre állással képes a fürtözött
   elemek között fenntartani a kapcsolatot. Ugyan elsősorban fürtözött
   elemek közé tervezték, de tetszőleges kapcsolat feldeítésre, és
@@ -891,21 +892,18 @@ egy olyan alkalmazásra, amivel felderíthetjük az aktív szolgáltatásokat.
   csak a végpont állapotát figyeli.
 \end{itemize}
 
-A Consult leszámítva nem nagyon találtam olyan eszközt ami a nekem kellő
-funkciókat tudta volna, főleg csak bizonyos szolgáltatásokhoz találtam
-felderítő eszközt. A kézi megoldás itt is lehetséges, mivel saját
-névfeloldás esetén a névfeloldó szervert használhatjuk az egyes
-állomások felderítésére, vagy Docker-t használva a Docker hálózatok
-elérhetővé teszik a szolgáltatásokat a futtató konténer hoszt nevével.
+A kézi megoldás itt is lehetséges, mivel saját névfeloldás esetén a
+névfeloldó szervert használhatjuk az egyes állomások felderítésére, vagy
+Docker-t használva a Docker hálózatok elérhetővé teszik a
+szolgáltatásokat a futtató konténer hoszt nevével.
 
 \subsection{Konfiguráció
-management}\label{konfiguruxe1ciuxf3-management}
+menedzsment}\label{konfiguruxe1ciuxf3-menedzsment}
 
 A telepítéshez és a rendszer állapotának a fenntartásához egy olyan
 eszköz kell, amivel gyorsan egyszerűen végrehajthatjuk a
-változtatásainkat, és ha valamit változtatunk egy szolgáltatásban, akkor
-az összes hozzá hasonló szolgáltatás értesüljön a változtatásról, vagy
-hajtson végre ő maga is változtatást.
+változtatásainkat, és minden újdonság az összes egyforma komponensen be
+lesz állítva.
 
 \begin{itemize}
 \item
@@ -927,9 +925,9 @@ hajtson végre ő maga is változtatást.
   karbantartásához.
 \item
   \textbf{Ansible}\citep{ansible}: A Chef-hez hasonlóan képes
-  változtatásokat eszközölni a szerver gépeken egy SSH kapcsolaton
-  keresztül, viszont a Chef-el ellentétben nem tartja a folyamatos
-  kapcsolatot. Az Ansible egy tipikusan integrációs célokra
+  változtatásokat eszközölni a szerver gépeken egy ágens nélküli SSH
+  kapcsolaton keresztül, viszont a Chef-el ellentétben nem tartja a
+  folyamatos kapcsolatot. Az Ansible egy tipikusan integrációs célokra
   kifejlesztett eszköz, amelyhez felvehetjük a gépeket, amiken
   valamilyen konfigurációs változtatást akarunk végezni, és egy
   ``playbook'' segítségével leírhatjuk milyen változásokat kell
@@ -960,9 +958,9 @@ változtatásról.
 
 \subsection{Terheléselosztás}\label{terheluxe9selosztuxe1s}
 
-A mikroszolgáltatás alapú architektúrának egyik fontos eleme a terhelés
-elosztó, vagy valamilyen fürtözést lehetővé tevő eszköz. Ez azért
-fontos, mert egy egységes interfészt tudunk kialakítani a
+A mikroszolgáltatás alapú architektúrának egyik fontos eleme a
+terheléselosztó, vagy valamilyen fürtözést lehetővé tevő eszköz. Ez
+azért fontos, mert egy egységes interfészt tudunk kialakítani a
 szolgáltatásaink elérésére, és könnyíti a skálázódást a szolgáltatások
 mentén.
 
@@ -989,14 +987,14 @@ mentén.
 
 A kézi megvalósítás gyakorlatilag egy kézileg implementált
 terheléselosztó eszköz lenne, amihez viszont hálózati megfigyelés, és
-routing szökséges, így nem javalott ilyen eszköz készítése.
+routing szükséges, így nem javalott ilyen eszköz készítése.
 
 \subsection{Skálázási
 technológiák}\label{skuxe1luxe1zuxe1si-technoluxf3giuxe1k}
 
 A mikroszolgáltatás alapú architektúrák egyik nagy előnye, hogy az egyes
 funkciókra épülő szolgáltatásokat könnyedén lehet skálázni, mivel egy
-load balancert használva csupán egy újabb gépet kell beszervezni, és
+terheléselosztót használva csupán egy újabb gépet kell beszervezni, és
 máris nagyobb terhelést is elbír a rendszer. Ahhoz hogy ezt kivitelezni
 tudjuk, szükségünk van egy terheléselosztóra, és egy olyan logikára, ami
 képes megsokszorozni az erőforrásainkat. Számítási felhő alapú
@@ -1008,7 +1006,7 @@ saját logikát a nagyobb gyártók.
 \begin{itemize}
 \item
   \textbf{Elastic Load Balancer}\citep{elastic-load-balance}: Az Amazon
-  AWS-ben az ELB avagy rugalmas terhelés elosztó az, ami ezt a célt
+  AWS-ben az ELB avagy rugalmas terheléselosztó az, ami ezt a célt
   szolgálja. Ennek a szolgáltatásnak az lenne a lényege, hogy segítse az
   Amazon Cloud-ban futó virtuális gépek hibatűrését, illtve egységbe
   szervezi a különböző elérhetőségi zónákban lévő gépeket, amivel
@@ -1040,7 +1038,7 @@ technológiák}\label{virtualizuxe1ciuxf3s-technoluxf3giuxe1k}
 A mikroszolgáltatás alapú architektúrák kialakításánál nagy előnyt
 jelenthet, ha valamilyen virtualizációt használunk fel a környezet
 kialakításához. Virtualizált környezetben könnyebb a telepítés,
-skálázás, és a monitorozás is egyszerűbb lehet.
+skálázás, és a monitorozás is.
 
 \begin{itemize}
 \item
@@ -1058,7 +1056,7 @@ skálázás, és a monitorozás is egyszerűbb lehet.
   technológiával egyűtt működő eszköz, amivel könnyedén irányíthatjuk a
   virtuális gépeket, és a virtualizálás komolyabb részét el
   absztrahálja. Támogat KVM-em, XEN-t, VirtualBox-ot, LXC-t, és sok más
-  virtualizáló eszköt. Ezzel az eszközzel a környezet kialakítását
+  virtualizáló technológiát. Ezzel az eszközzel a környezet kialakítását
   szabhatjuk meg, tehát a hardveres erőforrások megosztásában nyújt nagy
   segítséget.
 \item
@@ -1117,11 +1115,11 @@ szolgáltatás nyilvántartási eszközt\citep{service-registry-pattern}
   vizsgálhatjuk.
 \item
   \textbf{Apache Zookeeper}\citep{zookeeper}: A Zookeeper egy
-  központosított szolgáltatás konfigurációs adatok és hálózati adatok
+  központosított szolgáltatás, konfigurációs adatok és hálózati adatok
   karbantartására, ami támogatja az elosztott működést, és a szerverek
-  csoportosítását. Az alkalmazást elosztott alkalmazás fejlesztésre, és
+  csoportosítását. Ezt az eszközt elosztott alkalmazás fejlesztésre, és
   komplex rendszer felügyeletére és telepítés segítésére tervezték. A
-  consulhoz hasonlóan működik, és a feladata is ugyan az.
+  Consul-hoz hasonlóan működik, és a feladata is ugyan az.
 \end{itemize}
 
 Kézi megoldás erre nem nagyon van, csupán egy központi adatbázisban,
@@ -1147,7 +1145,7 @@ megfelelően megmutatni számunkra\citep{micro-service-monitoring}
   több 10 ezer szervert párhuzamosan megfigyelni képes, akármilyen
   adatot tárolni képes monitorozó alkalmazás, ami képes elosztott
   működésre, és virtuális környezetekben jól használható. Ágens nélküli
-  és ágenses adatgyűjtésre is képes, és az adatokat különböző módokon
+  és ágenses adatgyűjtést is támogat, és az adatokat különböző módokon
   képes megjeleníteni (földrajzi elhelyezkedés, gráfos megjelenítés,
   stb.). Nem egészen a mikroszolgáltatás alapú architektúrákhoz lett
   kialakítva, de egy elég általános eszköz, hogy felhasználható legyen
@@ -1162,16 +1160,16 @@ megfelelően megmutatni számunkra\citep{micro-service-monitoring}
   együttműködnek az Elasticsearch alkalmazással.
 \item
   \textbf{Sensu}\citep{sensu}: A Sensu egy egyszerű monitorozó eszköz,
-  amivel megfigyelhetjük a szervereinket. Támogatja Ansible Chef, Puppet
-  használatát, és támogatja a plugin-szerű bővíthetőséget. A felülete
-  letisztult, és elég jó áttekintést ad a szerverek állapotáról. Figyel
-  a dinamikus változásokra, és gyorsan lekezeli a változásokkal járó
-  riasztásokat. Ezek a tulajdonságai teszik a számítási felhőkben
-  könnyen és hatékonyan felhasználhatóvá.
+  amivel megfigyelhetjük a szervereinket. Támogatja az Ansible, Chef,
+  Puppet használatát, és támogatja a plugin-szerű bővíthetőséget. A
+  felülete letisztult, és elég jó áttekintést ad a szerverek
+  állapotáról. Figyel a dinamikus változásokra, és gyorsan lekezeli a
+  változásokkal járó riasztásokat. Ezek a tulajdonságai teszik a
+  számítási felhőkben könnyen és hatékonyan felhasználhatóvá.
 \item
   \textbf{Cronitor}\citep{cronitor} \citep{cron-monitoring}: Ez a
   monitorozó eszköz mikroszolgáltatások és cron job-ok megfigyelésére
-  lett kifejlesztve, HTTP-n keresztül kommunikál, és a szologáltatások
+  lett kifejlesztve, HTTP-n keresztül kommunikál, és a szolgáltatások
   állapotát figyeli. Nem túl széleskörű eszköz, azonban ha csak a
   szolgáltatások állapota érdekel hasznos lehet, és segíthet a
   szolgáltatás jegyzék képzésében is.
@@ -1180,7 +1178,7 @@ megfelelően megmutatni számunkra\citep{micro-service-monitoring}
   számítási felhőben működő monitorozó eszköz, amivel teljesítmény
   monitorozást, elérhetőség monitorozást, és figyelmeztetés küldést
   végezhetünk. Az benne a különleges, hogy mesterséges intelligencia
-  figyeli a szervereket, és kianalizálja a szerver állapotát, és a
+  figyeli a szervereket, kianalizálja a szerver állapotát, és a
   figyelmeztetéseket is követi. Könnyen skálázható, és használat alapú
   bérezése van. Ez a választás akkor jön jól, ha olyan feladatot szánunk
   az alkalmazásunknak, ami esetleg időben nagyon változó terhelést
@@ -1192,8 +1190,8 @@ központi adatbázisunk, amit minden szolgáltatás elér, és ebben az
 adatbázisban a szolgáltatásokba ültetett egyszerű logika küldhet
 adatokat, amit valamilyen egyszerű módszerrel megjelenítve, valamilyen
 monitorozást érhetünk el. Ennek egyik előnye, hogy nem kell komplex
-eszközt telepíteni mindenhova, és nem kell karban tartani, hátránya
-viszont, hogy nehezen karbantartható, minden szolgáltatásra külön kell
+eszközt telepíteni mindenhova, és nem kell karbantartani. Hátránya
+viszont, hogy nehez fejleszteni, minden szolgáltatásra külön kell
 elkészíteni, és a fenti megoldásokkal ellentétben a semmiből kell
 kiindulni.
 
@@ -1201,7 +1199,7 @@ kiindulni.
 módszerek}\label{kommunikuxe1ciuxf3s-muxf3dszerek}
 
 A szolgáltatások közötti kommunikáció nincs lekötve de jellemző a
-REST-es API, vagy a webservice-re jellemző XML alapú
+REST-es API, vagy a web szolgáltatásokra jellemző XML alapú
 kommunikáció\citep{rest-soap}.
 
 \subsection{Technológiák}\label{technoluxf3giuxe1k}
@@ -1287,7 +1285,7 @@ alkalmazást. Ahhoz, hogy telepíteni is tudjuk folytonos telepítést
 (Continuous Deplyoment) érdemes használni, mert a mikroszolgáltatások
 architektúrája egy komplex rendszert ír le, ahol az egyszerű tepelítés
 nem elegendő, a környezet előkészítésével, és karbantartásával is
-foglalkozni kell. A minta alkamazás fejlesztéséhez és teszteléséhez is
+foglalkozni kell. A minta alkalmazás fejlesztéséhez és teszteléséhez is
 ez az eszköz szükséges, így az egyes funkciók implementációjához
 környezeti beállítások is kelleni fognak.
 
@@ -1298,7 +1296,7 @@ A feladatom egyik része az volt, hogy egy olyan minta alkalmazást
 készítsek, amelyiken keresztül be lehet mutatni a mikroszolgáltatások
 fejlesztésének, és tesztelésének a lépéseit, és jól reprezentálja az
 architektúrális minta jellegzeteségeit. Minta feladatnak egy webes
-könyvárúház webes kiszolgáló felületét választottam, mivel ez nem túl
+könyvárúház, webes kiszolgáló felületét választottam, mivel ez nem túl
 bonyolult, és könnyen meghatározhatók benne az elkülönülő
 szolgáltatások.
 
@@ -1309,15 +1307,22 @@ megtalálni azt a könyvet, amit meg akarunk venni, képesek legyünk
 bejelentkezni, hogy hozzánk rendelhesse a rendszer az adott könyvet, és
 képesnek kell lennie a vásárlás lebonyolítására.
 
-Ahhoz hogy ezeket képes legyen véghez vinni, a következőkre van szükség:
-* Egy olyan felület, ahol a felhasználó könnyen és egyszerűen
-tájékozódhat a bolt kínálatáról, * egy mögöttes adatbázis, amiben
-megtalálhatók az adatok * és felhasználó bejelentkeztetéséhez egy
-autentikűciós szolgáltatás
+Ahhoz hogy ezeket véghez lehessen vinni, a következőkre van szükség:
+
+\begin{itemize}
+\tightlist
+\item
+  Egy olyan felület, ahol a felhasználó könnyen és egyszerűen
+  tájékozódhat a bolt kínálatáról,
+\item
+  egy mögöttes adatbázis, amiben megtalálhatók az adatok
+\item
+  és felhasználó bejelentkeztetéséhez egy autentikációs szolgáltatás
+\end{itemize}
 
 A minta alkalmazás tetszőleges webes felületen elérhető szolgáltatás
 lehetett volna, mivel működésükből fakadóan követik a
-mikroszolgáltatásokat. A webes kisizolgálás esetén különböző URL-eken
+mikroszolgáltatásokat. A webes kiszolgálás esetén különböző URL-eken
 keresztül érhetjük el az egyes funkciókat, amik leggyakrabban elemien
 kicsire vannak tervezve.
 
@@ -1342,8 +1347,8 @@ Alkalmazás szolgáltatásai:
   Vásárlás: A vásárlók megrendeléseit, és a készlet csökkentését végzi.
 \item
   Böngészés: Megjeleníti az boltban lévő könyveket, amiket meg lehet
-  venni, illetve információt szolgáltat a mennyiségrőll is, hogy
-  lehessen tudni, ha valamelyik könyv már nem kapható.
+  venni, illetve információt szolgáltat a mennyiségről is, hogy lehessen
+  tudni, ha valamelyik könyv már nem kapható.
 \end{itemize}
 
 Környezethez tartozó egyéb szolgáltatások:
@@ -1351,18 +1356,19 @@ Környezethez tartozó egyéb szolgáltatások:
 \begin{itemize}
 \tightlist
 \item
-  Adatbáziskezelő: Mivel minden szolgáltatásnak valamilyen módon közös
+  Adatbázis kezelő: Mivel minden szolgáltatásnak valamilyen módon közös
   adathalmazon kell dolgoznia, kényelmesebb lehet egy külső szolgáltatás
   formájában elérhetővé tenni az adatbázist, amit több funkció is
   módosíthat.
 \item
   Terheléselosztó: A mikroszolgáltatások egyik legnagyobb előnye, hogy
   szabadon és egyszerűen skálázható. Ezt a tulajdonságot egy
-  terheléselosztón keresztül könnyen meg tudom oldani.
+  terheléselosztón keresztül könnyen meg tudom oldani, és a funkciók
+  külső elérése is egy közös ponton keresztül a legegyszerűbb.
 \end{itemize}
 
 Egy webes árúháznak lehet sokkal több alkotó eleme is, hiszen keresés,
-és korás funkciók nem lettek felsorolva, viszont az alap funkciókat
+és kosár funkciók nem lettek felsorolva, viszont az alap funkciókat
 tartalmazza, és képes kiszolgálni a felhasználókat így elegendő a
 feladat szempontjából.
 
@@ -1374,12 +1380,12 @@ feladat szempontjából.
 
 \subsection{Kommunikáció}\label{kommunikuxe1ciuxf3}
 
-A szolgáltatások közötti komminukáció alapja egy olyan széles körben
+A szolgáltatások közötti kommunikáció alapja egy olyan széles körben
 használt protokollon fog alapulni, amivel könnyen lehet tervezni, könnyű
 implementálni, és hatékonyan képes a kéréseket kezelni. Ahhoz hogy a
 szolgáltatások egymás között kommunikálni tudjanak, szükség lesz egy
 nyilvántartó eszközre, hogy az egyes szeparált szolgáltatások valahogy
-egymésra találjanak.
+egymásra találjanak.
 
 \section{Folytonos Integráció}\label{folytonos-integruxe1ciuxf3}
 
@@ -1442,7 +1448,7 @@ gyorsítja a visszajelzés folyamatát. Ezeket a fázitokat mutatja az
   volt a hiba forrása.
 \end{itemize}
 
-A folytonos integrációt nem csak ilyen módon lehet felhjasználni, hanem
+A folytonos integrációt nem csak ilyen módon lehet felhasználni, hanem
 majdnem tetszőleges folyamat kidolgozható hozzá, ha a valamilyen
 egyszerű módon képesek vagyunk a változtatásokat időről időre integrálni
 és tesztelni. Nem szükséges hozzá, hogy a teljes folyamat automatizált
@@ -1456,7 +1462,11 @@ ami kicsit szabadabban van megfogalmazva, és akár részének tekinthető a
 folytonos integráció. A folytonos szállítást, a már megismert fázisokon
 kívül egy fejlesztési, és egy kiadási fázissal toldották meg, ami a
 megjelenő termék kiadását, és a kód fejlesztésének meghatározását
-takarja.
+takarja. A folytonos integráció azon fajtáját, ami a komplex
+alkalmazások telepítését végzi, és így az a változata amit én is
+használtam, a folytonos telepítés (continuous deployment), amely esetben
+a telepített elemek is megjelennek a folyamat részeként, és a telepített
+környezet beállítása is nagyobb figyelmet kap.
 
 \subsection{Használati módok mikroszolgáltatások
 esetén}\label{hasznuxe1lati-muxf3dok-mikroszolguxe1ltatuxe1sok-esetuxe9n}
@@ -1475,42 +1485,42 @@ alkalmazást hozzáértő emberek kezében hagyjuk, és nem törődünk vele.
 Másik megközelítés lehet, ha az egyes szolgáltatásokat nem kezeljük
 külön, hanem egyben mindent elkészítünk, és az egész alkalmazást
 teszteljük autimatizáltan. Ekkor persze felmerülhet az a gond, hogy
-nehezebben tudjuk megmondani, melyik szolgáltatás hiábja okozta a
+nehezebben tudjuk megmondani, melyik szolgáltatás hibéja okozta a
 végleges termék hibáját, azonban megfelelő információk kinyerésével ez
 sem okozhat gondot.
 
 Végül a teljesen automatizált változatnál külön elkészítjük a
 szolgáltatásokat, és futtatjuk a hozzájuk tartozó teszteket, és ha
 minden rendben ment az összes többi szolgáltatással együtt még
-robosztusabb, és alklamazás szempontjából kritikus teszteket futtatunk
+robosztusabb, és alkalmazás szempontjából kritikus teszteket futtatunk
 automatizáltan.
 
-Azt, hogy melyik a leghatékonyabb megoldás, azt csak konkrét
+Azt, hogy melyik a leghatékonyabb megoldás, azt csak a konkrét
 felhasználók tudják megmondani, mivel lehet hogy az erőforrások, lehet
 hogy az igény, de az is lehet, hogy a praktikusság fogja megszabni
 melyiket is válasszuk.
 
 A teljesen automatizált folytonos integrációs keretrendszer esetén nagy
-mennyiségű erőforrásra van szükség, mivel az egyes szolgáltatások
-tesztelése, és a teljes alklamazás tesztelése is külön erőforrásokat
+mennyiségű erőforrásra lehet szükség, mivel az egyes szolgáltatások
+tesztelése, és a teljes alkalmazás tesztelése is külön erőforrásokat
 igényel, viszont ha van elég erőforrás, ez lehet a legjobb döntés.
 
 A kis elemi szolgáltatásokat figyelő keretrendszer esetén sokkal
-kevesebb erőforssá is elég, és sokkal gyorsabb visszajelzést ad a
+kevesebb erőforrás is elég, és sokkal gyorsabb visszajelzést ad a
 fejlesztő csapatnak, mivel nem kell kivárniuk a komplex alkalmazás
-tesztjeinke az eredményeit. Ennek lehet az a hátulütője, hogy később
+tesztjeinek az eredményeit. Ennek lehet az a hátulütője, hogy később
 kapunk információt egy hiba jelenlétéről, ami sok időt elvehet a
 fejlesztésből, így vigyázni kell ebben az esetben.
 
 A teljes alkalmazást figyelő integrációs keretrendszernél megkapjuk a
-folyamat végén az eredményt, ami valós eredményt ad a szolgáltatások
-működéséről, azonban nagyon lassú visszajelzési forma lehet ez. Ha
-minden szolgáltatást együtt nézünk, a tesztelés hasonlóan működik, mint
-egy monolitikus program esetén, így nem célszerű így tesztelni
-mikroszolgáltatások esetén, azonban kevesebb erőforrást vihet el ez a
-megoldás, mint a korábbi kettő.
+folyamat végén olyan eredméynt kapunk, ami valós eredményt ad a
+szolgáltatások működéséről, azonban nagyon lassú visszajelzési forma
+lehet ez. Ha minden szolgáltatást együtt nézünk, a tesztelés hasonlóan
+működik, mint egy monolitikus program esetén, így nem célszerű így
+tesztelni mikroszolgáltatások esetén, azonban kevesebb erőforrást vihet
+el ez a megoldás, mint a korábbi kettő.
 
-A feladat elvégzéséhez próbáltam egy mindent automatizáló keretrendszert
+A feladat elvégzéséhez egy mindent automatizáló keretrendszert próbálok
 létrehozni, hogy maximalizálni tudjam a mikroszolgáltatásokhoz adott
 előnyöket.
 
@@ -1519,7 +1529,7 @@ nézve}\label{keretrendszer-elux151nyei-a-fejlesztuxe9sre-nuxe9zve}
 
 A feladat részeként el kell készítenem egy folytonos integrációt
 támogató keretrendszert, ami a korábban felsorolt tulajdonságokat, és
-feladatokat képes végrehajtani. Egy mikroszolgáltatás alapú alklamazás
+feladatokat képes végrehajtani. Egy mikroszolgáltatás alapú alkalmazás
 fejlesztése közben egy ilyen keretrendszer segít a gyors
 visszajelzésben, mivel egy szolgáltatás fejlesztése közben nem lehetünk
 biztosak benne, hogy minden esetben a teljes alkalmazás működő képes,
@@ -1538,7 +1548,7 @@ képességet. Mivel közös erőforrásokon fut nem kell várni, hogy szabad
 idősávot kapjon a csapat, és az automatizáltság segít, hogy a csapat
 másra fordíthassa a figyelmet, amíg nem kap eredményt.
 
-Az interfészek figyelését ugyan az az infrastruktúra figyelheti ami az
+Az interfészek változását ugyan az az infrastruktúra figyelheti ami az
 integrációt, és a szolgáltatás helyességét figyeli, de ebben a
 tesztelési logikában szerepelnie kell egy olyan interfész tesztelésnek,
 ami képes detektálni azt, hogy a jelenlegi interfészekkel kompatiblis a
@@ -1548,7 +1558,7 @@ kompatilibis-e az új kialakítás.
 Fejlesztés szempontjából a folytonos integrációs eszköz tartalmazhat
 olyan logikát, ami a közvetlen változásokra fut le, és intelligens módon
 határozza meg a változás hatásait. Az egyik legnépszerűbb folytonos
-integrációt támogató rendszerben a Jenkins-ben például van plugin minden
+integrációt támogató eszközben a Jenkins-ben például van plugin minden
 verziókezelőhöz, amely képes a változtatások felküldésére olyan
 feladatokat futtatni, amik a kód minőségét (kódolási technika,
 formázottság, dokumentáció generálás, stb.) figyelik és javítják. Ennek
@@ -1595,19 +1605,19 @@ A minta alkalmazás szolgáltatásaiban több kevert technológiát
 használtam, hogy be tudjam mutatni a mikroszolgáltatásokon alapuló
 alkalmazások legnagyobb erősségét, a kervert technológiás megvalósítást.
 A kiszolgálási logikát Python, Java és PHP nyelveken írtam, és
-használtam Apache webkiszolgáló alkalmazást, és Ngnix webkiszolgálót, és
-reverse proxy szervert. A szolgáltatások futtatásához bash szkripteket
+használtam Apache webkiszolgáló alkalmazást, és Ngnix webkiszolgáló és
+reverse proxy szervert. A szolgáltatások futtatásához Bash szkripteket
 készítettem, és Docker konténereket használtam fel a
 környezetfüggetlenség eléréséhez. Az adatbázis kezelésére MySQL
 adatbázis kezelő szervert használtam, mivel ez a legelterjedtebb
 ingyenesen használható adatbázis kezelő.
 
 Python nyelven nagyon egyszerű implementálni egy webkiszolgálót, amin
-keresztül a ksizolgáló interfészt elkészíthetem, illetve a program
+keresztül a kiszolgáló interfészt elkészíthetem, illetve a program
 logika és adatbázis kapcsolat is könnyen megvalósítható, mivel rengeteg
 elkészített könyvtár áll rendelkezésemre. A Python egy széles körben
-felhasznált technológia, így egy valós mikroszolgáltatás alapú
-alkalmazásba is nagy valószínűséggel belekerülne.
+felhasznált nyelv, így egy valós mikroszolgáltatás alapú alkalmazásba is
+nagy valószínűséggel belekerülne.
 
 A Java egy platform függyetlen nyelv, amit mind kliens oldali
 alkalmazásokhoz, mind szerver alkalmazások elkészítéséhez is használják,
@@ -1633,9 +1643,9 @@ a szolgáltatáshoz fel akarunk használni, de könnyen bővíthető,
 karbantartható, és kicserélhetők a konténerek.
 
 A kommunikációhoz, és a szolgáltatások egymásra találásához a Consul
-szolgáltatásfelderító eszközt használtam, amivel már volt korábbi
-tapasztalatom. A Cnsul könnyen telepíthető, és egyszerűen használható,
-és a piacon található más termékekkel ellentétben ingyenes, és gyorsan
+szolgáltatás felderítő eszközt használtam, amivel már volt korábbi
+tapasztalatom. A Consul könnyen telepíthető, egyszerűen használható, és
+a piacon található más termékekkel ellentétben ingyenes, és gyorsan
 fejlődő eszköz. Minden funkciót tartalmaz amire szükségem van, és sokkal
 könnyebben bekonfigurálható, mint a mikroszolgáltatásoknál gyakran
 használt Apache Zookeeper.
@@ -1675,8 +1685,8 @@ a szolgáltatás megnevezése, kategorizálása.
 Ami minden szolgáltatásnál különbözik, az a telepített alkalmazások
 listája, amik aszerint lettek meghatározva, hogy milyen függőségei
 vannak a szolgáltatást futtató programnak. Ez a rész a Docker image
-disztribúciójának megfelelő telepítő programmal történik. Az
-adatbáziskezelő esetében nem volt ennyire egyszerű a helyzet, ugyanis a
+disztribúciójának megfelelő telepítő programmal történik. Az adatbázis
+kezelő esetében nem volt ennyire egyszerű a helyzet, ugyanis a
 \textbf{mysql-server} csomag telepítése, egy interaktív választ kér a
 felhasználótól, amit automatizáltan a következő módon tudunk megtenni:
 
@@ -1697,7 +1707,7 @@ repository frissítése, ami jelen esetben az \textbf{apt-get update}. Ha
 ezt nem tesszük meg akkor az alap image ismeretlenül régi csomaglistáját
 használjuk, ami azt eredményezi, hogy a telepítő nem talál csomagokat,
 illetve nem a jó verziót találja meg. A \textbf{debconf-set-selctions}
-egy olyan program ami lehetővé teszi, hogy a debian csomagkezelő
+egy olyan program ami lehetővé teszi, hogy a Debian csomagkezelő
 kérdéseire automatikusan tudjunk válaszolni.
 
 Minden szolgáltatáshoz tartozik egy indító szkript, ami tartalmazza az
@@ -1709,7 +1719,7 @@ image-eket építettem, és az indító szkiptek megtalálhatók a függelékben
 \subsection{Alkalmazás részletek}\label{alkalmazuxe1s-ruxe9szletek}
 
 Minden szolgáltatáshoz tartozik egy vagy több forrásfájl, ami
-tartalmazza a kiszolgáló kódot. A kiszlgáló kód egy HTTP protokollal
+tartalmazza a kiszolgáló kódot. A kiszolgáló kód egy HTTP protokollal
 elérhető webkiszolgáló, mivel az általam választott Rest-es
 kommunikációhoz erre van szükség.
 
@@ -1723,8 +1733,8 @@ valaki szerepel az adtbázisban, és a jelszava a neki megadott jelszó,
 akkor sikeresnek jelzem az autentikációt, egyébként ``HTTP 401
 Unauthorized'' üzenettel jelzem a hibát.
 
-Az adatbázishoz nem kellett külön szolgáltatáskódot írnom, mivel a MySQL
-adatbázis önmagában is képes kezelni a felé eső kéréseket. A
+Az adatbázishoz nem kellett külön szolgáltatás kódot írnom, mivel a
+MySQL adatbázis önmagában is képes kezelni a felé eső kéréseket. A
 szolgáltatást használat előtt töltöm fel adatokkal, amiken keresztül be
 tudom mutatni a működést. Az adatok betöltését kisebb SQL nyelven írt
 szkriptekkel írtam le. A könyvekhez tartozó adatbázis léterhozása
@@ -1743,7 +1753,7 @@ CREATE TABLE store
 \end{verbatim}
 
 Ahogy látható a könyvekhez tartozik egy név és egy számosságot jelző
-`count' mező, illetve egy kulcs érték, amin keresztül minden könyv
+``count'' mező, illetve egy kulcs érték, amin keresztül minden könyv
 egyedien megkülönböztethető. A többi adattábla ehhez hasonlóan van
 elkészítve, és a hozzájuk tartozó kód megtekinthető a függelékben
 (\ref{appendix-database}. fejezet).
@@ -1752,19 +1762,19 @@ A böngészéshez tisztán PHP kódot írtam, amit az Apache HTTP szerver
 ajánl ki. Ezek a szkriptek teszik elérhetővé a felhasználó számára a
 szolgáltatásokat, egy nagyon egyszerű HTML oldalon keresztül. Az egyes
 funkciók magukban is elérhetők a saját kiszolgálójukon keresztül, de a
-PHP kódok egy közös ferlhasználói interfészt adnak, ami annyit tesz,
-hogy a PHP kódok tovább hívnak a szolgáltatások interfészeire. Ha kliens
+PHP kódok egy közös felhasználói interfészt adnak, ami annyit tesz, hogy
+a PHP kódok tovább hívnak a szolgáltatások interfészeire. Ha kliens
 oldali alkalmazást készítettem volna, akkor a böngészéshez tartozó kód,
-egy garfikus felület kódja lett volna, ami pont ugyan így kommunikált
+egy grafikus felület kódja lett volna, ami pont ugyan így kommunikált
 volna a többi szolgáltatással. Ugyan így elmondható, hogy bármikor
 kicserélhető a megjelenítés a böngészés szolgáltatás kicserélésével. A
-PHP küdok megtalálhatók a függelékben (\ref{appendix-http}. fejezet).
+PHP kódok megtalálhatók a függelékben (\ref{appendix-http}. fejezet).
 
 A legbonyolultabb szolgáltatás a megrendeléshez tartozó szolgáltatás,
 ami az alábbi kódrészletet tartalmazza. Ennek megfelelően a program
 megkeresi a megrendelendő könyvet a nyilvántartásban, megnézi
 lehetséges-e a feladott megrendelés, és ha igen bejegyzéseket tesz róla
-az adatbázisban. Levontja a kívánt mennyiséget a jelenlegi mennyiségből,
+az adatbázisban. Levonja a kívánt mennyiséget a jelenlegi mennyiségből,
 és felvesz egy új rendelést a rendelések jegyzékébe.
 
 \begin{verbatim}
@@ -1807,7 +1817,7 @@ if (selectStmt.execute()) {
 \end{verbatim}
 
 A Proxy szolgáltatás az adatbázishoz hasonlóan nem igyénel önálló
-logikát, mivel a HAProxy, amit kiválasztottam mintt proxy vezérlő, nem
+logikát, mivel a HAProxy, amit kiválasztottam mint proxy vezérlő, nem
 igényel semmilyen mögöttes logikát, csupán egy konfiguráció beállítást.
 Ezt a beállítást Consul template segítségével értem el, amit a következő
 módon konfiguráltam:
@@ -1832,8 +1842,7 @@ szolgáltatáspéldánnyal. Ha egy szolgáltatás konténer leáll, akkor a
 hozzá rendelt bejegyzés automatikusan eltűnik. A konkrét Consul template
 megtalálható a függelékben (\ref{appendix-template}. fejezet).
 
-\section{Kommunikáció, avagy hogy működik a
-Consul}\label{kommunikuxe1ciuxf3-avagy-hogy-mux171kuxf6dik-a-consul}
+\section{Kommunikáció}\label{kommunikuxe1ciuxf3-1}
 
 A szolgáltatások közötti kommunikáció Rest-es interfészeken keresztül
 történik, HTTP protokollal. Az interfészek minden szolgáltatásra
@@ -1929,8 +1938,8 @@ keresztül a felhasználó nevet és jelszavat adhatja meg (\ref{login}.
 \caption{Bejelentkező felület\label{login}}
 \end{figure}
 
-Ha bejelentkeztünk a böngésző oldalra dob az alkalmazás, és lehetőségünk
-nyilik rendeléseket is feladni (\ref{browse}. ábra).
+Ha bejelentkeztünk, a böngésző oldalra dob az alkalmazás, és
+lehetőségünk nyilik rendeléseket is feladni (\ref{browse}. ábra).
 
 \begin{figure}[H]
 \centering
@@ -1970,7 +1979,7 @@ implemenetál, aminek a következők a részei:
   Job: Ez a feladatok implementációja, minden ilyen elem tetszőleges
   mennyiségű végrehajtandó feladatot tartalmaz, képes más Job-ok
   hívására, és a plugin-ek használatával gyakorlatilag bármilyen
-  feladatot képes elvégezni (comagolást futtat, java forrásokat fordít
+  feladatot képes elvégezni (csomagolást futtat, java forrásokat fordít
   maven-nel, vagy Docker konténereket vezérel, stb.).
 \item
   Build: Ez az egység egy Job egyszeri futását jelenti, ehhez tartozik
@@ -1979,19 +1988,19 @@ implemenetál, aminek a következők a részei:
   (workspace), amiben a feladatokat végrehajtja.
 \end{itemize}
 
-Ahhoz hogy megcsináhassam az alkalmazásom fejlesztését támogató
+Ahhoz hogy megcsinálhassam az alkalmazásom fejlesztését támogató
 keretrendszert, ahhoz Job-kat kellett létrehoznom, amik végrehajtották a
 szoftverrel kapcsolatos feladatokat.
 
 \subsection{Pipeline Job}\label{pipeline-job}
 
-A Pipeline Job egy olyan Jenkins-ben elérhető feladat fajta, ami képes
-egységbe szervezni a feladatokat, és levezényelni a közös futásukat. A
-legtöbb folytonos integrációt támogató rendszerben egy rövidebb,
-hosszabb munkafolyamatot kell lebonyolítani, aminek a pipeline nevet
-adta a Jenkins, mivel az egyes feladatok futtatásai az előzetes futások
-eredményétől függenek, ami annyit jelent, hogy például a telepítési
-fázis függ a fordítási fázis artifact-jaitól.
+A Pipeline Job egy olyan Jenkins 2.0-ban elérhető feladat fajta, ami
+képes egységbe szervezni a feladatokat, és levezényelni a közös
+futásukat. A legtöbb folytonos integrációt támogató rendszerben egy
+rövidebb, hosszabb munkafolyamatot kell lebonyolítani, aminek a pipeline
+nevet adta a Jenkins, mivel az egyes feladatok futtatásai az előzetes
+futások eredményétől függenek, ami annyit jelent, hogy például a
+telepítési fázis függ a fordítási fázis artifact-jaitól.
 
 A Jenkins 2.0-ban megjelenő Pipeline Job-hoz tartozik egy új leíró nyelv
 is, amit Pipline szkriptnek neveznek. Lehetőség van fájlban tárolni a
@@ -2015,9 +2024,9 @@ megmondják, mi történjen azon a végponton. Egy utasítás lehet bármi amit
 egy Jenkins álltal alapból támogatott Job esetén beállíthatnánk, de ezek
 a parancsok inkább arra vannak kiélezve, hogy a feladatok közötti
 kapcsolatot leírják. Az egyik ilyen parancs az \textbf{echo} amivel
-kiírhatunk a build során üzeneteket a console kimenetre. Másik utasítás,
-a \textbf{build job}, amivel elindíthatunk egy `Build'-et. Az alábbi
-példában egy fázis definiálása látható.
+kiírhatunk a futtatás során üzeneteket a console kimenetre. Másik
+utasítás, a \textbf{build job}, amivel elindíthatunk egy `Build'-et. Az
+alábbi példában egy fázis definiálása látható.
 
 \begin{verbatim}
 stage 'Deploy'
@@ -2031,7 +2040,7 @@ Job-ok, illetve parancsok futtatását tartalmazza. Új fázist a
 mind a fázis részeként fognak megjelenni.
 
 Az általam implementált Pipeline Job, tartalmaz egy `Build', egy
-`Deploy', egy `Test', és egy Cleanup fázist. Az alábbi ábrán látható a
+`Deploy', egy `Test', és egy `Cleanup' fázist. Az alábbi ábrán látható a
 Jenkins-beli feladathoz tartozó összefoglaló nézet, ahol láthatók a Job
 futtatásai:
 
@@ -2059,21 +2068,21 @@ hoztam létre:
 \begin{itemize}
 \tightlist
 \item
-  build-auth-service: Authentikációs szolgáltatás elkészítése, ami egy
-  Docker image-et build-el.
+  build-auth-service: Autentikációs szolgáltatás elkészítése, ami egy
+  Docker image-et készít.
 \item
   build-database-service: Adatbázis szolgáltatás elkészítése, ami egy
-  Docker image-et build-el.
+  Docker image-et készít.
 \item
   build-order-service: Megrendelés szolgáltatás elkészítése, ami Maven
   build segítségével elkészíti a Java programot, és egy Docker image-et
-  build-el.
+  készít.
 \item
   build-proxy-service: Proxy szolgáltatás elkészítése, ami egy Docker
-  image-et build-el.
+  image-et készít.
 \item
   build-webserver-service: Böngészés szolgáltatás elkészítése, ami egy
-  Docker image-et build-el.
+  Docker image-et készít.
 \item
   cleanup-services: Letörli a futó konténereket, és eltünteti a régi
   image-eket a Docker-ből.
@@ -2094,7 +2103,7 @@ hoztam létre:
 \subsection{Job Konfigurációk}\label{job-konfiguruxe1ciuxf3k}
 
 Vannak bizonyos beállítások, amik minden létrehozott Job-ra egyformák,
-mivel egy közös verziókezelő eszközből a GitHub-ből vette a
+mivel egy közös verziókezelő eszközből, a GitHub-ból vette a
 forrásfájlokat minden Job. Az ehhez tartozó beállításokat az
 \ref{github-conf}. ábra mutatja.
 
@@ -2127,7 +2136,7 @@ ilyen Jenkins beállítás a \ref{script-run}. ábrán látható.
 \end{figure}
 
 A fordító Job-ok esetén egy artifact is keletkezik, ami az adott
-fordításhoz kapcsolódoan lesz lementve. A beállítást a \ref{archive}.
+fordításhoz kapcsolódóan lesz lementve. A beállítást a \ref{archive}.
 ábra mutatja.
 
 \begin{figure}[H]
@@ -2158,13 +2167,13 @@ szempontjából. Lehet hozzá fejleszteni további funkciókat, mint a
 regisztráció, keresés, vagy adminisztrtív funkciók (új könyv bevitele,
 készlet frissítése, stb.). A jelenlegi funkciókat is lehet tovább
 fejleszteni jobb autentikációs módszerrel, szebb böngésző felülettel,
-vagy árral összefűzött vásárlással. Nem csak a lehetőségeket érdemes
-kibővíteni, hanem a használhatóságot, és a felügyeleti eszközöket, mivel
-monitorozás, közös log kezelés, és skálázási lehetőségek még nincsenek
-az alkalmazásba építve. Sok előnnyel járhat, ha valódi teljes hardver és
-szoftver virtualizációt használunk, mivel a Docker konténerek használat
-körülményes lehet, és nem is igazán stabil, ha egy gépnek kell több
-konténert futtatni.
+vagy árral összefűzött vásárlással. Nem csak a funkcionális
+lehetőségeket érdemes kibővíteni, hanem a használhatóságot, és a
+felügyeleti eszközöket, mivel monitorozás, közös log kezelés, és
+skálázási lehetőségek még nincsenek az alkalmazásba építve. Sok előnnyel
+járhat, ha valódi teljes hardver és szoftver virtualizációt használunk,
+mivel a Docker konténerek használata körülményes lehet, és nem is igazán
+stabil, ha egy gépnek kell több konténert futtatni.
 
 Ami a folytonos integrációt támogató keretrendszert illeti, lehetőség
 van a pipeline bővítésére, amit egy új funkció implemenntálása maga után
@@ -2188,7 +2197,7 @@ stratégiában, amit a felhasználók észrevehetnek.
 Ezzel szembesültem én is, amikor fejlesztettem az adatbázis
 szolgáltatást, vagy a megrendelés szolgáltatását. A felhasznált
 \textbf{ubuntu} image mögött a csomagok dinamikusan változnak, és két
-build folyamat között is előfordul, hogy ugyan azon a néven más-más
+fordítási folyamat között is előfordul, hogy ugyan azon a néven más-más
 csomagot telepítünk. Az adatbázis kezelő esetén a MySQL csomag lett
 újabb, és egy nem várt felhasználónév jelszó párost kért, mivel többé
 már nem volt telepítés utáni alapértelmezett felhasználó. A probléma
@@ -2202,13 +2211,13 @@ megoldás az alap image cseréje volt.
 
 Az elkészített folytonos integrációt támogató keretrendszer szinte
 minden mikroszolgáltatás alapú alkalmazás támogatásához felhasználható,
-mivel a folyamat amit implementál, és a szkriptek, amikkel a build-eket
-lebonyolítom, és a telepítést végzem, könnyen megváltoztathatók bármely
-más alkalmazás kiszolgálására. A minta alkalmazás nem lenne képes valós
-könyvesbolt vásárlásának irányítására, azonban nagyon jó mintául szolgál
-a fejlesztés bemutatására, mivel tartalmaz komplex szolgáltatásokat,
-amik önnálóan megtalálják egymást, és elég egyszerű, hogy tetszőlegesen
-továbbfejleszthető legyen.
+mivel a folyamat amit implementál, és a szkriptek, amikkel a
+fordításokat lebonyolítom, és a telepítést végzem, könnyen
+megváltoztathatók bármely más alkalmazás kiszolgálására. A minta
+alkalmazás nem lenne képes valós könyvesbolt vásárlásának irányítására,
+azonban nagyon jó mintául szolgál a fejlesztés bemutatására, mivel
+tartalmaz komplex szolgáltatásokat, amik önnálóan megtalálják egymást,
+és elég egyszerű, hogy tetszőlegesen továbbfejleszthető legyen.
 
 \listoffigures
 
@@ -2221,7 +2230,7 @@ továbbfejleszthető legyen.
 
 \section{\texorpdfstring{Dockerfile-ok\label{appendix-dockerfile}}{Dockerfile-ok}}\label{dockerfile-ok}
 
-\subsection{Authentikáció}\label{authentikuxe1ciuxf3}
+\subsection{Autentikáció}\label{autentikuxe1ciuxf3}
 
 Dockerfile.auth.service
 
@@ -2410,7 +2419,7 @@ EXPOSE 80 443 8301 8302 8500 8400
 
 \subsection{Futtatáshoz}\label{futtatuxe1shoz}
 
-\subsubsection{\texorpdfstring{Build\label{appendix-build}}{Build}}\label{build}
+\subsubsection{\texorpdfstring{Fordítás\label{appendix-build}}{Fordítás}}\label{forduxedtuxe1s}
 
 build\_\{service\}.sh
 
@@ -2654,7 +2663,7 @@ Könyveket megjelenítő oldal:
 \subsubsection{\texorpdfstring{Adatbázis
 inicializálás\label{appendix-database}}{Adatbázis inicializálás}}\label{adatbuxe1zis-inicializuxe1luxe1s}
 
-Authentikáció:
+Autentikáció:
 
 \begin{verbatim}
 # Add permission to databases
@@ -2715,7 +2724,7 @@ VALUES ("Lord of the Rings: The Return of the King", 0);
 \subsection{\texorpdfstring{Pipeline job
 szkript\label{appendix-pipline}}{Pipeline job szkript}}\label{pipeline-job-szkript}
 
-Pipline job full szkript:
+Pipeline job full szkript:
 
 \begin{verbatim}
 buildNames = [
@@ -2754,7 +2763,7 @@ build job: 'cleanup-services'
 
 \subsection{\texorpdfstring{Proxy\label{appendix-template}}{Proxy}}\label{proxy-1}
 
-Proxy config template:
+Proxy konfigurációs minta:
 
 \begin{verbatim}
 global

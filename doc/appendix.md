@@ -5,7 +5,7 @@ Függelék
 
 ##Dockerfile-ok\label{appendix-dockerfile}
 
-###Authentikáció
+###Autentikáció
 
 Dockerfile.auth.service
 
@@ -193,7 +193,7 @@ EXPOSE 80 443 8301 8302 8500 8400
 
 ###Futtatáshoz
 
-####Build\label{appendix-build}
+####Fordítás\label{appendix-build}
 
 build_{service}.sh
 
@@ -434,7 +434,7 @@ Könyveket megjelenítő oldal:
 
 ####Adatbázis inicializálás\label{appendix-database}
 
-Authentikáció:
+Autentikáció:
 
 ```{SQL}
 # Add permission to databases
@@ -494,7 +494,7 @@ VALUES ("Lord of the Rings: The Return of the King", 0);
 
 ###Pipeline job szkript\label{appendix-pipline}
 
-Pipline job full szkript:
+Pipeline job full szkript:
 
 ```{Pipeline}
 buildNames = [
@@ -533,7 +533,7 @@ build job: 'cleanup-services'
 
 ###Proxy\label{appendix-template}
 
-Proxy config template:
+Proxy konfigurációs minta:
 
 ```{config}
 global
