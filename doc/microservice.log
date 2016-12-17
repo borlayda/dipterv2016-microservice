@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.9)  17 DEC 2016 13:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.5.9)  17 DEC 2016 14:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1879,7 +1879,7 @@ e/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/l
 m/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri
 10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on microservice.pdf (64 pages, 685197 bytes).
+Output written on microservice.pdf (64 pages, 685151 bytes).
 PDF statistics:
  953 PDF objects out of 1000 (max. 8388607)
  850 compressed objects within 9 object streams
