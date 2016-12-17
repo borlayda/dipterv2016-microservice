@@ -8,7 +8,7 @@ A mikroszolgáltatások[@microservices] [@micro-arch] [@microservices-light] egy
 
 Ezt az architektúrális mintát az teszi erőssé, hogy nem függenek egymástól a különálló komponensek, és csak egy kommunikációs interfészt ismerve is karbantartható a rendszer. Egy szoftver fejlesztési projektben előnyös lehet, hogy az egyes csapatok fókuszálhatnak a saját szolgáltatásukra, és nincs szükség a folyamatos kompatibilitás tesztelésére.
 
-Egy mikroszolgáltatást használó architektúra kiépítéséhez sokféle funkcionális elkülönítési módot használnak, amivel a szolgáltatásokat kialakíthatjuk. Egy ilyen elválasztásí módszer a rendszer specifikációjában lévő főnevek vagy igék kiválasztása, és az így kapot halmaz felbontása. Egy felbontás akkor minősül ideálisnak, ha nem tudjuk tovább bontani az adott funkciót. A valóságban soha nem lesz az ideálisnak megfelelő felbontás, mivel erőforrás pazalró, és túlzottan elosztott rendszert kapnánk.
+Egy mikroszolgáltatást használó architektúra kiépítéséhez sokféle funkcionális elkülönítési módot használnak, amivel a szolgáltatásokat kialakíthatjuk. Egy ilyen elválasztásí módszer a rendszer specifikációjában lévő főnevek vagy igék kiválasztása, és az így kapott halmaz felbontása. Egy felbontás akkor minősül ideálisnak, ha nem tudjuk tovább bontani az adott funkciót. A valóságban soha nem lesz az ideálisnak megfelelő felbontás, mivel erőforrás pazarló, és túlzottan elosztott rendszert kapnánk.
 
 ###Szolgáltatás elválasztás tervezése\label{splitting}
 
@@ -38,7 +38,7 @@ Az adat menti felbontás annyit tesz, hogy a szolgáltatásokat annak megfelelő
 
 Példa: Erőforrás szerinti felbontás ha külön található szolgáltatás, amivel az adatbázis műveleteket hajtjuk végre, és külön van olyan is, ami csak a HTTP kéréseket szolgálja ki. Az egy adatra épülő módszernél pedig alapul vehetünk egy olyan példát, ahol mondjuk egy szolgáltatás az összes adminisztrátori funkciót látja el, míg más szolgáltatások a más-más kategóriába eső felhasználók műveleteit hajtják végre.
 
-Mivel a mikroszolgáltatások elve a hardvert is megosztja nem csak a szoftvert, ezért az erőforrás szerinti szétválasztás kissé értelmetlennek tűnhet, azonban a különböző platformok különbüző erőforrásait megéri külön szolgáltatásként kezelni. Ha egy mikroszolgáltatást tartunk arra, hogy az adatbázis kéréseket kiszolgálja, akkor az adatbázis nem oszlik meg a szolgáltatások között. Ennek ellenére pazarló lehet minden szolgáltatásnak saját adatbázist fenntartani.
+Mivel a mikroszolgáltatások elve a hardvert is megosztja nem csak a szoftvert, ezért az erőforrás szerinti szétválasztás kissé értelmetlennek tűnhet, azonban a különböző platformok különböző erőforrásait megéri külön szolgáltatásként kezelni. Ha egy mikroszolgáltatást tartunk arra, hogy az adatbázis kéréseket kiszolgálja, akkor az adatbázis nem oszlik meg a szolgáltatások között. Ennek ellenére pazarló lehet minden szolgáltatásnak saját adatbázist fenntartani.
 
 ####Fogalmi felbontás
 
@@ -52,7 +52,7 @@ A harmadik módszer arra tér ki, hogy hogyan lehet egy architektúrát feloszta
 
 ###Architektúrális mintákhoz való viszonya
 
-Mint korábban láthattuk vannak bizonyos telepítési módszerek, amik mentén szokás a mikroszolgáltatásokat felépíteni. Van aki az architektúrális tervezési minták közé sorolja a mikroszolgáltatás architektúrát, de nem könnyű meghatározni, hogy hogyan is alkot önnáló mintát. Nagyon sok lehetőség van a mikroszolgáltatásokban, és leginkább más architektúrákkal együtt használva lehet hatékonyan és jól használni.
+Mint korábban láthattuk vannak bizonyos telepítési módszerek, amik mentén szokás a mikroszolgáltatásokat felépíteni. Van aki az architektúrális tervezési minták közé sorolja a mikroszolgáltatás architektúrát, de nem könnyű meghatározni, hogy hogyan is alkot önálló mintát. Nagyon sok lehetőség van a mikroszolgáltatásokban, és leginkább más architektúrákkal együtt használva lehet hatékonyan és jól használni.
 
 Nézzünk meg három felhasználható architektúrális mintát:
 

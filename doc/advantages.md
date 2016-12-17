@@ -1,7 +1,7 @@
 Mikroszolgáltatások előnyei és hátrányai
 ----------------------------------------
 
-Ahogy minden architektúrális mintának, a mikroszolgáltatásoknak is vannak előnyei[@microservices], amik indokoltá teszik a minta használatát, és vannak hátrányai[@micro-disadv], amiket mérlegelnünk kell a tervezés folyamán.
+Ahogy minden architektúrális mintának, a mikroszolgáltatásoknak is vannak előnyei[@microservices], amik indokolttá teszik a minta használatát, és vannak hátrányai[@micro-disadv], amiket mérlegelnünk kell a tervezés folyamán.
 
 ###Előnyök
 
@@ -15,11 +15,11 @@ Egy szolgáltatás nagyon kis egysége a teljes alkalmazásnak, így könnyen me
 
 ####Könnyen kicserélhető, módosítható, telepíthető
 
-A szolgáltatások önnálóan is működnek, így az azonos interfésszel rendelkező szolgáltatásra bármikor kicserélhető, illetve módosítható ha megmaradnak a korábbi funkciók. A szolgáltatás telepítése is egyszerű, mivel csak kevés környezeti feltétele van annak, hogy egy ilyen kis méretű progam működni tudjon. A fejlesztést nagyban segíti, hogy egy korábbi verziójú alkalmazásba plugin-szerűen be lehet integrálni az újonnan fejlesztett részeket, mivel ez gyors visszajelzést ad a fejlesztőknek. Ez a tulajdonsága a folytonos integrációt támogató eszközöknél is előnyös, mivel könnyen lehet vele automatizált metodológiákat készíteni.
+A szolgáltatások önállóan is működnek, így az azonos interfésszel rendelkező szolgáltatásra bármikor kicserélhető, illetve módosítható ha megmaradnak a korábbi funkciók. A szolgáltatás telepítése is egyszerű, mivel csak kevés környezeti feltétele van annak, hogy egy ilyen kis méretű program működni tudjon. A fejlesztést nagyban segíti, hogy egy korábbi verziójú alkalmazásba plugin-szerűen be lehet integrálni az újonnan fejlesztett részeket, mivel ez gyors visszajelzést ad a fejlesztőknek. Ez a tulajdonsága a folytonos integrációt támogató eszközöknél is előnyös, mivel könnyen lehet vele automatizált metodológiákat készíteni.
 
 ####Jól skálázható
 
-Mivel sok kis részletből áll az alkalmazásunk, nem szükséges minden funkciónkhoz növelni az erőforrások allokációját, hanem kis komponensekhez is lehet rendelni több erőforrást. Például egy számítási felhőben, a teljesítményben látható változásokat könnyen és gyorsan lehet kezelni, a problémát okozó funkció felskálázásval.
+Mivel sok kis részletből áll az alkalmazásunk, nem szükséges minden funkciónkhoz növelni az erőforrások allokációját, hanem kis komponensekhez is lehet rendelni több erőforrást. Például egy számítási felhőben, a teljesítményben látható változásokat könnyen és gyorsan lehet kezelni, a problémát okozó funkció felskálázásával.
 
 ####Támogatja a kevert technológiákat
 
@@ -53,6 +53,6 @@ Mivel sok kis részletből rakódik össze a nagy egész alkalmazás, a tesztel�
 
 ###Összehasonlítva a monolitikus architektúrával
 
-A mikroszolgáltatás architektúra és a monolitikus architektúra egymás ellentetjei, melyben az erőforrások központilag vannak kezelve, és minden funkció egy nagy interfészen keresztül érhető el. A monolitikus architektúra egyszerűen kiépíthető, könnyű tervezni és fejleszteni, azonban nehezen lehet kicserélni, nem elég robosztus, és nehezen skálázható, mivel az erőforrásokat közösen kezelik a funkciók.
+A mikroszolgáltatás architektúra és a monolitikus architektúra egymás ellentettjei, melyben az erőforrások központilag vannak kezelve, és minden funkció egy nagy interfészen keresztül érhető el. A monolitikus architektúra egyszerűen kiépíthető, könnyű tervezni és fejleszteni, azonban nehezen lehet kicserélni, nem elég robosztus, és nehezen skálázható, mivel az erőforrásokat közösen kezelik a funkciók.
 
 Ezzel ellentétben a mikroszolgáltatás architektúrát nehezen lehet megtervezni, hiszen egy elosztott rendszert kell megtervezni, ahol az adatátviteltől kezdve az erőforrás megosztáson keresztül semmi sem egyértelmű. A kezdeti nehézségek után viszont a későbbi továbbfejlesztés sokkal egyszerűbb, mivel külön csapatokat lehet rendelni az egyes szolgáltatásokhoz, és könnyen integrálhatók, kicserélhetők az alkotó elemek. Mivel sok kis egységből áll, könnyebben lehet úgy skálázni a rendszert, hogy ne pazaroljuk el az erőforrásainkat, és ugyanakkor a kis szolgáltatások erőforrásokban is el vannak különítve, így nem okoz gondot, hogy fel vagy le skálázzunk egy szolgáltatást. Ennek az a hátránya, hogy le kell kezelni a skálázáskor a közös erőforrásokat.(Például ha veszünk egy autentikációs szolgáltatást, akkor ha azt fel skálázzuk, meg kell tartanunk a felhasználók listáját, így duplikálni kell az adatbázist, és fenntartani a konzisztenciát) Ugyan csak előnye a mikroszolgáltatás architektúrának, hogy különböző technológiákat lehet keverni vele, mivel az egyes szolgáltatások különböző technológiákkal különböző platformon is futhatnak.

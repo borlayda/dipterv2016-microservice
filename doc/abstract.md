@@ -5,7 +5,7 @@ Napjainkban komoly gondot okoz, hogy hogyan lehet hatékonyan elosztott, jó ren
 
 A mikroszolgáltatásokra épülő architekrúra (microservices), egy olyan architektúrális fejlesztési módszertan, ami a programot alkotóelemeire szedi, és minden funkcionalitást teljesen különálló egységként kezel. Egy ilyen alkalmazás fejlesztése közben oda kell figyelni az összes szolgáltatással való együttműködésre, a visszamenőleges kompatibilitásra, és meg kell tartani az alkotóelemek kapcsolatának a konzisztenciáját. Ennek a fenntartása egy nehéz feladat, amit kézileg szinte lehetetlen hosszú távon fenntartani.
 
-A diplomamunka keretében az volt a feladatom, hogy megismerjem az architektúra lényegét és müködését, illetve kiderítsem, hogy milyen eszközökkel tudom automatizálás segítségével támogatni a fejlesztés, és működtetés folyamatát.
+A diplomamunka keretében az volt a feladatom, hogy megismerjem az architektúra lényegét és működését, illetve kiderítsem, hogy milyen eszközökkel tudom automatizálás segítségével támogatni a fejlesztés, és működtetés folyamatát.
 
 A diplomamunka célkitűzése, hogy egy olyan mikroszolgáltatásokra épülő alkalmazást készítsek, amellyel be tudom mutatni az architektúra előnyeit, végig tudom vezetni rajta a tesztelés folyamatát, tudom automatizálni a tesztelését, és működtetését, és betekintést tudok adni az architektúrához használatos technológiákba.
 

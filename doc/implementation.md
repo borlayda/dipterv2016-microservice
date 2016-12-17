@@ -4,17 +4,17 @@ A minta alkalmazás implementálása során próbáltam a ma legnépszerűbb és
 
 ## Felhasznált technológiák
 
-A minta alkalmazás szolgáltatásaiban több kevert technológiát használtam, hogy be tudjam mutatni a mikroszolgáltatásokon alapuló alkalmazások legnagyobb erősségét, a kervert technológiás megvalósítást. A kiszolgálási logikát Python, Java és PHP nyelveken írtam, és használtam Apache webkiszolgáló alkalmazást, és Ngnix webkiszolgáló és reverse proxy szervert. A szolgáltatások futtatásához Bash szkripteket készítettem, és Docker konténereket használtam fel a környezetfüggetlenség eléréséhez. Az adatbázis kezelésére MySQL adatbázis kezelő szervert használtam, mivel ez a legelterjedtebb ingyenesen használható adatbázis kezelő.
+A minta alkalmazás szolgáltatásaiban több kevert technológiát használtam, hogy be tudjam mutatni a mikroszolgáltatásokon alapuló alkalmazások legnagyobb erősségét, a kevert technológiás megvalósítást. A kiszolgálási logikát Python, Java és PHP nyelveken írtam, és használtam Apache webkiszolgáló alkalmazást, és Ngnix webkiszolgáló és reverse proxy szervert. A szolgáltatások futtatásához Bash szkripteket készítettem, és Docker konténereket használtam fel a környezetfüggetlenség eléréséhez. Az adatbázis kezelésére MySQL adatbázis kezelő szervert használtam, mivel ez a legelterjedtebb ingyenesen használható adatbázis kezelő.
 
 Python nyelven nagyon egyszerű implementálni egy webkiszolgálót, amin keresztül a kiszolgáló interfészt elkészíthetem, illetve a program logika és adatbázis kapcsolat is könnyen megvalósítható, mivel rengeteg elkészített könyvtár áll rendelkezésemre. A Python egy széles körben felhasznált nyelv, így egy valós mikroszolgáltatás alapú alkalmazásba is nagy valószínűséggel belekerülne.
 
-A Java egy platform függyetlen nyelv, amit mind kliens oldali alkalmazásokhoz, mind szerver alkalmazások elkészítéséhez is használják, és viszonylag öregebb nyelv amihez rengeteg típusú hálózati kommunikációs protokollt implementáltak, így könnyen és széles körben használható nyelv. Egy másik előnye a feladat szempontjából, hogy fordítás szükséges hozzá, és így a fordítási folyamatban egy jar állomány elkészítését is be tudom mutatni.
+A Java egy platform független nyelv, amit mind kliens oldali alkalmazásokhoz, mind szerver alkalmazások elkészítéséhez is használják, és viszonylag öregebb nyelv amihez rengeteg típusú hálózati kommunikációs protokollt implementáltak, így könnyen és széles körben használható nyelv. Egy másik előnye a feladat szempontjából, hogy fordítás szükséges hozzá, és így a fordítási folyamatban egy jar állomány elkészítését is be tudom mutatni.
 
 A PHP egy olyan dinamikus webkiszolgáló nyelv, amit már hosszú ideje használnak, és elég a feladathoz tartozó egyszerű webes böngésző felületet elkészítéséhez. Ezzel a nyelvel gyorsan tudok dolgozni, mivel korábban is találkoztam a nyelvvel.
 
 Az Nginx a Java-s alkalmazások kiszolgálásához használt leggyakoribb webkiszolgáló szerver, az Apache webszerver pedig a statikus és dinamikus tartalmak kiszolgálásban gyakran használt eszköz.
 
-A Docker a mikroszolgáltatások gyakran használt virtualizáló eszköze, amit gyors, és egyszerű használata teszi alkalmassá. A Docker álltal létrehozott virtuális konténer környezetben pontosan annyi van, amennyit a szolgáltatáshoz fel akarunk használni, de könnyen bővíthető, karbantartható, és kicserélhetők a konténerek.
+A Docker a mikroszolgáltatások gyakran használt virtualizáló eszköze, amit gyors, és egyszerű használata teszi alkalmassá. A Docker által létrehozott virtuális konténer környezetben pontosan annyi van, amennyit a szolgáltatáshoz fel akarunk használni, de könnyen bővíthető, karbantartható, és kicserélhetők a konténerek.
 
 A kommunikációhoz, és a szolgáltatások egymásra találásához a Consul szolgáltatás felderítő eszközt használtam, amivel már volt korábbi tapasztalatom. A Consul könnyen telepíthető, egyszerűen használható, és a piacon található más termékekkel ellentétben ingyenes, és gyorsan fejlődő eszköz. Minden funkciót tartalmaz amire szükségem van, és sokkal könnyebben bekonfigurálható, mint a mikroszolgáltatásoknál gyakran használt Apache Zookeeper.
 
@@ -24,7 +24,7 @@ Minden szolgáltatáshoz külön el kellett készítenem a környezetet, és a s
 
 ### Docker konténerek
 
-Szolgáltatásonként készítettem egy Docker image-et, amiből elindíthatók az alkalmlazás részei. Minden konténer egyedi, de vannak olyan részei amik minden szolgáltatáshoz szükségesek. Egy ilyen rész a Consul alkalmazás telepítése, és a konfiguráció bemásolása:
+Szolgáltatásonként készítettem egy Docker image-et, amiből elindíthatók az alkalmazás részei. Minden konténer egyedi, de vannak olyan részei amik minden szolgáltatáshoz szükségesek. Egy ilyen rész a Consul alkalmazás telepítése, és a konfiguráció bemásolása:
 
 ```{Dockerfile}
 FROM ...
@@ -62,9 +62,9 @@ Minden szolgáltatáshoz tartozik egy indító szkript, ami tartalmazza az alkal
 
 Minden szolgáltatáshoz tartozik egy vagy több forrásfájl, ami tartalmazza a kiszolgáló kódot. A kiszolgáló kód egy HTTP protokollal elérhető webkiszolgáló, mivel az általam választott Rest-es kommunikációhoz erre van szükség.
 
-Az autentikációt lehetővé tevő szolgáltatás tartalmaz egy **Python Flask** implementációt, ami egy olyan webkiszolgáló Python könyvtár, amivel az egyes URL-eket metódusokhoz rendelhetjük. Ezen kívül egy adatbázis elérést tartalmaz, amit a **MySQLdb** modul segítségével implementáltam. Az egyszerűség kedvéért, az adatbázis már a kezdetektől fogva fel van töltve, és nem lehet bele új felhasználót felvenni. Ha valaki szerepel az adtbázisban, és a jelszava a neki megadott jelszó, akkor sikeresnek jelzem az autentikációt, egyébként "HTTP 401 Unauthorized" üzenettel jelzem a hibát.
+Az autentikációt lehetővé tevő szolgáltatás tartalmaz egy **Python Flask** implementációt, ami egy olyan webkiszolgáló Python könyvtár, amivel az egyes URL-eket metódusokhoz rendelhetjük. Ezen kívül egy adatbázis elérést tartalmaz, amit a **MySQLdb** modul segítségével implementáltam. Az egyszerűség kedvéért, az adatbázis már a kezdetektől fogva fel van töltve, és nem lehet bele új felhasználót felvenni. Ha valaki szerepel az adatbázisban, és a jelszava a neki megadott jelszó, akkor sikeresnek jelzem az autentikációt, egyébként "HTTP 401 Unauthorized" üzenettel jelzem a hibát.
 
-Az adatbázishoz nem kellett külön szolgáltatás kódot írnom, mivel a MySQL adatbázis önmagában is képes kezelni a felé eső kéréseket. A szolgáltatást használat előtt töltöm fel adatokkal, amiken keresztül be tudom mutatni a működést. Az adatok betöltését kisebb SQL nyelven írt szkriptekkel írtam le. A könyvekhez tartozó adatbázis léterhozása például a következő képpen néz ki:
+Az adatbázishoz nem kellett külön szolgáltatás kódot írnom, mivel a MySQL adatbázis önmagában is képes kezelni a felé eső kéréseket. A szolgáltatást használat előtt töltöm fel adatokkal, amiken keresztül be tudom mutatni a működést. Az adatok betöltését kisebb SQL nyelven írt szkriptekkel írtam le. A könyvekhez tartozó adatbázis létrehozása például a következő képpen néz ki:
 
 ```{SQL}
 ...
@@ -123,7 +123,7 @@ if (selectStmt.execute()) {
 ...
 ```
 
-A Proxy szolgáltatás az adatbázishoz hasonlóan nem igyénel önálló logikát, mivel a HAProxy, amit kiválasztottam mint proxy vezérlő, nem igényel semmilyen mögöttes logikát, csupán egy konfiguráció beállítást. Ezt a beállítást Consul template segítségével értem el, amit a következő módon konfiguráltam:
+A Proxy szolgáltatás az adatbázishoz hasonlóan nem igényel önálló logikát, mivel a HAProxy, amit kiválasztottam mint proxy vezérlő, nem igényel semmilyen mögöttes logikát, csupán egy konfiguráció beállítást. Ezt a beállítást Consul template segítségével értem el, amit a következő módon konfiguráltam:
 
 ```{config}
 ...
@@ -143,7 +143,7 @@ Minden szolgáltatáshoz tartozik egy ilyen bejegyzés, ami pontosan megmondja, 
 
 A szolgáltatások közötti kommunikáció Rest-es interfészeken keresztül történik, HTTP protokollal. Az interfészek minden szolgáltatásra egyediek, és csak egy olyan szolgáltatás van akinek mindegyik interfészt ismernie kell, ez pedig a böngészés, mivel ezen keresztül érhető el az összes funkció. Az egyes szolgáltatások nem tudnak egymásról, így kellett egy mechanizmus, ami megtalálja az összes szolgáltatást, és elérhetővé teszi egymás számára.
 
-Ez a technológia a Consul lett, amihez ha beregisztrálunk egy végpontot, akkor minden adatát elérhetővé teszi a consul álltal létrehozott hálózaton belül. Egészen pontosan úgy történik ez, hogy létrehozunk egy Consul szervert, ami képes megosztani az adatokat a hozzá beregisztrált kliensekhez, illetve csatlakozhat más hálózatokhoz is, amikben ő mint kliens jelenik meg. Ezt kihasználva egy olyan logikát csináltam, ami minden végpontot Consul szerverként kezel, és automatikusan a legkisebb IP című másik szervert megtalálja.
+Ez a technológia a Consul lett, amihez ha beregisztrálunk egy végpontot, akkor minden adatát elérhetővé teszi a consul által létrehozott hálózaton belül. Egészen pontosan úgy történik ez, hogy létrehozunk egy Consul szervert, ami képes megosztani az adatokat a hozzá beregisztrált kliensekhez, illetve csatlakozhat más hálózatokhoz is, amikben ő mint kliens jelenik meg. Ezt kihasználva egy olyan logikát csináltam, ami minden végpontot Consul szerverként kezel, és automatikusan a legkisebb IP című másik szervert megtalálja.
 
 ```{bash}
 ...
@@ -178,7 +178,7 @@ done
 
 Ha megtalálta egymást néhány szerver, akkor egyre több és több lehetőség lesz csatlakozni a hálózathoz, és bármely szerver kiesése esetén az össze szolgáltatás helyettesítheti a kiesőt. Ettől a consul hálózat hibatűtő lesz, és az adat is meg lesz osztva a végpontok között.
 
-A pontos cím és a szolgáltatás is kinyerhető a Consul adatbázisából, így bármelyik funkió elérhetővé válik.
+A pontos cím és a szolgáltatás is kinyerhető a Consul adatbázisából, így bármelyik funkció elérhetővé válik.
 
 ## Működés és alkalmazás
 
@@ -201,11 +201,11 @@ Miután elindult az alkalmazás, a webes felület elérhető a proxy, vagy a bö
 docker inspect -f '{{ .NetworkSettings...IPAddress }}' proxy
 ```
 
-Ha valamilyen névfeloldás áll rendelkezésre, akkor a proxy szolgáltatás IP címét érdemes megadni neki. A felhasználó egy egyszerű bejelentkeztető felületet láthat az alkalmazás indítása után, amin keresztül a felhasználó nevet és jelszavat adhatja meg (\ref{login}. ábra).
+Ha valamilyen névfeloldás áll rendelkezésre, akkor a proxy szolgáltatás IP címét érdemes megadni neki. A felhasználó egy egyszerű bejelentkeztető felületet láthat az alkalmazás indítása után, amin keresztül a felhasználó nevét és a jelszavát adhatja meg (\ref{login}. ábra).
 
 ![Bejelentkező felület\label{login}](img/loginscreen.png)
 
-Ha bejelentkeztünk, a böngésző oldalra dob az alkalmazás, és lehetőségünk nyilik rendeléseket is feladni (\ref{browse}. ábra).
+Ha bejelentkeztünk, a böngésző oldalra dob az alkalmazás, és lehetőségünk nyílik rendeléseket is feladni (\ref{browse}. ábra).
 
 ![Böngésző felület\label{browse}](img/browsescreen.png)
 
@@ -217,7 +217,7 @@ A folytonos integrációt támogató keretrendszerek közül a Jenkins-t válasz
 
 ### Jenkins
 
-A Jenkins egy olyan folytonos integrációt támogató keretrendszer, aminek a Java implementációja lehetővé teszi, hogy bármely, az eszközhöz beregisztrált gépen futtassunk tetszőleges kódot. Ahhoz, hogy ezeket a kódokat futtassuk, egy jól struktúrált végrehajtási rendszert implemenetál, aminek a következők a részei:
+A Jenkins egy olyan folytonos integrációt támogató keretrendszer, aminek a Java implementációja lehetővé teszi, hogy bármely, az eszközhöz beregisztrált gépen futtassunk tetszőleges kódot. Ahhoz, hogy ezeket a kódokat futtassuk, egy jól struktúrált végrehajtási rendszert implementál, aminek a következők a részei:
 
 * Jenkins: A Jenkins maga a legnagyobb egység, ami az összes végrehajtandó feladatot tartalmazza, struktúrálja, és konfigurálhatóvá teszi a felhasznált plugin-eket, autentikációt, és mindent ami a feladatokhoz tartozhat.
 * View: A feladatok egy jól struktúrált egysége.
@@ -253,7 +253,7 @@ Egy fázis definiálása során egy képzeletbeli egységet alkotunk, ami Job-ok
 
 Az általam implementált Pipeline Job, tartalmaz egy 'Build', egy 'Deploy', egy 'Test', és egy 'Cleanup' fázist. Az alábbi ábrán látható a Jenkins-beli feladathoz tartozó összefoglaló nézet, ahol láthatók a Job futtatásai:
 
-![Pipline Job a mikszolgáltatás támogatásához](img/pipeline-job.png)
+![Pipline Job a mikroszolgáltatások támogatásához](img/pipeline-job.png)
 
 A képen látható, hogy hogyan is választja szép a fázisokat a Pipiline Job, és hogy hogyan lehet kategorizálni a feladatok megívását. Az első 'Build' fázis mögött például 5 darab fordító feladat meghívását tartalmazza, ami azt jelenti, hogy minden szolgáltatást külön fordít le és készíti el a hozzá tartozó Docker image-et.
 
@@ -280,7 +280,7 @@ Vannak bizonyos beállítások, amik minden létrehozott Job-ra egyformák, mive
 
 Ez a konfiguráció azt mondja meg, hogy honnan töltse le a forrásokat a Jenkins, és milyen branch tartalmát akarom felhasználni. Van egy beállítás az autentikáció lebonyolítására is, ami a Jenkins-en belül egy felhasználónév jelszó pár, amit felhasználva a Jenkins tudja használni a GitHub-ot. Ezt a párost globálisan lehet megadni a Jenkins-nek, amit a *Jenkins/Credentials* fülön keresztül érhetünk el.
 
-Másik mindenhol beállított tulajdonság a konkurrens futtatás beállítása, ami azt jelenti, hogy egy feladat többször is futtatható egy időben. Feltételezve, hogy a Job-ok külön gépeken futnak, lehetséges, hogy több példány is fusson belőlük.
+Másik mindenhol beállított tulajdonság a konkurens futtatás beállítása, ami azt jelenti, hogy egy feladat többször is futtatható egy időben. Feltételezve, hogy a Job-ok külön gépeken futnak, lehetséges, hogy több példány is fusson belőlük.
 
 Amiben minden feladat különbözik az a futtatott kód. Minden futtatandó kódhoz készítettem egy szkriptet amit meghívhatok a Jenkins-ből. Egy ilyen Jenkins beállítás a \ref{script-run}. ábrán látható.
 
